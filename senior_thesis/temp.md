@@ -9,7 +9,7 @@ We feel frustrated with the challenging computations involved in studying SUSY. 
 
 ## Derivation of the  zero-mode equations
 
-10D SYM action in $$\mathcal{N}=1$$ is given by
+10D SYM action in $\mathcal{N}=1$ is given by
 $$
     \begin{equation}
         S
