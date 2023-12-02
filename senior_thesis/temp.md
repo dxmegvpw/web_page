@@ -93,7 +93,7 @@ $$
         .
     \end{align}
 $$
-The term $$\mathcal{K}_\text{WZW}$$ is so called Wess-Zumino-Witten term which vanishes when we take Wess-Zumino gauge
+The term $\mathcal{K}_\text{WZW}$ is so called Wess-Zumino-Witten term which vanishes when we take Wess-Zumino gauge
 $$
     \begin{align}
         V
@@ -121,7 +121,7 @@ $$
 
 ### SUSY condition
 
-By carrying out the derivative with respect to the $$F_{i}$$ and $$D_{i}$$, we can obtain the on-shell relation of the auxiliary fields. First, let us focus on the Kähler potential. The term inside the trace become
+By carrying out the derivative with respect to the $F_{i}$ and $D_{i}$, we can obtain the on-shell relation of the auxiliary fields. First, let us focus on the Kähler potential. The term inside the trace become
 $$
     \begin{align}
         &\hspace{10pt}
@@ -228,7 +228,7 @@ $$
         .
     \end{align}
 $$
-This is the only term that contains the auxiliary $$D$$. Note that the action $$S$$ contains only the highest term $$\theta^4$$ from the Kähler potential $$\mathcal{K}$$. Thus when we take the derivative to the $$D$$, the term which has only one $$V$$ will remain[^1]. After integrating by parts, for removing the factor the derivative of vector superfield, for instance, the term $$\bar{\phi}_{\bar{i}}\partial_{j}V$$, we find
+This is the only term that contains the auxiliary $D$. Note that the action $S$ contains only the highest term $\theta^4$ from the Kähler potential $\mathcal{K}$. Thus when we take the derivative to the $D$, the term which has only one $V$ will remain[^1]. After integrating by parts, for removing the factor the derivative of vector superfield, for instance, the term $\bar{\phi}_{\bar{i}}\partial_{j}V$, we find
 $$
     \begin{align}
         \frac{\delta \mathcal{S}}{\delta D}
@@ -259,7 +259,7 @@ $$
         .
     \end{align}
 $$
-Note that we should be careful about the derivatives of the term like $$\bar{\phi}_{\bar{i}}V\phi_{j}$$. We derivate with respect to the auxiliary $$D$$, but it actually has the indices of the gauge group, $$D_{AB}$$. Therefore we obtain
+Note that we should be careful about the derivatives of the term like $\bar{\phi}_{\bar{i}}V\phi_{j}$. We derivate with respect to the auxiliary $D$, but it actually has the indices of the gauge group, $D_{AB}$. Therefore we obtain
 $$
     \begin{align}    
         \left.
@@ -285,7 +285,7 @@ $$
         .
     \end{align}
 $$
-The term including $$\text{Tr}\ \mathcal{W}^{\alpha}\mathcal{W}_{\alpha}$$ and its hermitian conjugate is well-known[^2]. That is
+The term including $\text{Tr}\ \mathcal{W}^{\alpha}\mathcal{W}_{\alpha}$ and its hermitian conjugate is well-known[^2]. That is
 $$
     \begin{equation}
         \text{Tr}\ 
@@ -339,7 +339,7 @@ $$
         \right)
     \end{equation}
 $$
-for the equation of motion with respect to the auxiliary $$D$$. Let us move on to the computation for the auxiliary $$F_i$$. $$F_{i}$$ is included by the superfield $$\phi_{i}$$ that appears only in Kähler potential $$\mathcal{K}$$ and super potential $$\mathcal{W}$$, not in field strength $$\mathcal{W}^{\alpha}$$. The highest component containing the auxiliary $$F_{i}$$ comes from the term $$\bar{\phi}_{\bar{i}}\phi_{j}$$ in Kähler potential. Thus the Kähler potential including $$F$$ is
+for the equation of motion with respect to the auxiliary $D$. Let us move on to the computation for the auxiliary $$F_i$$. $$F_{i}$$ is included by the superfield $\phi_{i}$ that appears only in Kähler potential $\mathcal{K}$ and super potential $\mathcal{W}$, not in field strength $\mathcal{W}^{\alpha}$. The highest component containing the auxiliary $F_{i}$ comes from the term $\bar{\phi}_{\bar{i}}\phi_{j}$ in Kähler potential. Thus the Kähler potential including $F$ is
 $$
     \begin{equation}
         \mathcal{K}
@@ -352,7 +352,7 @@ $$
         .
     \end{equation}
 $$
-From superpotential, we can get the term related auxiliary $$F$$ as
+From superpotential, we can get the term related auxiliary $F$ as
 $$
     \begin{align}
         \mathcal{W}
@@ -427,7 +427,7 @@ $$
         .
     \end{align}
 $$
-By derivating to the $$F_{i}$$, the term in the action become separately
+By derivating to the $F_{i}$, the term in the action become separately
 $$
     \begin{align}
         \frac{\delta}{\delta F_{i}}
@@ -488,7 +488,7 @@ $$
         .
     \end{align}
 $$
-Note that we have interchanged the dummy indices several times after derivating. At last, the equation of motion with respect to the $$F_{i}$$
+Note that we have interchanged the dummy indices several times after derivating. At last, the equation of motion with respect to the $F_{i}$
 $$
     \begin{equation}
         h^{\bar{j}i}\bar{F}_{\bar{j}}
@@ -735,8 +735,6 @@ $$
             +
             \braket{\bar{\phi}_{\bar{i}}}\braket{\phi_{j}}V
             -
-            \bar{\phi}_{\bar{i}}V\phi_{j}
-            -
             \braket{\bar{\phi}_{\bar{i}}}V\braket{\phi_{j}}
         \left.\vphantom{\frac{1}{2}}\right]
         \\
@@ -815,9 +813,9 @@ $$
         \left.\vphantom{\frac{1}{2}}\right]
     \end{align}
 $$
-Note that we have used the cyclic property of the trace $$\text{Tr}AB=\text{Tr}BA$$, and the underline $$\underline{\cdots}$$ at the first line is the non-zero term.
+Note that we have used the cyclic property of the trace $\text{Tr}AB=\text{Tr}BA$, and the underline $\underline{\cdots}$ at the first line is the non-zero term.
 
-Let us focus on the superpotential $$\mathcal{W}$$.
+Let us focus on the superpotential $\mathcal{W}$.
 $$
     \begin{align}
         \mathcal{W}
@@ -956,11 +954,11 @@ $$
         .
     \end{align}
 $$
-We have used the property that the indices $$i,j,k$$ are totally antisymmetric because of the coefficient $$\varepsilon^{\text{ijk}}$$ and the cyclicity inside the trace.
+We have used the property that the indices $i,j,k$ are totally antisymmetric because of the coefficient $\varepsilon^{\text{ijk}}$ and the cyclicity inside the trace.
 
-### Do $$\mathcal{K}^{(D)}$$ and $$\mathcal{W}^{(F)}$$ really vanish?
+### Do $\mathcal{K}^{(D)}$ and $\mathcal{W}^{(F)}$ really vanish?
 
-We will check that $$\mathcal{K}^{(D)}$$ and $$\mathcal{W}^{(F)}$$ are vanished if we impose the SUSY condition. For the Kähler potential $$\mathcal{K}^{(D)}$$, only $$\theta^4$$ terms remains in the action $$S$$[^3]. Thus after taking VEV's it yields
+We will check that $\mathcal{K}^{(D)}$ and $\mathcal{W}^{(F)}$ are vanished if we impose the SUSY condition. For the Kähler potential $\mathcal{K}^{(D)}$, only $\theta^4$ terms remains in the action $S$[^3]. Thus after taking VEV's it yields
 $$
     \begin{align}
         \int\text{d}^4\theta\ \mathcal{K}^{(D)}
@@ -982,7 +980,7 @@ $$
         0
     \end{align}
 $$
-The first term at the second line vanished because of the commutativity of the VEV's $$\braket{\bar{A}_{\bar{i}}}\braket{A_{j}}=\braket{A_{j}}\braket{\bar{A}_{\bar{i}}}$$. The second one also vanishes
+The first term at the second line vanished because of the commutativity of the VEV's $\braket{\bar{A}_{\bar{i}}}\braket{A_{j}}=\braket{A_{j}}\braket{\bar{A}_{\bar{i}}}$. The second one also vanishes
 $$
     \begin{align}
         \int\text{d}^2\theta\ 
@@ -1021,7 +1019,7 @@ because of the commutativity of the VEV too[^4].
 
 ## Effective SUGRA
 
-The action for 4D $$\mathcal{N}=1$$ conformal supergravity is written as
+The action for 4D $\mathcal{N}=1$ conformal supergravity is written as
 $$
     \begin{align}
         S_{\mathcal{N}=1}
@@ -1073,10 +1071,10 @@ $$
 
 3. <a name="WessBagger"></a>J. Wess and J. Bagger, *"Supersymmetry and Supergravity."* Princeton, N.J: Princeton University Press, 1992.
 
-[^1]: If there are two $$V$$s, for instance $$\bar{\phi}_{\bar{i}}(\partial_{j}V)V$$ or $$\bar{\phi}_{\bar{i}}\phi_{j}V^2$$, the term must not have the $$D$$ for the highest components. The term higher than $$V^3$$ should vanish by WZ gauge fixing, and no $$V$$ term also does not have the contribution for the equation of motion.
+[^1]: If there are two $V$s, for instance $\bar{\phi}_{\bar{i}}(\partial_{j}V)V$ or $\bar{\phi}_{\bar{i}}\phi_{j}V^2$, the term must not have the $D$ for the highest components. The term higher than $V^3$ should vanish by WZ gauge fixing, and no $V$ term also does not have the contribution for the equation of motion.
 
 [^2]: Refer the exercise 2 in Section 7 in the textbook[[2](#WessBagger)].
 
-[^3]: For example, the term not including $$\theta^4$$ like $$\braket{\bar{\phi}_{\bar{i}}}\phi_{j}$$ vanishes.
+[^3]: For example, the term not including $\theta^4$ like $\braket{\bar{\phi}_{\bar{i}}}\phi_{j}$ vanishes.
 
-[^4]: More accurately, the term $$\braket{A_{i}}\partial_{j}F_{k}$$ vanishes because of the integration by parts and the fact that $$\partial_{j}\braket{A_{i}}=0$$. The last condition is derived from the Lorentz invariance of the flux.
+[^4]: More accurately, the term $\braket{A_{i}}\partial_{j}F_{k}$ vanishes because of the integration by parts and the fact that $\partial_{j}\braket{A_{i}}=0$. The last condition is derived from the Lorentz invariance of the flux.
