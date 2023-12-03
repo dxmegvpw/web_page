@@ -3,7 +3,7 @@ I will save and share the documentation via this repository.
 
 ## Memo
 
-I would like to make a note of how to use it.
+I would like to make a note of how to use this repository.
 
 ### HTML
 
