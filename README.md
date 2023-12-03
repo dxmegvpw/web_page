@@ -15,4 +15,4 @@ If you see an error in your editor, don't worry about it.
 
 - `[text](URL)`
 - `[^1]` and `[^1]: text` 
-- Before uploading markdown files, replace underbars `_` into ` _ `. (The compiler seems to interpret the bar as *emphasis*.)
+- Before uploading markdown files, replace underbars `_` into ` _ `. The compiler seems to interpret the bar as *emphasis*, so I have to add the space.
