@@ -1023,9 +1023,10 @@ $$
 because of the commutativity of the VEV too[^4].
 
 
-## Effective SUGRA
+## 4D $\mathcal{N}=1$ SUGRA
 
 The action for 4D $\mathcal{N}=1$ conformal supergravity is written as
+<a name="sugra _ action"></a>
 $$
     \begin{align}
         S _ {\mathcal{N}=1}
@@ -1055,15 +1056,95 @@ $$
 $$
 
 
+### Scalar potential
+
+We will derive the scalar potential from the action ([28](#sugra _ action)). To deriving the scalar potential, we have to only pay attention to scalar fields. From the term without compensators, like
+$$
+    \begin{equation}
+        \int\text{d}^2\theta\ 
+        \frac{1}{4}\sum _ {a}f _ {a}W^{a\alpha}W^{a} _ {\alpha}
+        +
+        \text{h.c.}
+        ,
+    \end{equation}
+$$
+we can obtain $D$-terms. Thus, we will focus on remaining terms
+$$
+    \begin{equation}
+        -3
+        \int\text{d}^4\theta\ \bar{C}Ce^{-K/3}
+        +
+        \int\text{d}^2\theta\  C^{3}W
+        +
+        \int\text{d}^2\bar{\theta}\  \bar{C}^{3}\bar{W}
+        .
+    \end{equation}
+$$
+Let us discuss the latter two terms. Since $C$ and $\bar{C}$ are chiral superfields, we find the expansion
+$$
+    \begin{align}
+        \left.
+            C^{3} W
+        \right| _ {\theta\theta}
+        &=
+        C _ {0}^{3}W _ {\theta\theta}
+        +
+        2C _ {0}^2
+        \left.
+            C
+        \right| _ {\theta\theta}
+        W _ {0}
+        \nonumber
+        \\
+        &=
+        C _ {0}^3W _ {I}F^{I}
+        +
+        2C _ {0}^{2}F^{C}W _ {0}
+        ,
+    \end{align}
+$$
+where $W _ {I}, F^{I}, F^{C}$ are defined as
+$$
+    \begin{align}
+        W _ {I}
+        &
+        \equiv
+        \frac{\partial}{\partial\Phi^{I}}W
+        ,
+        \\
+        \Phi^{I}
+        &=
+        \phi^{I}
+        +
+        \cdots
+        +
+        \theta\theta F^{I}
+        ,
+        \\
+        C
+        &=
+        \phi^{C}
+        +
+        \cdots
+        +
+        \theta\theta F^{C}
+        .
+    \end{align}
+$$
+We can expand $\Phi, C$ like (33), (34) because they are chiral superfields.
 
 
 
+### Supplement
 
-
-
-
-
-
+We list the relation which we did not mentioned at the previous discussion: 
+$$
+    \begin{equation}
+        W _ {\theta\theta}
+        =
+        W _ {I}F^{I}
+    \end{equation}
+$$
 
 
 ## Reference
