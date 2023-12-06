@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Senior thesis
+title: Detail of the computation
 ---
 
 # Detail of the computation
@@ -1069,7 +1069,7 @@ $$
     \end{equation}
 $$
 we can obtain $D$-terms. Thus, we will focus on remaining terms
-<a name="F-term"></a>
+<a name="F-term1"></a>
 $$
     \begin{equation}
         -3
@@ -1100,7 +1100,7 @@ $$
         &=
         C _ {0}^3W _ {I}F^{I}
         +
-        2C _ {0}^{2}F^{C}W _ {0}
+        3C _ {0}^{2}F^{C}W _ {0}
         ,
     \end{align}
 $$
@@ -1191,34 +1191,36 @@ $$
     +
     e^{-K _ {0}/3}
     \left(
-        \partial _ {I\bar{J}}K _ {0}F^{I}\bar{F}^{\bar{J}}
+        \partial _ {I\bar{J}}K _ {0}F^{I}F^{\bar{J}}
         -
-        \frac{1}{3}\partial _ {I}K _ {0}\partial _ {\bar{J}}K _ {0}\bar{F}^{\bar{J}}
+        \frac{1}{3}\partial _ {I}K _ {0}\partial _ {\bar{J}}K _ {0}F^{\bar{J}}
     \right)
     .
     \end{align}
 $$
-Thus we found $F$-term ([30](F-term)) as
+Thus we found $F$-term ([30](#F-term1)) as
+<a name="F-term2"></a>
 $$
     \begin{align}
     &
     -3\bar{F}^{C}F^{C}e^{-K _ {0}/3}
     +
-    \bar{F}^{C}C _ {0}e^{-K _ {0}/3}\partial _ {I}K _ {0}F^{I}
+    \bar{F}^{C}C _ {0}e^{-K _ {0}/3}K _ {I}F^{I}
     \nonumber
     \\
     &\qquad
     +
-    \bar{C} _ {0}F^{C}e^{-K _ {0}/3}\partial _ {\bar{J}}K _ {0}F^{\bar{J}}
+    \bar{C} _ {0}F^{C}e^{-K _ {0}/3}K _ {\bar{J}}F^{\bar{J}}
     \nonumber
     \\
     &\qquad
     +
     e^{-K _ {0}/3}
+    |C _ {0}|^2
     \left(
-        \partial _ {I\bar{J}}K _ {0}F^{I}\bar{F}^{\bar{J}}
+        K _ {I\bar{J}}F^{I}F^{\bar{J}}
         -
-        \frac{1}{3}\partial _ {I}K _ {0}\partial _ {\bar{J}}K _ {0}\bar{F}^{\bar{J}}
+        \frac{1}{3}K _ {I}K _ {\bar{J}}F^{I}F^{\bar{J}}
     \right)       
     \nonumber
     \\
@@ -1226,19 +1228,161 @@ $$
     +
     C _ {0}^3W _ {I}F^{I}
     +
-    2C _ {0}^{2}F^{C}W _ {0}
+    3C _ {0}^{2}F^{C}W _ {0}
     \nonumber
     \\
     &\qquad
     +
-    \bar{C} _ {0}^{3}\bar{W} _ {\bar{J}}^{\bar{J}}
+    \bar{C} _ {0}^{3}\bar{W} _ {\bar{J}}F^{\bar{J}}
     +
     3\bar{C} _ {0}^{2}\bar{F}^{C}W _ {0}
     .
     \end{align}
 $$
-
-
+The equation of motion with respect to $F^{C}$ and $\bar{F}^{C}$ are
+$$
+    \begin{cases}
+        F^{C}
+        &=
+        \frac{1}{3}C _ {0}K _ {I}F^{I}
+        +
+        \frac{2}{3}\bar{C} _ {0}^{2}\bar{W} _ {0}e^{K _ {0}/3}
+        ,
+        \\
+        \bar{F}^{C}
+        &=
+        \frac{1}{3}\bar{C} _ {0}K _ {\bar{J}}F^{\bar{J}}
+        +
+        \frac{2}{3}C _ {0}^{2}W _ {0}e^{K _ {0}/3}
+        .
+    \end{cases}
+$$
+Inserting those relation into the eq. ([37](#F-term2)), we get
+$$
+    \begin{align}
+    &
+        -3
+        \left(
+            \frac{1}{3}C _ {0}K _ {I}F^{I}
+            +
+            \frac{2}{3}\bar{C} _ {0}^{2}\bar{W} _ {0}e^{K _ {0}/3}            
+        \right)
+        \left(
+            \frac{1}{3}\bar{C} _ {0}K _ {\bar{J}}F^{\bar{J}}
+            +
+            \frac{2}{3}C _ {0}^{2}W _ {0}e^{K _ {0}/3}
+        \right)
+        e^{-K _ {0}/3}
+    \nonumber
+    \\
+    &\qquad
+        +
+        \left(
+            \frac{1}{3}\bar{C} _ {0}K _ {\bar{J}}F^{\bar{J}}
+            +
+            \frac{2}{3}C _ {0}^{2}W _ {0}e^{K _ {0}/3}
+        \right)
+        C _ {0}e^{-K _ {0}/3}K _ {I}F^{I}
+    \nonumber
+    \\
+    &\qquad
+        +
+        \bar{C} _ {0}
+        \left(
+            \frac{1}{3}C _ {0}K _ {I}F^{I}
+            +
+            \frac{2}{3}\bar{C} _ {0}^{2}\bar{W} _ {0}e^{K _ {0}/3}            
+        \right)
+        e^{-K _ {0}/3}K _ {\bar{J}}F^{\bar{j}}
+    \nonumber
+    \\
+    &\qquad
+        +
+        e^{-K _ {0}/3}|C _ {0}|^2
+        \left(
+            K _ {I\bar{J}}F^{I}F^{\bar{J}}
+            -
+            \frac{1}{3}K _ {I}K _ {\bar{J}}F^{I}F^{\bar{J}}
+        \right)
+    \nonumber   
+    \\
+    &\qquad
+        +
+        C _ {0}^{3}W _ {I}F^{I}
+        +
+        \bar{C} _ {0}^{3}\bar{W} _ {\bar{J}}F^{\bar{J}}
+    \nonumber   
+    \\
+    &\qquad
+        +
+        2C _ {0}^2
+        \left(
+            \frac{1}{3}C _ {0}K _ {I}F^{I}
+            +
+            \frac{2}{3}\bar{C} _ {0}^{2}\bar{W} _ {0}e^{K _ {0}/3}
+        \right)
+        W _ {0}
+    \nonumber   
+    \\
+    &\qquad
+        +
+        2\bar{C} _ {0}^2
+        \left(
+            \frac{1}{3}\bar{C} _ {0}K _ {\bar{J}}F^{\bar{J}}
+            +
+            \frac{2}{3}C _ {0}^{2}W _ {0}e^{K _ {0}/3}
+        \right)
+        \bar{W} _ {0}
+    \nonumber
+    \\
+    &=
+    \frac{2}{3}C _ {0}^{3}W _ {0}K _ {I}F^{I}
+    +
+    \frac{2}{3}\bar{C} _ {0}^{3}\bar{W} _ {0}K _ {\bar{J}}F^{\bar{J}}
+    \nonumber
+    \\
+    &\qquad
+    +
+    e^{-K _ {0}/3}
+    |C _ {0}|^2K _ {I\bar{J}}F^{I}F^{\bar{J}}
+    +
+    \frac{4}{3}|C _ {0}|^{4}|W _ {0}|^{2}e^{K _ {0}/3}
+    \nonumber
+    \\
+    &\qquad
+    +
+    C _ {0}^{3}W _ {I}F^{I}
+    +
+    \bar{C} _ {0}^3\bar{W} _ {\bar{J}}F^{\bar{J}}
+    .
+    \end{align}
+$$
+Again, EOM to the $F^{I}, F^{\bar{J}}$ are
+$$
+    \begin{cases}
+        F^{I}
+        &=
+        \frac{e^{K _ {0}/3}}{|C _ {0}|^{2}}
+        \left(
+            -
+            \frac{2}{3}K^{I\bar{J}}C _ {0}^{3}W _ {0}K _ {I}
+            -
+            K^{I\bar{J}}C _ {0}^{3}W _ {I}
+        \right)
+        ,
+        \\
+        F^{\bar{J}}
+        &=
+        \frac{e^{K _ {0}/3}}{|C _ {0}|^2}
+        \left(
+            -
+            \frac{2}{3}K^{I\bar{J}}\bar{C} _ {0}^{3}\bar{W} _ {0}K _ {\bar{J}}
+            -
+            K^{I\bar{J}}\bar{C} _ {0}^{3}W _ {\bar{J}}
+        \right)
+        .
+    \end{cases}
+$$
 
 
 
