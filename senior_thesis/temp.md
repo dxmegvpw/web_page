@@ -1,9 +1,9 @@
 ---
 layout: default
-title: Detail of the computation
+title: Detail of the computations
 ---
 
-# Detail of the computation
+# Detail of the computations
 
 We feel frustrated with the challenging computations involved in studying SUSY. I will document the process of such challenging computations.
 
@@ -1360,30 +1360,154 @@ $$
 Again, EOM to the $F^{I}, F^{\bar{J}}$ are
 $$
     \begin{cases}
-        F^{I}
+        F^{\bar{J}}
         &=
-        \frac{e^{K _ {0}/3}}{|C _ {0}|^{2}}
+        \frac{C _ {0}^{3}}{|C _ {0}|^{2}}e^{K _ {0}/3}K^{I\bar{J}}
         \left(
             -
-            \frac{2}{3}K^{I\bar{J}}C _ {0}^{3}W _ {0}K _ {I}
+            \frac{2}{3}W _ {0}K _ {I}
             -
-            K^{I\bar{J}}C _ {0}^{3}W _ {I}
+            W _ {I}
         \right)
         ,
         \\
-        F^{\bar{J}}
+        F^{I}
         &=
-        \frac{e^{K _ {0}/3}}{|C _ {0}|^2}
+        \frac{\bar{C} _ {0}^{3}}{|C _ {0}|^2}e^{K _ {0}/3}K^{I\bar{J}}
         \left(
             -
-            \frac{2}{3}K^{I\bar{J}}\bar{C} _ {0}^{3}\bar{W} _ {0}K _ {\bar{J}}
+            \frac{2}{3}\bar{W} _ {0}K _ {\bar{J}}
             -
-            K^{I\bar{J}}\bar{C} _ {0}^{3}W _ {\bar{J}}
+            W _ {\bar{J}}
         \right)
         .
     \end{cases}
 $$
-
+Thus, we obtain
+$$
+    \begin{align}
+    &
+    \frac{2}{3}C _ {0}^{3}
+    W _ {0}K _ {I}
+    \cdot
+        \frac{\bar{C} _ {0}^{3}}{|C _ {0}|^2}e^{K _ {0}/3}K^{I\bar{J}}
+        \left(
+            -
+            \frac{2}{3}\bar{W} _ {0}K _ {\bar{J}}
+            -
+            W _ {\bar{J}}
+        \right)
+    \nonumber
+    \\
+    &\quad
+    +\frac{2}{3}\bar{C} _ {0}^{3}\bar{W} _ {0}K _ {\bar{J}}
+    \cdot
+        \frac{C _ {0}^{3}}{|C _ {0}|^{2}}e^{K _ {0}/3}K^{I\bar{J}}
+        \left(
+            -
+            \frac{2}{3}W _ {0}K _ {I}
+            -
+            W _ {I}
+        \right)
+    \nonumber
+    \\
+    &\quad
+    +
+    e^{K _ {0}/3}|C _ {0}|^{4}K _ {I\bar{J}}K^{I\bar{J^{\prime}}}K^{I^{\prime}\bar{J}}
+        \left(
+            -
+            \frac{2}{3}\bar{W} _ {0}K _ {\bar{J^{\prime}}}
+            -
+            W _ {\bar{J^{\prime}}}
+        \right)
+        \left(
+            -
+            \frac{2}{3}W _ {0}K _ {I^{\prime}}
+            -
+            W _ {I^{\prime}}
+        \right)
+    \nonumber   
+    \\
+    &\quad
+    +
+    \frac{4}{3}e^{K _ {0}}|C _ {0}|^{4}|W _ {0}|^2
+    \nonumber   
+    \\
+    &\quad
+    +
+    C _ {0}^{3}W _ {I}
+    \cdot
+        \frac{\bar{C} _ {0}^{3}}{|C _ {0}|^2}e^{K _ {0}/3}K^{I\bar{J}}
+        \left(
+            -
+            \frac{2}{3}\bar{W} _ {0}K _ {\bar{J}}
+            -
+            W _ {\bar{J}}
+        \right)
+    \nonumber
+    \\
+    &\quad
+    +
+    \bar{C}^{0}W _ {\bar{J}}
+    \cdot
+        \frac{C _ {0}^{3}}{|C _ {0}|^{2}}e^{K _ {0}/3}K^{I\bar{J}}
+        \left(
+            -
+            \frac{2}{3}W _ {0}K _ {I}
+            -
+            W _ {I}
+        \right)
+    \nonumber   
+    \\
+    &=
+    aaaa
+    \\
+    &=
+    e^{-K _ {0}/3}|C _ {0}|^{4}\left[\vphantom{\dfrac{1}{2}}\right.
+        K^{I\bar{J}}W _ {I}W _ {\bar{J}}
+        +
+        K^{I\bar{J}}W _ {I}K _ {\bar{J}}\bar{W} _ {0}
+    \nonumber   
+    \\
+    &\qquad
+    +
+    K^{I\bar{J}}K _ {I}W _ {\bar{J}}W _ {0}
+    +
+    K^{I\bar{J}}K _ {I}K _ {\bar{J}}|W _ {0}|^2
+    -
+    3|W _ {0}|^2
+    \left.\vphantom{\dfrac{1}{2}}\right]
+    \nonumber
+    \\
+    &\equiv
+    e^{K}
+    \left(
+        K^{I\bar{J}}
+        (D _ {I}W)(D _ {\bar{J}}W)
+        -
+        3|W|^2
+    \right)    
+    \end{align}
+$$
+where
+$$
+    \begin{equation}
+        D _ {I}W
+        \equiv
+        W _ {I}
+        +
+        K _ {I}W
+        ,\ 
+        K
+        \equiv
+        K _ {0}
+        ,\ 
+        W
+        \equiv
+        W _ {0}
+        .
+    \end{equation}
+$$
 
 
 
