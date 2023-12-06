@@ -1058,7 +1058,7 @@ $$
 
 ### Scalar potential
 
-We will derive the scalar potential from the action ([28](#sugra _ action)). To deriving the scalar potential, we have to only pay attention to scalar fields. From the term without compensators, like
+We will derive the scalar potential from the action ([28](#sugra _ action)). To deriving the scalar potential, we have to only pay attention to scalar fields. From the term without compensators like
 $$
     \begin{equation}
         \int\text{d}^2\theta\ 
@@ -1069,6 +1069,7 @@ $$
     \end{equation}
 $$
 we can obtain $D$-terms. Thus, we will focus on remaining terms
+<a name="F-term"></a>
 $$
     \begin{equation}
         -3
@@ -1131,11 +1132,124 @@ $$
         .
     \end{align}
 $$
-We can expand $\Phi, C$ like (33), (34) because they are chiral superfields.
+We can expand $\Phi, C$ like (33), (34) because they are chiral superfields. Similarly, we get its hermitian conjugate term as
+$$
+    \begin{align}
+        \left.\bar{C}^{3}\bar{W}\right| _ {\overline{\theta\theta}}
+        &=
+        \bar{C} _ {0}^{3}\bar{W} _ {\bar{J}}^{\bar{J}}
+        +
+        3\bar{C} _ {0}^{2}\bar{F}^{C}W _ {0}
+        .
+    \end{align}
+$$
+From Kähler potential, we obtain
+$$
+    \begin{align}
+    -3
+    \left.
+        \bar{C}Ce^{-K/3}
+    \right| _ {\theta\theta\overline{\theta\theta}}
+    &=
+    -3
+    \bar{F}^{C}F^{C}
+    \left.
+        e^{-K/3}
+    \right| _ {0}
+    -3
+    \bar{F}^{C}C _ {0}
+    \left.
+        e^{-K/3}
+    \right| _ {\theta\theta}
+    \nonumber
+    \\
+    &\qquad
+    -3
+    \bar{C} _ {0}F^{C}
+    \left.
+        e^{-K/3}
+    \right| _ {\overline{\theta\theta}}
+    -3
+    \bar{C} _ {0}C _ {0}
+    \left.
+        e^{-K/3}
+    \right| _ {\theta\theta\overline{\theta\theta}}
+    \nonumber
+    \\
+    &=
+    -3\bar{F}^{C}F^{C}e^{-K _ {0}/3}
+    +
+    \bar{F}^{C}C _ {0}e^{-K _ {0}/3}\partial _ {I}K _ {0}F^{I}
+    \nonumber
+    \\
+    &\qquad
+    +
+    \bar{C} _ {0}F^{C}e^{-K _ {0}/3}\partial _ {\bar{J}}K _ {0}F^{\bar{J}}
+    \nonumber
+    \\
+    &\qquad
+    +
+    e^{-K _ {0}/3}
+    \left(
+        \partial _ {I\bar{J}}K _ {0}F^{I}\bar{F}^{\bar{J}}
+        -
+        \frac{1}{3}\partial _ {I}K _ {0}\partial _ {\bar{J}}K _ {0}\bar{F}^{\bar{J}}
+    \right)
+    .
+    \end{align}
+$$
+Thus we found $F$-term ([30](F-term)) as
+$$
+    \begin{align}
+    &
+    -3\bar{F}^{C}F^{C}e^{-K _ {0}/3}
+    +
+    \bar{F}^{C}C _ {0}e^{-K _ {0}/3}\partial _ {I}K _ {0}F^{I}
+    \nonumber
+    \\
+    &\qquad
+    +
+    \bar{C} _ {0}F^{C}e^{-K _ {0}/3}\partial _ {\bar{J}}K _ {0}F^{\bar{J}}
+    \nonumber
+    \\
+    &\qquad
+    +
+    e^{-K _ {0}/3}
+    \left(
+        \partial _ {I\bar{J}}K _ {0}F^{I}\bar{F}^{\bar{J}}
+        -
+        \frac{1}{3}\partial _ {I}K _ {0}\partial _ {\bar{J}}K _ {0}\bar{F}^{\bar{J}}
+    \right)       
+    \nonumber
+    \\
+    &\qquad
+    +
+    C _ {0}^3W _ {I}F^{I}
+    +
+    2C _ {0}^{2}F^{C}W _ {0}
+    \nonumber
+    \\
+    &\qquad
+    +
+    \bar{C} _ {0}^{3}\bar{W} _ {\bar{J}}^{\bar{J}}
+    +
+    3\bar{C} _ {0}^{2}\bar{F}^{C}W _ {0}
+    .
+    \end{align}
+$$
 
 
 
-### Supplement
+
+
+
+
+
+
+
+
+
+### Supplement and some notes
 
 We list the relation which we did not mentioned at the previous discussion: 
 $$
@@ -1145,6 +1259,18 @@ $$
         W _ {I}F^{I}
     \end{equation}
 $$
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 ## Reference
