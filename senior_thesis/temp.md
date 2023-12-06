@@ -1090,7 +1090,7 @@ $$
         &=
         C _ {0}^{3}W _ {\theta\theta}
         +
-        2C _ {0}^2
+        3C _ {0}^2
         \left.
             C
         \right| _ {\theta\theta}
@@ -1105,6 +1105,7 @@ $$
     \end{align}
 $$
 where $W _ {I}, F^{I}, F^{C}$ are defined as
+<a name="chiral"></a>
 $$
     \begin{align}
         W _ {I}
@@ -1132,7 +1133,7 @@ $$
         .
     \end{align}
 $$
-We can expand $\Phi, C$ like (33), (34) because they are chiral superfields. Similarly, we get its hermitian conjugate term as
+We can expand $\Phi, C$ like ([33](#chiral)), ([34](#chiral)) because they are chiral superfields. Similarly, we get its hermitian conjugate term as
 $$
     \begin{align}
         \left.\bar{C}^{3}\bar{W}\right| _ {\overline{\theta\theta}}
@@ -1146,10 +1147,13 @@ $$
 From Kähler potential, we obtain
 $$
     \begin{align}
+    &
     -3
     \left.
         \bar{C}Ce^{-K/3}
     \right| _ {\theta\theta\overline{\theta\theta}}
+    \nonumber
+    \\
     &=
     -3
     \bar{F}^{C}F^{C}
@@ -1189,11 +1193,11 @@ $$
     \\
     &\qquad
     +
-    e^{-K _ {0}/3}
+    e^{-K _ {0}/3}|C _ {0}|^2
     \left(
         \partial _ {I\bar{J}}K _ {0}F^{I}F^{\bar{J}}
         -
-        \frac{1}{3}\partial _ {I}K _ {0}\partial _ {\bar{J}}K _ {0}F^{\bar{J}}
+        \frac{1}{3}\partial _ {I}K _ {0}\partial _ {\bar{J}}K _ {0}F^{I}F^{\bar{J}}
     \right)
     .
     \end{align}
@@ -1246,14 +1250,14 @@ $$
         &=
         \frac{1}{3}C _ {0}K _ {I}F^{I}
         +
-        \frac{2}{3}\bar{C} _ {0}^{2}\bar{W} _ {0}e^{K _ {0}/3}
+        \bar{C} _ {0}^{2}\bar{W} _ {0}e^{K _ {0}/3}
         ,
         \\
         \bar{F}^{C}
         &=
         \frac{1}{3}\bar{C} _ {0}K _ {\bar{J}}F^{\bar{J}}
         +
-        \frac{2}{3}C _ {0}^{2}W _ {0}e^{K _ {0}/3}
+        C _ {0}^{2}W _ {0}e^{K _ {0}/3}
         .
     \end{cases}
 $$
@@ -1265,12 +1269,12 @@ $$
         \left(
             \frac{1}{3}C _ {0}K _ {I}F^{I}
             +
-            \frac{2}{3}\bar{C} _ {0}^{2}\bar{W} _ {0}e^{K _ {0}/3}            
+            \bar{C} _ {0}^{2}\bar{W} _ {0}e^{K _ {0}/3}            
         \right)
         \left(
             \frac{1}{3}\bar{C} _ {0}K _ {\bar{J}}F^{\bar{J}}
             +
-            \frac{2}{3}C _ {0}^{2}W _ {0}e^{K _ {0}/3}
+            C _ {0}^{2}W _ {0}e^{K _ {0}/3}
         \right)
         e^{-K _ {0}/3}
     \nonumber
@@ -1280,7 +1284,7 @@ $$
         \left(
             \frac{1}{3}\bar{C} _ {0}K _ {\bar{J}}F^{\bar{J}}
             +
-            \frac{2}{3}C _ {0}^{2}W _ {0}e^{K _ {0}/3}
+            C _ {0}^{2}W _ {0}e^{K _ {0}/3}
         \right)
         C _ {0}e^{-K _ {0}/3}K _ {I}F^{I}
     \nonumber
@@ -1291,7 +1295,7 @@ $$
         \left(
             \frac{1}{3}C _ {0}K _ {I}F^{I}
             +
-            \frac{2}{3}\bar{C} _ {0}^{2}\bar{W} _ {0}e^{K _ {0}/3}            
+            \bar{C} _ {0}^{2}\bar{W} _ {0}e^{K _ {0}/3}            
         \right)
         e^{-K _ {0}/3}K _ {\bar{J}}F^{\bar{j}}
     \nonumber
@@ -1319,7 +1323,7 @@ $$
         \left(
             \frac{1}{3}C _ {0}K _ {I}F^{I}
             +
-            \frac{2}{3}\bar{C} _ {0}^{2}\bar{W} _ {0}e^{K _ {0}/3}
+            \bar{C} _ {0}^{2}\bar{W} _ {0}e^{K _ {0}/3}
         \right)
         W _ {0}
     \nonumber   
@@ -1330,7 +1334,7 @@ $$
         \left(
             \frac{1}{3}\bar{C} _ {0}K _ {\bar{J}}F^{\bar{J}}
             +
-            \frac{2}{3}C _ {0}^{2}W _ {0}e^{K _ {0}/3}
+            C _ {0}^{2}W _ {0}e^{K _ {0}/3}
         \right)
         \bar{W} _ {0}
     \nonumber
@@ -1346,7 +1350,7 @@ $$
     e^{-K _ {0}/3}
     |C _ {0}|^2K _ {I\bar{J}}F^{I}F^{\bar{J}}
     +
-    \frac{4}{3}|C _ {0}|^{4}|W _ {0}|^{2}e^{K _ {0}/3}
+    |C _ {0}|^{4}|W _ {0}|^{2}e^{K _ {0}/3}
     \nonumber
     \\
     &\qquad
@@ -1430,7 +1434,7 @@ $$
     \\
     &\quad
     +
-    \frac{4}{3}e^{K _ {0}}|C _ {0}|^{4}|W _ {0}|^2
+    e^{K _ {0}}|C _ {0}|^{4}|W _ {0}|^2
     \nonumber   
     \\
     &\quad
@@ -1483,28 +1487,21 @@ $$
     e^{K}
     \left(
         K^{I\bar{J}}
-        (D _ {I}W)(D _ {\bar{J}}W)
+        (D _ {I}W _ {0})(D _ {\bar{J}}W _ {0})
         -
-        3|W|^2
+        3|W _ {0}|^2
     \right)    
     \end{align}
 $$
 where
 $$
     \begin{equation}
-        D _ {I}W
+        D _ {I}W _ {0}
         \equiv
         W _ {I}
         +
-        K _ {I}W
+        K _ {I}W _ {0}
         ,\ 
-        K
-        \equiv
-        K _ {0}
-        ,\ 
-        W
-        \equiv
-        W _ {0}
         .
     \end{equation}
 $$
@@ -1521,11 +1518,32 @@ $$
 
 We list the relation which we did not mentioned at the previous discussion: 
 $$
-    \begin{equation}
+    \begin{align}
         W _ {\theta\theta}
-        =
+        &=
         W _ {I}F^{I}
-    \end{equation}
+        ,
+        \\
+        \left.K\right| _ {\theta\theta}
+        &=
+        K _ {I}F^{I}
+        ,
+        \\
+        \left.K\right| _ {\theta\theta\overline{\theta\theta}}
+        &=        
+        K _ {I\bar{J}}F^{I}F^{\bar{J}}
+        ,
+        \\
+        \left.e^{-K/3}\right| _ {\theta\theta\overline{\theta\theta}}
+        &=
+        -\frac{1}{3}e^{-K _ {0}/3}
+        \left(
+            K _ {I\bar{J}}F^{I}F^{\bar{J}}
+            -
+            \frac{1}{3}K _ {I}K _ {\bar{J}}F^{I}F^{\bar{J}}
+        \right)
+        .
+    \end{align}
 $$
 
 
