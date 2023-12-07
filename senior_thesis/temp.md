@@ -1245,21 +1245,25 @@ $$
 $$
 The equation of motion with respect to $F^{C}$ and $\bar{F}^{C}$ are
 $$
-    \begin{cases}
-        F^{C}
-        &=
-        \frac{1}{3}C _ {0}K _ {I}F^{I}
-        +
-        \bar{C} _ {0}^{2}\bar{W} _ {0}e^{K _ {0}/3}
-        ,
-        \\
-        \bar{F}^{C}
-        &=
-        \frac{1}{3}\bar{C} _ {0}K _ {\bar{J}}F^{\bar{J}}
-        +
-        C _ {0}^{2}W _ {0}e^{K _ {0}/3}
-        .
-    \end{cases}
+    \begin{equation}
+        \left\{ 
+        \begin{alignedat}{1}
+            F^{C}
+            &=
+            \frac{1}{3}C _ {0}K _ {I}F^{I}
+            +
+            \bar{C} _ {0}^{2}\bar{W} _ {0}e^{K _ {0}/3}
+            ,
+            \\
+            \bar{F}^{C}
+            &=
+            \frac{1}{3}\bar{C} _ {0}K _ {\bar{J}}F^{\bar{J}}
+            +
+            C _ {0}^{2}W _ {0}e^{K _ {0}/3}
+            .            
+        \end{alignedat}
+        \right.
+    \end{equation}
 $$
 Inserting those relation into the eq. ([37](#F-term2)), we get
 $$
@@ -1297,7 +1301,7 @@ $$
             +
             \bar{C} _ {0}^{2}\bar{W} _ {0}e^{K _ {0}/3}            
         \right)
-        e^{-K _ {0}/3}K _ {\bar{J}}F^{\bar{j}}
+        e^{-K _ {0}/3}K _ {\bar{J}}F^{\bar{J}}
     \nonumber
     \\
     &\qquad
@@ -1319,7 +1323,7 @@ $$
     \\
     &\qquad
         +
-        2C _ {0}^2
+        3C _ {0}^2
         \left(
             \frac{1}{3}C _ {0}K _ {I}F^{I}
             +
@@ -1330,7 +1334,7 @@ $$
     \\
     &\qquad
         +
-        2\bar{C} _ {0}^2
+        3\bar{C} _ {0}^2
         \left(
             \frac{1}{3}\bar{C} _ {0}K _ {\bar{J}}F^{\bar{J}}
             +
@@ -1340,9 +1344,9 @@ $$
     \nonumber
     \\
     &=
-    \frac{2}{3}C _ {0}^{3}W _ {0}K _ {I}F^{I}
+    C _ {0}^{3}W _ {0}K _ {I}F^{I}
     +
-    \frac{2}{3}\bar{C} _ {0}^{3}\bar{W} _ {0}K _ {\bar{J}}F^{\bar{J}}
+    \bar{C} _ {0}^{3}\bar{W} _ {0}K _ {\bar{J}}F^{\bar{J}}
     \nonumber
     \\
     &\qquad
@@ -1350,6 +1354,7 @@ $$
     e^{-K _ {0}/3}
     |C _ {0}|^2K _ {I\bar{J}}F^{I}F^{\bar{J}}
     +
+    3
     |C _ {0}|^{4}|W _ {0}|^{2}e^{K _ {0}/3}
     \nonumber
     \\
@@ -1363,53 +1368,57 @@ $$
 $$
 Again, EOM to the $F^{I}, F^{\bar{J}}$ are
 $$
-    \begin{cases}
-        F^{\bar{J}}
-        &=
-        \frac{C _ {0}^{3}}{|C _ {0}|^{2}}e^{K _ {0}/3}K^{I\bar{J}}
-        \left(
-            -
-            \frac{2}{3}W _ {0}K _ {I}
-            -
-            W _ {I}
-        \right)
-        ,
-        \\
-        F^{I}
-        &=
-        \frac{\bar{C} _ {0}^{3}}{|C _ {0}|^2}e^{K _ {0}/3}K^{I\bar{J}}
-        \left(
-            -
-            \frac{2}{3}\bar{W} _ {0}K _ {\bar{J}}
-            -
-            W _ {\bar{J}}
-        \right)
-        .
-    \end{cases}
+    \begin{equation}
+        \left\{
+        \begin{alignedat}{1}
+            F^{\bar{J}}
+            &=
+            \frac{C _ {0}^{3}}{|C _ {0}|^{2}}e^{K _ {0}/3}K^{I\bar{J}}
+            \left(
+                -
+                W _ {0}K _ {I}
+                -
+                W _ {I}
+            \right)
+            ,
+            \\
+            F^{I}
+            &=
+            \frac{\bar{C} _ {0}^{3}}{|C _ {0}|^2}e^{K _ {0}/3}K^{I\bar{J}}
+            \left(
+                -
+                \bar{W} _ {0}K _ {\bar{J}}
+                -
+                W _ {\bar{J}}
+            \right)
+            .            
+        \end{alignedat}
+        \right.
+    \end{equation}
 $$
 Thus, we obtain
 $$
     \begin{align}
     &
-    \frac{2}{3}C _ {0}^{3}
+    C _ {0}^{3}
     W _ {0}K _ {I}
     \cdot
         \frac{\bar{C} _ {0}^{3}}{|C _ {0}|^2}e^{K _ {0}/3}K^{I\bar{J}}
         \left(
             -
-            \frac{2}{3}\bar{W} _ {0}K _ {\bar{J}}
+            \bar{W} _ {0}K _ {\bar{J}}
             -
             W _ {\bar{J}}
         \right)
     \nonumber
     \\
     &\quad
-    +\frac{2}{3}\bar{C} _ {0}^{3}\bar{W} _ {0}K _ {\bar{J}}
+    +\bar{C} _ {0}^{3}\bar{W} _ {0}K _ {\bar{J}}
     \cdot
         \frac{C _ {0}^{3}}{|C _ {0}|^{2}}e^{K _ {0}/3}K^{I\bar{J}}
         \left(
             -
-            \frac{2}{3}W _ {0}K _ {I}
+            W _ {0}K _ {I}
             -
             W _ {I}
         \right)
@@ -1420,13 +1429,13 @@ $$
     e^{K _ {0}/3}|C _ {0}|^{4}K _ {I\bar{J}}K^{I\bar{J^{\prime}}}K^{I^{\prime}\bar{J}}
         \left(
             -
-            \frac{2}{3}\bar{W} _ {0}K _ {\bar{J^{\prime}}}
+            \bar{W} _ {0}K _ {\bar{J^{\prime}}}
             -
             W _ {\bar{J^{\prime}}}
         \right)
         \left(
             -
-            \frac{2}{3}W _ {0}K _ {I^{\prime}}
+            W _ {0}K _ {I^{\prime}}
             -
             W _ {I^{\prime}}
         \right)
@@ -1434,6 +1443,7 @@ $$
     \\
     &\quad
     +
+    3
     e^{K _ {0}}|C _ {0}|^{4}|W _ {0}|^2
     \nonumber   
     \\
@@ -1444,7 +1454,7 @@ $$
         \frac{\bar{C} _ {0}^{3}}{|C _ {0}|^2}e^{K _ {0}/3}K^{I\bar{J}}
         \left(
             -
-            \frac{2}{3}\bar{W} _ {0}K _ {\bar{J}}
+            \bar{W} _ {0}K _ {\bar{J}}
             -
             W _ {\bar{J}}
         \right)
@@ -1457,21 +1467,18 @@ $$
         \frac{C _ {0}^{3}}{|C _ {0}|^{2}}e^{K _ {0}/3}K^{I\bar{J}}
         \left(
             -
-            \frac{2}{3}W _ {0}K _ {I}
+            W _ {0}K _ {I}
             -
             W _ {I}
         \right)
     \nonumber   
     \\
     &=
-    \cdots\ \cdots
-    \\
-    &=
-    e^{-K _ {0}/3}|C _ {0}|^{4}\left[\vphantom{\dfrac{1}{2}}\right.
+    -
+    e^{K _ {0}/3}|C _ {0}|^{4}\left[\vphantom{\dfrac{1}{2}}\right.
         K^{I\bar{J}}W _ {I}W _ {\bar{J}}
         +
         K^{I\bar{J}}W _ {I}K _ {\bar{J}}\bar{W} _ {0}
-    \nonumber   
     \\
     &\qquad
     +
@@ -1484,7 +1491,8 @@ $$
     \nonumber
     \\
     &\equiv
-    e^{K}
+    -
+    e^{K _ 0}
     \left(
         K^{I\bar{J}}
         (D _ {I}W _ {0})(D _ {\bar{J}}W _ {0})
@@ -1501,7 +1509,16 @@ $$
         W _ {I}
         +
         K _ {I}W _ {0}
-        ,\ 
+    \end{equation}
+$$
+and at the last line (i.e. eq. (42)) we fixed the gauge as 
+$$
+    \begin{equation}
+        C _ {0}
+        =
+        \bar{C} _ {0}
+        =
+        e^{K _ {0}/6}
         .
     \end{equation}
 $$
