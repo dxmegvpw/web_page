@@ -1464,7 +1464,7 @@ $$
     \nonumber   
     \\
     &=
-    aaaa
+    \cdots\ \cdots
     \\
     &=
     e^{-K _ {0}/3}|C _ {0}|^{4}\left[\vphantom{\dfrac{1}{2}}\right.
