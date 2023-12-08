@@ -16,3 +16,4 @@ If you see an error in your editor, don't worry about it.
 - `[text](URL)`
 - `[^1]` and `[^1]: text` 
 - Before uploading markdown files, insert spaces before and after underscore `_`. The compiler seems to interpret the bar as *emphasis*, so I have to add the space.
+- We also seems to replace '$$ \n \end{align} \n $$ \n \begin{align}' to '\\' because Grammarly usually stops if we write the equations or aligns too long.  
