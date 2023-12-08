@@ -5,7 +5,7 @@ title: Detail of the computations
 
 # Detail of the computations
 
-We feel frustrated with the challenging computations involved in studying SUSY. I will document the process of such challenging computations.
+We feel frustrated with the challenging computations involved in studying SUSY. I will document the process of such challenging computations because no one seems to save one's calculation process. I hope this file will help you to study in this field.
 
 ## Derivation of the  zero-mode equations
 
@@ -555,9 +555,6 @@ $$
             \underline{\sqrt{2}\bar{\phi} _ {\bar{i}}(\partial _ {j}V)}
             -
             \underline{\sqrt{2}\braket{\bar{\phi} _ {\bar{i}}}(\partial _ {j}V)}
-        \nonumber
-        \\
-        &\qquad
             +
             \underline{\bar{\phi} _ {\bar{i}}\phi _ {j}V}
             +
@@ -577,9 +574,6 @@ $$
             \underline{\frac{1}{\sqrt{2}}\bar{\phi} _ {\bar{i}}V(\partial _ {j}V)}
             -
             \underline{\frac{1}{\sqrt{2}}\braket{\bar{\phi} _ {\bar{i}}}V(\partial _ {j}V)}
-        \nonumber
-        \\
-        &\qquad
             +
             \underline{\frac{1}{2}\bar{\phi} _ {\bar{i}}\phi _ {j}V^2}
             +
@@ -589,7 +583,11 @@ $$
             +
             \underline{\frac{1}{2}\braket{\bar{\phi} _ {\bar{i}}}\braket{\phi _ {j}}V^2}
         \nonumber
-        \\
+    \end{align}
+$$
+
+$$
+    \begin{align}
         &\qquad
             -
             \underline{\sqrt{2}(\bar{\partial} _ {\bar{i}}V)\phi _ {j}}
@@ -597,16 +595,10 @@ $$
             \underline{\sqrt{2}(\bar{\partial} _ {\bar{i}}V)\braket{\phi _ {j}}}
             +
             \underline{(\bar{\partial} _ {\bar{i}}V)(\partial _ {j}V)}
-        \nonumber
-        \\
-        &\qquad
             -
             \underline{\sqrt{2}(\bar{\partial} _ {\bar{i}}V)\phi _ {j}V}
             -
             \underline{\sqrt{2}(\bar{\partial} _ {\bar{i}}V)\braket{\phi _ {j}}V}
-        \nonumber
-        \\
-        &\qquad
             -
             \underline{\bar{\phi} _ {\bar{i}}V\phi _ {j}}
             -
@@ -626,9 +618,6 @@ $$
             \underline{\sqrt{2}\braket{\bar{\phi} _ {\bar{i}}}
             V
             \partial _ {j}V}
-        \nonumber
-        \\
-        &\qquad
             -
             \underline{\bar{\phi} _ {\bar{i}}
             V
@@ -662,9 +651,6 @@ $$
             \underline{\frac{1}{\sqrt{2}}V(\bar{\partial} _ {\bar{i}}V)\phi _ {j}}
             +
             \underline{\frac{1}{\sqrt{2}}V(\bar{\partial} _ {\bar{i}}V)\braket{\phi _ {j}}}
-        \nonumber
-        \\
-        &\qquad
             +
             \underline{\frac{1}{2}\bar{\phi} _ {\bar{i}}V^2\phi _ {j}}
             +
@@ -676,7 +662,11 @@ $$
         \left.\vphantom{\frac{1}{2}}
         \right]
         \nonumber
-        \\
+    \end{align}
+$$
+and at last
+$$
+    \begin{align}
         &=
         \frac{2}{g^2}h^{\bar{i}j}\text{Tr}\left[\vphantom{\frac{1}{2}}\right.
             \bar{\phi} _ {\bar{i}}\phi _ {j}
@@ -684,9 +674,6 @@ $$
             \sqrt{2}(\bar{\partial} _ {\bar{i}}\phi _ {j}+\partial _ {j}\bar{\phi} _ {\bar{i}})V
             +
             [\bar{\phi} _ {\bar{i}},\phi _ {j}]V
-        \nonumber
-        \\
-        &\hspace{10pt}
             +
             \sqrt{2}
             \left\{
@@ -703,9 +690,6 @@ $$
                 \right)
             \right\}
             V
-        \nonumber
-        \\
-        &\hspace{10pt}
             +
             \left(
                 \bar{\partial} _ {\bar{i}}V
@@ -732,9 +716,6 @@ $$
             \bar{\phi} _ {\bar{i}}\braket{\phi _ {j}}
             +
             \braket{\bar{\phi} _ {\bar{i}}}\braket{\phi _ {j}}
-        \nonumber
-        \\
-        &\hspace{100pt}
             +
             \braket{\bar{\phi} _ {\bar{i}}}\braket{\phi _ {j}}V
             -
@@ -1479,6 +1460,7 @@ $$
         K^{I\bar{J}}W _ {I}W _ {\bar{J}}
         +
         K^{I\bar{J}}W _ {I}K _ {\bar{J}}\bar{W} _ {0}
+    \nonumber
     \\
     &\qquad
     +
@@ -1522,13 +1504,6 @@ $$
         .
     \end{equation}
 $$
-
-
-
-
-
-
-
 
 
 ### Supplement and some notes
