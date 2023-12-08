@@ -555,6 +555,9 @@ $$
             \underline{\sqrt{2}\bar{\phi} _ {\bar{i}}(\partial _ {j}V)}
             -
             \underline{\sqrt{2}\braket{\bar{\phi} _ {\bar{i}}}(\partial _ {j}V)}
+        \nonumber
+        \\
+        &\qquad
             +
             \underline{\bar{\phi} _ {\bar{i}}\phi _ {j}V}
             +
@@ -563,13 +566,13 @@ $$
             \underline{\bar{\phi} _ {\bar{i}}\braket{\phi _ {j}}V}
             +
             \braket{\bar{\phi} _ {\bar{i}}}\braket{\phi _ {j}}V
-        \nonumber
-        \\
-        &\qquad
             -
             \underline{\frac{1}{\sqrt{2}}\bar{\phi} _ {\bar{i}}(\partial _ {j}V)V}
             -
             \underline{\frac{1}{\sqrt{2}}\braket{\bar{\phi} _ {\bar{i}}}(\partial _ {j}V)V}
+        \nonumber
+        \\
+        &\qquad
             -
             \underline{\frac{1}{\sqrt{2}}\bar{\phi} _ {\bar{i}}V(\partial _ {j}V)}
             -
@@ -601,15 +604,15 @@ $$
             \underline{\sqrt{2}(\bar{\partial} _ {\bar{i}}V)\braket{\phi _ {j}}V}
             -
             \underline{\bar{\phi} _ {\bar{i}}V\phi _ {j}}
+        \nonumber
+        \\
+        &\qquad
             -
             \underline{\braket{\bar{\phi} _ {\bar{i}}}V\phi _ {j}}
             -
             \underline{\bar{\phi} _ {\bar{i}}V\braket{\phi _ {j}}}
             -
             \braket{\bar{\phi} _ {\bar{i}}}V\braket{\phi _ {j}}
-        \nonumber
-        \\
-        &\qquad
             +
             \underline{\sqrt{2}\bar{\phi} _ {\bar{i}}
             V
@@ -628,6 +631,9 @@ $$
             V
             \phi _ {j}
             V}
+        \nonumber
+        \\
+        &\qquad
             -
             \underline{\bar{\phi} _ {\bar{i}}
             V
@@ -638,15 +644,15 @@ $$
             V
             \braket{\phi _ {j}}}
             V
-        \nonumber
-        \\
-        &\qquad
             +
             \underline{\frac{1}{\sqrt{2}}
             (\bar{\partial} _ {\bar{i}}V)V\phi _ {j}}
             +
             \underline{\frac{1}{\sqrt{2}}
             (\bar{\partial} _ {\bar{i}}V)V\braket{\phi _ {j}}}
+        \nonumber
+        \\
+        &\qquad
             +
             \underline{\frac{1}{\sqrt{2}}V(\bar{\partial} _ {\bar{i}}V)\phi _ {j}}
             +
@@ -674,6 +680,9 @@ $$
             \sqrt{2}(\bar{\partial} _ {\bar{i}}\phi _ {j}+\partial _ {j}\bar{\phi} _ {\bar{i}})V
             +
             [\bar{\phi} _ {\bar{i}},\phi _ {j}]V
+        \nonumber
+        \\
+        &\qquad
             +
             \sqrt{2}
             \left\{
@@ -690,6 +699,9 @@ $$
                 \right)
             \right\}
             V
+        \nonumber
+        \\
+        &\qquad
             +
             \left(
                 \bar{\partial} _ {\bar{i}}V
