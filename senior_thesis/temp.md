@@ -24,7 +24,7 @@ $$
                 \int\text{d}^{2}\theta
                 \left(
                     \frac{1}{4g^2}
-                    \text{Tr}\ \mathcal{W}^{\alpha}\mathcal{W} _ {\alpha}
+                    \text{Tr}\ \mathcal{W}^{\alpha}\mathcal{W}  _  {\alpha}
                     +
                     \mathcal{W}
                 \right)
@@ -1565,9 +1565,9 @@ $$
 
 ## Reference
 
-1. <a name="AbeKobayashiOhkiSumita2012"></a>H. Abe, T. Kobayashi, H. Ohki, and K. Sumita, “Superfield description of 10D SYM theory with magnetized extra dimensions,” 2012, [doi: 10.1016/j.nuclphysb.2012.05.012](https://doi.org/10.1016/j.nuclphysb.2012.05.012).
+1. <a name="AbeKobayashiOhkiSumita2012"></a>H. Abe, T. Kobayashi, H. Ohki, and K. Sumita, *“Superfield description of 10D SYM theory with magnetized extra dimensions,”* 2012, [doi: 10.1016/j.nuclphysb.2012.05.012](https://doi.org/10.1016/j.nuclphysb.2012.05.012).
 
-2. <a name="AbeHigakiKobayashiOmura2007"></a>H. Abe, T. Higaki, T. Kobayashi, and Y. Omura, “Moduli stabilization, F-term uplifting, and soft supersymmetry breaking terms,” 2007, [doi: 10.1103/PhysRevD.75.025019](https://link.aps.org/doi/10.1103/PhysRevD.75.025019).
+2. <a name="AbeHigakiKobayashiOmura2007"></a>H. Abe, T. Higaki, T. Kobayashi, and Y. Omura, *“Moduli stabilization, F-term uplifting, and soft supersymmetry breaking terms,”* 2007, [doi: 10.1103/PhysRevD.75.025019](https://link.aps.org/doi/10.1103/PhysRevD.75.025019).
 
 3. <a name="WessBagger"></a>J. Wess and J. Bagger, *"Supersymmetry and Supergravity."* Princeton, N.J: Princeton University Press, 1992.
 
