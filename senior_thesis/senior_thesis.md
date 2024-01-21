@@ -18,7 +18,7 @@ I study about moduli stabilization as the senior thesis.
 
 ## Appendix
 
-Detail computation is [here](https://dxmegvpw.github.io/docs/senior_thesis/temp.html).
+Detail computation is [here](https://dxmegvpw.github.io/docs/senior_thesis/senior_thesis_temp.html).
 
 
 

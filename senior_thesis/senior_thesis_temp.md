@@ -121,7 +121,7 @@ $$
 
 ### SUSY condition
 
-By carrying out the derivative with respect to the $F _ {i}$ and $D _ {i}$, we can obtain the on-shell relation of the auxiliary fields. First, let us focus on the Kähler potential. The term inside the trace become
+By carrying out the derivative for the $F _ {i}$ and $D _ {i}$, we can obtain the on-shell relation of the auxiliary fields. First, let us focus on the Kähler potential. The term inside the trace become
 $$
     \begin{align}
         &\hspace{10pt}
@@ -259,7 +259,7 @@ $$
         .
     \end{align}
 $$
-Note that we should be careful about the derivatives of the term like $\bar{\phi} _ {\bar{i}}V\phi _ {j}$. We derivate with respect to the auxiliary $D$, but it actually has the indices of the gauge group, $D _ {AB}$. Therefore we obtain
+Note that we should be careful about the derivatives of the term like $\bar{\phi} _ {\bar{i}}V\phi _ {j}$. We derivate for the auxiliary $D$, but it has the indices of the gauge group, $D _ {AB}$. Therefore we obtain
 $$
     \begin{align}    
         \left.
@@ -339,7 +339,7 @@ $$
         \right)
     \end{equation}
 $$
-for the equation of motion with respect to the auxiliary $D$. Let us move on to the computation for the auxiliary $F _ i$. $F _ {i}$ is included by the superfield $\phi _ {i}$ that appears only in Kähler potential $\mathcal{K}$ and super potential $\mathcal{W}$, not in field strength $\mathcal{W}^{\alpha}$. The highest component containing the auxiliary $F _ {i}$ comes from the term $\bar{\phi} _ {\bar{i}}\phi _ {j}$ in Kähler potential. Thus the Kähler potential including $F$ is
+for the equation of motion for the auxiliary $D$. Let us move on to the computation for the auxiliary $F _ i$. $F _ {i}$ is included by the superfield $\phi _ {i}$ that appears only in Kähler potential $\mathcal{K}$ and super potential $\mathcal{W}$, not in field strength $\mathcal{W}^{\alpha}$. The highest component containing the auxiliary $F _ {i}$ comes from the term $\bar{\phi} _ {\bar{i}}\phi _ {j}$ in Kähler potential. Thus the Kähler potential including $F$ is
 $$
     \begin{equation}
         \mathcal{K}
@@ -488,7 +488,7 @@ $$
         .
     \end{align}
 $$
-Note that we have interchanged the dummy indices several times after derivating. At last, the equation of motion with respect to the $F _ {i}$
+Note that we have interchanged the dummy indices several times after derivating. At last, the equation of motion for the $F _ {i}$
 $$
     \begin{equation}
         h^{\bar{j}i}\bar{F} _ {\bar{j}}
@@ -1051,7 +1051,7 @@ $$
 
 ### Scalar potential
 
-We will derive the scalar potential from the action ([28](#sugra _ action)). To deriving the scalar potential, we have to only pay attention to scalar fields. From the term without compensators like
+We will derive the scalar potential from the action ([28](#sugra _ action)). To derive the scalar potential, we have to only pay attention to scalar fields. From the term without compensators like
 $$
     \begin{equation}
         \int\text{d}^2\theta\ 
@@ -1257,8 +1257,7 @@ $$
         \end{alignedat}
         \right.
     \end{equation}
-$$
-Inserting those relation into the eq. ([37](#F-term2)), we get
+$$ Inserting those relations into the eq. ([37](#F-term2)), we get
 $$
     \begin{align}
     &
@@ -1520,7 +1519,7 @@ $$
 
 ### Supplement and some notes
 
-We list the relation which we did not mentioned at the previous discussion: 
+We list the relation which we did not mention in the previous discussion: 
 $$
     \begin{align}
         W _ {\theta\theta}
