@@ -1257,7 +1257,8 @@ $$
         \end{alignedat}
         \right.
     \end{equation}
-$$ Inserting those relations into the eq. ([37](#F-term2)), we get
+$$
+Inserting those relations into the eq. ([37](#F-term2)), we get
 $$
     \begin{align}
     &
