@@ -24,7 +24,7 @@ $$
                 \int\text{d}^{2}\theta
                 \left(
                     \frac{1}{4g^2}
-                    \text{Tr}\ \mathcal{W}^{\alpha}\mathcal{W}  _  {\alpha}
+                    \text{Tr}\ \mathcal{W}^{\alpha}\mathcal{W} _ {\alpha}
                     +
                     \mathcal{W}
                 \right)
@@ -121,7 +121,7 @@ $$
 
 ### SUSY condition
 
-By carrying out the derivative for the $F _ {i}$ and $D _ {i}$, we can obtain the on-shell relation of the auxiliary fields. First, let us focus on the Kähler potential. The term inside the trace become
+By carrying out the derivative with respect to the $F _ {i}$ and $D _ {i}$, we can obtain the on-shell relation of the auxiliary fields. First, let us focus on the Kähler potential. The term inside the trace become
 $$
     \begin{align}
         &\hspace{10pt}
@@ -259,7 +259,7 @@ $$
         .
     \end{align}
 $$
-Note that we should be careful about the derivatives of the term like $\bar{\phi} _ {\bar{i}}V\phi _ {j}$. We derivate for the auxiliary $D$, but it has the indices of the gauge group, $D _ {AB}$. Therefore we obtain
+Note that we should be careful about the derivatives of the term like $\bar{\phi} _ {\bar{i}}V\phi _ {j}$. We derivate with respect to the auxiliary $D$, but it actually has the indices of the gauge group, $D _ {AB}$. Therefore we obtain
 $$
     \begin{align}    
         \left.
@@ -339,7 +339,7 @@ $$
         \right)
     \end{equation}
 $$
-for the equation of motion for the auxiliary $D$. Let us move on to the computation for the auxiliary $F _ i$. $F _ {i}$ is included by the superfield $\phi _ {i}$ that appears only in Kähler potential $\mathcal{K}$ and super potential $\mathcal{W}$, not in field strength $\mathcal{W}^{\alpha}$. The highest component containing the auxiliary $F _ {i}$ comes from the term $\bar{\phi} _ {\bar{i}}\phi _ {j}$ in Kähler potential. Thus the Kähler potential including $F$ is
+for the equation of motion with respect to the auxiliary $D$. Let us move on to the computation for the auxiliary $F _ i$. $F _ {i}$ is included by the superfield $\phi _ {i}$ that appears only in Kähler potential $\mathcal{K}$ and super potential $\mathcal{W}$, not in field strength $\mathcal{W}^{\alpha}$. The highest component containing the auxiliary $F _ {i}$ comes from the term $\bar{\phi} _ {\bar{i}}\phi _ {j}$ in Kähler potential. Thus the Kähler potential including $F$ is
 $$
     \begin{equation}
         \mathcal{K}
@@ -488,7 +488,7 @@ $$
         .
     \end{align}
 $$
-Note that we have interchanged the dummy indices several times after derivating. At last, the equation of motion for the $F _ {i}$
+Note that we have interchanged the dummy indices several times after derivating. At last, the equation of motion with respect to the $F _ {i}$
 $$
     \begin{equation}
         h^{\bar{j}i}\bar{F} _ {\bar{j}}
@@ -541,138 +541,6 @@ Thus the Kähler potential satisfies
 $$
     \begin{align}
         \mathcal{K}
-        &=
-        \frac{2}{g^2}h^{\bar{i}j}
-        \text{Tr}\left[\vphantom{\frac{1}{2}}\right.
-            \underline{\bar{\phi} _ {\bar{i}}\phi _ {j}}
-            +
-            \braket{\bar{\phi} _ {\bar{i}}}\phi _ {j}
-            +        
-            \bar{\phi} _ {\bar{i}}\braket{\phi _ {j}}
-            +
-            \braket{\bar{\phi} _ {\bar{i}}}\braket{\phi _ {j}}
-            -
-            \underline{\sqrt{2}\bar{\phi} _ {\bar{i}}(\partial _ {j}V)}
-            -
-            \underline{\sqrt{2}\braket{\bar{\phi} _ {\bar{i}}}(\partial _ {j}V)}
-        \nonumber
-        \\
-        &\qquad
-            +
-            \underline{\bar{\phi} _ {\bar{i}}\phi _ {j}V}
-            +
-            \underline{\braket{\bar{\phi} _ {\bar{i}}}\phi _ {j}V}
-            +
-            \underline{\bar{\phi} _ {\bar{i}}\braket{\phi _ {j}}V}
-            +
-            \braket{\bar{\phi} _ {\bar{i}}}\braket{\phi _ {j}}V
-            -
-            \underline{\frac{1}{\sqrt{2}}\bar{\phi} _ {\bar{i}}(\partial _ {j}V)V}
-            -
-            \underline{\frac{1}{\sqrt{2}}\braket{\bar{\phi} _ {\bar{i}}}(\partial _ {j}V)V}
-        \nonumber
-        \\
-        &\qquad
-            -
-            \underline{\frac{1}{\sqrt{2}}\bar{\phi} _ {\bar{i}}V(\partial _ {j}V)}
-            -
-            \underline{\frac{1}{\sqrt{2}}\braket{\bar{\phi} _ {\bar{i}}}V(\partial _ {j}V)}
-            +
-            \underline{\frac{1}{2}\bar{\phi} _ {\bar{i}}\phi _ {j}V^2}
-            +
-            \underline{\frac{1}{2}\braket{\bar{\phi} _ {\bar{i}}}\phi _ {j}V^2}
-            +
-            \underline{\frac{1}{2}\bar{\phi} _ {\bar{i}}\braket{\phi _ {j}}V^2}
-            +
-            \underline{\frac{1}{2}\braket{\bar{\phi} _ {\bar{i}}}\braket{\phi _ {j}}V^2}
-        \nonumber
-    \end{align}
-$$
-
-$$
-    \begin{align}
-        &\qquad
-            -
-            \underline{\sqrt{2}(\bar{\partial} _ {\bar{i}}V)\phi _ {j}}
-            -
-            \underline{\sqrt{2}(\bar{\partial} _ {\bar{i}}V)\braket{\phi _ {j}}}
-            +
-            \underline{(\bar{\partial} _ {\bar{i}}V)(\partial _ {j}V)}
-            -
-            \underline{\sqrt{2}(\bar{\partial} _ {\bar{i}}V)\phi _ {j}V}
-            -
-            \underline{\sqrt{2}(\bar{\partial} _ {\bar{i}}V)\braket{\phi _ {j}}V}
-            -
-            \underline{\bar{\phi} _ {\bar{i}}V\phi _ {j}}
-        \nonumber
-        \\
-        &\qquad
-            -
-            \underline{\braket{\bar{\phi} _ {\bar{i}}}V\phi _ {j}}
-            -
-            \underline{\bar{\phi} _ {\bar{i}}V\braket{\phi _ {j}}}
-            -
-            \braket{\bar{\phi} _ {\bar{i}}}V\braket{\phi _ {j}}
-            +
-            \underline{\sqrt{2}\bar{\phi} _ {\bar{i}}
-            V
-            \partial _ {j}V}
-            +
-            \underline{\sqrt{2}\braket{\bar{\phi} _ {\bar{i}}}
-            V
-            \partial _ {j}V}
-            -
-            \underline{\bar{\phi} _ {\bar{i}}
-            V
-            \phi _ {j}
-            V}
-            -
-            \underline{\braket{\bar{\phi} _ {\bar{i}}}
-            V
-            \phi _ {j}
-            V}
-        \nonumber
-        \\
-        &\qquad
-            -
-            \underline{\bar{\phi} _ {\bar{i}}
-            V
-            \braket{\phi _ {j}}
-            V}
-            -
-            \underline{\braket{\bar{\phi} _ {\bar{i}}}
-            V
-            \braket{\phi _ {j}}}
-            V
-            +
-            \underline{\frac{1}{\sqrt{2}}
-            (\bar{\partial} _ {\bar{i}}V)V\phi _ {j}}
-            +
-            \underline{\frac{1}{\sqrt{2}}
-            (\bar{\partial} _ {\bar{i}}V)V\braket{\phi _ {j}}}
-        \nonumber
-        \\
-        &\qquad
-            +
-            \underline{\frac{1}{\sqrt{2}}V(\bar{\partial} _ {\bar{i}}V)\phi _ {j}}
-            +
-            \underline{\frac{1}{\sqrt{2}}V(\bar{\partial} _ {\bar{i}}V)\braket{\phi _ {j}}}
-            +
-            \underline{\frac{1}{2}\bar{\phi} _ {\bar{i}}V^2\phi _ {j}}
-            +
-            \underline{\frac{1}{2}\braket{\bar{\phi} _ {\bar{i}}}V^2\phi _ {j}}
-            +
-            \underline{\frac{1}{2}\bar{\phi} _ {\bar{i}}V^2\braket{\phi _ {j}}}
-            +
-            \underline{\frac{1}{2}\braket{\bar{\phi} _ {\bar{i}}}V^2\braket{\phi _ {j}}}
-        \left.\vphantom{\frac{1}{2}}
-        \right]
-        \nonumber
-    \end{align}
-$$
-and at last
-$$
-    \begin{align}
         &=
         \frac{2}{g^2}h^{\bar{i}j}\text{Tr}\left[\vphantom{\frac{1}{2}}\right.
             \bar{\phi} _ {\bar{i}}\phi _ {j}
@@ -1018,8 +886,7 @@ because of the commutativity of the VEV too[^4].
 
 ## 4D $\mathcal{N}=1$ SUGRA
 
-The action for 4D $\mathcal{N}=1$ conformal supergravity is written as
-<a name="sugra _ action"></a>
+The action for 4D $\mathcal{N}=1$ conformal supergravity is written as<a name="sugra _ action"></a>
 $$
     \begin{align}
         S _ {\mathcal{N}=1}
@@ -1051,7 +918,7 @@ $$
 
 ### Scalar potential
 
-We will derive the scalar potential from the action ([28](#sugra _ action)). To derive the scalar potential, we have to only pay attention to scalar fields. From the term without compensators like
+We will derive the scalar potential from the action ([28](#sugra _ action)). To deriving the scalar potential, we have to only pay attention to scalar fields. From the term without compensators like
 $$
     \begin{equation}
         \int\text{d}^2\theta\ 
@@ -1061,8 +928,7 @@ $$
         ,
     \end{equation}
 $$
-we can obtain $D$-terms. Thus, we will focus on remaining terms
-<a name="F-term1"></a>
+we can obtain $D$-terms. Thus, we will focus on remaining terms<a name="F-term1"></a>
 $$
     \begin{equation}
         -3
@@ -1097,8 +963,7 @@ $$
         ,
     \end{align}
 $$
-where $W _ {I}, F^{I}, F^{C}$ are defined as
-<a name="chiral"></a>
+where $W _ {I}, F^{I}, F^{C}$ are defined as<a name="chiral"></a>
 $$
     \begin{align}
         W _ {I}
@@ -1195,8 +1060,7 @@ $$
     .
     \end{align}
 $$
-Thus we found $F$-term ([30](#F-term1)) as
-<a name="F-term2"></a>
+Thus we found $F$-term ([30](#F-term1)) as<a name="F-term2"></a>
 $$
     \begin{align}
     &
@@ -1258,7 +1122,7 @@ $$
         \right.
     \end{equation}
 $$
-Inserting those relations into the eq. ([37](#F-term2)), we get
+Inserting those relation into the eq. ([37](#F-term2)), we get
 $$
     \begin{align}
     &
@@ -1505,7 +1369,7 @@ $$
         K _ {I}W _ {0}
     \end{equation}
 $$
-and at the last line (i.e. eq. (42)) we fixed the gauge as 
+and at the last line, we fixed the gauge as 
 $$
     \begin{equation}
         C _ {0}
@@ -1520,7 +1384,7 @@ $$
 
 ### Supplement and some notes
 
-We list the relation which we did not mention in the previous discussion: 
+We list the relation which we did not mentioned at the previous discussion: 
 $$
     \begin{align}
         W _ {\theta\theta}
@@ -1549,15 +1413,6 @@ $$
         .
     \end{align}
 $$
-
-
-
-
-
-
-
-
-
 
 
 
