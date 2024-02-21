@@ -1,1 +1,0 @@
-python -u "C:\Users\itsuki.miyane\tex\bib\jpflag.py" "C:\Users\itsuki.miyane\tex\bib\hoge.bib"

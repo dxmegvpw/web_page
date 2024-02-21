@@ -1,5 +1,0 @@
-markdown: kramdown
-plugins:
- - jekyll-sitemap
-kramdown:
-  hard_wrap: true
