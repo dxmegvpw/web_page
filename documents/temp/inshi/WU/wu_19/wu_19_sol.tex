@@ -1,0 +1,596 @@
+\pdfoutput=1
+\documentclass[a4paper,pdflatex,ja=standard]{bxjsarticle}
+
+% ---Setting about the geometry of the document----
+% \usepackage{a4wide}
+% \pagestyle{empty}
+
+% ---Physics and Math Packages---
+\usepackage{amssymb,amsfonts,amsthm,mathtools}
+\usepackage{physics,braket,bm}
+
+% ---underline---
+\usepackage{ulem}
+
+% --- sorround the texts or equations
+% \usepackage{fancybox,ascmac}
+
+% ---settings of theorem environment---
+% \usepackage{amsthm}
+% \theoremstyle{definition}
+
+% ---settings of proof environment---
+% \renewcommand{\proofname}{\textbf{証明}}
+% \renewcommand{\qedsymbol}{$\blacksquare$}
+
+% ---Ignore the Warnings---
+\usepackage{silence}
+\WarningFilter{latexfont}{Some font shapes,Font shape}
+
+% ---Insert the figure (If insert the `draft' at the option, the process becomes faster)---
+% \usepackage{graphicx}
+% \usepackage{subcaption}
+
+% ----Add a link to a text---
+\usepackage{url}
+\usepackage{xcolor,hyperref}
+\hypersetup{colorlinks=true,citecolor=orange,linkcolor=blue,urlcolor=magenta}
+\usepackage{bxcjkjatype}
+
+% ---Tikz---
+\usepackage{tikz,pgf,pgfplots,circuitikz}
+\pgfplotsset{compat=1.15}
+\usetikzlibrary{intersections,arrows.meta,angles,calc,3d,decorations.pathmorphing}
+
+% ---Add the section number to the equation, figure, and table number---
+\makeatletter
+   \renewcommand{\theequation}{\thesection.\arabic{equation}}
+   \@addtoreset{equation}{section}
+   
+   \renewcommand{\thefigure}{\thesection.\arabic{figure}}
+   \@addtoreset{figure}{section}
+   
+   \renewcommand{\thetable}{\thesection.\arabic{table}}
+   \@addtoreset{table}{section}
+\makeatother
+
+% ---enumerate---
+\renewcommand{\labelenumi}{$(\arabic{enumi})$}
+% \renewcommand{\labelenumii}{$(\arabic{enumii})$}
+
+% ---Index---
+%\usepackage{makeidx}
+%\makeindex 
+
+% ---Fonts---
+\renewcommand{\familydefault}{\sfdefault}
+
+% ---Title---
+\title{早稲田大学\ 2019年\ 物理学専攻\ 院試\ 解答例}
+\author{ミヤネ}
+\date{最終更新：\today}
+
+\newcommand{\prb}[2]{
+  \clearpage
+  \phantomsection
+  \addcontentsline{toc}{section}{問題 #1: #2}
+  \section*{問題番号\fbox{#1}\ (#2)}
+  \setcounter{section}{#1}
+  \setcounter{equation}{0}
+}
+
+\begin{document}
+
+\maketitle
+
+\tableofcontents
+\clearpage
+
+\prb{3}{力学}
+
+\begin{enumerate}
+  
+  \item 
+
+  \begin{equation}
+    l_0
+    \coloneqq
+    y_0
+    +
+    \frac{Mg}{k}
+    .
+  \end{equation}
+
+  \item 
+
+  \begin{equation}
+    \left\{
+      \begin{alignedat}{1}
+        \text{車輪}\ 
+        &:\ 
+        m
+        \dv[2]{y_1}{t}
+        =
+        N-mg+k(y_2-y_1-l_0)
+        \\       
+        \text{物体}\ 
+        &:\ 
+        M
+        \dv[2]{y_2}{t}
+        =
+        -Mg-k(y_2-y_1-l_0)
+        \\ 
+      \end{alignedat}
+    \right.
+    .
+  \end{equation}
+
+  \item 
+
+  \begin{equation}
+    \dv[2]{y}{t}
+    =
+    -g
+    -
+    \frac{k}{M}(y-l_0)
+    -
+    \frac{\pi^2 a}{l^2}\cos\frac{\pi}{l}x
+    .
+  \end{equation}
+
+  \item 
+
+  $0<t<2\pi/\omega$でのE.O.M.は
+  \begin{equation}
+    \dv[2]{y}{t}
+    =
+    -\omega_0^2 y
+    -
+    a\omega^2\cos\omega t
+  \end{equation}
+  です．$2\pi/\omega$以降は強制振動の項が落ちるだけです．したがって，一般解は
+  \begin{equation}
+    y(t)
+    =
+    \left\{
+      \begin{alignedat}{1}
+        y_0+A\cos\omega_0 t+B\sin\omega_0 t+\frac{a\omega^2}{\omega^2-\omega_0^2}\cos\omega t
+        \ &\ (0<t<2\pi/\omega)
+        \\
+        y_0+A\cos\omega_0 t+B\sin\omega_0 t
+        \ &\ (2\pi/\omega<t)
+      \end{alignedat}
+    \right.
+  \end{equation}
+  です．
+
+  \item 
+
+  初期条件$y(0)=y_0,\dot{y}(0)=0$を満たす$0<t<2\pi/\omega$での解は
+  \begin{equation}
+    y(t)
+    =
+    y_0
+    +
+    \frac{a\omega^2}{\omega^2-\omega_0^2}
+    (\cos\omega t-\cos\omega_0 t)
+  \end{equation}
+  であり，
+  \begin{equation}
+    \lim_{\omega\rightarrow\omega_0}
+    \frac{\cos\omega t-\cos\omega_0 t}{\omega-\omega_0}
+    =
+    -t\sin\omega_0 t
+  \end{equation}
+  であることに注意すれば
+  \begin{equation}
+    y(t)
+    =
+    \left\{
+      \begin{alignedat}{1}
+        y_0
+        -
+        \frac{a\omega_0}{2}t\sin\omega_0 t
+        \ &\ (0<t<2\pi/\omega)
+        \\
+        y_0
+        \ &\ (2\pi/\omega<t)
+      \end{alignedat}
+    \right.
+  \end{equation}
+  となります\footnote{
+    $t=2\pi/\omega\eqqcolon T$では$y(T)=y_0,\dot{y}(T)=0$なので，この条件で接続すると$t>T$では定常解$y(t)\equiv y_0$となります．
+  }．
+
+  \item 
+
+  略．
+
+  \item 
+
+  \begin{equation}
+    \dv[2]{y}{t}
+    =
+    -\omega_0^2(y-y_0)
+    -
+    2\beta \dv{y}{t}
+    -
+    a\omega^2\cos\omega t
+    .
+  \end{equation}
+
+  \item 
+
+  $t\rightarrow\infty$では
+  \begin{equation}
+    \dv[2]{y}{t}
+    =
+    -
+    2\beta \dv{y}{t}
+    -
+    a\omega^2\cos\omega t
+  \end{equation}
+  となっているので，一般解は
+  \begin{equation}
+    y(t)
+    =
+    A+Be^{-2\beta t}
+    -
+    \frac{2a\beta\omega}{\omega^2+4\beta^2}\sin\omega t
+    +
+    \frac{a\omega^2}{\omega^2+4\beta^2}\cos\omega t 
+  \end{equation}
+  です\footnote{
+    やり方はいろいろあるかと思いますが，$v(t)\coloneqq \dot{y}(t)$とおいて考えてみるのがよいかと思います．
+  }．
+
+  \item 
+
+  \begin{equation}
+    y(t)
+    =
+    A+Be^{-2\beta t}
+    -
+    \frac{2a\beta\omega_0}{\omega_0^2+4\beta^2}\sin\omega_0 t
+    +
+    \frac{a\omega_0^2}{\omega_0^2+4\beta^2}\cos\omega_0 t 
+    .
+  \end{equation}
+  グラフは，$t\gg 1$なので（次元あってないのでこの書き方はよくないですが），指数関数の項を落としてただの三角関数．
+
+\end{enumerate}
+
+\clearpage
+
+\prb{4}{電磁気学}
+
+\begin{enumerate}
+  
+  \item 
+
+  $z=0$では，$x$方向の成分が同じで
+  \begin{equation}
+    E_0
+    -
+    F_xe^{ik_x^{\prime}x}
+    =
+    T_xe^{ik_x^{\prime\prime}x}
+  \end{equation}
+  なので\footnote{
+    $e^{-i\omega t}$は共通なので落としてます．
+  }，任意の$x\in\mathbb{R}$でこの等式が成立するためには$k_x^{\prime}=k_x^{\prime\prime}=0$です．また，その場合，$E_x-F_x=T_x$．
+
+  \item 
+
+  $\bm{\nabla}\cdot\bm{E}^{\prime}$は
+  \begin{equation}
+    \bm{\nabla}\cdot\bm{E}^{\prime}
+    =
+    k_z^{\prime}F_z e^{ik_z^{\prime}-i\omega t}
+    =
+    0
+  \end{equation}
+  なので，$F_z=0$です．$T_z=0$も同様．$\bm{\nabla}\cdot\bm{E}^{\prime\prime}=0$を計算するだけです．
+
+  \item 
+
+  $\bm{\nabla}\times\bm{E}+\pdv*{\bm{B}}{t}=0$より，$\bm{E}=\bm{E_0}e^{i(\bm{k}\cdot\bm{r}-\omega t)}$といった形にかけるなら
+  \begin{equation}
+    \bm{B}
+    =
+    \frac{1}{\omega}
+    \bm{k}\times\bm{E}
+  \end{equation}
+  です．したがって，入射光については，$k\rightarrow-k$として
+  \begin{equation}
+    B_0
+    =
+    -
+    \frac{k}{\omega}E_0
+  \end{equation}
+  となります．反射光と屈折光も同様に考えれば
+  \begin{equation}
+    B_0^{\prime}
+    =
+    -
+    \frac{k_z^{\prime}}{\omega}F_x
+    ,\ 
+    B_0^{\prime\prime}
+    =
+    -
+    \frac{k_z^{\prime\prime}}{\omega}T_x
+  \end{equation}
+  です．
+
+  \item 
+
+  磁場の界面方向について
+  \begin{equation}
+    \frac{1}{\mu_0}B_0
+    +
+    \frac{1}{\mu_0}B_0^{\prime}
+    =
+    \frac{1}{\mu_0}B_0^{\prime\prime}
+  \end{equation}
+  なので
+  \begin{equation}
+    kE_0
+    +
+    k_z^{\prime}F_0^{\prime}
+    =
+    k_z^{\prime\prime}T_0^{\prime\prime}
+  \end{equation}
+  です．
+
+  \item 
+
+  $\bm{\nabla}\times\bm{E}+\pdv*{\bm{B}}{t}=0$の回転をとって，ベクトル解析の公式を用いれば
+  \begin{equation}
+    \left(  
+      \bm{\nabla}^2
+      -
+      \varepsilon\mu_0\pdv[2]{}{t}
+    \right)
+    \bm{E}
+    =
+    0
+    \label{wave_eq}
+  \end{equation}
+  です．
+
+  \item 
+
+  \eqref{wave_eq}にそれぞれの解を入れましょう．
+
+  \item 
+  
+  \begin{equation}
+    \left|\frac{F_x}{E_0}\right|^2
+    =
+    \left( \frac{1-n}{1+n} \right)^2
+    .
+  \end{equation}
+
+  \item 
+
+  反射率は
+  \begin{equation}
+    \left|\frac{F_x}{E_0}\right|^2
+    =
+    \left( \frac{1-i\sqrt{|\varepsilon|/\varepsilon_0}}{1+i\sqrt{|\varepsilon|/\varepsilon_0}} \right)^2
+  \end{equation}
+  です．また，$E_z^{\prime\prime}=T_x e^{|k_z^{\prime\prime}|z}e^{-i\omega t}$となるので，$z\rightarrow-\infty$で屈折光は$E_z^{\prime\prime}\rightarrow 0$となります．
+
+\end{enumerate}
+
+\clearpage
+
+\prb{5}{量子力学}
+
+\begin{enumerate}
+  
+  \item 
+
+  $\{a,a^{\dagger}\}=\ketbra*{0}{0}+\ketbra*{1}{1}=1.$
+
+  \item 
+
+  $n=\ketbra*{1}{1}$なので，$H_1=E_0(2n-\{a,a^{\dagger}\}).$
+
+  \item 
+
+  $\mel{\psi}{n}{\psi}=\beta.$
+
+  \item 
+
+  $x^2=1/4$なので，$\mel{\psi}{x^2}{\psi}=(|\alpha|^2+|\beta|^2)/4.$
+
+  \item 
+
+  固有値は$\pm E_0$で，固有状態は$\ket{\pm}=\ket{0}\pm\ket{1}$です．
+
+  \item 
+
+  $H_2=E_0^2$に気をつければ
+  \begin{align}
+    U_2(t)
+    &=
+    \sum_{n=0}^{\infty}
+    \frac{1}{(2n)!}\left( \frac{iE_0t}{\hbar} \right)^{2n}
+    -i
+    \sum_{n=0}^{\infty}
+    \frac{1}{(2n+1)!}\left( \frac{iE_0t}{\hbar} \right)^{2n+1}
+    \begin{pmatrix}
+      0 & 1 \\
+      1 & 0
+    \end{pmatrix}
+    \nonumber
+    \\
+    &=
+    \begin{pmatrix}
+      \cos(E_0 t/\hbar) & -i\sin(E_0 t/\hbar)\\
+      -i\sin(E_0 t/\hbar) & \cos(E_0 t/\hbar)
+    \end{pmatrix}
+  \end{align}
+  です．
+
+  \item 
+
+  \begin{equation}
+    \ket{\phi(t)}
+    =
+    \begin{pmatrix}
+      \cos(E_0 t/\hbar) & -i\sin(E_0 t/\hbar)\\
+      -i\sin(E_0 t/\hbar) & \cos(E_0 t/\hbar)
+    \end{pmatrix}
+    \begin{pmatrix}
+      1 \\
+      0
+    \end{pmatrix}
+    =
+    \begin{pmatrix}
+      \cos(E_0 t/\hbar) \\
+      -i\sin(E_0 t/\hbar)
+    \end{pmatrix}
+    .
+  \end{equation}
+
+  \item 
+
+  $E_0^{(1)}=\mel{0^{(0)}}{H_2}{0^{(0)}}=0.$
+
+  \item 
+
+  \begin{equation}
+    E_0^{(2)}
+    =
+    \frac{|\mel{0^{(1)}}{H_2}{0^{(0)}}|^2}{E_0-E_1}
+    =
+    -\frac{1}{2}E_0
+    .
+  \end{equation}
+
+  \item 
+
+  固有方程式は
+  \begin{equation}
+    \begin{vmatrix}
+      \lambda+1 & -\gamma \\
+      -\gamma & \lambda-1
+    \end{vmatrix}
+    =
+    0    
+  \end{equation}
+  なので，$E_0=-\sqrt{1+\gamma^2}E_0$が基底状態のエネルギーの厳密解です．$\gamma\ll 1$とすれば
+  \begin{equation}
+    E_0
+    \sim
+    -E_0
+    -\frac{\gamma^2}{2}E_0
+    =
+    E_0^{(0)}
+    +
+    \gamma^2 E_0^{(2)}
+  \end{equation}
+  なので，よく近似ができています．
+
+\end{enumerate}
+
+\clearpage
+
+\prb{6}{統計力学}
+
+\begin{enumerate}
+  
+  \item 
+  粒子$i$のエネルギー量子数を$n_i$とすると，
+  \begin{equation}
+    \varepsilon_i
+    =
+    \hbar\omega\left( n_i+\frac{1}{2} \right)
+  \end{equation}
+  であり，$M=\sum n_i$です．したがって，$E=\hbar\omega(M+N/2)$より
+  \begin{equation}
+    M
+    =
+    \frac{E}{\hbar\omega}-\frac{N}{2}
+  \end{equation}
+  です．
+
+  \item 
+
+  \begin{equation}
+    W
+    =
+    \frac{M!}{N!(M-N)!}
+    .
+  \end{equation}
+
+  \item 
+
+  $M/N=E/N\hbar\omega-1/2$を代入すれば
+  \begin{equation}
+    S
+    =
+    k_B N
+    \left[  
+      \frac{2E}{N\hbar\omega}
+      \log\frac{2E+N\hbar\omega}{2E-N\hbar\omega}
+      +
+      \frac{1}{2}
+      \log\frac{4E^2-N^2\hbar^2\omega^2}{4N^2\hbar^2\omega^2}
+    \right]
+  \end{equation}
+  です．
+
+  \item 
+
+  \begin{equation}
+    \dv{S}{E}
+    =
+    \frac{k_B}{\hbar\omega}
+    \log\frac{2E+N\hbar\omega}{2E-N\hbar\omega}
+    .
+  \end{equation}
+
+  \item 
+
+  $\ev*{E}$が満たす式は
+  \begin{equation}
+    \frac{k_B}{\hbar\omega}
+    \log\frac{2\ev*{E}+N\hbar\omega}{2\ev*{E}-N\hbar\omega}
+    =
+    \frac{1}{T}
+  \end{equation}
+  なので，
+  \begin{equation}
+    \ev*{E}
+    =
+    \frac{N\hbar\omega}{2}\coth(\hbar\omega/2k_B T)
+  \end{equation}
+  です．
+
+  \item 
+
+  \begin{equation}
+    z
+    =
+    \sum_{n=0}^{\infty}e^{-\beta\hbar\omega(n+1/2)}
+    =
+    \frac{e^{-\beta\hbar\omega/2}}{1-e^{-\beta\hbar\omega}}
+    .
+  \end{equation}
+
+  \item 
+
+  \begin{equation}
+    \ev*{E}
+    =
+    \frac{N\hbar\omega}{2}
+    \coth(\beta\hbar\omega/2)
+    .
+  \end{equation}
+
+\end{enumerate}
+
+\end{document}

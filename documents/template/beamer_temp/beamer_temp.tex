@@ -1,0 +1,250 @@
+\documentclass[
+  a4paper,uplatex,dvipdfmx,10pt,
+  xcolor = {dvipsnames,svgnames},
+  hyperref ={colorlinks=true,citecolor=Navy,linkcolor=NavyBlue,urlcolor=purple}
+]{beamer}
+\renewcommand{\baselinestretch}{1.2}
+
+% ---refer `texdoc xcolor' at the command line---
+
+% ---Display \subsubsection at the Index
+% \setcounter{tocdepth}{3}
+
+% ---Setting about the geometry of the document----
+% \usepackage{a4wide}
+% \pagestyle{empty}
+
+% ---Physics and Math Packages---
+\usepackage{amssymb,amsfonts,amsthm,mathtools}
+\usepackage{physics,braket,bm}
+
+% ---underline---
+\usepackage{ulem}
+
+% ---cancel---
+\usepackage{cancel}
+
+% --- surround the texts or equations
+% \usepackage{fancybox,ascmac}
+
+% ---settings of theorem environment---
+% \usepackage{amsthm}
+% \theoremstyle{definition}
+
+% ---settings of proof environment---
+% \renewcommand{\proofname}{\textbf{証明}}
+% \renewcommand{\qedsymbol}{$\blacksquare$}
+
+% ---Ignore the Warnings---
+\usepackage{silence}
+\WarningFilter{latexfont}{Some font shapes,Font shape}
+\ExplSyntaxOn
+\msg_redirect_name:nnn{hooks}{generic-deprecated}{none}
+\ExplSyntaxOff
+
+% ---Insert the figure (If insert the `draft' at the option, the process becomes faster.)---
+\usepackage{graphicx}
+% \usepackage{subcaption}
+
+% ----Add a link to a text---
+\usepackage{url,hyperref}
+\usepackage{xcolor}
+\usepackage{pxjahyper}
+
+% ---Tikz---
+\usepackage{tikz,pgf,pgfplots,circuitikz}
+\pgfplotsset{compat=1.15}
+\usetikzlibrary{intersections,arrows.meta,angles,calc,3d,decorations.pathmorphing,positioning}
+
+% ---Add the section number to the equation, figure, and table number---
+\makeatletter
+   \renewcommand{\theequation}{\thesection.\arabic{equation}}
+   \@addtoreset{equation}{section}
+   
+   \renewcommand{\thefigure}{\thesection.\arabic{figure}}
+   \@addtoreset{figure}{section}
+   
+   \renewcommand{\thetable}{\thesection.\arabic{table}}
+   \@addtoreset{table}{section}
+\makeatother
+
+% ---enumerate---
+% \renewcommand{\labelenumi}{$\arabic{enumi}.$}
+% \renewcommand{\labelenumii}{$(\arabic{enumii})$}
+
+% ---beamer settings---
+\usefonttheme{professionalfonts}
+% \usefonttheme{serif}
+\usecolortheme{seahorse}
+\setbeamercolor{structure}{fg=Turquoise}
+\setbeamercolor{local structure}{fg=Turquoise}
+\setbeamertemplate{itemize item}[ball]
+\setbeamertemplate{enumerate item}[circle]
+\setbeamercolor{bibliography entry author}{fg=black}
+\setbeamercolor{bibliography item}{fg=black}
+\setbeamertemplate{frametitle continuation}{}
+\setbeamertemplate{footline}[frame number]
+\setbeamertemplate{navigation symbols}{} 
+
+% ---Fonts---
+\renewcommand{\familydefault}{\sfdefault}
+\renewcommand{\kanjifamilydefault}{\gtdefault}
+% \usepackage{newtxmath}
+\mathversion{bold}
+
+% ---citation at the right above the slides---
+\usepackage{usebib}
+\newbibfield{author} 
+\newbibfield{year} 
+\newbibfield{journal} 
+\newbibfield{doi} 
+\bibinput{hoge}
+
+\makeatletter
+\newcommand*{\journal}{\begingroup\@makeother\#\@mylink}
+\newcommand*{\@mylink}[1]{\href{http://dx.doi.org/\usebibentry{#1}{doi}}{\usebibentry{#1}{journal}}\endgroup} 
+\makeatother
+
+\newcommand*{\citefone}[2]{
+  \begin{tikzpicture}[remember picture, overlay]
+    \node[anchor=north east, align=left] at ($(current page.north east)-(0,1.05)$){
+    {\tiny
+      \cite{#1}
+      #2,
+      \journal{#1}
+      (\usebibentry{#1}{year}).
+    }
+    };
+  \end{tikzpicture}
+}
+\newcommand*{\citeftwo}[4]{
+  \begin{tikzpicture}[remember picture, overlay]
+    \node[anchor=north east, align=left] at ($(current page.north east)-(0,1.05)$){
+    {\tiny
+      \cite{#1}
+      #2,
+      \journal{#1}
+      (\usebibentry{#1}{year}).
+    }
+    \\[-1.8ex]
+    {\tiny
+      \cite{#3}
+      #4,
+      \journal{#3}
+      (\usebibentry{#3}{year}).
+    }
+    };
+  \end{tikzpicture}
+}
+\newcommand*{\citefthree}[6]{
+  \begin{tikzpicture}[remember picture, overlay]
+    \node[anchor=north east, align=left] at ($(current page.north east)-(0,1.05)$){
+    {\tiny
+      \cite{#1}
+      #2,
+      \journal{#1}
+      (\usebibentry{#1}{year}).
+    }
+    \\[-1.8ex]
+    {\tiny
+      \cite{#3}
+      #4,
+      \journal{#3}
+      (\usebibentry{#3}{year}).
+    }
+    \\[-1.8ex]
+    {\tiny
+      \cite{#5}
+      #6,
+      \journal{#5}
+      (\usebibentry{#5}{year}).
+    }
+    };
+  \end{tikzpicture}
+}
+
+
+% ---Title---
+\title{
+  beamerのテンプレート
+}
+\author{宮根 一樹}
+\date{\today}
+
+\begin{document}
+
+\begin{frame}
+  \titlepage
+  \begin{center}
+    \color{DarkMagenta}
+    beamerのテンプレートです．
+  \end{center}
+\end{frame}
+
+\setbeamertemplate{section in toc}[circle]
+\setbeamertemplate{subsection in toc}[ball]
+\begin{frame}[allowframebreaks]
+  \frametitle{目次}
+  \tableofcontents
+\end{frame}
+
+
+\section{イントロダクション}
+
+\subsection{LOVE PHANTOM}
+
+\begin{frame}
+  \frametitle{\thesection.\thesubsection\ \subsecname}
+  
+\end{frame}
+
+
+\section{参考文献}
+\begin{frame}[allowframebreaks]
+  \frametitle{\secname}
+  \scriptsize
+  \beamertemplatetextbibitems
+  \bibliographystyle{ytphys}
+  \bibliography{hoge}
+
+  \nocite{Abe_ModuliStabilization_2007a}
+  \nocite{Wess_SupersymmetrySupergravity_1992}
+
+\end{frame}
+
+
+\newcounter{Appendix}
+\setcounter{Appendix}{\value{framenumber}}
+\setcounter{section}{0}
+\renewcommand{\thesubsection}{\Alph{subsection}}
+\makeatletter
+   \renewcommand{\theequation}{\thesubsection.\arabic{equation}}
+   \@addtoreset{equation}{section}
+   
+   \renewcommand{\thefigure}{\thesubsection.\arabic{figure}}
+   \@addtoreset{figure}{section}
+   
+   \renewcommand{\thetable}{\thesubsection.\arabic{table}}
+   \@addtoreset{table}{section}
+\makeatother
+
+\section{付録}
+
+\begin{frame}[plain]
+  \frametitle{\ }
+  \huge \secname
+\end{frame}
+
+
+\subsection{いらない何も捨ててしまおう}
+
+\begin{frame}[plain]
+  \frametitle{\secname\thesubsection\ \subsecname}
+
+
+
+
+\end{frame}
+
+\setcounter{framenumber}{\value{Appendix}}
+\end{document}

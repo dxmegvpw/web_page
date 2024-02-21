@@ -1,0 +1,1269 @@
+\pdfoutput=1
+\documentclass[a4paper,pdflatex,ja=standard]{bxjsarticle}
+
+% ---Setting about the geometry of the document----
+% \usepackage{a4wide}
+% \pagestyle{empty}
+
+% ---Physics and Math Packages---
+\usepackage{amssymb,amsfonts,amsthm,mathtools}
+\usepackage{physics,braket,bm}
+
+% ---underline---
+\usepackage{ulem}
+
+% --- sorround the texts or equations
+% \usepackage{fancybox,ascmac}
+
+% ---settings of theorem environment---
+% \usepackage{amsthm}
+% \theoremstyle{definition}
+
+% ---settings of proof environment---
+\renewcommand{\proofname}{\uline{\textbf{証明}}}
+\renewcommand{\qedsymbol}{$\blacksquare$}
+
+% ---Ignore the Warnings---
+\usepackage{silence}
+\WarningFilter{latexfont}{Some font shapes,Font shape}
+
+% ---Insert the figure (If insert the `draft' at the option, the process becomes faster)---
+\usepackage{graphicx}
+% \usepackage{subcaption}
+
+% ----Add a link to a text---
+\usepackage{url}
+\usepackage{xcolor,hyperref}
+\hypersetup{colorlinks=true,citecolor=orange,linkcolor=blue,urlcolor=magenta}
+\usepackage{bxcjkjatype}
+
+% ---Tikz---
+\usepackage{tikz,pgf,pgfplots,circuitikz}
+\pgfplotsset{compat=1.15}
+\usetikzlibrary{intersections,arrows.meta,angles,calc,3d,decorations.pathmorphing}
+
+% ---Add the section number to the equation, figure, and table number---
+\makeatletter
+   \renewcommand{\theequation}{\thesubsection.\arabic{equation}}
+   \@addtoreset{equation}{subsection}
+   
+   \renewcommand{\thefigure}{\thesection.\arabic{figure}}
+   \@addtoreset{figure}{section}
+   
+   \renewcommand{\thetable}{\thesection.\arabic{table}}
+   \@addtoreset{table}{section}
+\makeatother
+
+% ---enumerate---
+\renewcommand{\labelenumi}{\arabic{enumi}.}
+\renewcommand{\labelenumii}{(\roman{enumii})}
+
+% ---Index---
+% \usepackage{makeidx}
+% \makeindex 
+
+% ---Fonts---
+\renewcommand{\familydefault}{\sfdefault}
+
+% ---Title---
+\title{東京大学\ 平成29年\ 物理学専攻\ 院試\ 解答例}
+\author{ミヤネ}
+\date{最終更新：\today}
+
+\newcommand{\prb}[2]{
+  \phantomsection
+  \addcontentsline{toc}{subsection}{問題 #1: #2}
+  \subsection*{第#1問\phantom{#2}}
+  \setcounter{subsection}{#1}
+  \setcounter{equation}{0}
+}
+
+\begin{document}
+
+\maketitle
+
+\tableofcontents
+\clearpage
+
+\section{数学パート}
+
+\prb{1}{微積分}
+\begin{enumerate}
+  \item 
+  \begin{enumerate}
+    \item 
+    収束するのは$s>0$．
+    \begin{proof}
+      調べればよいのは，
+      \begin{equation}
+        \lim_{R\rightarrow\infty}
+        \int_{0}^{R}
+        te^{-st}
+        \dd t
+        \label{laplace_t}
+      \end{equation}
+      の収束です．ここで，$f(t)=te^{-st}$とおくと，
+      \begin{equation}
+        tf(t)
+        =
+        t^3e^{-st}
+        \rightarrow
+        0
+        \quad
+        (t\rightarrow\infty)
+      \end{equation}
+      なので，$M>0$に対して，ある$\Lambda>0$が存在して
+      \begin{equation}
+        t^2f(t)<M
+        ,\ 
+        t>\Lambda
+      \end{equation}
+      です．このような$M,\Lambda$について
+      \begin{equation}
+        \lim_{R\rightarrow\infty}
+        \int_{\Lambda}^{R}
+        f(t)
+        \dd t
+        \leq
+        \lim_{R\rightarrow\infty}
+        \int_{\Lambda}^{R}
+        \frac{M}{t^2}
+        \dd t
+        <
+        \infty
+      \end{equation}
+      なので，積分\eqref{laplace_t}は収束します．
+    \end{proof}
+    値は
+    \begin{align}
+      L[t]
+      &=
+      \int_0^\infty
+      te^{-st}
+      \dd t
+      \nonumber
+      \\
+      &=
+      \left[  
+        -\frac{1}{s}te^{-st}
+      \right]_0^\infty
+      +
+      \left[  
+        -\frac{1}{s^2}e^{-st}
+      \right]_0^\infty
+      =
+      \frac{1}{s^2}
+    \end{align}
+    です．
+
+    \item 
+    収束するのは$s\neq 0$です．
+    \begin{proof}
+      簡単で
+      \begin{equation}
+        e^{-st}\sin\omega t
+        <
+        e^{-st}
+      \end{equation}
+      を積分すればよいです．
+    \end{proof}
+    値ですが，2回部分積分してみると
+    \begin{equation}
+      L[\sin\omega t]
+      =
+      \frac{\omega}{s^2}
+      -
+      \frac{\omega^2}{s^2}L[\sin\omega t]
+    \end{equation}
+    となることがわかるので
+    \begin{equation}
+      L[\sin\omega t]
+      =
+      \frac{\omega}{s^2+\omega^2}
+    \end{equation}
+    です．
+    
+    \item 
+    収束するのは$s>0$のときです．証明は$f(t)=t$のときとほぼ同じ．積分の値は，途中で$t=x^2$と変数変換をしてみると
+    \begin{align}
+      L[\sqrt{t}]
+      &=
+      \int_0^\infty
+      \sqrt{t}e^{-st}
+      \dd t
+      \nonumber
+      \\
+      &=
+      2\int_0^\infty
+      x^2e^{-sx^2}
+      \dd x
+      \nonumber
+      \\
+      &=
+      \frac{1}{2}\sqrt{\frac{\pi}{s^3}}
+    \end{align}
+    です\footnote{
+      nz先生の講義を覚えてるならGaussian integral
+      $$
+        \int_0^\infty
+        e^{-s x^2}
+        \dd x
+        =
+        \frac{1}{2}\sqrt{\frac{\pi}{s}}
+      $$
+      を，$s$で微分して
+      $$
+        \int_0^\infty
+        x^2e^{-sx^2}
+        \dd x
+        =
+        \frac{1}{4}
+        \sqrt{\frac{\pi}{s^3}}
+      $$
+      とすれば早いです．
+    }．
+
+  \end{enumerate}
+
+  \item 
+  \begin{enumerate}
+    \item 
+    $f_1*f_2$を変換すると
+    \begin{equation}
+      L[f_1*f_2]
+      =
+      \int_0^\infty
+      \dd t
+      \int_0^t
+      \dd t^{\prime}\ 
+      e^{-s(t-t^{\prime})}
+      f_1(t-t^{\prime})
+      \cdot
+      e^{-st^{\prime}}
+      f_2(t^{\prime})
+    \end{equation}
+    となります．この積分範囲は$0\leq t^{\prime}<t$なので，$t-t^{\prime}>0,t^{\prime}>0$の領域で積分するのと等価です．よって，
+    \begin{equation}
+      L[f_1*f_2]
+      =
+      \int_0^\infty
+      \dd t_1
+      \int_0^\infty
+      \dd t_2\ 
+      e^{-st_1}
+      f_1(t_1)
+      \cdot
+      e^{-st_2}
+      f_2(t_2)
+      =
+      F_1(s)
+      F_2(s)
+    \end{equation}
+    となります．
+
+    \item 
+    両辺をLaplace変換すると
+    \begin{equation}
+      F(s)
+      =
+      \frac{1}{s^2+1}
+      +
+      \frac{1}{s^2+1}F(s)
+    \end{equation}
+    なので，
+    \begin{equation}
+      F(s)
+      =
+      \frac{1}{s^2}
+    \end{equation}
+    です．
+
+    \item 
+    $L[t]=1/s^2$だったので$f(t)=t$．
+  \end{enumerate}
+  
+  \item 
+  計算すればいいのは
+  \begin{equation}
+    f(t)
+    =
+    \frac{1}{2\pi i}
+    \int_{\gamma-i\infty}^{\gamma+i\infty}
+    \frac{s}{(s-1)^2}e^{st}
+    \dd s
+  \end{equation}
+  です．極はすべて経路が囲む閉じた領域内にあって，積分の経路はそれら極を反時計回りにまわるので\footnote{
+    ここらへんのお話は，そういったものとして許してください．
+  }，
+  \begin{equation}
+    \frac{1}{2\pi i}\int_{\gamma-i\infty}^{\gamma+i\infty}
+    \frac{s}{(s-1)^2}e^{st}
+    \dd s
+    =
+    \lim_{s\rightarrow1}
+    \dv{}{s}\left[  
+      se^{st}
+    \right]
+    =
+    (t+1)e^t
+  \end{equation}
+  となります．
+
+\end{enumerate}
+
+\subsection*{補足}
+
+\begin{itemize}
+  \item 
+  もともとLaplace変換は微分or積分方程式をある程度機械的に解けるのがメリットなので，2.(iii)をダイレクトに計算するのはナンセンスでしょう．ただ，もちろん，実際には計算できて，
+  \begin{equation}
+    f(t)
+    =
+    \frac{1}{2\pi i}
+    \int_{-i\infty}^{+i\infty}
+    \frac{1}{s^2}e^{st}
+    \dd s
+    =
+    \lim_{s\rightarrow0}
+    \left[ te^{st} \right]
+    =
+    t
+  \end{equation}
+  です．
+
+  \item 
+  3.も
+  \begin{align}
+    L[e^t](s)
+    &=
+    \int_0^\infty
+    e^{-(s-1)t}
+    \dd t
+    \nonumber
+    \\
+    &=
+    \frac{1}{s-1}
+    \\
+    L[te^t](s)
+    &=
+    \int_0^\infty
+    te^{-(s-1)t}
+    \dd t
+    \nonumber
+    \\
+    &=
+    \frac{1}{(s-1)^2}
+  \end{align}
+  を知っていれば，すぐわかりそうです．
+
+\end{itemize}
+
+
+
+
+
+\clearpage
+\prb{2}{線形代数}
+\begin{enumerate}
+  \item 
+  \begin{equation}
+    J(\bm{a})
+    =
+    \begin{pmatrix}
+      0 & -a_3 & a_2 \\
+      a_3 & 0 & -a_1 \\
+      -a_2 & a_1 & 0
+    \end{pmatrix}
+    .
+  \end{equation}
+
+  \item 
+  固有方程式は
+  \begin{equation}
+    \lambda
+    (\lambda^2-|\bm{a}|^2)
+    =
+    0
+  \end{equation}
+  なので，$\lambda=0,\pm|\bm{a}|$が固有値です．
+
+  \item 
+  $P(\bm{a})\bm{x}=-\bm{a}\times(\bm{a}\times\bm{x})$の関係があることを使います．
+  \begin{enumerate}
+    \item 
+    $\bm{A}\times(\bm{B}\times\bm{C})=(\bm{A}\cdot\bm{C})\bm{B}-(\bm{A}\cdot\bm{B})\bm{C}$と$\bm{A}\times\bm{A}=0$がわかっていればOK．
+
+    \item 
+    計算すると
+    \begin{equation}
+      P(\bm{a})\bm{b}
+      =
+      -\bm{a}\times(\bm{a}\times\bm{b})
+      =
+      -(\bm{a}\cdot\bm{b})\bm{a}
+      +
+      (\bm{a}\cdot\bm{a})\bm{b}
+      =
+      \bm{b}
+      .
+    \end{equation}
+
+    \item 
+    任意のベクトル$\bm{x}$を$\bm{a}$とそれに垂直な2つの単位ベクトル$\bm{b}_1,\bm{b}_2$に分解して
+    \begin{equation}
+      \bm{x}
+      =
+      a\bm{a}
+      +
+      \sum_{i=1,2}
+      b_i\bm{b}_i
+    \end{equation}
+    とすれば，前問の結果から
+    \begin{equation}
+      P(\bm{a})^2\bm{x}
+      =
+      \sum_{i=1,2}
+      b_i\bm{b}_i
+      =
+      P(\bm{a})\bm{x}
+    \end{equation}
+    なので，$P(\bm{a})^2=P(\bm{a})$です．
+
+  \end{enumerate}
+
+  \item 
+  展開して，偶数と奇数の項に分割して考えると
+  \begin{align}
+    \exp\left( \theta J(\bm{a}) \right)
+    &=
+    \sum_{n=0}^{\infty}
+    \frac{\theta^n}{n!}J^n
+    \nonumber
+    \\
+    &=
+    1
+    +
+    \sum_{k=1}^{\infty}
+    \frac{\theta^{2k}}{(2k)!}
+    (-J)^{2k}
+    +
+    \sum_{k=0}^{\infty}    
+    \frac{\theta^{2k+1}}{(2k+1)!}
+    (-J)^{2k+1}
+    \nonumber
+    \\
+    &=
+    1
+    +
+    (\cos\theta-1)P(\bm{a})
+    +
+    \sin\theta J(\bm{a})P(\bm{a})
+  \end{align}
+  です．よって，係数比較すればOK．
+
+  \item 
+  それぞれ計算すれば
+  \begin{equation}
+    \left\{
+      \begin{alignedat}{1}
+        \exp(\theta J(\bm{a}))\bm{a}
+        &=
+        \bm{a}
+        \nonumber
+        \\
+        \exp(\theta J(\bm{a}))\bm{b}
+        &=
+        \bm{b}\cos\theta+\bm{c}\sin\theta
+        \nonumber
+        \\
+        \exp(\theta J(\bm{a}))\bm{c}
+        &=
+        -\bm{b}\sin\theta+\bm{c}\cos\theta
+      \end{alignedat}
+    \right.
+  \end{equation}
+  となります．これはちょうど，$\bm{a}$を軸にした角度$\theta$の回転になっています．
+
+  \item 
+  この変換は「\uline{座標軸}を軸$\bm{a}$に対して$-\theta$だけ回転させたのち，軸$\bm{b}$について\uline{ベクトル}を$\varphi$だけ回転させる操作」に対応しています．したがって，回転軸は
+  \begin{equation}
+    \bm{e}
+    =
+    \bm{b}\cos\theta
+    +
+    \bm{c}\sin\theta
+  \end{equation}
+  であり，角度は$\chi=\varphi$です．
+
+\end{enumerate}
+
+\subsection*{補足}
+\begin{itemize}
+  \item 
+  $\bm{e}=(e_1,e_2,e_3)$を軸にする角度$\chi$の回転は
+  \begin{align}
+    &\hspace*{-10pt}
+    \exp(\chi J(\bm{e}))
+    \nonumber
+    \\
+    &=
+    \begin{pmatrix}
+      \cos\chi
+      +
+      e_x^2(1-\cos\chi)
+      &
+      e_xe_y(1-\cos\chi)
+      -
+      e_z\sin\chi
+      &
+      e_ze_x(1-\cos\chi)
+      +
+      e_y\sin\chi
+      \\
+      e_xe_y(1-\cos\chi)
+      -
+      e_z\sin\chi
+      &
+      \cos\chi
+      +
+      e_y^2(1-\cos\chi)
+      &
+      e_ye_z(1-\cos\chi)
+      -
+      e_x\sin\chi
+      \\
+      e_ze_x(1-\cos\chi)
+      -
+      e_y\sin\chi
+      &
+      e_ye_z(1-\cos\chi)
+      +
+      e_x\sin\chi
+      &
+      \cos\chi
+      +
+      e_z^2(1-\cos\chi)
+    \end{pmatrix}
+    \label{rodrigues}
+  \end{align}
+  と書けます．今回の回転行列は
+  \begin{align}
+    &\hspace*{-10pt}
+    \exp(\theta J(\bm{a}))\exp(\varphi J(\bm{b}))\exp(-\theta J(\bm{a}))
+    \nonumber
+    \\
+    &=
+    \begin{pmatrix}
+      \cos\varphi
+      &
+      -\sin\theta\sin\varphi
+      &
+      \cos\theta\sin\varphi
+      \\
+      \sin\theta\sin\varphi
+      &
+      \cos^2\theta-\sin\theta\cos\theta\cos\varphi
+      &
+      \sin\theta\cos\theta-\cos^2\theta\cos\varphi
+      \\
+      -\cos\theta\sin\varphi
+      &
+      \sin\theta\cos\theta-\sin\theta\cos\theta\cos\varphi
+      &
+      \sin^2\theta
+      +
+      \cos^2\theta\cos\varphi
+    \end{pmatrix}
+  \end{align}
+  なので，確かに\eqref{rodrigues}で$\bm{e}=(0,\cos\theta,\sin\theta), \chi=\varphi$とおけば一致しています．
+
+\end{itemize}
+
+
+
+\clearpage
+\section{物理パート}
+\prb{1}{量子力学}
+\begin{enumerate}
+  \item 
+  微分は
+  \begin{equation}
+    \pdv[2]{}{x_1}
+    =
+    \frac{1}{4}
+    \pdv[2]{}{x}
+    +
+    \frac{1}{2}
+    \pdv[2]{}{x}{y}
+    +
+    \dv[2]{}{y}
+    ,\ 
+    \pdv[2]{}{x_2}
+    =
+    \frac{1}{4}
+    \pdv[2]{}{x}
+    -
+    \frac{1}{2}
+    \pdv[2]{}{x}{y}
+    +
+    \dv[2]{}{y}
+  \end{equation}
+  となるので，
+  \begin{equation}
+    H
+    =
+    -\frac{\hbar^2}{2m}
+    \left(  
+      \frac{1}{2}\pdv[2]{}{x}
+      +
+      2\pdv[2]{}{y}
+    \right)
+    +
+    \frac{m\omega^2}{2}
+    \left(  
+      2x^2+\frac{y^2}{2}
+    \right)
+    +
+    \frac{m\omega^2\alpha}{4}
+    y^2
+  \end{equation}
+  です．
+
+  \item 
+  $y$についてのポテンシャルは
+  \begin{equation}
+    V_{y}(y)
+    =
+    \frac{m\omega^2(\alpha+1)}{2}y^2
+  \end{equation}
+  なので，これが下に凸であるためには
+  \begin{equation}
+    \alpha\geq-1
+  \end{equation}
+  が必要です．よって，$\alpha_0=-1$．
+
+  \item 
+  $\psi(x,y)=X(x)Y(y)$と変数分離すれば，定常状態のSchr\"{o}dinger方程式は
+  \begin{equation}
+    \left\{
+      \begin{alignedat}{1}
+        -
+        \frac{\hbar^2}{4m}
+        \pdv[2]{X}{x}
+        +
+        m\omega^2 x^2 X(x)
+        &=
+        E_x X(x)
+        \\
+        -
+        \frac{\hbar^2}{m}
+        \pdv[2]{Y}{y}
+        +
+        \frac{m\omega^2(1+\alpha)}{4}y^2 Y(y)
+        &=
+        E_y Y(y)
+      \end{alignedat}
+    \right.
+  \end{equation}
+  となります．ただし，$E=E_x+E_y$です．基底状態の波動関数の形が分かっているので，
+  \begin{equation}
+    X(x)
+    =
+    \left( \frac{c_x}{\pi} \right)^{1/4}
+    e^{-(c_x/2)x^2}
+    ,\ 
+    Y(y)
+    =
+    \left( \frac{c_y}{\pi} \right)^{1/4}
+    e^{-(c_y/2)y^2}
+  \end{equation}
+  を代入していきます．$X$については
+  \begin{equation}
+    \left(  
+      -\frac{\hbar^2 c^2}{4m}
+      +
+      m\omega^2
+    \right)
+    x^2
+    =
+    E_x
+    -
+    \frac{\hbar^2 c_x}{4m}
+  \end{equation}
+  となるので，この式が任意の$x$で成立するためには$c_x=2m\omega/\hbar$であることが必要なので
+  \begin{equation}
+    E_x
+    =
+    \frac{\hbar\omega}{2}
+    ,\ 
+    X(x)
+    =
+    \left( \frac{2m\omega}{\pi\hbar} \right)^{1/4}
+    \exp\left[ -\frac{m\omega}{\hbar}x^2 \right]
+  \end{equation}
+  となります．$Y$についても同様で
+  \begin{equation}
+    E_y
+    =
+    \sqrt{1+\alpha}\frac{\hbar\omega}{2}
+    ,\ 
+    Y(y)
+    =
+    \left( \frac{m\omega\sqrt{1+\alpha}}{2\pi\hbar} \right)^{1/4}
+    \exp\left[ -\frac{m\omega\sqrt{1+\alpha}}{4\hbar}y^2 \right]
+  \end{equation}
+  です．
+
+  \item 
+  $t=0$での波動関数は
+  \begin{equation}
+    \Psi
+    (x,y;t=0)
+    =
+    \sqrt{\frac{m\omega}{\pi\hbar}}
+    e^{-m\omega x^2/\hbar}
+    e^{-m\omega y^2/4\hbar}
+  \end{equation}
+  です．したがって，
+  \begin{equation}
+    f(x,k)
+    =
+    \int_{-\infty}^{+\infty}
+    \Psi
+    (x,y;t=0)
+    e^{-iky}
+    \dd y
+    =
+    2\exp\left[  
+      -\frac{m\omega}{\hbar}x^2
+      -
+      \frac{4\hbar k^2}{m\omega}
+    \right]
+  \end{equation}
+  です．
+
+  \item 
+  時間発展を考えればよいので
+  \begin{equation}
+    \Psi(x,y;t)
+    =
+    e^{-iHt/\hbar}\Psi(x,y;t=0)
+    =
+    e^{-im\omega^2x^2t/\hbar}
+    \int_{-\infty}^{\infty}
+    \frac{\dd k}{2\pi}
+    \exp\left[ \frac{i\hbar t}{4m}\pdv[2]{}{x} \right]f(x,k)
+    \exp\left[ \frac{i\hbar t}{m}\pdv[2]{}{y} \right]e^{iky}
+  \end{equation}
+  であり，それぞれ$\exp$を展開して計算すると
+  \begin{align}
+    \exp\left[ \frac{i\hbar t}{4m}\pdv[2]{}{x} \right]f(x,k)
+    &=
+    2\exp\left[ -\frac{4\hbar k^2}{m\omega}-\frac{i\omega t}{2}\left( 1-\frac{2m\omega x^2}{\hbar} \right) \right]e^{-m\omega x^2/\hbar}
+    ,
+    \\  
+    \exp\left[ \frac{i\hbar t}{m}\pdv[2]{}{y} \right]e^{iky}
+    &=
+    \exp\left[ -\frac{i\hbar k^2t}{m} \right]e^{iky}
+  \end{align}
+  となるので\footnote{
+    $\exp$のなかにoperatorがあるときは，そこが固有値におきかわります．
+  }，
+  \begin{align}
+    &\hspace*{20pt}
+    \int_{-\infty}^{\infty}
+    \frac{\dd k}{2\pi}
+    \exp\left[ \frac{i\hbar t}{4m}\pdv[2]{}{x} \right]f(x,k)
+    \exp\left[ \frac{i\hbar t}{m}\pdv[2]{}{y} \right]e^{iky}
+    \nonumber
+    \\
+    &=
+    2\exp
+    \left[  
+      -\frac{i\omega t}{2}
+      \left(  
+        1
+        -
+        \frac{2m\omega}{\hbar}x^2
+      \right)
+      -
+      \frac{m\omega}{\hbar}x^2
+      -
+      \frac{m\omega y^2}{4\hbar(4+i\omega t)}
+    \right]
+    \nonumber
+    \\
+    &\hspace*{3cm}
+    \times
+    \int_{-\infty}^{\infty}
+    \frac{\dd k}{2\pi}
+    \exp
+    \left[  
+      -
+      \frac{\hbar(4+i\omega t)}{m\omega}
+      \left(  
+        k-\frac{im\omega y}{2\hbar(4+i\omega t)}
+      \right)^2
+    \right]
+    \nonumber
+    \\
+    &=
+    2
+    \sqrt{\frac{\pi m\omega}{\hbar(1+i\omega t)}}
+    \exp
+    \left[  
+      -\frac{i\omega t}{2}
+      \left(  
+        1
+        -
+        \frac{2m\omega}{\hbar}x^2
+      \right)
+      -
+      \frac{m\omega}{\hbar}x^2
+      -
+      \frac{m\omega y^2}{4\hbar(4+i\omega t)}
+    \right]
+  \end{align}
+  です．したがって，波動関数は
+  \begin{equation}
+    \Psi(x,y,t)
+    =
+    2
+    \sqrt{\frac{\pi m\omega}{\hbar(1+i\omega t)}}
+    \exp
+    \left[  
+      -\frac{i\omega t}{2}
+      -
+      \frac{m\omega}{\hbar}x^2
+      -
+      \frac{m\omega y^2}{4\hbar(4+i\omega t)}
+    \right]
+  \end{equation}
+  となります．
+
+\end{enumerate}
+
+
+
+\clearpage
+\prb{2}{統計力学}
+\begin{enumerate}
+  \item 
+  分配関数は
+  \begin{equation}
+    Z
+    =
+    \sum_{\sigma=\pm}
+    e^{-\beta\mathcal{H}_1}
+    =
+    2\cosh\left( \frac{\mu H}{k_BT} \right)
+  \end{equation}
+  なので
+  \begin{equation}
+    p_+
+    =
+    \dfrac{e^{\mu H/k_BT}}{2\cosh(\mu H/k_BT)}
+    ,\ 
+    p_-
+    =
+    \dfrac{e^{-\mu H/k_BT}}{2\cosh(\mu H/k_BT)}
+  \end{equation}
+  です．
+
+  \item 
+  \begin{equation}
+    \ev*{\sigma}
+    =
+    (+1)\cdot\dfrac{e^{\mu H/k_BT}}{2\cosh(\mu H/k_BT)}
+    +
+    (-1)\cdot\dfrac{e^{-\mu H/k_BT}}{2\cosh(\mu H/k_BT)}
+    =
+    \tanh\left( \frac{\mu H}{k_BT} \right)
+    .
+  \end{equation}
+
+  \item 
+  格子A上のある粒子に着目すると，そのスピンの平均値は
+  \begin{equation}
+    \ev*{\sigma_A}
+    =
+    \tanh\left( \frac{\mu H_{\mathrm{eff,A}}}{k_B T} \right)
+  \end{equation}
+  と表すことができます．よって，
+  \begin{equation}
+    \ev*{\sigma_A}
+    =
+    \tanh\left(  
+      -\frac{4J}{k_B T}\sigma_B
+      +
+      \frac{\mu H}{k_B T}
+    \right)
+  \end{equation}
+  です．格子Bについても同様．したがって，
+  \begin{equation}
+    f(x)
+    =
+    \tanh\left(  
+      -\frac{4J}{k_B T}x
+      +
+      \frac{\mu H}{k_B T}
+    \right)
+    .
+  \end{equation}
+  ただし，$z=4$としました．
+
+  \item 
+  $H=0$のとき，self-consistentな方程式は
+  \begin{equation}
+    x
+    =
+    \tanh\left( \frac{4J}{k_BT}x \right)
+  \end{equation}
+  です．右辺の$\tanh$の原点での傾きが1より小さければ非自明な解が存在するので，
+  \begin{equation}    
+    \left.
+    \dv{}{x}
+    \left[  
+      \tanh\left( \frac{4J}{k_BT}x \right)
+    \right]
+    \right|_{x=0}
+    =
+    \frac{4J}{k_B T}\leq 1
+  \end{equation}
+  より，
+  \begin{equation}
+    T_N
+    =
+    \frac{4J}{k_B}
+  \end{equation}
+  です．
+
+  \item 
+  計算すれば，
+  \begin{equation}
+    \chi
+    =
+    \frac{\mu^2}{k_BT}
+    \left(  
+      \dfrac{1}{\cosh^2\left( \frac{4J}{k_BT}\ev*{\sigma_A} \right)}
+      +
+      \dfrac{1}{\cosh^2\left( \frac{4J}{k_BT}\ev*{\sigma_B} \right)}
+    \right)
+    .
+  \end{equation}
+
+  \item 
+  平均場近似は
+  \begin{equation}
+    \mu H_{\mathrm{eff,A}}
+    =
+    -4J\ev*{\sigma_B}
+    -4J'\ev*{\sigma_A}
+  \end{equation}
+  でよいでしょう．よって，格子A上の粒子のスピンの平均値は
+  \begin{equation}
+    \ev*{\sigma_A}
+    =
+    \tanh
+    \left(  
+      -\frac{4}{k_BT}
+      \left( J\ev*{\sigma_B}+J'\ev*{\sigma_A} \right)
+    \right)
+  \end{equation}
+  なので，self-consistent方程式は
+  \begin{equation}
+    x
+    =
+    \tanh\left( \frac{4(J-J')}{k_BT}x \right)
+  \end{equation}
+  となり，同様の計算で転移温度
+  \begin{equation}
+    T_c
+    =
+    \frac{J-J'}{k_B}
+  \end{equation}
+  を得ます．また，$J'\rightarrow J$で$T_c\rightarrow 0$となっています．
+
+\end{enumerate}
+
+
+\clearpage
+\prb{3}{力学}
+\begin{enumerate}
+  \item 
+  運動エネルギーを$K$，ポテンシャルを$U$とすれば，$L=K-U$なので，
+  \begin{equation}
+    L
+    =
+    \frac{1}{2}m_1^2(\dot{x}_1^2+\dot{y}_1^2)
+    +
+    \frac{1}{2}m_2^2(\dot{x}_2^2+\dot{y}_2^2)
+    -
+    mg(l_1-y_1)
+    -
+    mg(l_2-y_2)
+  \end{equation}
+  です．
+
+  \item 
+  座標は
+  \begin{equation}
+    x_1=l_1\sin\theta_1
+    ,\ 
+    y_1=l_1\cos\theta_1
+    ,\ 
+    x_2=l_1\sin\theta_1+l_2\sin\theta_2
+    ,\ 
+    y_2=l_1\cos\theta_1+l_2\cos\theta_2
+  \end{equation}
+  です．
+
+  \item 
+  近似すると
+  \begin{align}
+    &
+    x_1=l_1\theta_1
+    ,\ 
+    y_1=l_1
+    ,\ 
+    x_2=l_1\theta_1+l_2\theta_2
+    ,\ 
+    y_2=l_1+l_2
+    ,\ 
+    \\
+    &
+    \dot{x}_1=l_1\dot{\theta_1}
+    ,\ 
+    \dot{y}_1=-l_1\dot{\theta}_1\theta_1
+    ,\ 
+    \dot{x}_2=l_1\dot{\theta}_1+l_2\dot{\theta}_2
+    ,\ 
+    \dot{y}_2=-l_1\dot{\theta}_1\theta_1-l_2\dot{\theta}_2\theta_2
+  \end{align}
+  なので，定数と$\theta$の3次以上の項を除けば
+  \begin{align}
+    L
+    &=
+    \frac{1}{2}m_1l_1^2\dot{\theta}_1^2
+    +
+    \frac{1}{2}m_2
+    \left( 
+      l_1\dot{\theta}_1^2 
+      +
+      l_2\dot{\theta}_2^2
+    \right)
+    -
+    m_1gl_1\cdot\frac{1}{2}\theta_1^2
+    -
+    m_2g\left( l_2-l_1\left( 1-\frac{1}{2}\theta_1^2 \right)-l_2\left( 1-\frac{1}{2}l_2\theta_2^2 \right) \right)
+    \nonumber
+    \\
+    &=
+    \frac{1}{2}(m_1+m_2)l_1^2\dot{\theta}_1^2
+    +
+    m_2l_1l_2\dot{\theta}_1\dot{\theta}_2
+    +
+    \frac{1}{2}m_2l_2^2\dot{\theta}_2^2
+    -
+    \frac{1}{2}(m_1+m_2)gl_1\theta_1^2
+    -
+    \frac{1}{2}m_2gl_2\theta_2^2
+  \end{align}
+  です．
+
+  \item 
+  Euler-Lagrange
+  \begin{equation}
+    \dv{}{t}
+    \pdv{L}{\dot{\theta}_i}
+    -
+    \pdv{L}{\theta_i}
+    =
+    0
+  \end{equation}
+  から，
+  \begin{gather}
+    (m_1+m_2)l_1^2\ddot{\theta}_1
+    +
+    m_2l_1l_2\ddot{\theta}_2
+    +
+    (m_1+m_2)gl_1\theta_1
+    =
+    0
+    \\
+    m_2l_2^2\ddot{\theta}_2
+    +
+    m_2l_1l_2\ddot{\theta}_1
+    +
+    m_2gl_2\theta_2
+    =
+    0
+  \end{gather}
+  です．
+
+  \item 
+  代入してみると
+  \begin{equation}
+    \left\{
+      \begin{alignedat}{1}
+        -
+        a_1\omega^2
+        (m_1+m_2)
+        l_1^2
+        -
+        a_2
+        \omega^2
+        m_2l_1l_2
+        +
+        a_1(m_1+m_2)gl_1
+        &=
+        0
+        \\
+        -a_2\omega^2
+        m_2l_2^2
+        -
+        a_1\omega^2
+        m_2l_1l_2
+        +
+        a_2\omega^2m_2gl_2
+        &=
+        0
+      \end{alignedat}
+    \right.
+  \end{equation}
+  となるので，$a\coloneqq a_2/a_1$とおいて$a$を消去すれば
+  \begin{equation}
+    \omega^4
+    -
+    g
+    \left(  
+      \frac{1}{l_1}+\frac{1}{l_2}
+    \right)
+    \left(  
+      1+\frac{m_2}{m_1}
+    \right)
+    \omega^2
+    +
+    \frac{g^2}{l_1l_2}
+    \left(  
+      1+\frac{m_2}{m_1}
+    \right)
+    =
+    0
+  \end{equation}
+  なので，これを解けば
+  \begin{equation}
+    \omega
+    =
+    \sqrt{
+      \frac{1}{2}
+      \left\{  
+        g
+        \left(  
+          \frac{1}{l_1}+\frac{1}{l_2}
+        \right)
+        \left(  
+          1+\frac{m_2}{m_1}
+        \right)
+        \pm
+        \sqrt{
+          g^2
+          \left(  
+            \frac{1}{l_1}+\frac{1}{l_2}
+          \right)^2
+          \left( 1+\frac{m_2}{m_1} \right)^2
+          -
+          \frac{4g^2}{l_1l_2}
+          \left( 1+\frac{m_2}{m_1} \right)
+        }
+      \right\}      
+    }
+  \end{equation}
+  です．(複号任意)
+
+  \item 
+  $m_2/m_1\ll 1$なので，
+  \begin{equation}
+    \omega
+    =
+    \sqrt{
+      \frac{g}{2l_1l_2}
+      \left\{  
+        l_1+l_2
+        \pm
+        |l_1-l_2|
+      \right\}
+    }
+    \label{eigen_ang}
+  \end{equation}
+  となります．$|l_1-l_2|\gg l_1+l_2$のときは，
+  \begin{equation}
+    \omega
+    =
+    \sqrt{
+      \frac{g}{2}
+      \left|  
+        \frac{1}{l_1}-\frac{1}{l_2}
+      \right|
+    }
+  \end{equation}
+  です．よって，
+  \begin{equation}
+    \frac{a_2}{a_1}
+    =
+    \frac{m_1+m_2}{m_2}
+    \times
+    \frac{g-\omega^2l_1}{\omega^2l_2}
+    =
+    \frac{m_1+m_2}{m_2}
+    \times
+    \frac{l_1(2l_2-|l_1-l_2|)}{l_2|l_1-l_2|}
+    \label{ratio}
+  \end{equation}
+  となるので，例えば
+  \begin{equation}
+    a_1=m_2l_2|l_1-l_2|
+    ,\ 
+    a_2=(m_1+m_2)l_1(2l_2-|l_1-l_2|)
+  \end{equation}
+  です\footnote{
+    \eqref{ratio}の比が保たれていれば，なんでもよいでしょう．
+  }．
+
+  \item 
+  \eqref{eigen_ang}は常に成立しています．つまり
+  \begin{equation}
+    \omega^2
+    =
+    \frac{g(l\pm|l-2l_2|)}{2(l-l_2)l_2}
+    =
+    \frac{g}{l_2}
+    \text{\ or\ }
+    \frac{g}{l-l_2}
+  \end{equation}
+  です．第1式は自明なので，第2式を考えることにすると
+  \begin{equation}
+    \frac{g}{l\omega^2}
+    =
+    1-\frac{l_2}{l}
+  \end{equation}
+  です．図は省略．$l_2\gg l_1$のとき，質点1が止まって質点2が振動するのは，$\omega\rightarrow\infty$のとき，
+  \begin{equation}
+    \frac{a_2}{a_1}
+    =
+    \frac{1+m_2/m_1}{m_2/m_1}
+    \times
+    \frac{g/\omega^2-l_1}{l_2}
+    \rightarrow
+    \frac{1+\mathcal{O}(m_2/m_1)}{\mathcal{O}(m_2/m_1)}
+  \end{equation}
+  となるからです．
+
+\end{enumerate}
+
+
+
+
+
+
+\end{document}

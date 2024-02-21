@@ -1,0 +1,150 @@
+\documentclass[a4paper,uplatex,dvipdfmx]{jsarticle}
+
+% ---Display \subsubsection at the Index
+% \setcounter{tocdepth}{3}
+
+% ---Setting about the geometry of the document----
+% \usepackage{a4wide}
+% \pagestyle{empty}
+
+% ---Physics and Math Packages---
+\usepackage{amssymb,amsfonts,amsthm,mathtools}
+\usepackage{physics,braket,bm}
+
+% ---underline---
+\usepackage{ulem}
+
+% ---cancel---
+\usepackage{cancel}
+
+% --- surround the texts or equations
+% \usepackage{fancybox,ascmac}
+
+% ---settings of theorem environment---
+\usepackage{amsthm}
+\theoremstyle{definition}
+\newtheorem{dfn}{定義}
+\newtheorem{prop}{命題}
+\newtheorem{thm}{定理}
+
+% ---settings of proof environment---
+\renewcommand{\proofname}{\textbf{証明}}
+\renewcommand{\qedsymbol}{$\blacksquare$}
+
+% ---Ignore the Warnings---
+\usepackage{silence}
+\WarningFilter{latexfont}{Some font shapes,Font shape}
+\ExplSyntaxOn
+\msg_redirect_name:nnn{hooks}{generic-deprecated}{none}
+\ExplSyntaxOff
+
+% ---Insert the figure (If insert the `draft' at the option, the process becomes faster.)---
+\usepackage{graphicx}
+% \usepackage{subcaption}
+
+% ----Add a link to a text---
+\usepackage{url,hyperref}
+\usepackage[dvipsnames,svgnames]{xcolor}
+\hypersetup{colorlinks=true,citecolor=FireBrick,linkcolor=Navy,urlcolor=purple}
+\usepackage{pxjahyper}
+% ---refer `texdoc xcolor' at the command line---
+
+% ---Tikz---
+\usepackage{tikz,pgf,pgfplots,circuitikz}
+\pgfplotsset{compat=1.15}
+\usetikzlibrary{intersections,arrows.meta,angles,calc,3d,decorations.pathmorphing}
+
+% ---Add the section number to the equation, figure, and table number---
+\makeatletter
+   \renewcommand{\theequation}{\thesection.\arabic{equation}}
+   \@addtoreset{equation}{section}
+   
+   \renewcommand{\thefigure}{\thesection.\arabic{figure}}
+   \@addtoreset{figure}{section}
+   
+   \renewcommand{\thetable}{\thesection.\arabic{table}}
+   \@addtoreset{table}{section}
+\makeatother
+
+% ---enumerate---
+% \renewcommand{\labelenumi}{$\arabic{enumi}.$}
+% \renewcommand{\labelenumii}{$(\arabic{enumii})$}
+
+% ---Index---
+% \usepackage{makeidx}
+% \makeindex 
+
+% ---Fonts---
+% \renewcommand{\familydefault}{\sfdefault}
+% \renewcommand{\kanjifamilydefault}{\gtdefault}
+
+% ---Title---
+\title{B'z}
+\author{I. Miya}
+\date{最終更新：\today}
+
+\begin{document}
+
+\section{\texorpdfstring{\includegraphics[width=0.023\linewidth]{fig/Bz/logo.png}}{B'z}%
+のロゴの遷移}
+
+本文の執筆中に「\includegraphics[width=0.020\linewidth]{fig/Bz/logo.png}のロゴ\footnote{
+  文中のロゴ（\includegraphics[width=0.020\linewidth]{fig/Bz/logo.png}のこと）は\href{https://www.youtube.com/channel/UCpEEcJhBig2GqUFxcXjqiLg}{YouTubeのオフィシャルアカウント}からとってきた．
+}\footnote{
+  基本的にはシンプルなボールド体ではあるが，「z」の左上の部分が特徴的である．
+}ってだいたいこれなのでは？（図\ref{STARS}, \ref{HighwayX}）」と思ったので，このデザインがいつから使われているのかを調べてみた．なお，この章は本文とは独立しており，self-containedになるように心がけている．また，画像などのデータは\href{https://bz-vermillion.com/discography/}{ホームページのディスコグラフィ}を参考にしている．
+
+\begin{figure}[ht]  
+  \centering
+  \begin{minipage}[t]{0.48\columnwidth}
+    \centering
+    \includegraphics[width=.7\hsize]{fig/Bz/stars_2023.png}
+    \caption{シングル（2023年）}
+    \label{STARS}
+  \end{minipage}
+  \begin{minipage}[t]{0.48\columnwidth}
+    \centering
+    \includegraphics[width=.7\hsize]{fig/Bz/highwayX_2022.png}
+    \caption{アルバム（2022年）}
+    \label{HighwayX}
+  \end{minipage}
+\end{figure}
+
+ご存じの方は多いと思われるが，\includegraphics[width=0.02\linewidth]{fig/Bz/logo.png}は1988年に1stシングル『だからその手を離して』と1stアルバム『B'z』でデビューした\footnote{
+  ちなみに，1988年は昭和63年であり，その翌年は平成元年（昭和64年）なので少し特殊な年である．こうやって覚えておくと，昭和と平成が変わった年がすぐ分かるので，年号に弱い方にはおすすめしたい．
+}（図\ref{Bz}）．1stシングル・アルバムのロゴは不思議なものが用いられており\ref{Bz}，このイラストが用いられたのはこのときだけだろう．
+
+\begin{figure}[ht]  
+  \centering
+  \begin{minipage}[t]{0.32\columnwidth}
+    \centering
+    \includegraphics[width=.7\hsize]{fig/Bz/bz.png}
+    \caption{デビュー時のアルバム（肩パッドの時代）}
+    \label{Bz}
+  \end{minipage}
+  \begin{minipage}[t]{0.32\columnwidth}
+    \centering
+    \includegraphics[width=.7\hsize]{fig/Bz/lovephantom.png}
+    \caption{\includegraphics[width=0.05\linewidth]{fig/Bz/logo.png}が初めて使われたシングル（1995年）}
+    \label{lovephantom}
+  \end{minipage}
+  \begin{minipage}[t]{0.32\columnwidth}
+    \centering
+    \includegraphics[width=.7\hsize]{fig/Bz/ichibutozenbu.png}
+    \caption{2009年のシングル}
+    \label{icibutozenbu}
+  \end{minipage}
+\end{figure}
+
+本人たちも，自分たちのロゴを確定させたかったのだろうか，2nd以降はロゴのデザインが2~3回の周期で変化していった．
+
+
+
+
+
+
+
+
+
+
+\end{document}

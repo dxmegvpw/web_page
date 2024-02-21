@@ -1,0 +1,278 @@
+{
+    "explorer.confirmDelete": false,
+    "window.commandCenter": false,
+    "workbench.editorAssociations": {
+        "*.pdf": "latex-workshop-pdf-hook"
+    },
+
+    "editor.wordSeparators": "./\\()\"'-:,.;<>~!@#$%^&*|+=[]{}`~?　、。「」【】『』（）！？てにをはがのともへでや，．",
+
+    // Tools
+    "latex-workshop.latex.tools": [
+      {
+        "name": "pdflatex",
+        "command": "pdflatex",
+        "args": [
+          "-synctex=1", 
+          "-file-line-error",
+          "-interaction=nonstopmode",      
+          "-halt-on-error",      
+          "%DOCFILE%"
+        ],
+        "env": {}
+      },
+      {
+        "name": "bibtex",
+        "command": "bibtex",
+        "args": [ 
+          "%DOCFILE%"
+        ],
+        "env": {}
+      },
+      {
+        "name": "mendex",
+        "command": "mendex",
+        "args": [ 
+          "%DOCFILE%"
+        ],
+        "env": {}
+      },  
+      // upLaTex by your hands
+      {
+        "name": "upLaTeX",
+        "command": "upLaTex",
+        "args": [
+          "-synctex=1", 
+          "-file-line-error",
+          "-interaction=nonstopmode",             
+          "-halt-on-error", 
+          "%DOCFILE%"
+        ],
+        "env": {}
+      },
+      {
+        "name": "upbibtex",
+        "command": "upbibtex",
+        "args": [ 
+          "%DOCFILE%"
+        ],
+        "env": {}
+      },
+      {
+        "name": "dvipdfmx",
+        "command": "dvipdfmx",
+        "args": [
+          "%DOCFILE%"
+        ],
+        "env": {}
+      },
+      // latexmk
+      {
+        "name": "latexmk",
+        "command": "latexmk",
+        "args": [
+          "-synctex=1",
+          "-interaction=nonstopmode",
+          "-file-line-error",
+          "-pdfdvi",
+          "-outdir=%OUTDIR%",
+          "%DOCFILE%"
+        ],
+        "env": {}
+      }
+    ],
+
+    // Recipes
+    "latex-workshop.latex.recipes": [
+      // pdfLaTex
+      {
+        "name": "pdflatex*2",
+        "tools": [
+          "pdflatex",
+          "pdflatex"
+        ]
+      },{
+        "name": "pdflatex->bibtex->pdflatex*2",
+        "tools": [
+          "pdflatex",
+          "bibtex",
+          "pdflatex",
+          "pdflatex"
+        ]
+      },
+      {
+        "name": "pdflatex->bibtex->mendex->pdflatex*2",
+        "tools": [
+          "pdflatex",
+          "bibtex",
+          "mendex",
+          "pdflatex",
+          "pdflatex"
+        ]
+      },
+      // upLaTex
+      {
+        "name": "upLaTeX*2->dvipdfmx",
+        "tools": [
+          "upLaTeX",
+          "upLaTeX",
+          "dvipdfmx"
+        ]
+      },
+      {
+        "name": "upLaTeX->upbibtex->upLaTeX*2->dvipdfmx",
+        "tools": [
+          "upLaTeX",
+          "upbibtex",         
+          "upLaTeX",         
+          "upLaTeX",
+          "dvipdfmx"
+        ]
+      },
+      {
+        "name": "upLaTeX->upbibtex->mendex->upLaTeX*2->dvipdfmx",
+        "tools": [
+          "upLaTeX",
+          "upbibtex", 
+          "mendex",        
+          "upLaTeX",         
+          "upLaTeX",
+          "dvipdfmx"
+        ]
+      },
+      // latexmk
+      {
+        "name": "latexmk",
+        "tools": [
+          "latexmk"
+        ]
+      }
+    ],
+
+    "latex-workshop.latex.magic.args": [
+      "-f", "-gg", "-pv", "-synctex=1", "-interaction=nonstopmode", "-file-line-error", "%DOCFILE%"
+    ],
+
+    "latex-workshop.latex.clean.fileTypes": [
+        "*.aux", "*.bbl", "*.blg", "*.idx", "*.ind", "*.lof", "*.lot", "*.out", "*.toc", "*.acn", "*.acr", "*.alg", "*.glg", "*.glo", "*.gls", "*.ist", "*.fls", "*.log", "*.fdb_latexmk", "*.dvi", "_minted*", "*.nav", "*.snm", "*.vrb", "*.ilg", "*.xml", "*.bcf"
+    ],
+
+    "latex-workshop.latex.autoClean.run": "onSucceeded",
+    "latex-workshop.latex.clean.method": "glob",
+    "latex-workshop.view.pdf.viewer": "tab",
+    "latex-workshop.latex.autoBuild.run": "never",
+
+    "[tex]": {
+        "editor.suggest.snippetsPreventQuickSuggestions": false,
+        "editor.tabSize": 2
+    },
+
+    "[latex]": {
+        "editor.suggest.snippetsPreventQuickSuggestions": false,
+        "editor.tabSize": 2
+    },
+
+    "[bibtex]": {
+        "editor.tabSize": 2
+    },
+    
+    "latex-workshop.intellisense.package.enabled": true,
+    "latex-workshop.intellisense.argumentHint.enabled": true,
+    "editor.suggest.matchOnWordStartOnly": false,
+    "editor.wordWrap": "bounded",
+
+    "workbench.startupEditor": "none",
+    "explorer.confirmDragAndDrop": false,
+    "security.workspace.trust.untrustedFiles": "open",
+    
+    "editor.minimap.enabled": false, // ミニマップを非表示にする
+    "editor.renderControlCharacters": true, // 制御文字を表示する
+    "editor.suggestSelection": "first", // サジェスト一覧の初期表示項目設定
+    "breadcrumbs.enabled": true, // ファイルのパンくずリストを表示する
+    "files.insertFinalNewline": true, // ファイルの末尾を改行で終わらせる
+    "editor.fontFamily": "Ricty Diminished", // フォントの設定
+    "editor.fontLigatures": true, // 合字を有効化
+    "editor.fontSize": 16, // フォントサイズを変更
+    "editor.renderLineHighlight": "all", // 選択行の行番号をハイライトする
+    "editor.cursorBlinking": "smooth", // カーソルが滑らかに点滅するように
+    "editor.cursorSmoothCaretAnimation": "on", // カーソルの点滅をアニメーション表示する
+    "editor.cursorStyle": "block", // カーソルの外観をブロックに変更
+    "files.autoGuessEncoding": false,
+    "editor.bracketPairColorization.enabled": true, // 括弧の対応を色付ける
+
+    "workspaceExplorer.workspaceStorageDirectory": "C:\\Users\\itsuki.miyane\\ws",
+    "workbench.iconTheme": "vscode-icons",
+    "vsicons.dontShowNewVersionMessage": true,
+
+    "editor.suggest.showWords": false,
+    "editor.quickSuggestionsDelay": 10,
+    
+    "git.enableSmartCommit": true,
+    "git.autofetch": true,
+    
+  "[markdown]": {
+    "editor.wordWrap": "bounded",
+  },
+  "git.confirmSync": false,
+  "cSpell.userWords": [
+    "addtoreset",
+    "Arkani",
+    "autofetch",
+    "beamer",
+    "bibtex",
+    "braket",
+    "cyclicity",
+    "derivating",
+    "DOCFILE",
+    "dont",
+    "Dupuis",
+    "dvipdfmx",
+    "Fehr",
+    "Gregoire",
+    "Hamed",
+    "Higaki",
+    "itsuki",
+    "Kahler",
+    "Kähler",
+    "Kobayashi",
+    "latexmk",
+    "Lennert",
+    "mathcal",
+    "mendex",
+    "miyane",
+    "Müller",
+    "nonstopmode",
+    "nonumber",
+    "nuclphysb",
+    "Ohki",
+    "Omura",
+    "outdir",
+    "pdfdvi",
+    "pdflatex",
+    "Polchinski",
+    "Polonyi",
+    "Renyi",
+    "Ricty",
+    "Sasaki",
+    "Spinors",
+    "SUGRA",
+    "Sumita",
+    "Superfield",
+    "supergravity",
+    "superpotential",
+    "Superstring",
+    "Supersymmetry",
+    "SUSY",
+    "synctex",
+    "Szehr",
+    "Takayanagi",
+    "Tomamichel",
+    "upbibtex",
+    "VEV's",
+    "vsicons",
+    "Wess",
+    "Witten",
+    "Zumino"
+  ],
+  "window.zoomLevel": -1,
+}

@@ -1,0 +1,1146 @@
+\pdfoutput=1
+\documentclass[a4paper,pdflatex,ja=standard]{bxjsarticle}
+
+% ---Setting about the geometry of the document----
+% \usepackage{a4wide}
+% \pagestyle{empty}
+
+% ---Physics and Math Packages---
+\usepackage{amssymb,amsfonts,amsthm,mathtools}
+\usepackage{physics,braket,bm}
+
+% ---underline---
+\usepackage{ulem}
+
+% --- sorround the texts or equations
+% \usepackage{fancybox,ascmac}
+
+% ---settings of theorem environment---
+% \usepackage{amsthm}
+% \theoremstyle{definition}
+
+% ---settings of proof environment---
+% \renewcommand{\proofname}{\uline{\textbf{証明}}}
+% \renewcommand{\qedsymbol}{$\blacksquare$}
+
+% ---Ignore the Warnings---
+\usepackage{silence}
+\WarningFilter{latexfont}{Some font shapes,Font shape}
+
+% ---Insert the figure (If insert the `draft' at the option, the process becomes faster)---
+\usepackage{graphicx}
+% \usepackage{subcaption}
+
+% ----Add a link to a text---
+\usepackage{url}
+\usepackage{xcolor,hyperref}
+\hypersetup{colorlinks=true,citecolor=orange,linkcolor=blue,urlcolor=magenta}
+\usepackage{bxcjkjatype}
+
+% ---Tikz---
+% \usepackage{tikz,pgf,pgfplots,circuitikz}
+% \pgfplotsset{compat=1.15}
+% \usetikzlibrary{intersections,arrows.meta,angles,calc,3d,decorations.pathmorphing}
+
+% ---Add the section number to the equation, figure, and table number---
+\makeatletter
+   \renewcommand{\theequation}{\thesubsection.\arabic{equation}}
+   \@addtoreset{equation}{subsection}
+   
+   \renewcommand{\thefigure}{\thesection.\arabic{figure}}
+   \@addtoreset{figure}{section}
+   
+   \renewcommand{\thetable}{\thesection.\arabic{table}}
+   \@addtoreset{table}{section}
+\makeatother
+
+% ---enumerate---
+\renewcommand{\labelenumi}{\arabic{enumi}.}
+\renewcommand{\labelenumii}{(\roman{enumii})}
+\renewcommand{\labelenumiii}{(\alph{enumiii})}
+
+% ---Index---
+% \usepackage{makeidx}
+% \makeindex
+
+% ---Fonts---
+\renewcommand{\familydefault}{\sfdefault}
+
+% ---Title---
+\title{東京大学\ 平成28年\ 物理学専攻\ 院試\ 解答例}
+\author{ミヤネ}
+\date{最終更新：\today}
+
+\newcommand{\prb}[2]{
+  \phantomsection
+  \addcontentsline{toc}{subsection}{問題 #1: #2}
+  \subsection*{第#1問\phantom{#2}}
+  \setcounter{subsection}{#1}
+  \setcounter{equation}{0}
+}
+
+\begin{document}
+
+\maketitle
+
+\tableofcontents
+\clearpage
+
+\section{数学パート}
+
+\prb{1}{線形代数}
+
+\begin{enumerate}
+  \item 
+  \begin{enumerate}
+    \item 
+    \begin{enumerate}
+      \item 
+      $\det A=\det B=1$で，$\det AB=(\det A)(\det B)$なので
+      \begin{equation}
+        \det M_n
+        =
+        \det A\cdots\det A \det B\cdots\det B
+        =
+        1
+      \end{equation}
+      です．
+
+      \item 
+      $A,B$はorthogonalなので，$M_n$も．$\tr$は転置をとっても変わらないので．
+
+      \item 
+      例えば
+      \begin{equation}
+        M_n
+        =
+        \begin{pmatrix}
+          a & b \\
+          c & d
+        \end{pmatrix}
+      \end{equation}
+      とおいてみましょう．$\det M_n=1$より逆行列が決まり，それらを足せばOK．
+
+    \end{enumerate}
+
+    \item 
+    $M_n^T=M_{n-2}^TM_{n-1}^{T}$に右から$M_{n-1}$をかければ
+    \begin{equation}
+      M_{n-2}^{T}=(M_n)^{-1}M_{n-1}
+    \end{equation}
+    です．また，$M_{n+1}=M_nM_{n-1}$より
+    \begin{equation}
+      M_{n+1}
+      +
+      (M_{n-2})^{-1}
+      =
+      M_nM_{n-1}
+      +
+      (M_n)^{-1}M_{n-1}
+      =
+      (\tr M_n)M_{n-1}
+    \end{equation}
+    となります．また，両辺の$\tr$をとれば
+    \begin{equation}
+      x_{n+1}
+      =
+      x_{n-2}
+      =
+      x_nx_{n-1}
+    \end{equation}
+    となり，$x_{n+1}=x_nx_{n-1}-x_{n-2}$が示されます．
+
+    \item 
+    $x_{n+2}=x_{n+1}x_n-x_{n-1}$を代入すると
+    \begin{align}
+      I_n
+      &=
+      (x_{n+1}x_n-x_{n-1})^2
+      +
+      x_{n+1}^2
+      +
+      x_n^2
+      -
+      (x_{n+1}x_n-x_{n-1})x_{n+1}x_n
+      \nonumber
+      \\
+      &=
+      x_{n+1}^2+x_n^2+x_{n-1}^2
+      -
+      x_{n+1}x_nx_{n-1}
+      =
+      I_{n-1}
+    \end{align}
+    となることがわかります．また，$\tr M_0=\sqrt{2}, \tr M_1=\sqrt{3}, \tr M_2=(\sqrt{6}-\sqrt{2})/2$なので，計算すれば
+    \begin{equation}
+      I_n
+      =
+      2+3\sqrt{2}-2\sqrt{3}-3\sqrt{6}
+    \end{equation}
+    となります．
+
+  \end{enumerate}
+
+  \item 
+  \begin{enumerate}
+    \item 
+    $0,\pm\sqrt{2b_1b_2}$．
+
+    \item 
+    仮に$v_1=0$だとしましょう．すると，固有ベクトル$\bm{v}$の固有値を$\lambda$とすれば，$C\bm{v}=\lambda\bm{v}$より連立方程式
+    \begin{equation}
+      \left\{
+        \begin{alignedat}{1}
+          b_1 v_2 &= 0 \\
+          b_2 v_3 &= \lambda v_2 \\
+          b_2 v_2 + b_3 v_4 &= \lambda v_3 \\
+          &\vdots \\
+          b_i v_i + b_{i+2} v_{i+3} &= \lambda v_{i+2} \\
+          &\vdots \\
+          b_{N-3} v_{N-3} + b_{N-1} v_{N} &= \lambda v_{N-1} \\
+          b_{N-1} v_{N-1} &= \lambda v_{N}      
+        \end{alignedat}
+      \right.
+    \end{equation}
+    が従います．第1,2式から$v_2,v_3=0$となりますが，漸化式から$v_4,\cdots,v_{N-1}=0$となることが決まってしまい，最終式より$v_N=0$となって自明な解となります．よって，$v_1\neq 0$です．
+
+    \item 
+    逆に$v_1\neq 0$なら，
+    \begin{equation}
+      \left\{
+        \begin{alignedat}{1}
+          b_1 v_2 &= \lambda v_1 \\
+          b_1 v_1 + b_2 v_3 &= \lambda v_2 \\
+          &\vdots \\
+          b_i v_i + b_{i+2} v_{i+3} &= \lambda v_{i+2} \\
+          &\vdots \\
+          b_{N-3} v_{N-3} + b_{N-1} v_{N} &= \lambda v_{N-1} \\
+          b_{N-1} v_{N-1} &= \lambda v_{N}      
+        \end{alignedat}
+      \right.
+    \end{equation}
+    という連立方程式を考えることになりますが，$v_1$が決まれば$\bm{v}$の残りの成分が決まってくることがわかります．このことから，ある固有値に対して対応する固有ベクトルが1対1に決まってくることがわかります\footnote{
+      固有ベクトルを固有値から決定するときは，スカラー倍の不定性があったことを思い出すと，その不定性を殺す操作と$v_1$の値を決める操作が対応します．そして，今回は$v_1$を決めると固有ベクトルが1つに定まります．
+    }．したがって，縮退がないので固有値は全て異なります．
+
+  \end{enumerate}
+
+\end{enumerate}
+
+\clearpage
+\prb{2}{微分方程式}
+\begin{enumerate}
+  \item 
+  \begin{enumerate}
+    \item 
+    変数分離すれば
+    \begin{equation}
+      \frac{1}{f}\dv[2]{f}{t}
+      =
+      \frac{1}{g}\dv[2]{g}{x}
+      -
+      \lambda^2
+      \eqqcolon
+      \Lambda
+    \end{equation}
+    となります．$g(x)=\cos kx$より，$\Lambda=-(k^2+\lambda^2)$となっているので
+    \begin{equation}
+      \dv[2]{f}{t}
+      =
+      -
+      (k^2+\lambda^2)
+      f
+    \end{equation}
+    を解けばよいことになります．初期条件は$f(0)=1,\dot{f}(0)=0$なので$f(t)=\cos\sqrt{k^2+\lambda^2}t$が解です．よって，
+    \begin{equation}
+      y(x,t)
+      =
+      \cos\sqrt{k^2+\lambda^2}t\cos kx
+    \end{equation}
+    がもとめる解です．
+
+    \item 
+    前問の解は
+    \begin{equation}
+      y(x,t)
+      =
+      \frac{1}{2}
+      \cos\left[ kx+\sqrt{k^2+\lambda^2}t \right]
+      +
+      \frac{1}{2}
+      \cos\left[ kx-\sqrt{k^2+\lambda^2}t \right]
+    \end{equation}
+    となりますが，これで分解できてます．
+
+  \end{enumerate}
+
+  \item 
+  \begin{enumerate}
+    \item 
+    $\dv*{u}{x}$をかけると
+    \begin{equation}
+      \dv{}{x}
+      \left[  
+        -\frac{1}{2}\left( \dv{u}{x} \right)^2
+        +
+        \lambda^2
+        \left(  
+          \frac{1}{2}u^4
+          -
+          u^2
+        \right)
+      \right]
+      =
+      0
+    \end{equation}
+    となるので，これを積分して$(\dv*{u}{x})^2$についてもとめると
+    \begin{equation}
+      \left( \dv{u}{x} \right)^2
+      =
+      \lambda^2
+      (
+        u^4-u^2-2A'/\lambda^2
+      )
+    \end{equation}
+    となります．なお$A'$は積分定数．$-2A'/\lambda^2$をまとめて$A$とおけば
+    \begin{equation}
+      \dv{u}{x}
+      =
+      \pm\lambda
+      \sqrt{
+        u^4-2u^2+A
+      }
+    \end{equation}
+    です．
+
+    \item 
+    $x\rightarrow\infty$で$u^2=1,u'=0$とすれば
+    \begin{equation}
+      A
+      =
+      1
+    \end{equation}
+    なので，積分すれば\footnote{
+      境界条件$|u(x)|\leq 1$はこのとき効いてきます．
+    }
+    \begin{equation}
+      \log
+      \frac{1+u}{1-u}
+      =
+      \pm
+      2\lambda x
+      +
+      C
+    \end{equation}
+    となります．境界条件$u(0)=0$より$C=0$となるので
+    \begin{equation}
+      u(x)
+      =
+      \dfrac{e^{\pm 2\lambda x}-1}{e^{\pm 2\lambda x}+1}
+    \end{equation}
+    が解です．
+
+    \item 
+    $(u+z)^3\sim u^3+3u^2z$で十分なら
+    \begin{equation}
+      \left[  
+        -\dv[2]{u}{x}
+        +
+        2\lambda^2(u^3-u)
+      \right]
+      +
+      \left[  
+        \pdv[2]{z}{t}
+        -
+        \pdv[2]{z}{x}
+        +
+        2\lambda^2
+        (
+          3u^2z
+          -
+          z
+        )
+      \right]
+      =
+      0
+    \end{equation}
+    なので，第1項は消えて
+    \begin{equation}
+      \pdv[2]{z}{t}
+        -
+        \pdv[2]{z}{x}
+        +
+        2\lambda^2
+        (
+          3u^2z
+          -
+          z
+        )
+      =
+      0
+    \end{equation}
+    が$z$が満たすべき方程式です．
+
+    \item 
+    素直に代入してみると
+    \begin{equation}
+      -
+      \omega^2
+      \dv{u}{x}
+      -
+      \dv[3]{u}{x}
+      +
+      2\lambda^2
+      \left(  
+        3u^2\dv{u}{x}
+        -
+        \dv{u}{x}
+      \right)
+      =
+      0
+      \label{pdv01}
+    \end{equation}
+    となります．問題文の式(3)を微分してみると
+    \begin{equation}
+      \dv[3]{u}{x}
+      =
+      2\lambda^2
+      \left(  
+        3u^2\dv{u}{x}
+        -
+        \dv{u}{x}
+      \right)
+    \end{equation}
+    となっているので，\eqref{pdv01}に代入すると，なんと第3項がちょうど消えて
+    \begin{equation}
+      -\omega
+      \dv{u}{x}
+      =
+      0
+    \end{equation}
+    となります．よって，$\omega=0$とすれば，$z_0$は解になっています\footnote{
+      $t$についての依存性も完全に消えてしまいますが．
+    }．
+
+  \end{enumerate}
+
+\end{enumerate}
+
+
+\clearpage
+\section{物理パート}
+\prb{1}{量子力学}
+\begin{enumerate}
+  \item 
+  次の交換関係と反交換関係は既知とします：
+  \begin{equation}
+    [\sigma_i,\sigma_j]
+    =
+    2i\varepsilon_{ijk}\sigma
+    ,\ 
+    \{\sigma_i,\sigma_j\}
+    =
+    2\delta_{ij}
+    .
+  \end{equation}
+  計算すれば
+  \begin{equation}
+    [S_x,S_y]
+    =
+    i\hbar S_z
+    ,\ 
+    [H,S_z]=0
+  \end{equation}
+  です．
+
+  \item 
+  $D^{\dagger}D=2mH$なので．
+
+  \item 
+  $D$と$\sigma_z$の反交換関係は
+  \begin{equation}
+    \{
+      D,\sigma_z
+    \}
+    =
+    p_x
+    \{
+      \sigma_x,\sigma_z
+    \}
+    +
+    p_y
+    \{
+      \sigma_y,\sigma_z
+    \}
+    =
+    0
+  \end{equation}
+  なので，第1式はOK．第2式は
+  \begin{equation}
+    D^2
+    =
+    p_x^2+p_y^2
+    +
+    p_xp_y\sigma_x\sigma_y
+    +
+    p_yp_x\sigma_y\sigma_x
+  \end{equation}
+  ですが，後ろの項は
+  \begin{equation}
+    \left\{
+      \begin{alignedat}{1}
+        p_xp_y
+        &=
+        -
+        \hbar^2\pdv[2]{}{x}{y}
+        +
+        e^2A_xA_y
+        -
+        i\hbar e\pdv{A_y}{x}
+        -
+        i\hbar eA_y\pdv{}{x}
+        -
+        i\hbar eA_x\pdv{}{y}
+        \\
+        p_yp_x
+        &=
+        -
+        \hbar^2\pdv[2]{}{x}{y}
+        +
+        e^2A_xA_y
+        -
+        i\hbar e\pdv{A_x}{y}
+        -
+        i\hbar eA_x\pdv{}{y}
+        -
+        i\hbar eA_y\pdv{}{x}
+      \end{alignedat}
+    \right.
+  \end{equation}
+  より\footnote{
+    $p_xp_y$を計算するときには少し注意が必要で
+    \begin{align*}
+      p_xp_y
+      &=
+      \left(  
+        -
+        i\hbar\pdv{}{x}
+        +
+        eA_x
+      \right)
+      \left( 
+        -
+        i\hbar\pdv{}{y}
+        +
+        eA_y
+      \right)
+      \\
+      &=
+      -
+      \hbar^2\pdv[2]{}{x}{y}
+      +
+      e^2A_xA_y
+      -
+      \uwave{
+        i\hbar\pdv{}{x}
+        A_y
+      }
+      -
+      i\hbar eA_x\pdv{}{y}      
+      \\
+      &=
+      -
+      \hbar^2\pdv[2]{}{x}{y}
+      +
+      e^2A_xA_y
+      -
+      \uwave{
+        i\hbar e\pdv{A_y}{x}
+        -
+        i\hbar eA_y\pdv{}{x}
+      }
+      -
+      i\hbar eA_x\pdv{}{y}
+    \end{align*}
+    のようになります．
+  }
+  \begin{equation}
+    [p_x,p_y]
+    =
+    -i\hbar e\left( \pdv{A_y}{x}-\pdv{A_x}{y} \right)
+    =
+    -i\hbar e B_z(x,y)
+  \end{equation}
+  となるので，
+  \begin{equation}
+    p_xp_y\sigma_x\sigma_y
+    +
+    p_yp_x\sigma_y\sigma_x
+    =
+    [p_x,p_y]
+    \sigma_x\sigma_y
+    =
+    \hbar eB_z \sigma
+  \end{equation}
+  です\footnote{
+    $\sigma_i\sigma_j=i\varepsilon_{ijk}\sigma_k+\delta_{ij}$より，$\sigma_x\sigma_y=i\sigma_z$です．
+  }．したがって，
+  \begin{equation}
+    \frac{1}{2m}D^2
+    =
+    \frac{p_x^2+p_y^2}{2m}
+    +
+    \frac{\hbar e B_z(x,y)}{2m}\sigma_z
+    =
+    H
+  \end{equation}
+  となります．
+
+  \item 
+  $\ev*{\Phi_n|\Phi_n},\ev*{\Psi_n|\Psi_n}>0$なので
+  \begin{equation}
+    E_n
+    =
+    \frac{\ev*{\Phi_n|\Phi_n}}{2m\ev*{\Psi_n|\Psi_n}}
+    >
+    0
+  \end{equation}
+  です．固有値については，$H$と$D$は可換なので，$H\ket{\Phi_n}=DH\ket{\Psi_n}=E_n\ket{\Phi_n}$です．また，
+  \begin{equation}
+    \sigma_z \ket{\Phi_n}
+    =
+    -D\sigma_z\ket{\Psi_n}
+    =
+    (-1)\ket{\Phi_n}
+  \end{equation}
+  なので，固有値は$-1$です．
+
+  \item 
+  $E=0$なら$\ev*{\Phi|\Phi}=0$です．よって，
+  \begin{equation}
+    D\ket{\Psi}
+    =
+    \ket{\Phi}
+    =
+    0
+  \end{equation}
+  です．また，
+  \begin{equation}
+    D
+    =
+    p_x\sigma_x+p_y\sigma_y
+    =
+    -
+    \begin{pmatrix}
+     0 & \hbar\left( i\pdv{}{x}+\pdv{}{y} \right)+e\left( \pdv{\rho}{y}+i\pdv{\rho}{x} \right) \\
+     \hbar\left( i\pdv{}{x}-\pdv{}{y} \right)+e\left( \pdv{\rho}{y}-i\pdv{\rho}{x} \right) & 0 \\
+    \end{pmatrix}
+  \end{equation}
+  なので，$D\ket{\Psi}=0$を計算してみると
+  \begin{equation}
+    \pdv{f_{\uparrow}}{x}
+    +
+    i\pdv{f_{\uparrow}}{y}
+    =
+    0
+    ,\ 
+    \pdv{f_{\downarrow}}{x}
+    -
+    i\pdv{f_{\downarrow}}{y}
+    =
+    0
+  \end{equation}
+  となっています．これは$w=x+iy,\bar{w}=x-iy$に対して，$f_{\uparrow}=f_{\uparrow}(w),f_{\downarrow}=f_{\downarrow}(\bar{w})$であれば，成立する式になっています．例えば
+  \begin{equation}
+    \pdv{f_{\uparrow}}{x}
+    +
+    i\pdv{f_{\uparrow}}{y}
+    =
+    f'+i\cdot(if')
+    =
+    0
+  \end{equation}
+  でしょう．
+
+  \item 
+  前問より，$E-0$なら
+  \begin{equation}
+    \psi_{\uparrow}
+    =
+    f_{\uparrow}(x+iy)
+    \exp\left[ \frac{e}{\hbar}\rho(x,y) \right]
+    ,\ 
+    \psi_{\downarrow}
+    =
+    f_{\downarrow}(x-iy)
+    \exp\left[ -\frac{e}{\hbar}\rho(x,y) \right]
+  \end{equation}
+  です．束縛状態では$r\rightarrow\infty$のときに$\psi\rightarrow 0$でないといけませんが，スピン上向きの波動関数$\psi_{\uparrow}$は0になりません．よって，束縛状態ならスピン上向きの成分は0です．また，スピン下向きの波動関数は
+  \begin{align}
+    \psi_{\downarrow}
+    &=
+    f_{\downarrow}(\bar{w})
+    \exp\left[ -\frac{ebR^2}{4\hbar}-\frac{ebR^2}{2\hbar}\log\frac{r}{R} \right]
+    \nonumber
+    \\
+    &=
+    f_{\downarrow}(\bar{w})
+    \exp\left[ -\frac{ebR^2}{4\hbar} \right]
+    \left( \frac{|\bar{w}|}{R} \right)^{-ebR^2/2\hbar}
+  \end{align}
+  となります．ここで$n\coloneqq ebR^2/2\hbar$とおくと，
+  \begin{equation}
+    f_{\downarrow}(\bar{w})
+    =
+    a_0+a_1\bar{w}+a_2\bar{w}^2+\cdots a_{n-1}\bar{w}^{n-1}+\cdots
+  \end{equation}
+  と展開できますが，$f_{\downarrow}$の最高次が$\bar{w}^n$よりも大きいと$f_{\downarrow}|\bar{w}|^{-n}$が$r\rightarrow$で0に収束してくれません．したがって，$f_{\downarrow}$の最高次は$n-1$で，一次独立なものも$n-1$つあります．つまり，一次独立なものは
+  \begin{equation}
+    \frac{ebR^2}{2\hbar}
+    -
+    1
+  \end{equation}
+  つです．
+
+\end{enumerate}
+
+
+\clearpage
+\prb{2}{力学，統計力学}
+
+\begin{enumerate}
+  \item 
+  古典論の分配関数は
+  \begin{equation}
+    Z[\beta]
+    =
+    \frac{1}{h}
+    \int_{-\infty}^{\infty}\dd p_1
+    \int_{-\infty}^{\infty}\dd x_1\ 
+    \exp\left[ -\beta 
+    \left(  
+      \frac{1}{2m}p_1^2
+      +
+      \frac{m\omega^2}{2}(x_1-a)^2
+    \right)\right]
+    =
+    \frac{1}{h}
+    \cdot
+    \frac{2\pi}{\beta\omega}
+  \end{equation}
+  です．よって，
+  \begin{equation}
+    U
+    =
+    -\pdv{}{\beta}\log Z[\beta]
+    =
+    k_B T
+    ,\ 
+    C
+    =
+    \pdv{U}{T}
+    =
+    k_B
+  \end{equation}
+  となります．また，$x_1$の平均ですが
+  \begin{equation}
+    \ev*{x_1}
+    =
+    \dfrac{\displaystyle
+      \int_{-\infty}^{\infty}\dd x_1\ 
+      x_1
+      \exp
+      \left[  
+        -\frac{\beta m\omega^2}{2}(x_1-a)^2
+      \right]
+    }{\displaystyle
+      \int_{-\infty}^{\infty}\dd x_1\ 
+      \exp
+      \left[  
+        -\frac{\beta m\omega^2}{2}(x_1-a)^2
+      \right]
+    }
+    =
+    a
+  \end{equation}
+  となります\footnote{
+    平行移動して積分すればよいです．
+  }．同様にして，分散を計算すれば
+  \begin{align}
+    \sigma_1^2
+    &=
+    \ev*{x_1^2}-\ev*{x_1}^2
+    \nonumber
+    \\
+    &=
+    \frac{\displaystyle
+      \int_{-\infty}^{\infty}\dd x_1\ 
+      x_1^2
+      \exp
+      \left[  
+        -\frac{\beta m\omega^2}{2}(x_1-a)^2
+      \right]
+    }{\displaystyle
+      \int_{-\infty}^{\infty}\dd x_1\ 
+      \exp
+      \left[  
+        -\frac{\beta m\omega^2}{2}(x_1-a)^2
+      \right]
+    }
+    -
+    a^2
+    =
+    \frac{k_BT}{m\omega^2}
+  \end{align}
+  となります．
+
+  \item 
+  分配関数は
+  \begin{equation}
+    Z_{Q}[\beta]
+    =
+    \sum_{n=0}^{\infty}e^{-\beta\hbar\omega(n+1/2)}
+    =
+    \frac{1}{2\sinh(\beta\hbar\omega/2)}
+  \end{equation}
+  なので，
+  \begin{equation}
+    U_Q
+    =
+    -\pdv{}{\beta}\log Z
+    =
+    \frac{\hbar\omega}{2}
+    \coth(\beta\hbar\omega/2)
+    ,\ 
+    C_Q
+    =
+    \pdv{U_Q}{T}
+    =
+    \frac{\hbar^2\omega^2}{4k_BT^2}
+    \cdot
+    \frac{1}{\sinh^2(\hbar\omega/2k_BT)}
+  \end{equation}
+  となります．また，$X_1\coloneqq x_1-a$に対して
+  \begin{equation}
+    \ev*{n|X_1|n}
+    =
+    0
+  \end{equation}
+  なので，
+  \begin{equation}
+    \ev*{X_1}
+    =
+    \frac{1}{Z_{Q}[\beta]}
+    \sum_{n=0}^{\infty}
+    \ev*{n|X_1|n}
+    e^{-\beta\hbar\omega(n+1/2)}
+    =
+    0
+  \end{equation}
+  です．よって，$\ev*{x_1}=a$です．同様に考えれば
+  \begin{align}
+    \ev*{n|X_1^2|n}
+    &=
+    \frac{\hbar}{2m\omega}
+    (\sqrt{n}\bra{n-1}+\sqrt{n+1}\bra{n+1})
+    (\sqrt{n}\ket{n-1}+\sqrt{n+1}\ket{n+1})
+    \nonumber
+    \\
+    &=
+    \frac{1}{m\omega^2}
+    \cdot
+    \hbar\omega^2
+    \left(  
+      n+\frac{1}{2}
+    \right)
+  \end{align}
+  なので
+  \begin{align}
+    \ev*{X_1^2}
+    &=
+    \frac{1}{Z_Q[\beta]}
+    \sum_{n=0}^{\infty}
+    \frac{1}{m\omega^2}
+    \cdot
+    \hbar\omega^2
+    \left(  
+      n+\frac{1}{2}
+    \right)
+    e^{-\beta\hbar\omega(n+1/2)}
+    \nonumber
+    \\
+    &=
+    \frac{\hbar}{2m\omega}\cosh\left( \frac{\hbar\omega}{2k_BT} \right)
+  \end{align}
+  より，$\ev*{X_1^2}=\ev*{x_1^2}-a^2=\ev*{x_1^2}-\ev*{x_1}^2$なので
+  \begin{equation}
+    \sigma^2
+    =
+    \frac{\hbar}{2m\omega}\cosh\left( \frac{\hbar\omega}{2k_BT} \right)
+  \end{equation}
+  です．内部エネルギーは，高温$k_BT\gg\hbar\omega$では
+  \begin{equation}
+    U_Q
+    \sim
+    \frac{\hbar^2\omega^2}{4k_BT^2}
+    \cdot
+    \frac{4k_B^2T^2}{\hbar^2\omega^2}
+    =
+    k_BT
+    =
+    C
+  \end{equation}
+  で古典論に一致し，低温$k_BT\ll\hbar\omega$では
+  \begin{equation}
+    U_Q
+    \sim
+    \frac{\hbar^2\omega^2}{4k_BT^2}
+    \cdot
+    0
+    =
+    0
+  \end{equation}
+  となります．
+
+  \item   
+  この系の運動方程式は
+  \begin{equation}
+    \dv[2]{}{t}
+    \begin{pmatrix}
+      x_1 \\
+      x_2 \\
+      \vdots \\
+      x_{N-1} \\
+      x_N
+    \end{pmatrix}
+    =
+    -\omega^2
+    \begin{pmatrix}
+      2 & -1 &      &   &   \\
+     -1 &  2 & -1   &   &   \\
+        &    &\ddots&   &   \\
+        &    &   -1 & 2 & -1\\
+        &    &      & -1& 2  
+   \end{pmatrix}
+    \begin{pmatrix}
+      x_1 \\
+      x_2 \\
+      \vdots \\
+      x_{N-1} \\
+      x_N
+    \end{pmatrix}
+  \end{equation}
+  なので，その係数行列
+  \begin{equation}
+    A
+    \coloneqq
+    \begin{pmatrix}
+      2 & -1 &      &   &   \\
+     -1 &  2 & -1   &   &   \\
+        &    &\ddots&   &   \\
+        &    &   -1 & 2 & -1\\
+        &    &      & -1& 2  
+   \end{pmatrix}
+  \end{equation}
+  の固有値を考えてみることにしましょう．まずは，対角成分を除いた行列
+  \begin{equation}
+    B
+    \coloneqq
+    \begin{pmatrix}
+      0 & -1 &      &   &   \\
+     -1 &  0 & -1   &   &   \\
+        &    &\ddots&   &   \\
+        &    &   -1 & 0 & -1\\
+        &    &      & -1& 0  
+   \end{pmatrix}
+  \end{equation}
+  の固有値を考えます．すると，この行列の固有値と固有ベクトルは
+  \begin{equation}
+    \lambda_i
+    =
+    -
+    2
+    \cos\left( \frac{i\pi}{N+1} \right)
+    ,\ 
+    (u_i)_j
+    =
+    \sin\left( \frac{ij\pi}{N+1} \right)
+  \end{equation}
+  であることがわかります\footnote{
+    固有ベクトルのほうの添え字がやかましいかもしれませんが，$i$が固有値のindexで，$j$はcomponentsのindexです．
+  }．実際に，例えば$B\bm{u}_i$の第2成分を見てみると
+  \begin{equation}
+    -\sin\left( \frac{i\pi}{N+1} \right)
+    -\sin\left( \frac{3i\pi}{N+1} \right)
+    =
+    -2\cos\left( \frac{i\pi}{N+1} \right)\sin\left( \frac{2i\pi}{N+1} \right)
+  \end{equation}
+  となっています\footnote{
+    もちろん，もっと一般にできます．
+  }．したがって，$\bm{u}_i$は$A$の固有ベクトルでもあります．なぜなら，
+  \begin{equation}
+    A\bm{u}_i
+    =
+    (2+B)\bm{u}_i
+    =
+    \left( 2-\lambda_i \right)\bm{u}_i
+  \end{equation}
+  だからです．したがって，$\omega^2A$の固有値は
+  \begin{equation}
+    \omega^2
+    \left(  
+      2-2\cos\left( \frac{i\pi}{N+1} \right)
+    \right)
+  \end{equation}
+  であり，これが$\omega_l^2$です．
+
+  \item 
+  変数を
+  \begin{equation}
+    \left\{
+      \begin{alignedat}{1}
+        X_1&= x_1 - a \\
+        &\vdots \\
+        X_i &= x_i - x_{i-1} -a \\
+        &\vdots \\
+        X_N &= a(N+1) - X_N
+      \end{alignedat}
+    \right.
+  \end{equation}
+  と変換すれば，ハミルトニアンは
+  \begin{equation}
+    H
+    =
+    \sum_{i=1}^{N}
+    \left[  
+      \frac{1}{2m}p_i^2
+      +
+      \frac{m\omega^2}{2}X_i^2
+    \right]
+  \end{equation}
+  と書き換えることができます．このとき，系が分離できているので，設問1.と同様の議論をすればよいでしょう．$\omega$の依存性がなかったので，
+  \begin{equation}
+    C_1
+    =
+    k_B
+    .
+  \end{equation}
+
+  \item 
+  粒子$l$の分配関数は
+  \begin{equation}
+    Z^{(l)}_Q[\beta]
+    =
+    \sum_{n=0}^{\infty}e^{-\beta\hbar\omega_l(n+1/2)}
+  \end{equation}
+  と書けるので，設問2.と同様にして比熱は
+  \begin{equation}
+    C_{1Q}^{l}
+    =
+    \frac{\hbar^2\omega_l^2}{4k_BT^2}
+    \cdot
+    \frac{1}{\sinh^2(\hbar\omega_l/2k_BT)}
+  \end{equation}
+  ともとまります．よって，平均をとれば
+  \begin{equation}
+    C_{1Q}
+    =
+    \frac{1}{N}
+    \sum_{l=1}^{N}
+    \frac{\hbar^2\omega_l^2}{4k_BT^2}
+    \cdot
+    \frac{1}{\sinh^2(\hbar\omega_l/2k_BT)}
+  \end{equation}
+  ですが，$x_l\coloneqq \hbar\omega/k_BT$とすれば
+  \begin{equation}
+    C_{1Q}
+    =
+    k_B
+    \cdot
+    \frac{1}{N}
+    \sum_{l=1}^{\infty}
+    \frac{x_l^2e^x}{(e^x-1)^2}
+  \end{equation}
+  となります．今は高温極限$|x_{l+1}-x_l|\ll 1$と$N\gg 1$の状況を考えているので，
+  \begin{equation}
+    C_{1Q}
+    =
+    \frac{k_B}{\Delta x}
+    \cdot
+    \frac{\Delta x}{N}
+    \sum_{l=1}^{\infty}
+    \frac{x_l^2e^{x_l}}{(e^{x_l}-1)^2}
+    \sim
+    \frac{2k_B}{\Delta x}
+    \int_0^\infty
+    \dd x
+    \frac{x^2e^x}{(e^x-1)^2}
+  \end{equation}
+  です．ここで，
+  \begin{equation}
+    \Delta x
+    =
+    \frac{\hbar}{k_BT}\Delta\omega
+    \sim
+    \frac{\hbar\omega}{k_BT}
+  \end{equation}
+  なので
+  \begin{equation}
+    C_{1Q}
+    =
+    \frac{\pi^2k_B^2}{3\hbar\omega}T
+  \end{equation}
+  となり，$b=1,A=\pi^2k_B^2/3\hbar\omega$です．
+
+
+\end{enumerate}
+
+\subsection*{補足}
+\begin{itemize}
+  \item 
+  あまり運動方程式とかにまじめに言及してなかったので．まず，この系のラグランジアンは
+  \begin{equation}
+    L
+    =
+    \frac{1}{2}m\dot{x}_1^2
+    -
+    \frac{m\omega^2}{2}
+    (x_1-a)^2
+    +
+    \frac{1}{2}m\dot{x}_2^2
+    -
+    \frac{m\omega^2}{2}
+    (x_2-x_1-a)^2
+    +
+    \cdots
+  \end{equation}
+  で与えられます．したがって，$x_i$に共役運動量は
+  \begin{equation}
+    p_i
+    =
+    \pdv{L}{\dot{x}_i}
+    =
+    m\dot{x}_i
+  \end{equation}
+  です．このことから，運動方程式はEuler-Lagramgeから
+  \begin{equation}
+    m\ddot{x}_i
+    +
+    m\omega^2
+    (2x_i-x_{i+1}-x_{i-1})
+    =
+    0
+  \end{equation}
+  であることがわかります．また，ハミルトニアンは
+  \begin{equation}
+    H
+    =
+    \sum_{i}p_i\dot{q}_i
+    -
+    L
+  \end{equation}
+  で与えられますが，これを計算すればちゃんと今回のハミルトニアンになっています．
+
+\end{itemize}
+
+\end{document}

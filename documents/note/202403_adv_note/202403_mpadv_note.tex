@@ -1,0 +1,220 @@
+\documentclass[a4paper,uplatex,dvipdfmx,10pt]{jsarticle}
+\usepackage[T1]{fontenc}
+\usepackage{tgtermes}
+
+% ---Display \subsubsection at the Index
+% \setcounter{tocdepth}{3}
+
+% ---Setting about the geometry of the document----
+% \usepackage{a4wide}
+% \pagestyle{empty}
+
+% ---Physics and Math Packages---
+\usepackage{amssymb,amsfonts,amsthm,mathtools}
+\usepackage{physics,braket,bm}
+
+% ---underline---
+\usepackage{ulem}
+
+% ---cancel---
+\usepackage{cancel}
+
+% --- surround the texts or equations
+% \usepackage{fancybox,ascmac}
+
+% ---settings of theorem environment---
+% \usepackage{amsthm}
+% \theoremstyle{definition}
+
+% ---settings of proof environment---
+% \renewcommand{\proofname}{\textbf{証明}}
+% \renewcommand{\qedsymbol}{$\blacksquare$}
+
+% ---Ignore the Warnings---
+\usepackage{silence}
+\WarningFilter{latexfont}{Some font shapes,Font shape}
+\ExplSyntaxOn
+\msg_redirect_name:nnn{hooks}{generic-deprecated}{none}
+\ExplSyntaxOff
+
+% ---Insert the figure (If insert the `draft' at the option, the process becomes faster.)---
+\usepackage{graphicx}
+% \usepackage{subcaption}
+
+% ----Add a link to a text---
+\usepackage{url,hyperref}
+\usepackage[dvipsnames,svgnames]{xcolor}
+\hypersetup{colorlinks=true,citecolor=FireBrick,linkcolor=Navy,urlcolor=purple}
+\usepackage{pxjahyper}
+% ---refer `texdoc xcolor' at the command line---
+
+% ---Tikz---
+% \usepackage{tikz,pgf,pgfplots,circuitikz}
+% \pgfplotsset{compat=1.15}
+% \usetikzlibrary{intersections,arrows.meta,angles,calc,3d,decorations.pathmorphing}
+
+% ---Add the section number to the equation, figure, and table number---
+\makeatletter
+   \renewcommand{\theequation}{\thesection.\arabic{equation}}
+   \@addtoreset{equation}{section}
+   
+   \renewcommand{\thefigure}{\thesection.\arabic{figure}}
+   \@addtoreset{figure}{section}
+   
+   \renewcommand{\thetable}{\thesection.\arabic{table}}
+   \@addtoreset{table}{section}
+\makeatother
+
+% ---enumerate---
+% \renewcommand{\labelenumi}{$\arabic{enumi}.$}
+% \renewcommand{\labelenumii}{$(\arabic{enumii})$}
+
+% ---Index---
+% \usepackage{makeidx}
+% \makeindex 
+
+% ---Fonts---
+% \renewcommand{\familydefault}{\sfdefault}
+
+% ---Title---
+\title{高次元時空モデルと素粒子標準模型}
+\author{宮根\ 一樹}
+\date{2024年\ 3月}
+
+\begin{document}
+
+\maketitle
+
+\begin{abstract}
+   これは数物セミナー素粒子グループでのリレーセミナーの資料になります。私が現在所属している研究室\footnote{
+      早稲田大学の安倍研究室といいます。ホームページは\href{http://www.hep.phys.waseda.ac.jp/index-j.html}{こちら}です。
+   }は、4次元よりも大きい次元の時空を仮定する高次元時空モデルから素粒子標準模型を再現することを目標とした研究を主にしています。そこで、ここでは高次元時空モデルからどのようにして統一理論の見通しがつくのかについて、議論したいと思います。そのため、今回はほとんどが古典論の議論となるので、聞く分には量子論の知識はいらないと思います。
+\end{abstract}
+
+\tableofcontents
+
+\clearpage
+
+\section{はじめに}
+
+
+\clearpage
+
+\section{高次元の場の理論とコンパクト化}
+
+この章では、$4+n$次元の(Einstein-Hilbert)作用がコンパクト化によって、4次元では、一般相対論とYang-Mills理論になることを見ていこうと思います。
+
+
+\subsection{コンパクト化}
+
+まずは単純に5次元の時空を考えることにします。その座標は$z^{M}$で、$M=0,1,2,3,4$という値をとります。また、時空はミンコフスキーで計量は
+\begin{equation}
+   \eta_{MN}
+   =
+   \text{diag}(-,+,+,+,+)
+\end{equation}
+です。この時空上の場の理論は、たとえば実スカラー場$\phi(z)$なら
+\begin{equation}
+   S
+   =
+   \int\dd^5 z\ \sqrt{-g}
+   \left(  
+      -\frac{1}{2}
+      g^{MN}\partial_{M}\phi\partial_{N}\phi
+   \right)
+   \label{eqn:action_5d_real_scalar}
+\end{equation}
+のように4次元の理論と同じように議論することができます。
+
+ここで、5番目の座標$z_{4}$が半径$a$の円周になったとしましょう。円周$S^{1}$となったときは$\theta\in[0,2\pi)$でパラメトライズするのが便利なので、以後は無次元のパラメターで$z_{4}(\theta)$と書けるとします。さらに
+\begin{equation}
+   \dd z_{4}
+   =
+   a\dd \theta
+\end{equation}
+という関係が成立するとすれば、$\dd z_{4}^2=a^2\dd \theta^2$より
+\begin{equation}
+   g_{\theta\theta}=a^2
+   。
+\end{equation}
+
+上述のように、余剰空間に境界条件を課すことを「コンパクト化」といいます。ここで、5次元のミンコフスキー時空$M_{5}$がコンパクト化によって時空が4次元ミンコフスキーと円周の直積$M_{4}\times S^{1}$になるとすれば、その計量は
+\begin{equation}
+   g_{MN}
+   =
+   \begin{pmatrix}
+      \eta_{\mu\nu} & 0 \\
+      0 & a^2
+   \end{pmatrix}
+\end{equation}
+です\footnote{
+   ただし、$g_{\mu\theta}=g_{\theta\mu}=0$と4次元の部分と1次元の部分が完全に分離できているのは仮定です。
+}。
+
+このような時空の上で、実スカラー場$\phi(z)$の理論を考えてみましょう。今、$\theta$方向は円周$S^{1}$にコンパクト化されていることから、$\phi(z)$はフーリエ級数展開できます：
+\begin{equation}
+   \phi(x,\theta)
+   =
+   \frac{1}{\sqrt{2\pi}}
+   \sum_{k}\tilde{\phi}_{k}(x)e^{ik\theta}
+   。
+\end{equation}
+これを5次元の実スカラー場の作用\eqref{eqn:action_5d_real_scalar}に代入すれば
+\begin{align}
+   S
+   &=
+   \nonumber
+   \\
+   &=
+\end{align}
+
+
+
+
+
+
+
+
+
+
+% -----------------------
+
+\clearpage
+\makeatletter
+\renewcommand{\appendix}{\par
+  \setcounter{section}{0}%
+  \setcounter{subsection}{0}%
+  \gdef\presectionname{\appendixname}%
+  \gdef\postsectionname{}%
+  \gdef\thesection{\presectionname\@Alph\c@section\postsectionname}%
+  \gdef\thesubsection{\@Alph\c@section.\@arabic\c@subsection}%
+  \renewcommand{\theequation}{\@Alph\c@section.\arabic{equation}}%
+  \renewcommand{\thefigure}{\@Alph\c@section.\arabic{figure}}%
+  \renewcommand{\thetable}{\@Alph\c@section.\arabic{table}}%
+}
+\makeatother
+\appendix
+
+
+\section{標準模型の復習}
+
+夜ゼミの雰囲気が分かりませんが、もしかしたらと思って書いておきます\footnote{
+   夜ゼミがどんな感じかわかりませんが、真面目すぎたり簡単すぎたりしたらボツにします(笑)
+}。
+
+\subsection{Yang-Mills理論}
+
+
+
+
+
+
+% -----------------------
+
+\clearpage
+\bibliography{hoge}
+\bibliographystyle{ytphys}
+
+\nocite{藤井_超重_2005}
+
+\end{document}

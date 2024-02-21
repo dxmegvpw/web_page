@@ -1,0 +1,1651 @@
+\pdfoutput=1
+\documentclass[a4paper,pdflatex,ja=standard]{bxjsarticle}
+
+% ---Setting about the geometry of the document----
+% \usepackage{a4wide}
+% \pagestyle{empty}
+
+% ---Physics and Math Packages---
+\usepackage{amssymb,amsfonts,amsthm,mathtools}
+\usepackage{physics,braket,bm}
+
+% ---underline---
+\usepackage{ulem}
+
+% --- sorround the texts or equations
+% \usepackage{fancybox,ascmac}
+
+% ---settings of theorem environment---
+% \usepackage{amsthm}
+% \theoremstyle{definition}
+
+% ---settings of proof environment---
+% \renewcommand{\proofname}{\textbf{証明}}
+% \renewcommand{\qedsymbol}{$\blacksquare$}
+
+% ---Ignore the Warnings---
+\usepackage{silence}
+\WarningFilter{latexfont}{Some font shapes,Font shape}
+
+% ---Insert the figure (If insert the `draft' at the option, the process becomes faster)---
+\usepackage{graphicx}
+% \usepackage{subcaption}
+
+% ----Add a link to a text---
+\usepackage{url}
+\usepackage{xcolor,hyperref}
+\hypersetup{colorlinks=true,citecolor=orange,linkcolor=blue,urlcolor=magenta}
+\usepackage{bxcjkjatype}
+
+% ---Tikz---
+\usepackage{tikz,pgf,pgfplots,circuitikz}
+\pgfplotsset{compat=1.15}
+\usetikzlibrary{intersections,arrows.meta,angles,calc,3d,decorations.pathmorphing}
+
+% ---Add the section number to the equation, figure, and table number---
+\makeatletter
+   \renewcommand{\theequation}{\thesubsection.\arabic{equation}}
+   \@addtoreset{equation}{section}
+   
+   \renewcommand{\thefigure}{\thesection.\arabic{figure}}
+   \@addtoreset{figure}{section}
+   
+   \renewcommand{\thetable}{\thesection.\arabic{table}}
+   \@addtoreset{table}{section}
+\makeatother
+
+% ---enumerate---
+\renewcommand{\labelenumi}{\arabic{enumi}.}
+\renewcommand{\labelenumii}{(\roman{enumii})}
+
+% ---Index---
+% \usepackage{makeidx}
+% \makeindex 
+
+% ---Fonts---
+\renewcommand{\familydefault}{\sfdefault}
+
+% ---Title---
+\title{東京大学\ 令和2年\ 物理学専攻\ 院試\ 解答例}
+\author{ミヤネ}
+\date{最終更新：\today}
+
+\newcommand{\prb}[2]{
+  \phantomsection
+  \addcontentsline{toc}{subsection}{問題 #1: #2}
+  \subsection*{第#1問}
+  \setcounter{subsection}{#1}
+  \setcounter{equation}{0}
+}
+
+\begin{document}
+
+\maketitle
+
+\tableofcontents
+\clearpage
+
+\section{数学パート}
+
+\prb{1}{偏微分}
+
+\setcounter{subsection}{1}
+
+\begin{enumerate}
+  \item 
+  \begin{enumerate}
+    \item
+    被積分関数をべき級数展開すれば
+    \begin{equation}
+      e^{-\xi^2}
+      =
+      \sum_{n=0}^{\infty}\frac{(-1)^n}{n!}\xi^{2n}
+    \end{equation}
+    となり，これを積分すれば
+    \begin{align}
+      \text{erf}(x)
+      &=
+      \frac{2}{\sqrt{\pi}}\int_{0}^{x}\dd \xi\ e^{-\xi^2}
+      \nonumber
+      \\
+      &=
+      \frac{2}{\sqrt{\pi}}\sum_{n=0}^{\infty}\frac{(-1)^n}{n!}\int_{0}^{x}\dd \xi\ 
+      \xi^{2n}
+      \nonumber
+      \\
+      &=
+      \frac{2}{\sqrt{\pi}}
+      \sum_{n=0}^{\infty}\frac{(-1)^n}{n! (2n+1)}x^{2n+1}
+    \end{align}
+    となる．
+
+    \item 
+    $\xi^2=\eta$と積分変数を変換すれば
+    \begin{align}
+      \text{erf}(x)
+      &=
+      \frac{1}{\sqrt{\pi}}\int_{0}^{x^2}\dd \eta\ \eta^{-1/2} e^{-\eta}
+      \nonumber
+      \\
+      \nonumber
+      &=
+      -\frac{1}{\sqrt{\pi}}\left\{ 
+      \left[ \eta^{-1/2}e^{-\eta} \right]_{0}^{x^2}
+      +
+      \frac{1}{2}\int_{0}^{x^2}\dd \eta\ \eta^{-3/2}e^{-\eta}
+      \right\}
+      \\
+      &=
+      -\frac{1}{\sqrt{\pi}x}e^{-x^2}
+      +
+      \lim_{\eta\rightarrow 0}\frac{e^{-\eta}}{\sqrt{\eta}}+\frac{1}{2}\int_{0}^{x^2}\dd \eta\ \eta^{-3/2}e^{-\eta}
+    \end{align}
+    となる．ここで
+    \begin{equation}
+      \text{erf}(x)
+      \rightarrow
+      \frac{2}{\sqrt{\pi}}\int_{0}^{\infty}\dd \xi\ e^{-\xi^2}
+      =
+      1
+    \end{equation}
+    なので，$x\sim\infty$で第2,3項が$1$に近いと近似できて
+    \begin{equation}
+      \text{erf}(x)
+      \sim
+      1-\frac{1}{\sqrt{\pi}x}e^{-x^2}
+    \end{equation}
+    である．
+  \end{enumerate}
+
+  \item 
+  \begin{enumerate}
+    \item 
+    解が
+    \begin{equation}
+      u(x,t)
+      =
+      X(x)T(t)
+      .
+    \end{equation}
+    と書けるとする．これを方程式に代入して，整理すれば
+    \begin{equation}
+      \frac{1}{X}\dv{X}{x}
+      =
+      -\frac{1}{cT}\dv{T}{t}
+      \coloneqq
+      \Lambda
+    \end{equation}
+    となる．ここで，$\Lambda$は定数である．よって，微分方程式を解けば，それぞれ
+    \begin{equation}
+      X(x)=Ae^{\Lambda x}\ ,\ T(t)=Be^{-c\Lambda t}
+    \end{equation}
+    と定数$A,B$を用いてあらわすことができる．この積が解$u(x,t)$だったので
+    \begin{equation}
+      u(x,t)
+      =
+      A^{*}e^{\Lambda (x-ct)}
+      \label{sol1}
+    \end{equation}
+    である．ただし，$A^{*}=AB$とおいた．$t=0$とすれば
+    \begin{equation}
+      U(x)
+      =
+      A^{*}e^{\Lambda }
+    \end{equation}
+    と初期条件から求まる．よって\eqref{sol1}より
+    \begin{equation}
+      u(x,t)=U(x-ct)
+    \end{equation}
+    となる．
+
+    \item 
+    フーリエ変換の定義から，逆フーリエ変換は
+    \begin{equation}
+      u(x,t)
+      =
+      \int_{-\infty}^{\infty}\dd k\ \tilde{u}(k,t)e^{ikx}
+    \end{equation}
+    となる．これを方程式に代入すれば
+    \begin{equation}
+      \pdv{\tilde{u}}{t}
+      =
+      -\left( ick+\frac{\lambda}{2}k^2 \right)\tilde{u}
+      \label{PDEink}
+    \end{equation}
+    となり，初期条件は
+    \begin{equation}
+      \tilde{U}(k)
+      =
+      \frac{1}{\sqrt{2\pi}}\int_{-\infty}^{\infty}\dd x\ U(x)e^{-ikx}
+    \end{equation}
+    である．
+
+    \item
+    $U(x)=\delta (x)$のとき，初期条件は
+    \begin{equation}
+      \tilde{U}(k)
+      =
+      \frac{1}{\sqrt{2\pi}}
+    \end{equation}
+    である．\eqref{PDEink}を解くと
+    \begin{equation}
+      \tilde{G}(k,t)
+      =
+      A(k)\exp\left[ -\left( ick+\frac{\lambda}{2}k^2 \right)t \right]
+      \label{solink}
+    \end{equation}
+    である．ただし，$A$は$k$のみに依存する関数である．初期条件から
+    \begin{equation}
+      A
+      =
+      \frac{1}{\sqrt{2\pi}}
+    \end{equation}
+    となるので
+    \begin{equation}
+      \tilde{G}(k,t)
+      =
+      \frac{1}{\sqrt{2\pi}}\exp\left[ -\left( ick+\frac{\lambda}{2}k^2 \right)t \right]
+    \end{equation}
+    となり，
+    \begin{align}
+      G(x,t)
+      &=
+      \int_{-\infty}^{\infty}\dd k\ \tilde{G}(k,t)e^{ikx}
+      \nonumber
+      \\
+      &=
+      \frac{1}{\sqrt{2\pi}}\int_{-\infty}^{\infty}\dd k\ e^{-(\lambda t/2)k^2+i(x-ct)k}
+      \nonumber
+      \\
+      &=
+      \frac{1}{\sqrt{\lambda t}}e^{-\tfrac{(x-ct)^2}{2\lambda t}}
+    \end{align}
+    である．
+
+    \item 
+    初期条件は
+    \begin{equation}
+      \tilde{U}(k)
+      =
+      \frac{1}{\sqrt{2\pi}}\int_{-\infty}^{0}\dd x\ e^{-ikx}
+      =
+      \frac{1}{\sqrt{2\pi}}\int_{0}^{\infty}\dd x\ e^{ikx}
+    \end{equation}
+    となる．よって，\eqref{solink}の解は
+    \begin{equation}
+      A(k)
+      =
+      \tilde{U}(k)
+    \end{equation}
+    であり
+    \begin{equation}
+      \tilde{u}(k,t)
+      =
+      \tilde{U}(k)
+      \exp\left[ -\left( ick+\frac{\lambda}{2}k^2 \right)t \right]
+    \end{equation}
+    となる．よって，$\tilde{u}(k,t)$を逆変換して$u(x,t)$を求めれば
+    \begin{align}
+      u(x,t)
+      &=
+      \int_{-\infty}^{\infty}\dd k\ e^{ikx}
+      \frac{1}{\sqrt{2\pi}}\int_{0}^{\infty}\dd x'\ e^{ikx'}
+      e^{-\left( ick+(\lambda/2)k^2 \right)t}
+      \nonumber
+      \\
+      &=
+      \frac{1}{\sqrt{2\pi}}
+      \int_{0}^{\infty}\dd x'\ \int_{-\infty}^{\infty}\dd k\ 
+      e^{-(\lambda t/2)k^2+i(x+x'-ct)k}
+      \nonumber
+      \\
+      &=
+      \frac{1}{\sqrt{\lambda t}}\int_{0}^{\infty}\dd x'\ e^{-\tfrac{(x+x'-ct)^2}{2\lambda t}}
+    \end{align}
+    となる．変数を
+    \begin{equation}
+      \frac{(x+x'-ct)^2}{2\lambda t}
+      =
+      z^2
+    \end{equation}
+    と変換すれば
+    \begin{align}
+      \int_{0}^{\infty}\dd x'\ e^{-\tfrac{(x+x'-ct)^2}{2\lambda t}}
+      &=
+      \int_{\tfrac{|x-ct|}{\sqrt{2\lambda t}}}^{\infty}\sqrt{2\lambda t}\dd z\ e^{-z^2}
+      \nonumber
+      \\
+      &=
+      \sqrt{2\lambda t}\left\{ 
+      \int_{0}^{\infty}e^{-z^2}-\int_{0}^{\tfrac{|x-ct|}{\sqrt{2\lambda t}}}\dd z\ e^{-z^2}
+      \right\}
+      \nonumber
+      \\
+      &=
+      \sqrt{\frac{\lambda\pi t}{2}}\left\{ 1-\text{erf}(|x-ct|/\sqrt{2\lambda t}) \right\}
+    \end{align}
+    となって
+    \begin{equation}
+      u(x,t)
+      =
+      \sqrt{\frac{\pi}{2}}\left\{ 1-\text{erf}\left( \frac{|x-ct|}{\sqrt{2\lambda t}} \right) \right\}
+    \end{equation}
+    となる．このとき，$u(x,t)$は時間がたつ($t\rightarrow\infty$)と
+    \begin{equation}
+      u(x,t)
+      \rightarrow
+      0
+    \end{equation}
+    となることがわかる．
+  \end{enumerate}
+\end{enumerate}
+
+\clearpage
+\prb{2}{線形代数}
+\begin{enumerate}
+  \item 
+  $w$は
+  \begin{equation}
+    w^{d}-1=0
+    .
+  \end{equation}
+  の解である．左辺を変形すれば
+  \begin{equation}
+    (w-1)\tr Z =0
+  \end{equation}
+  となり，$w\neq 1$であることから
+  \begin{equation}
+    \tr Z = 0
+  \end{equation}
+  がわかる．
+
+  \item 
+  $XZ$と$ZX$をそれぞれもとめてみると
+  \begin{gather}
+    XZ
+    =
+    \begin{pmatrix}
+      0 & 0 & \cdots & 0 & 1 \\
+      1 & 0 & \cdots & 0 & 0 \\
+      \vdots & \vdots & \ddots & \vdots & \vdots \\
+      0 & 0 & \cdots & 1 & 0
+    \end{pmatrix}
+    \begin{pmatrix}
+      1 & 0 & \cdots & 0 & 0 \\
+      0 & w & \cdots & 0 & 0 \\
+      \vdots & \vdots & \ddots & \vdots & \vdots \\
+      0 & 0 & \cdots & 0 & w^{d-1}
+    \end{pmatrix}
+    =
+    \begin{pmatrix}
+      0 & 0 & \cdots & 0 & w^{d-1} \\
+      1 & 0 & \cdots & 0 & 0 \\
+      \vdots & \vdots & \ddots & \vdots & \vdots \\
+      0 & 0 & \cdots & w^{d-2} & 0
+    \end{pmatrix}
+    \nonumber
+    \\
+    ZX
+    =
+    \begin{pmatrix}
+      1 & 0 & \cdots & 0 & 0 \\
+      0 & w & \cdots & 0 & 0 \\
+      \vdots & \vdots & \ddots & \vdots & \vdots \\
+      0 & 0 & \cdots & 0 & w^{d-1}
+    \end{pmatrix}
+    \begin{pmatrix}
+      0 & 0 & \cdots & 0 & 1 \\
+      1 & 0 & \cdots & 0 & 0 \\
+      \vdots & \vdots & \ddots & \vdots & \vdots \\
+      0 & 0 & \cdots & 1 & 0
+    \end{pmatrix}
+    =    
+    \begin{pmatrix}
+      0 & 0 & \cdots & 0 & 1 \\
+      w & 0 & \cdots & 0 & 0 \\
+      \vdots & \vdots & \ddots & \vdots & \vdots \\
+      0 & 0 & \cdots & w^{d-1} & 0
+    \end{pmatrix}
+    .
+    \nonumber
+  \end{gather}
+  となる．このとき，$w^{d}=1$であることに気をつければ
+  \begin{equation}
+    ZX
+    =
+    wXZ
+  \end{equation}
+  という関係がある．
+
+  \item 
+  2通りで計算してみると
+  \begin{align}
+    U^{(1,m)}U^{(n',m')}
+    &=
+    X\overbrace{Z\cdots Z}^{m}\overbrace{X\cdots X}^{n'}\overbrace{Z\cdots Z}^{m'}
+    \nonumber
+    \\
+    &=
+    w^{mn'}\overbrace{X\cdots X}^{n'+1}\overbrace{Z\cdots Z}^{m+m'}
+    \\
+    U^{(n',m')}U^{(1,m)}
+    &=
+    \underbrace{X\cdots X}_{n'}\underbrace{Z\cdots Z}_{m'}X\underbrace{Z\cdots Z}_{m}
+    \nonumber
+    \\
+    \nonumber
+    &=
+    w^{m'}\overbrace{X\cdots X}^{n'+1}\overbrace{Z\cdots Z}^{m+m'}
+  \end{align}
+  となる．ここで$U^{(1,m)}$と$U^{(n',m')}$が同時対角化可能であるためには，$U^{(1,m)}U^{(n',m')}$と$U^{(n',m')}U^{(1,m)}$が等しければよい．したがって，
+  \begin{equation}
+    m'-mn'
+    =
+    nd
+    \hspace*{1cm}
+    (n\in\mathbb{Z})
+  \end{equation}
+  が求める条件である．
+  
+  \item 
+  $U^{(1,m)}$は
+  \begin{equation}
+    U^{(1,m)}
+    =
+    \begin{pmatrix}
+      0 & 0 & 0 & \cdots & 0 & w^{m(d-1)} \\
+      1 & 0 & 0 & \cdots & 0 & 0 \\
+      0 & w^{m} & 0 & \cdots & 0 & 0 \\
+      \vdots & \vdots & \vdots & \ddots & \vdots & \vdots \\
+      0 & 0 & 0 & \cdots & 0 & 0 \\
+      0 & 0 & 0 & \cdots & w^{m(d-2)} & 0 
+    \end{pmatrix}
+  \end{equation}
+  となっている．よって，この固有多項式は
+  \begin{equation}
+    \begin{vmatrix}
+      \lambda & 0 & 0 & \cdots & 0 & -w^{m(d-1)} \\
+      -1 & \lambda & 0 & \cdots & 0 & 0 \\
+      0 & -w^{m} & \lambda & \cdots & 0 & 0 \\
+      \vdots & \vdots & \vdots & \ddots & \vdots & \vdots \\
+      0 & 0 & 0 & \cdots & \lambda & 0 \\
+      0 & 0 & 0 & \cdots & -w^{m(d-2)} & \lambda 
+    \end{vmatrix}
+  \end{equation}
+  である．これを計算するために次の関係式
+  \begin{equation}
+    \begin{vmatrix}
+      \lambda & 0 & \cdots & 0&x_{n} \\
+      x_1 & \lambda & \cdots & 0&0 \\
+      \vdots & \vdots & \ddots & \vdots & \vdots \\
+      0 & 0 & \cdots & x_{n-1} & \lambda
+    \end{vmatrix}
+    =
+    \lambda^{n}+(-1)^{n-1}x_{1}x_{2}\cdots x_{n}
+    \label{lem}
+  \end{equation}
+  を示そう．
+
+  \begin{proof}
+    余因子展開をすれば
+    \begin{align}
+      \begin{vmatrix}
+        \lambda & 0 & \cdots & 0&x_{n} \\
+        x_1 & \lambda & \cdots & 0&0 \\
+        \vdots & \vdots & \ddots & \vdots & \vdots \\
+        0 & 0 & \cdots & x_{n-1} & \lambda
+      \end{vmatrix}
+      &=
+      \lambda
+      \begin{vmatrix}
+        \lambda & 0 & \cdots & 0&0 \\
+        x_2 & \lambda & \cdots & 0&0 \\
+        \vdots & \vdots & \ddots & \vdots & \vdots \\
+        0 & 0 & \cdots & x_{n-1} & \lambda
+      \end{vmatrix}
+      \nonumber
+      \\
+      &\hspace*{3cm}
+      +
+      (-1)^{n-1}x_{n}
+      \begin{vmatrix}
+        x_{1} & \lambda & \cdots & 0&0 \\
+        0 & x_{2} & \cdots & 0&0 \\
+        \vdots & \vdots & \ddots & \vdots & \vdots \\
+        0 & 0 & \cdots & 0 & x_{n-1}
+      \end{vmatrix}
+      \nonumber
+      \\
+      &=
+      \lambda^{n}+(-1)^{n-1}x_{1}x_{2}\cdots x_{n}
+    \end{align}
+    とただちにもとめられる．このとき，
+    \begin{gather}
+      \begin{vmatrix}
+        \lambda & 0 & \cdots & 0&0 \\
+        x_2 & \lambda & \cdots & 0&0 \\
+        \vdots & \vdots & \ddots & \vdots & \vdots \\
+        0 & 0 & \cdots & x_{n-1} & \lambda
+      \end{vmatrix}
+      =
+      \lambda^{n-1}
+      \\
+      \begin{vmatrix}
+        x_{1} & \lambda & \cdots & 0&0 \\
+        0 & x_{2} & \cdots & 0&0 \\
+        \vdots & \vdots & \ddots & \vdots & \vdots \\
+        0 & 0 & \cdots & 0 & x_{n-1}
+      \end{vmatrix}
+      =
+      x_{1}x_{2}\cdots x_{n-1}
+    \end{gather}
+    という関係を用いた．これらも，余因子展開からもとめることができる．
+  \end{proof}
+
+  \eqref{lem}をもちいれば
+  \begin{equation}
+    \begin{vmatrix}
+      \lambda & 0 & 0 & \cdots & 0 & -w^{m(d-1)} \\
+      -1 & \lambda & 0 & \cdots & 0 & 0 \\
+      0 & -w^{m} & \lambda & \cdots & 0 & 0 \\
+      \vdots & \vdots & \vdots & \ddots & \vdots & \vdots \\
+      0 & 0 & 0 & \cdots & \lambda & 0 \\
+      0 & 0 & 0 & \cdots & -w^{m(d-2)} & \lambda 
+    \end{vmatrix}
+    =
+    \lambda^{d}
+    -w^{m+\cdots(d-1)m}
+    =
+    \lambda^{d}
+    -
+    w^{m(d-1)d/2}
+  \end{equation}
+  が成り立つ．したがって，これを$0$とした方程式を解けば，
+  \begin{equation}
+    \lambda^{d}
+    =
+    w^{m(d-1)d/2}
+  \end{equation}
+  となり，
+  \begin{equation}
+    \lambda
+    =
+    e^{2\pi i\tfrac{n}{d}}w^{\tfrac{m(d-1)}{2}}
+    \hspace*{1cm} (n=0,1,\cdots d-1)
+  \end{equation}
+  がもとめる固有値である．
+
+  \item 
+  $d=3$のとき，固有値は
+  \begin{equation}
+    w^{m}
+    \ ,\ 
+    e^{2\pi i/3}w^{m}
+    \ ,\ 
+    e^{4\pi i/3}w^{m}
+  \end{equation}
+  である．よって，対応する固有ベクトルは
+  \begin{align}
+    e^{(m)}_{1}
+    =
+    \frac{1}{\sqrt{3}}
+    \begin{pmatrix}
+      w^{m} \\
+      1 \\
+      1
+    \end{pmatrix}
+    \ &:\ w^{m}
+    \\
+    e^{(m)}_{2}
+    =
+    \frac{1}{\sqrt{3}}
+    \begin{pmatrix}
+      e^{4\pi i/3}w^{m} \\
+      e^{2\pi i/3} \\
+      1
+    \end{pmatrix}
+    \ &:\ e^{2\pi i/3}w^{m}
+    \\
+    e^{(m)}_{3}
+    =
+    \frac{1}{\sqrt{3}}
+    \begin{pmatrix}
+      e^{2\pi i/3}w^{m} \\
+      e^{4\pi i/3} \\
+      1
+    \end{pmatrix}
+    \ &:\ e^{4\pi i/3}w^{m}
+  \end{align}
+  である．
+
+  \item 
+  固有ベクトルは
+  \begin{equation}
+    e_{j}^{(m)}
+    =
+    \frac{1}{\sqrt{3}}
+    \begin{pmatrix}
+      e^{-2\pi i(j-1)/3}w^{m} \\
+      e^{2\pi i(j-1)/3} \\
+      1
+    \end{pmatrix}
+  \end{equation}
+  と書き直すことができることに注意する．これを用いて直接計算してみると
+  \begin{align}
+    |\ev*{e_{j}^{m},e_{j'}^{m'}}|^2
+    &=
+    \frac{1}{9}
+    | e^{-2\pi i(j'-j)/3}w^{m'-m}+e^{2\pi i(j'-j)/3}+ 1 |^2
+    \nonumber
+    \\
+    &=
+    \frac{1}{9}
+    ( e^{2\pi i(j'-j)/3}w^{-m'+m}+e^{-2\pi i(j'-j)/3}+ 1 )
+    \nonumber
+    \\
+    &\hspace*{2cm}
+    \times( e^{-2\pi i(j'-j)/3}w^{m'-m}+e^{2\pi i(j'-j)/3}+ 1 )
+    \nonumber
+    \\
+    &=
+    \frac{2}{9}
+    \left( \Re\left[ e^{-2\pi i(j'-j)/3}w^{-m'+m} \right]
+    +
+    \Re\left[ e^{2\pi i(j'-j)/3}w^{-m'+m} \right]
+    \right.
+    \nonumber
+    \\
+    &\hspace*{6cm}
+    \left.
+    +
+    \Re\left[ e^{2\pi i(j'-j)/3} \right]
+    \right)
+    +
+    \frac{1}{3}
+    \label{ans1}
+  \end{align}
+  となる．ここで，$J\coloneqq j'-j, M\coloneqq m'-m$遠くことにする．すると，実部の項は
+  \begin{align}
+    &\ \ \ 
+    \Re\left[ e^{-2\pi i(j'-j)/3}w^{-m'+m} \right]
+    +
+    \Re\left[ e^{2\pi i(j'-j)/3}w^{-m'+m} \right]
+    +
+    \Re\left[ e^{2\pi i(j'-j)/3} \right]
+    \nonumber
+    \\
+    &=
+    \Re\left[ 2\Re\left[ e^{2\pi iJ/3} \right]w^{-M} \right]
+    +
+    \Re\left[ e^{2\pi iJ/3} \right]
+    \nonumber
+    \\
+    &=
+    2\Re\left[ e^{2\pi iJ/3} \right]\Re\left[ w^{-M} \right]
+    +
+    \Re\left[ e^{2\pi iJ/3} \right]
+    \nonumber
+    \\
+    &=
+    \Re\left[ e^{2\pi iJ/3} \right]
+    \left( 2\Re\left[ w^{M} \right] + 1\right)
+    \label{1.22}
+  \end{align}
+  となり，すべての$M\ (=-2,-1,1,2)$について$\Re\left[ w^{M} \right]=-1/2$が成立するので，この\eqref{1.22}の値は0である．よって，\eqref{ans1}より
+  \begin{equation}
+    |\ev*{e_{j}^{m},e_{j'}^{m'}}|^2
+    =
+    \frac{1}{3}
+  \end{equation}
+  が成り立つ\footnote{
+    すごいごちゃごちゃしちゃいましたが，この解答はどうなんでしょう．
+  }．
+
+\end{enumerate}
+
+\clearpage
+\section{物理パート}
+
+\prb{1}{量子力学}
+\begin{enumerate}
+  \item 
+  次の関係式
+  \begin{equation}
+    \sigma_{z}\ket{\uparrow}=\ket{\uparrow}
+    \ ,\ 
+    \bra{\uparrow}\sigma_{z}\ket{\uparrow}
+    =
+    1
+  \end{equation}
+  が成立する．よって，$s_z=1$であり，期待値も$1$である.
+
+  \item 
+  $\sigma_{x}$の固有ベクトルは$(1,1)$と$(1,-1)$なので，
+  \begin{equation}
+    \begin{pmatrix}
+      1 \\
+      0
+    \end{pmatrix}
+    =
+    \frac{1}{2}
+    \begin{pmatrix}
+      1 \\
+      1
+    \end{pmatrix}
+    +
+    \frac{1}{2}
+    \begin{pmatrix}
+      1 \\
+      -1
+    \end{pmatrix}
+  \end{equation}
+  である．よって，$s_{x}=\pm 1$であり，期待値は$\bra{\uparrow}\sigma_{z}\ket{\uparrow}=0$である．
+
+  ここで，後のために，規格化した固有ベクトルを
+  \begin{equation}
+    \begin{dcases}
+      \ket{\uparrow_{x}}
+      \coloneqq
+      \frac{1}{\sqrt{2}}
+      \begin{pmatrix}
+        1 \\
+        1
+      \end{pmatrix}
+      \\
+      \ket{\downarrow_{x}}
+      \coloneqq
+      \frac{1}{\sqrt{2}}
+      \begin{pmatrix}
+        1 \\
+        -1
+      \end{pmatrix}
+    \end{dcases}
+    \label{x_basis}
+  \end{equation}
+  と書くことにする．
+
+  \item 
+  固有多項式は
+  \begin{equation}
+    \begin{vmatrix}
+      \lambda -\cos\theta & -\sin\theta \\
+      -\sin\theta & \lambda + \cos\theta
+    \end{vmatrix}
+    =
+    \lambda^2 -1=0
+  \end{equation}
+  であり，これを解くと$\lambda=\pm 1$である．よって，測定値は$\sigma(\theta)=\pm 1$であり，期待値は
+  \begin{equation}
+    \bra{\uparrow}\sigma(\theta)\ket{\uparrow}
+    =
+    \begin{pmatrix}
+      1 & 0
+    \end{pmatrix}
+    \begin{pmatrix}
+      \cos\theta & \sin\theta \\
+      \sin\theta & -\cos\theta
+    \end{pmatrix}
+    \begin{pmatrix}
+      1 \\
+      0
+    \end{pmatrix}
+    =
+    \cos\theta
+  \end{equation}
+  である．
+
+  前問と同様に
+  \begin{equation}
+    \begin{dcases}
+      \ket{\uparrow_{\theta}}
+      \coloneqq
+      \begin{pmatrix}
+        \cos\tfrac{\theta}{2} \\
+        \sin\tfrac{\theta}{2}
+      \end{pmatrix}
+      \\
+      \ket{\downarrow_{\theta}}
+      \coloneqq
+      \begin{pmatrix}
+        -\sin\tfrac{\theta}{2} \\
+        \cos\tfrac{\theta}{2}
+      \end{pmatrix}
+    \end{dcases}
+    \label{theta_basis}
+  \end{equation}
+  と書くことにする．
+
+  \item 
+  測定値の組は$(1,-1)$と$(-1,1)$である．このときの期待値は
+  \begin{align}
+    \bra{\Psi}\sigma_{z}^{A}\sigma_{z}^{B}\ket{\Psi}
+    &=
+    \frac{1}{2}\left( \bra{\uparrow}_{A}\bra{\downarrow}_{B}-\bra{\downarrow}_{A}\bra{\uparrow}_{B}  \right)
+    \left( -\ket{\uparrow}_{A}\ket{\downarrow}_{B}+\ket{\downarrow}_{A}\ket{\uparrow}_{B}  \right)
+    \nonumber
+    \\
+    &=
+    -1
+  \end{align}
+  である．
+
+  \item 
+  $\ket{\Psi}$を基底\eqref{x_basis}で展開すれば
+  \begin{align}
+    \ket{\Psi}
+    &=
+    \tfrac{1}{\sqrt{2}}
+    \left( \ket{\uparrow}_{A}\ket{\downarrow}_{B}
+    -
+    \ket{\downarrow}_{A}\ket{\uparrow}_{B} \right)
+    \nonumber
+    \\
+    &=
+    \tfrac{1}{2\sqrt{2}}
+    \left( (\ket{\uparrow_{x}}_{A}+\ket{\downarrow_{x}}_{A})\otimes(\ket{\uparrow_{x}}_{B}-\ket{\downarrow_{x}}_{B})
+    -
+    (\ket{\uparrow_{x}}_{A}-\ket{\downarrow_{x}}_{A})\otimes(\ket{\uparrow_{x}}_{B}+\ket{\downarrow_{x}}_{B}) \right)
+    \nonumber
+    \\
+    &=
+    -\tfrac{1}{\sqrt{2}}
+    \left( \ket{\uparrow_{x}}_{A}\ket{\downarrow_{x}}_{B}
+    -
+    \ket{\downarrow_{x}}_{A}\ket{\uparrow_{x}}_{B} \right)
+  \end{align}
+  となる．したがって，前問と得られる結果は同じで
+  \begin{equation}
+    (s_{x}^{A},s_{x}^{B})
+    =
+    (1,-1),(-1,1)
+    \ ,\ \ 
+    \bra{\Psi}\sigma_{x}^{A}\sigma_{x}^{B}\ket{\Psi}
+    =
+    -1
+  \end{equation}
+  である．
+
+  \item 
+  $\ket{\Psi}$を基底\eqref{theta_basis}で展開する．ここで，$\ket{\uparrow}$と$\ket{\downarrow}$を展開すると
+  \begin{equation}
+    \begin{dcases}
+      \ket{\uparrow} 
+      =
+      \cos\frac{\theta}{2}
+      \ket{\uparrow_{\theta}}
+      -
+      \sin\frac{\theta}{2}
+      \ket{\downarrow_{\theta}}
+      \\
+      \ket{\downarrow}
+      =
+      \sin\frac{\theta}{2}
+      \ket{\uparrow_{\theta}}
+      +
+      \cos\frac{\theta}{2}
+      \ket{\downarrow_{\theta}}
+    \end{dcases}
+  \end{equation}
+  となるので，$\ket{\Psi}$の展開は
+  \begin{align}
+    \ket{\Psi}
+    &=
+    \frac{1}{\sqrt{2}}
+    \left\{ 
+    \left( \cos\frac{\theta}{2}
+    \ket{\uparrow_{\theta}}_{A}
+    -
+    \sin\frac{\theta}{2}
+    \ket{\downarrow_{\theta}}_{A}\right)\otimes
+    \left( \sin\frac{\theta}{2}
+    \ket{\uparrow_{\theta}}_{B}
+    +
+    \cos\frac{\theta}{2}
+    \ket{\downarrow_{\theta}}_{B} \right)
+    \right.
+    \nonumber
+    \\
+    &\hspace*{2cm}\left.
+    -
+    \left( \sin\frac{\theta}{2}
+    \ket{\uparrow_{\theta}}_{A}
+    +
+    \cos\frac{\theta}{2}
+    \ket{\downarrow_{\theta}}_{A} \right)\otimes
+    \left( \cos\frac{\theta}{2}
+    \ket{\uparrow_{\theta}}_{B}
+    -
+    \sin\frac{\theta}{2}
+    \ket{\downarrow_{\theta}}_{B} \right)
+    \right\}
+    \nonumber
+    \\
+    &=
+    \frac{1}{\sqrt{2}}(\ket{\uparrow_{\theta}}_{A}\ket{\downarrow_{\theta}}_{B}-\ket{\downarrow_{\theta}}_{A}\ket{\uparrow_{\theta}}_{B})
+  \end{align}
+  である．よって，測定値の組が
+  \begin{equation}
+    (s_{\theta}^{A},s_{\theta}^{B})
+    =
+    (1,-1),(-1,1)
+  \end{equation}
+  となることが確かめられた．
+
+  \item 
+  $\ket{\Psi}$を同様に展開すれば
+  \begin{align}
+    \ket{\Psi}
+    &=
+    \frac{1}{\sqrt{2}}
+    \left\{ 
+    \left( \cos\frac{\theta}{2}
+    \ket{\uparrow_{\theta}}_{A}
+    -
+    \sin\frac{\theta}{2}
+    \ket{\downarrow_{\theta}}_{A}\right)\otimes
+    \left( \sin\frac{\varphi}{2}
+    \ket{\uparrow_{\varphi}}_{B}
+    +
+    \cos\frac{\varphi}{2}
+    \ket{\downarrow_{\varphi}}_{B} \right)
+    \right.
+    \nonumber
+    \\
+    &\hspace*{2cm}\left.
+    -
+    \left( \sin\frac{\theta}{2}
+    \ket{\uparrow_{\theta}}_{A}
+    +
+    \cos\frac{\theta}{2}
+    \ket{\downarrow_{\theta}}_{A} \right)\otimes
+    \left( \cos\frac{\varphi}{2}
+    \ket{\uparrow_{\varphi}}_{B}
+    -
+    \sin\frac{\varphi}{2}
+    \ket{\downarrow_{\varphi}}_{B} \right)
+    \right\}
+    \nonumber
+    \\
+    &=
+    \frac{1}{\sqrt{2}}
+    \left\{ 
+    \sin\frac{\varphi-\theta}{2}\ket{\uparrow_{\theta}}_{A}\ket{\uparrow_{\varphi}}_{B}
+    +
+    \cos\frac{\varphi-\theta}{2}\ket{\uparrow_{\theta}}_{A}\ket{\downarrow_{\varphi}}_{B}
+    \right.
+    \nonumber
+    \\
+    &\hspace*{3cm}\left.
+    -
+    \cos\frac{\varphi-\theta}{2}\ket{\downarrow_{\theta}}_{A}\ket{\uparrow_{\varphi}}_{B}
+    -
+    \sin\frac{\varphi-\theta}{2}
+    \ket{\downarrow_{\theta}}_{A}\ket{\downarrow_{\varphi}}_{B}
+    \right\}
+  \end{align}
+  となる．測定値は
+  \begin{equation}
+    (s_{\theta}^{A},s_{\varphi}^{B})
+    =
+    (1,1),(1,-1),(-1,1),(-1,-1)
+  \end{equation}
+  とすべての組み合わせが得られ，期待値は
+  \begin{align}
+    \bra{\Psi}\sigma^{A}(\theta)\sigma^{B}(\varphi)\ket{\Psi}
+    &=
+    \frac{1}{2}\left\{ 
+    \sin^2\frac{\varphi-\theta}{2}\bra{\uparrow_{\theta}}_{A}\bra{\uparrow_{\varphi}}_{B}\sigma^{A}(\theta)\sigma^{B}(\varphi)\ket{\uparrow_{\theta}}_{A}\ket{\uparrow_{\varphi}}_{B}
+    \right.
+    \nonumber
+    \\
+    &\hspace*{1cm}
+    +
+    \cos^2\frac{\varphi-\theta}{2}\bra{\uparrow_{\theta}}_{A}\bra{\downarrow_{\varphi}}_{B}\sigma^{A}(\theta)\sigma^{B}(\varphi)\ket{\uparrow_{\theta}}_{A}\ket{\downarrow_{\varphi}}_{B}
+    \nonumber
+    \\
+    &\hspace*{1cm}
+    +
+    \cos^2\frac{\varphi-\theta}{2}\bra{\downarrow_{\theta}}_{A}\bra{\uparrow_{\varphi}}_{B}\sigma^{A}(\theta)\sigma^{B}(\varphi)\ket{\downarrow_{\theta}}_{A}\ket{\uparrow_{\varphi}}_{B}
+    \nonumber
+    \\
+    &\hspace*{1cm}+\left.
+    \sin^2\frac{\varphi-\theta}{2}\bra{\downarrow_{\theta}}_{A}\bra{\downarrow_{\varphi}}_{B}\sigma^{A}(\theta)\sigma^{B}(\varphi)\ket{\downarrow_{\theta}}_{A}\ket{\downarrow_{\varphi}}_{B}
+    \right\}
+    \nonumber
+    \\
+    &=
+    -\cos^2\frac{\varphi-\theta}{2}
+  \end{align}
+  となる．
+
+  \item 
+  すべての$(\sigma^{A},\sigma^{B})$の組について，$\ket{\Psi}$をもとめてみる:
+
+  \begin{itemize}
+    \item 
+    $(\sigma^{A},\sigma^{B})=(0^{\circ},0^{\circ}),(120^{\circ},120^{\circ}),(240^{\circ},240^{\circ})$
+
+    このときは
+    \begin{equation}
+      \ket{\Psi}
+      =
+      \frac{1}{\sqrt{2}}(\ket{\uparrow}_{A}\ket{\downarrow}_{B}-\ket{\downarrow}_{A}\ket{\uparrow}_{B})
+    \end{equation}
+    である．よって，$s^{A}s^{B}=-1$なので，この場合の期待値は$1$である.
+
+    \item 
+    $(\sigma^{A},\sigma^{B})=(0^{\circ},120^{\circ}),(0^{\circ},240^{\circ}),(120^{\circ},0^{\circ}),(120^{\circ},240^{\circ}),(240^{\circ},0^{\circ}),(240^{\circ},120^{\circ})$
+
+    このときは
+    \begin{align}
+      \ket{\Psi}
+      &=
+      \frac{1}{\sqrt{2}}
+      \left\{ 
+      \pm\frac{\sqrt{3}}{2}\ket{\uparrow}_{A}\ket{\uparrow}_{B}
+      +
+      \frac{1}{2}\ket{\uparrow}_{A}\ket{\downarrow}_{B}
+      \right.
+      \nonumber
+      \\
+      &\hspace*{3cm}\left.
+      -
+      \frac{1}{2}\ket{\downarrow}_{A}\ket{\uparrow}_{B}
+      \mp
+      \frac{\sqrt{3}}{2}
+      \ket{\downarrow}_{A}\ket{\downarrow}_{B}
+      \right\}
+    \end{align}
+    なので，$s^{A}s^{B}=+1$となる確率は$3/4$であり，$s^{A}s^{B}=-1$である確率は$1/4$である．よって，この場合の期待値は
+    \begin{equation}
+      (+1)\times\frac{3}{4}+(-1)\times\frac{1}{4}
+      =
+      +\frac{1}{2}
+    \end{equation}
+    である．
+  \end{itemize}
+
+  よって，$s^{A}s^{B}$の期待値は
+  \begin{align}
+    s^{A}s^{B}
+    &=
+    \frac{1}{9}\cdot 3\cdot(-1)
+    +
+    \frac{1}{9}\cdot 6\cdot\left( +\frac{1}{2} \right)
+    \nonumber
+    \\
+    &=
+    0
+  \end{align}
+  であることが示された．
+
+  \item 
+  \begin{enumerate}
+    \item 
+    測定値$(s^{B}_{0^{\circ}},s^{B}_{120^{\circ}},s^{B}_{240^{\circ}})$は
+    \begin{equation}
+      (s^{B}_{0^{\circ}},s^{B}_{120^{\circ}},s^{B}_{240^{\circ}})
+      =
+      (-1,-1,-1)
+    \end{equation}
+    である．このとき，$s^{A}s^{B}=-1$しか得られないので，期待値は$-1$である．
+
+    \item 
+    測定値$(s^{B}_{0^{\circ}},s^{B}_{120^{\circ}},s^{B}_{240^{\circ}})$は
+    \begin{equation}
+      (s^{B}_{0^{\circ}},s^{B}_{120^{\circ}},s^{B}_{240^{\circ}})
+      =
+      (-1,-1,+1)
+      .
+    \end{equation}
+    である．このとき，5通り$s^{A}s^{B}=-1$となる場合があり，4通り$s^{A}s^{B}=+1$となる場合があるので，期待値は$-1/9$である．
+
+    \item 
+    測定値$(s^{A}_{0^{\circ}},s^{A}_{120^{\circ}},s^{A}_{240^{\circ}})$のうち，$-1$が2つある場合も期待値は$-1/9$である．よって，全体の期待値は
+    \begin{equation}
+      \frac{2}{8}\cdot (-1)
+      +
+      \frac{6}{8}\cdot \left( -\frac{1}{9} \right)
+      =
+      -\frac{1}{3}
+      <
+      0
+    \end{equation}
+    である．
+  \end{enumerate}
+\end{enumerate}
+
+\clearpage
+\prb{2}{統計力学}
+\begin{enumerate}
+  \item 
+  ハミルトニアンは空間成分に依存しないので
+  \begin{equation}
+    \int\dd^3 \bm{x}_1\cdots\dd^3 \bm{x}_N\ 
+    =
+    V^{N}
+  \end{equation}
+  と書ける．運動量の積分については
+  \begin{equation}
+    \int
+    \dd^3 \bm{p}_1\cdots\dd^3 \bm{p}_N\ 
+    e^{-\beta H}
+    =
+    \left( \int_{-\infty}^{\infty}\dd p\ e^{-(\beta/2m)p^2} \right)^{3N}
+    =
+    \left( \frac{2\pi m}{\beta} \right)^{3N/2}
+  \end{equation}
+  となるので，分配関数は
+  \begin{equation}
+    Z
+    =
+    \frac{V^{N}}{N!}\left( \frac{2\pi m}{\beta h^2} \right)^{3N/2}
+    .
+    \label{par}
+  \end{equation}
+  である．ここで，分配関数と自由エネルギーの関係は
+  \begin{equation}
+    F
+    =
+    -\frac{1}{\beta}\log Z
+    \label{free}
+  \end{equation}
+  であたえられるので，$V$で微分すれば
+  \begin{align}
+    P
+    &=
+    -\pdv{F}{V}
+    \nonumber
+    \\
+    &=
+    \frac{1}{\beta}\pdv{}{V}\left( N\log V+\cdots \right)
+    \nonumber
+    \\
+    &=
+    \frac{N}{\beta V}
+  \end{align}
+  である．
+
+  \item 
+  ヘルムホルツの自由エネルギーは，次の示量性の性質
+  \begin{equation}
+    F(T,\lambda N,\lambda V)
+    =
+    \lambda F(T,N,V)
+    \label{ext}
+  \end{equation}
+  を満たさなくてはならない．この性質を示すために，\eqref{par}と\eqref{free}を\eqref{ext}の左辺に代入すると
+  \begin{align}
+    F(T,\lambda N,\lambda V)
+    &=
+    -\frac{1}{\beta}
+    \log\left[ \frac{(\lambda V)^{\lambda N}}{h^{3\lambda N} (\lambda N)!}\left( \frac{2\pi m}{\beta} \right)^{3\lambda N/2} \right]
+    \nonumber
+    \\
+    &=
+    -\frac{1}{\beta}\left[ 
+      \lambda N\log (\lambda V)
+      -
+      3\lambda N\log h
+      -
+      \log(\lambda N)!
+      +
+      \frac{3\lambda N}{2}\log \frac{2\pi m}{\beta}
+    \right]
+    \nonumber
+    \\
+    &\sim
+    \frac{1}{\beta}\left\{ 
+      -
+      \lambda N\log (\lambda V)
+      +
+      3\lambda N\log h
+      +
+      \lambda N\log (\lambda N)
+      -
+      \lambda N
+      -
+      \frac{3\lambda N}{2}\log \frac{2\pi m}{\beta}
+    \right\}
+    \nonumber
+    \\
+    &=
+    \lambda\cdot
+    \frac{1}{\beta}\left\{ 
+      3 N\log h
+      +
+      N\log (N/V)
+      -
+      N
+      -
+      \frac{3N}{2}\log \frac{2\pi m}{\beta}
+    \right\}
+    \nonumber
+    \\
+    &=
+    \lambda F(T,N,V)
+  \end{align}
+  となり，示量性を満たすことが示された．
+
+  \item 
+  エントロピーは
+  \begin{align}
+    S
+    &=
+    -\pdv{F}{T}
+    \nonumber
+    \\
+    &=
+    \frac{1}{k_B T^2}\pdv{}{\beta}\left[ \frac{1}{\beta}\left\{ 3 N\log h
+    +
+    N\log (N/V)
+    -
+    N
+    -
+    \frac{3N}{2}\log \frac{2\pi m}{\beta} \right\} \right]
+    \nonumber
+    \\
+    &=
+    \frac{5N}{2}
+    -3N\log h
+    -N\log \frac{N}{V}
+    +\frac{3N}{2}\log(2\pi mk_{B}T)
+  \end{align}
+  である．$T\rightarrow 0$とすると，エントロピー$S$は$-\infty$に発散することがわかる．
+
+  \item 
+  熱容量は
+  \begin{equation}
+    C_{V}
+    =
+    \pdv{U}{T}
+    =
+    \pdv{F}{T}
+    +
+    S
+    +
+    T\pdv{S}{T}
+    =
+    T\pdv{S}{T}
+    \label{def_cap}
+  \end{equation}
+  でもとめることができる．なお，エントロピーの定義
+  \begin{equation}
+    \pdv{F}{T}
+    +
+    S
+    =
+    0
+  \end{equation}
+  を用いた．\eqref{def_cap}を用いれば
+  \begin{equation}
+    C_{V}
+    =
+    \frac{3Nk}{2}
+  \end{equation}
+  となる．
+
+  \item 
+  波数の取りうる値をもとめるために，シュレーディンガー方程式
+  \begin{equation}
+    -\frac{\hbar^2}{2m}\psi(x)
+    =
+    E_{x}\psi(x)
+    \label{sch}
+  \end{equation}
+  を考えよう．この解が周期境界条件$\psi(x)=\psi(x+L)$を満たしているとする．この方程式\eqref{sch}の一般解は
+  \begin{equation}
+    \psi(x)
+    =
+    A\sin(kx)+B\cos(kx)
+  \end{equation}
+  である．ただし，
+  \begin{equation}
+    k_{x}
+    \coloneqq
+    \sqrt{\frac{2mE_{x}}{\hbar^2}}
+  \end{equation}
+  とおいた．ここで，条件$\psi(x)=\psi(x+L)$を考えれば，波数の取りうる値は
+  \begin{equation}
+    k_{x}L=2n_{x}\pi
+    \ \ \ 
+    (n_{x}\in\mathbb{N})
+  \end{equation}
+  であることがわかる．この議論は$k_{x},k_{y},k_{z}$それぞれに適用できるので，もとめる条件は
+  \begin{equation}
+    \bm{k}
+    =
+    \frac{2\pi}{L}(n_{x},n_{y},n_{z})
+  \end{equation}
+  である．ただし$n_{x},n_{y},n_{z}\in\mathbb{N}$である．
+
+  \item 
+  粒子数について
+  \begin{equation}
+    \overline{N}
+    =
+    \frac{1}{\beta}\pdv{}{\mu}\log\Xi
+  \end{equation}
+  が成立していた．この右辺を計算すると
+  \begin{align}
+    \overline{N}
+    &=
+    \frac{1}{\beta}\pdv{}{\mu}\sum_{\bm{k}}\log(1+e^{-\beta(\varepsilon_{\bm{k}-\mu})})
+    \nonumber
+    \\
+    \nonumber
+    &=
+    \frac{1}{\beta}\sum_{\bm{k}}\frac{\beta e^{-\beta(\varepsilon_{\bm{k}}-\mu)}}{1+e^{-\beta(\varepsilon_{\bm{k}}-\mu)}}
+    \\
+    &=
+    \sum_{\bm{k}}\frac{1}{e^{\beta(\varepsilon_{\bm{k}}-\mu)}+1}
+  \end{align}
+  となるので
+  \begin{equation}
+    f(\varepsilon_{\bm{k}})
+    \coloneqq
+    \frac{1}{e^{\beta(\varepsilon_{\bm{k}}-\mu)}+1}
+  \end{equation}
+  とおけることが示された．
+
+  \item 
+  近似して計算してみると
+  \begin{align}
+    \overline{N}
+    &\sim
+    \sum_{\bm{k}}
+    \exp\left[ -\beta\left( \frac{\hbar^2}{2m}(k_{x}^2+k_{y}^{2}+k_{z}^2)-\mu \right) \right]
+    \nonumber
+    \\
+    &=
+    e^{\beta\mu}\sum_{n_{x},n_{y},n_{z}}\exp\left[ -\frac{2\pi^2\hbar^2\beta^2}{mL^2}\left( n_{x}^2+n_{y}^2+n_{z}^2 \right) \right]
+    \nonumber
+    \\
+    &\sim
+    e^{\beta\mu}\cdot\sqrt{\frac{mL^2}{2\pi^2\hbar^2\beta}}\left\{ \int_{0}^{\infty}\dd x\ \exp\left[ -\frac{2\pi^2\hbar^2\beta^2}{mL^2}x^2 \right] \right\}^3
+    \nonumber
+    \\
+    &=
+    \frac{e^{\beta\mu}m^2 L^4}{32\pi^{5/2}\hbar^4 \beta^2}
+  \end{align}
+  となる．ここで，和の近似をするときに
+  \begin{equation}
+    \sum_{n=0}^{\infty}f(an)
+    \sim
+    \frac{1}{a}\int_{0}^{\infty}\\dx\ f(x)
+  \end{equation}
+  とした．なお，$a$は定数である．よって，これを整理すれば
+  \begin{equation}
+    \mu
+    =
+    \frac{1}{\beta}\log\left[ \frac{32\pi^{5/2}\hbar^4\beta^2 N}{m^2 L^4} \right]
+  \end{equation}
+  となる．
+
+  \item 
+  エントロピーは
+  \begin{equation}
+    S
+    =
+    -\pdv{J}{T}
+    \ ,\ \ 
+    J=-kT\log\Xi
+    \label{def_entropy}
+  \end{equation}
+  でもとめることができる．これを計算していくと
+  \begin{align}
+    S
+    &=
+    k\log\Xi
+    +
+    kT\pdv{}{T} \log\Xi
+    \nonumber
+    \\
+    &=
+    k\sum_{\bm{k}}\log(1+e^{-\beta(\varepsilon_{\bm{k}}-\mu)})
+    -
+    \frac{1}{T}\pdv{}{\beta}\sum_{\bm{k}}\log(1+e^{-\beta(\varepsilon_{\bm{k}}-\mu)})
+  \end{align}
+  となる．ここで，$|\beta\mu|\gg 1$より，$\beta\mu\ll 1$なので第1項は無視してよい．第2項の微分は
+  \begin{equation}
+    \pdv{}{\beta}\sum_{\bm{k}}\log(1+e^{-\beta(\varepsilon_{\bm{k}}-\mu)})
+    =
+    \sum_{\bm{k}}\frac{(\mu-\varepsilon_{\bm{k}})e^{-\beta(\varepsilon_{\bm{k}}-\mu)}}{1+e^{-\beta(\varepsilon_{\bm{k}}-\mu)}}
+    \sim
+    \mu\sum_{\bm{k}}f(\varepsilon_{\bm{k}})
+    =
+    \mu N
+  \end{equation}
+  となるので，
+  \begin{equation}
+    S
+    \sim
+    -\frac{\mu}{T}N
+  \end{equation}
+  が示された．
+  
+  \clearpage
+  \item 
+  エントロピー$S$は極限では
+  \begin{equation}
+    S
+    \rightarrow
+    \gamma T
+    \ \ \ (T\rightarrow0)
+  \end{equation}
+  となっている．$\mu<0$であることに気をつければ，図\ref{fig1}の実線のようなグラフになる．
+  \begin{figure}[ht]
+  \centering
+  \begin{tikzpicture}    
+    \draw[->,>=stealth,semithick](-0.3,0)--(7.0,0)node[below]{$T$};
+    \draw[->,>=stealth,semithick](0,-0.3)--(0,3)node[left]{$S$};
+    \draw[thick,samples=100,domain=0.01:6.9,name path=A]plot(\x,{2.8*ln(\x+1)/ln(6.9+1)});
+    \draw[thick,samples=100,domain=0.8:6.9,name path=B,dashed]plot(\x,{ln(\x)/ln(6.9)*2.7});
+  \end{tikzpicture}
+  \caption{エントロピー$S$}
+  \label{fig1}
+  \end{figure}
+  
+\end{enumerate}
+
+\clearpage
+\prb{3}{電磁気学}
+\begin{enumerate}
+  \item 
+  電場と磁場の境界条件は
+  \begin{align}
+    &\bm{E}(a,z,t)\cdot\bm{t}=0
+    \\
+    &\bm{B}(a,z,t)\cdot\bm{n}=0
+  \end{align}
+  である．ここで，$\bm{t}$は接線ベクトルで$\bm{n}$は法線ベクトルである．ここで，円柱芯線の内部では電場と磁場がゼロになっていることに注意する．この境界条件を用いれば
+  \begin{equation}
+    E_{\theta}=0
+    \ ,\ \ 
+    B_{r}=0
+  \end{equation}
+  ということがわかる．
+
+  \item 
+  式(1)の回転をとると
+  \begin{equation}
+    \nabla\times\left( \nabla\times\bm{E} \right)
+    =
+    -\pdv{}{t}\left( \nabla\times\bm{B} \right)
+  \end{equation}
+  となるので，式(2)を代入して，次の公式
+  \begin{equation}
+    \nabla\times\left( \nabla\times\bm{E} \right)
+    =
+    \nabla(\nabla\cdot\bm{E})-\nabla^2\bm{E}
+  \end{equation}
+  を用いれば
+  \begin{equation}
+    \nabla^2\bm{E}=\mu\varepsilon\pdv[2]{\bm{E}}{t}
+    \label{wave_eq}
+  \end{equation}
+  となる．
+
+  \item 
+  マクスウェル方程式$(1)\sim(4)$は
+  \begin{align}
+    ik\mathcal{E}(r)e^{i(kz-\omega t)}\bm{e}_{\theta}
+    &=
+    i\omega\mathcal{B}(r)e^{i(kz-\omega t)}\bm{e}_{\theta}
+    \label{eq1}
+    \\
+    -ik\mathcal{B}(r)e^{i(kz-\omega t)}\bm{e}_{r}
+    +
+    \left( \frac{1}{r}\mathcal{B}(r)+\pdv{\mathcal{B}}{r} \right)e^{i(kz-\omega t)}\bm{e}_{z}
+    &=
+    -i\mu\varepsilon\omega\mathcal{E}(r)e^{i(kz-\omega t)}\bm{e}_{r}
+    \label{eq2}
+    \\    
+    \mathcal{B}(r)+r\pdv{\mathcal{B}}{r}
+    &
+    =0
+    \\
+    \mathcal{E}(r)+r\pdv{\mathcal{E}}{r}
+    &=0
+    \label{eq3}
+  \end{align}
+  と書ける．\eqref{eq3}を解くと
+  \begin{equation}
+    \mathcal{E}(r)
+    =
+    \frac{A}{r} 
+  \end{equation}
+  である．ここで，$A$は定数である．初期条件$\mathcal{E}(a)=E_{0}$を用いれば
+  \begin{equation}
+    \mathcal{E}(r)
+    =
+    E_{0} \frac{a}{r}
+    \label{el_field}
+  \end{equation}
+  となる．
+
+  \item 
+  \eqref{eq1}と\eqref{eq2}より，
+  \begin{equation}
+    \frac{\omega}{k}
+    =
+    \frac{1}{\sqrt{\mu\varepsilon}}
+  \end{equation}
+  ということがわかり，これが位相速度である．
+
+  \item 
+  ポインティングベクトル$\bm{S}$は，
+  \begin{equation}
+    \bm{S}
+    =
+    \frac{1}{\mu}\bm{E}\times\bm{B}
+    =
+    \frac{1}{\mu}\mathcal{E}\mathcal{B}e^{2i(kz-\omega t)}(\bm{e}_{r}\times\bm{e}_{\theta})
+    =
+    \frac{1}{\mu}\mathcal{E}\mathcal{B}e^{2i(kz-\omega t)}\bm{e}_{z}
+  \end{equation}
+  である．ここで，\eqref{eq1}より
+  \begin{equation}
+    \mathcal{B}
+    =
+    \sqrt{\varepsilon\mu}\mathcal{E}
+  \end{equation}
+  なので，これを代入すれば
+  \begin{equation}
+    \bm{S}
+    =
+    \sqrt{\frac{\varepsilon}{\mu}}\frac{E_{0}^2 a^2}{r^2}e^{2i(kz-\omega t)}\bm{e}_{z}
+  \end{equation}
+  となる．これは単位面積あたり，単位時間あたりのエネルギー流量なので，単位時間当たりのエネルギーは，面積で積分して
+  \begin{equation}
+    \int S(r)\dd S
+    =
+    \int_{0}^{2\pi}\dd \theta\ \int_{a}^{b}r \dd r\ S(r)
+    =
+    2\pi
+    \sqrt{\frac{\varepsilon}{\mu}}E_{0}^2 a^2 \log\frac{b}{a} e^{2i(kz-\omega t)}
+  \end{equation}
+  となる．
+
+  \item 
+  電場$\bm{E}$を積分すれば$V(z,t)$を得ることができる．よって，電場は\eqref{el_field}だったので
+  \begin{align}
+    V(z,t)
+    &=
+    -\int_{b}^{a} E_{r} dr
+    \nonumber
+    \\
+    &=
+    a E_{0}\log\frac{b}{a}e^{i(kz-\omega t)}
+  \end{align}
+  である．
+
+  \item 
+  アンペールの法則より
+  \begin{equation}
+    I(z,t)
+    =
+    \frac{1}{\mu}\oint_{C}\bm{B}(\bm{r})\cdot\dd \bm{r}
+  \end{equation}
+  が成立する．今回は，半径$r$の経路をとってみると，
+  \begin{equation}
+    I(z,t)
+    =
+    \frac{2\pi r}{\mu}\cdot \sqrt{\varepsilon\mu}E_{\theta}(r,z,t)
+    =
+    2\pi a\sqrt{\frac{\varepsilon}{\mu}}E_{0}e^{i(kz-\omega t)}
+  \end{equation}
+  となる．よって，特性インピーダンスは
+  \begin{equation}
+    Z_{0}
+    =
+    \frac{V(z,t)}{I(z,t)}
+    =
+    \frac{1}{2\pi}\sqrt{\frac{\mu}{\varepsilon}}\log\frac{b}{a}
+  \end{equation}
+  となる．
+
+  \item 
+  $|V(z,t)|$を計算してみると
+  \begin{align}
+    \nonumber
+    \left|
+      V(z,t)
+    \right|
+    &=
+    \frac{1}{\sqrt{2\pi}}\left|
+      \int_{-\infty}^{\infty}
+      v(k)
+      e^{ikz-i\omega(k_0)t-iAkt+iAk_0 t}
+      \dd k
+    \right|
+    \\
+    \nonumber
+    &=
+    \frac{1}{\sqrt{2\pi}}\left|
+      \int_{-\infty}^{\infty}
+      v(k)
+      e^{i(z-At)k}
+      \dd k
+    \right|
+    \\
+    &=
+    \left|
+      \tilde{v}(z-At)
+    \right|
+  \end{align}
+  となる．ここで
+  \begin{equation}
+    \tilde{v}(z)
+    \coloneqq
+    \frac{1}{\sqrt{2\pi}}
+    \int_{-\infty}^{\infty}
+      v(k)
+      e^{ikz}
+      \dd k
+  \end{equation}
+  は，$v(k)$のフーリエ変換である．よって，波形が変化せずに伝搬されることが示された．
+\end{enumerate}
+
+
+\end{document}

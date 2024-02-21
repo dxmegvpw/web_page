@@ -1,0 +1,356 @@
+\pdfoutput=1
+\documentclass[a4paper,pdflatex,ja=standard]{bxjsarticle}
+
+% ---Display \subsubsection at the Index
+% \setcounter{tocdepth}{3}
+
+% ---Setting about the geometry of the document----
+% \usepackage{a4wide}
+% \pagestyle{empty}
+
+% ---Physics and Math Packages---
+\usepackage{amssymb,amsfonts,amsthm,mathtools}
+\usepackage{physics,braket,bm}
+
+% ---underline---
+\usepackage{ulem}
+
+% ---cancel---
+\usepackage{cancel}
+
+% --- surround the texts or equations
+\usepackage{fancybox,ascmac}
+
+% ---settings of theorem environment---
+\usepackage{amsthm}
+\theoremstyle{definition}
+
+% ---settings of proof environment---
+\makeatletter
+\renewenvironment{proof}[1][\proofname]{
+  \par
+  \pushQED{\qed}%
+  % \normalfont\topsep6\p@\@plus6\p@\relax
+  \trivlist
+  \item\relax
+  {#1}
+  \hspace\labelsep\ignorespaces
+}{%
+  \popQED\endtrivlist\@endpefalse
+}
+\makeatother
+\renewcommand{\proofname}{（解）}
+\renewcommand{\qedsymbol}{\empty}
+
+% ---Ignore the Warnings---
+\usepackage{silence}
+\WarningFilter{latexfont}{Some font shapes,Font shape}
+
+% ---Insert the figure (If insert the `draft' at the option, the process becomes faster.)---
+\usepackage{graphicx}
+% \usepackage{subcaption}
+
+% ----Add a link to a text---
+\usepackage{url}
+\usepackage{xcolor,hyperref}
+\hypersetup{colorlinks=true,citecolor=orange,linkcolor=blue,urlcolor=magenta}
+\usepackage[whole,autotilde]{bxcjkjatype}
+
+% ---Tikz---
+\usepackage{tikz,pgf,pgfplots,circuitikz}
+\pgfplotsset{compat=1.15}
+\usetikzlibrary{intersections,arrows.meta,angles,calc,3d,decorations.pathmorphing}
+
+% ---Add the section number to the equation, figure, and table number---
+\makeatletter
+   \renewcommand{\theequation}{\thesection.\arabic{equation}}
+   \@addtoreset{equation}{section}
+   
+   \renewcommand{\thefigure}{\thesection.\arabic{figure}}
+   \@addtoreset{figure}{section}
+   
+   \renewcommand{\thetable}{\thesection.\arabic{table}}
+   \@addtoreset{table}{section}
+\makeatother
+
+% ---surrond the text---
+\usepackage{tcolorbox}
+\tcbuselibrary{breakable,skins,theorems}
+\definecolor{notecolor}{rgb}{0.2,0.4,0.8}
+\definecolor{mondaicolor}{rgb}{0.6,0.6,0.2}
+\newtcolorbox{note}[2][]
+{
+  enhanced,
+  left=22pt,right=22pt,
+  fonttitle=\bfseries,
+  coltitle=white,
+  colbacktitle=blue!50!black,
+  attach boxed title to top left={},
+  boxed title style={skin=enhancedfirst jigsaw,arc=1mm,bottom=0mm,boxrule=0mm},
+  boxrule=0.5pt,
+  colback=notecolor!5!,
+  colframe=notecolor,
+  sharp corners=northwest,
+  drop fuzzy shadow,
+  breakable,
+  title=\vspace{3mm}#2,
+  arc=1mm,
+  #1
+}
+\newtcbtheorem{mondai}{演習問題}
+{
+  enhanced,
+  left=22pt,right=22pt,
+  fonttitle=\bfseries,
+  coltitle=white,
+  colbacktitle=green!70!black,
+  attach boxed title to top left={},
+  boxed title style={skin=enhancedfirst jigsaw,arc=1mm,bottom=0mm,boxrule=0mm},
+  boxrule=0.5pt,
+  colback=mondaicolor!5!,
+  colframe=mondaicolor,
+  sharp corners=northwest,
+  drop fuzzy shadow,
+  breakable,
+  title=\vspace{3mm},
+  arc=1mm
+}{mondai}
+
+% ---enumerate---
+\renewcommand{\labelenumi}{$(\arabic{enumi})$}
+% \renewcommand{\labelenumii}{$(\arabic{enumii})$}
+
+% ---Index---
+% \usepackage{makeidx}
+% \makeindex 
+
+% ---Fonts---
+% \renewcommand{\familydefault}{\sfdefault}
+
+% ---Title---
+\title{速習ノート}
+\author{\empty}
+\date{最終更新：\today}
+
+\begin{document}
+
+\maketitle
+
+\tableofcontents
+\clearpage
+
+\section{微分方程式}
+
+今回の微分方程式は
+\begin{equation}
+  m\dv[2]{x}{t}
+  =
+  -kx
+  +
+  qE_0\sin\omega t
+\end{equation}
+でした．両辺を$m$で割って
+\begin{equation}
+  \dv[2]{x}{t}
+  =
+  -\frac{k}{m}x
+  +
+  \frac{qE_0}{m}\sin\omega t  
+  \label{diff_eq}
+\end{equation}
+としておきます．こういう場合，特解（振動数$\omega$の解）は
+\begin{equation}
+  x(t)
+  =
+  A\sin \omega t
+\end{equation}
+とおいて探します\footnote{
+  定数変化法でも見つけられないわけではないと思うけど，あまり見たことがない気がする．多分こっちのほうがラクだから．
+}．\eqref{diff_eq}に代入すると
+\begin{equation}
+  -A\omega^2\sin\omega t
+  =
+  -\frac{k}{m}A\sin\omega t
+  +
+  \frac{qE_0}{m}\sin\omega t
+  \quad
+  \rightarrow
+  \quad
+  A
+  =
+  \frac{qE_0/m}{(k/m)-\omega^2}
+\end{equation}
+となるので，特解は
+\begin{equation}
+  x(t)
+  =
+  \frac{qE_0/m}{(k/m)-\omega^2}\sin\omega t
+\end{equation}
+です．ここで，$\omega_0\equiv\sqrt{k/m}$が共振振動数で，$\omega\sim\omega_0$で$x(t)$がすごい振動します．
+\\
+
+こんな感じで特解を出します．ちょっと院試に出そうな問題をピックアップしておきます．
+
+\begin{mondai}{非斉次微分方程式}{inhom}
+  次の微分方程式の特解を求めよ．
+  \begin{enumerate}
+    \item 
+    ${\displaystyle
+    \dv[2]{x}{t}+2\dv{x}{t}-3x=e^{2t}}$
+    \footnote{
+      参考：\url{https://www.geisya.or.jp/~mwm48961/kou3/differ_eq3.htm}
+    }
+    \item 
+    ${
+      \displaystyle
+      \dv[2]{x}{t}+2\gamma\dv{x}{t}+\omega_0^2x
+      =
+      f\sin\omega t
+    }$
+    \footnote{
+      参考：\url{http://www.asem.kyushu-u.ac.jp/qq/qq02/kikanbuturi/chap6.pdf}
+    }
+    \ （減衰振動．今日のよりもちょっと難しい．）
+  \end{enumerate}
+\end{mondai}
+
+\uline{解答}
+\begin{enumerate}
+  \item 
+  こういうのは$x(t)=Ae^{2t}$として$A$を決めます．代入すると$A=1/5$となるので，特解は
+  \begin{equation}
+    x(t)
+    =
+    \frac{1}{5}e^{2t}
+  \end{equation}
+  です．（計算してみると，なんでこのようにおけばよいのか分かるかも．）
+  \item 
+  ワンチャン力学で出るかもと思って出しておきました．知ってたらごめん．今回の東大のケースと同じように$x(t)=A\sin\omega t$とおけばうまくいくと思いきや，これだとダメです．今回は
+  \begin{equation}
+    x(t)
+    =
+    A\cos\omega t
+    +
+    B\sin\omega t
+  \end{equation}
+  として，$A,B$を求めます．計算は省略しますが，答えは
+  \begin{equation}
+    A
+    =
+    \frac{-2\gamma\omega f}{(\omega_0^2-\omega^2)^2+(2\gamma\omega)^2}
+    ,\ 
+    B
+    =
+    \frac{(\omega_0^2-\omega^2)f}{(\omega_0^2-\omega^2)^2+(2\gamma\omega)^2}
+  \end{equation}
+  です\footnote{
+    実は複素数でやるとチョットだけラクになるけど，こっちのほうが直感的で嬉しい．
+  }．
+\end{enumerate}
+
+
+\section{量子力学の復習}
+
+今日，電車で言ってた話．
+\begin{mondai}{波動関数の問題}{wave_function}
+  \begin{enumerate}
+    \item 
+    $\ev*{\bm{p}|\bm{q}}$を求めよ．ただし，規格化はしなくてよい．
+    \item 
+    今回の問題を復習する．つまり，$\psi(q,t)\equiv\ev*{q|\psi(t)}$を求めよ．ただし，前問で
+    \begin{equation}
+      \hat{p}
+      \ket{(r,\phi)}
+      =
+      \alpha(r,\phi)\hat{q}
+      \ket{(r,\phi)}
+      ,\ 
+      \ket{\psi(t)}
+      =
+      \ket{(t,-\pi/4)}
+    \end{equation}
+    を示していたので，これは用いてもよい．
+  \end{enumerate}
+\end{mondai}
+
+\uline{解答}
+\begin{enumerate}
+  \item 
+  こういうのは大体$\ev*{\bm{p}|\hat{\bm{p}}|\bm{q}}$を計算する．$\hat{\bm{p}}$が$\ket{\bm{q}}$に作用すると思えば
+  \begin{equation}
+    \ev*{\bm{p}|\hat{\bm{p}}|\bm{q}}
+    =
+    -i\hbar\pdv{}{\bm{q}}\ev*{\bm{p}|\bm{q}}
+    \label{eqn1}
+  \end{equation}
+  となり，一方で$\bra{\bm{p}}$に$\hat{\bm{p}}$が作用すると思えば
+  \begin{equation}
+    \ev*{\bm{p}|\hat{\bm{p}}|\bm{q}}
+    =
+    \bm{p}\ev*{\bm{p}|\bm{q}}
+    \label{eqn2}
+  \end{equation}
+  です．よって，\eqref{eqn1}と\eqref{eqn2}を合わせれば
+  \begin{equation}
+    -i\hbar\pdv{}{\bm{q}}\ev*{\bm{p}|\bm{q}}    
+    =
+    \bm{p}\ev*{\bm{p}|\bm{q}}
+  \end{equation}
+  という微分方程式になりますが，これは
+  \begin{equation}
+    \frac{1}{\ev*{\bm{p}|\bm{q}}}\pdv{}{\bm{q}}\ev*{\bm{p}|\bm{q}}
+    =
+    \frac{i}{\hbar}\bm{p}
+  \end{equation}
+  より
+  \begin{equation}
+    \ev*{\bm{p}|\bm{q}}
+    =
+    e^{i\bm{q}\cdot\bm{p}/\hbar}
+  \end{equation}
+  と解けます\footnote{
+    「$\bm{q}$の微分って？」と思ったら，とりあえず1次元で考えると分かりやすいかも？
+  }．
+  \item 
+  おんなじ感じです．$r=t,\phi=-\pi/4$であることに注意すれば
+  \begin{equation}
+    \ev*{q|\hat{p}|(t,-\pi/4)}
+  \end{equation}
+  を2通りで計算すればいいです．$\hat{p}$が$\bra{q}$に作用すると思えば，
+  \begin{equation}
+    \ev*{q|\hat{p}|(t,-\pi/4)}
+    =
+    -i\hbar\pdv{}{q}\psi(q,t)
+  \end{equation}  
+  で，$\hat{p}$が$\ket{(t,-\pi/4)}$に作用すると思えば，前問で求めた公式を用いて，
+  \begin{equation}
+    \ev*{q|\hat{p}|(t,-\pi/4)}
+    =
+    \alpha(t,-\pi/4)
+    \ev*{q|\hat{q}|(t,-\pi/4)}
+    =
+    \alpha(t,-\pi/4)q\psi(q,t)
+  \end{equation}
+  となります．よって，微分方程式は
+  \begin{equation}
+    -i\hbar\pdv{}{q}\psi(q,t)
+    =    
+    \alpha(t,-\pi/4)q\psi(q,t)
+  \end{equation}
+  なので，これを解くと
+  \begin{equation}
+    \psi(q,t)
+    =
+    \exp
+    \left[  
+      i\frac{\alpha(t,-\pi/4) q^2}{2\hbar}
+    \right]
+  \end{equation}
+  がたぶん答えです．
+\end{enumerate}
+
+\vspace{10pt}
+
+俺は先に夏休み満喫してます．あと少し，がんばって！！
+
+\end{document}

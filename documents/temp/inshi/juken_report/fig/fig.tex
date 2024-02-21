@@ -1,0 +1,18 @@
+\documentclass{standalone}
+
+\usepackage{tikz,pgf,pgfplots,circuitikz}
+\pgfplotsset{compat=1.15}
+\usetikzlibrary{intersections,arrows.meta,angles,calc,3d,decorations.pathmorphing}
+
+\usepackage{amssymb,amsfonts,amsthm,mathtools}
+\usepackage{physics,braket,bm}
+
+\begin{document}  
+  \begin{tikzpicture}
+    \draw[opacity=0.0](-2.1,0,0)--(2.2,0,0);
+    \draw[dotted](0,-2,0) -- (0,3,0);
+    \draw[thin](0,0,0) circle [x radius=2, y radius=0.5];
+    \draw[-latex,thick](0,1.9,0)--(0.5,2.9,0) node [right]{$\bm{H}$};
+    \draw[-latex,thick](2,0,0)--()
+  \end{tikzpicture}
+\end{document}

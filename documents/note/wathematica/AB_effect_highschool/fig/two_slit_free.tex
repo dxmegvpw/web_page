@@ -1,0 +1,33 @@
+\documentclass{standalone}
+
+\usepackage{tikz,pgf,pgfplots,circuitikz}
+\pgfplotsset{compat=1.15}
+\usetikzlibrary{intersections,arrows.meta,angles,calc,3d,decorations.pathmorphing}
+
+\usepackage{amssymb,amsfonts,amsthm,mathtools}
+\usepackage{physics,braket,bm}
+
+\begin{document}  
+  \begin{tikzpicture}
+    \draw[dashed, thin](-2.5,0)--(4.5,0)node[right]{$0$};
+    \draw[-latex, thick](4.3,-1.5)--(4.3,2.4)node[right]{$z$};
+
+    \draw[thick](-2,0)--(0,1)--(3.6,2.1);
+    \draw[thick](-2,0)--(0,-1)--(3.6,2.1);
+
+    \draw(2,1.8)node{$\gamma_1$};
+    \draw(2,0.4)node{$\gamma_2$};
+    
+    \draw[line width=2pt](0,2.4)--(0,1.1);
+    \draw[line width=2pt](0,0.9)--(0,-0.9);
+    \draw[line width=2pt](0,-1.5)--(0,-1.1);    
+
+    \draw[line width=2pt](3.6,2.4)--(3.6,-1.5);
+
+    \fill[white](-2,0)circle(3pt);
+    \draw[thick](-2,0)circle(3pt);
+
+    \draw[-latex,thin](-2,0.3)--(-1.6,0.5);
+    \draw[-latex,thin](-2,-0.3)--(-1.6,-0.5);
+  \end{tikzpicture}
+\end{document}
