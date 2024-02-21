@@ -1,0 +1,1962 @@
+\documentclass[a4paper,uplatex,dvipdfmx]{jsarticle}
+
+% ---Display \subsubsection at the Index
+% \setcounter{tocdepth}{3}
+
+% ---Setting about the geometry of the document----
+% \usepackage{a4wide}
+% \pagestyle{empty}
+
+% ---Physics and Math Packages---
+\usepackage{amssymb,amsfonts,amsthm,mathtools}
+\usepackage{physics,braket,bm}
+
+% ---underline---
+\usepackage{ulem}
+
+% ---cancel---
+\usepackage{cancel}
+
+% --- surround the texts or equations
+% \usepackage{fancybox,ascmac}
+
+% ---settings of theorem environment---
+\usepackage{amsthm}
+\theoremstyle{definition}
+\newtheorem{dfn}{定義}
+\newtheorem{prop}{命題}
+\newtheorem{thm}{定理}
+
+% ---settings of proof environment---
+\renewcommand{\proofname}{\textbf{証明}}
+\renewcommand{\qedsymbol}{$\blacksquare$}
+
+% ---Ignore the Warnings---
+\usepackage{silence}
+\WarningFilter{latexfont}{Some font shapes,Font shape}
+\ExplSyntaxOn
+\msg_redirect_name:nnn{hooks}{generic-deprecated}{none}
+\ExplSyntaxOff
+
+% ---Insert the figure (If insert the `draft' at the option, the process becomes faster.)---
+\usepackage{graphicx}
+% \usepackage{subcaption}
+
+% ----Add a link to a text---
+\usepackage{url,hyperref}
+\usepackage[dvipsnames,svgnames]{xcolor}
+\hypersetup{colorlinks=true,citecolor=FireBrick,linkcolor=Navy,urlcolor=purple}
+\usepackage{pxjahyper}
+% ---refer `texdoc xcolor' at the command line---
+
+% ---Tikz---
+% \usepackage{tikz,pgf,pgfplots,circuitikz}
+% \pgfplotsset{compat=1.15}
+% \usetikzlibrary{intersections,arrows.meta,angles,calc,3d,decorations.pathmorphing}
+
+% ---Add the section number to the equation, figure, and table number---
+\makeatletter
+   \renewcommand{\theequation}{\thesection.\arabic{equation}}
+   \@addtoreset{equation}{section}
+   
+   \renewcommand{\thefigure}{\thesection.\arabic{figure}}
+   \@addtoreset{figure}{section}
+   
+   \renewcommand{\thetable}{\thesection.\arabic{table}}
+   \@addtoreset{table}{section}
+\makeatother
+
+% ---enumerate---
+% \renewcommand{\labelenumi}{$\arabic{enumi}.$}
+% \renewcommand{\labelenumii}{$(\arabic{enumii})$}
+
+% ---Index---
+% \usepackage{makeidx}
+% \makeindex 
+
+% ---Fonts---
+% \renewcommand{\familydefault}{\sfdefault}
+% \renewcommand{\kanjifamilydefault}{\gtdefault}
+
+% ---Title---
+\title{手を動かしてまなぶ超対称性}
+\author{宮根 一樹}
+\date{2023年 12月 14日}
+
+\begin{document}
+
+\maketitle
+
+\tableofcontents
+
+\clearpage
+\section{はじめに}
+
+初めまして，物理学科の宮根\footnote{
+  ディスコードの名前はミヤですが，今回は諸事情で本名で投稿することにしました（次回の記事もそうです）．
+}といいます．12月14日の記事を担当します．元々は21日の記事のみをやる予定でしたが，同級生や後輩と話していたら，こんな記事もありなのかなって思いついたので，急遽書くことにしました．ちょっと急ごしらえのところもあるかもしれませんが，まあ，そんなに真面目な記事じゃないので，気楽に読んでもらえればと思います．
+
+さて，今日の記事の内容ですが，タイトルがほとんど全てです．理論物理の重要な1つの概念に超対称性(SUSY)というものがあり，それは通常の対称性と違って，ボゾンとフェルミオンを混ぜるような変換となっています．簡単に説明するとこのような感じになるのですが，実際に理論を書いていくとなると，口で言うほど簡単にボゾンとフェルミオンが混ざるわけがないので，すごくゴチャゴチャした計算をすることになります．
+
+そんなわけで，今回はSUSYの物理的な考え方にはあまり立ち入らずに，とりあえずどんな計算をしているのかを，詳細に書いていこうと思っています\footnote{
+  一方，physicalな側面も面白いので，もしかしたらそこらへんをまとめて話すかもしれません．
+}．ここでスポットアップしたものはSUSYの中でも割と初等的な$\mathcal{N}=1$でglobalな場合ですので，extended SUSY（$\mathcal{N}>1$）やlocalなSUSYである超重力理論(SUGRA)をやるとなると，さらに激しい計算が続くことになります\footnote{
+  というか，難しすぎてむしろ$\mathcal{N}=1$の模型のように計算することは諦めているとか．
+}．ですので，本稿は超対称に関わる計算のなかでは，割とミニマルであるということを念頭に置いて，絶望していただければと思います\footnote{
+  物理・応物の後輩のみなさんに言っておきますが，A研に来ることを脅しているわけではありませんよ！むしろ，ワセマの後輩はみんな当時の私なんかよりも優秀で安心できるので，来てくれると嬉しいです！
+}．
+
+
+\section{本論}
+
+この連載はいろいろなバックグラウンドの人が読んでくださっていると思うので，全体的にできるだけ定義などは注意しておこなって，いろいろ例を出すようにしていきます．ただ，書いている人の気持ちを察するのが人一倍上手な皆さんだと思うので\footnote{
+  たぶん私もその一人です．というか，物理でも量子情報や量子基礎理論の人よりもいい加減な議論をすることが多いので，私はかなり強いほうだと思っています．
+}，最後の最後は甘えてしまうかもしれません．
+
+基本的には，\cite{Wess_SupersymmetrySupergravity_1992}で私は勉強してきました．SUSYの教科書では，計算をせずに済ませられる部分は，なるべく計算せずに事実を説明していくことが多いですが，今回はそういった部分も\textbf{あえて}ゴリゴリ計算していくことにしようと思っています．よって，SUSYを勉強し始めた人は，この記事を副読本にようにして見直してみると，理解が深まっていくことでしょう．
+
+\subsection{超対称性}
+
+冒頭で「SUSYの物理的な考え方にはあまり立ち入らずに」と言いましたが，さすがに全く物理に触れずにスタートするのは変だと思うので，SUSYの経緯について，物理的な側面から少しお話をしておきたいと思います．一応，この節は読み物的なノリで行こうと思っているので，もし分らなかったとしても安心して次の節から読んでください．
+
+さて，SUSYは何ぞや，ということですが，ここではいくつかの説明の仕方があるかと思います．1つは\textbf{超対称代数}といった考え方で，代数的な考え方からSUSYを説明する方法になります．より高次元の理論（超重力とか超弦理論とか）や数理物理などをするときはこういった側面を追いかける必要があると思いますし，定義という意味では一番大事かもしれません．しかしながら，実際にラグランジアンを書き下そうというときに，代数からやっていると，その変換に対する不変性とかが見えづらくなってしまいます．そこで，超対称な理論を作るために，超対称変換に対して共変的に変換される\textbf{超場}というのを定義してそれを用いて超対称な理論を作ることにしていきます\footnote{
+  物理の人に向けて補足しておくと，ここらへんの事情は，局所的なゲージ理論を構成するときに，共変微分を定義して変換性を見やすくする手続きに似ています．
+}．
+
+では，はじめに，肝心の\textbf{超対称変換}について見ていきましょう．ここでは，$\phi$をスカラー場（ボソン），$\psi$をスピノール場（フェルミオン），$F$を補助場（ボゾン）としておきます．すると，これらに対して，前述した超対称代数とコンシステントな変換$\delta_{\xi}$は
+\begin{equation}
+  \left\{
+    \begin{alignedat}{1}
+      \delta_{\xi}\phi
+      &=
+      \sqrt{2}\xi^{\alpha}\psi_{\alpha}
+      \\
+      \delta_{\xi}\psi_{\alpha}
+      &=
+      i\sqrt{2}\sigma^{\mu}_{\alpha\dot{\alpha}}\bar{\xi}^{\dot{\alpha}}\partial_{\mu}\phi+\sqrt{2}\xi_{\alpha}F
+      \\
+      \delta_{\xi}F
+      &=
+      i\sqrt{2}\bar{\xi}_{\dot{\alpha}}\bar{\sigma}^{\mu\dot{\alpha}\alpha}\partial_{\mu}\psi_{\alpha}      
+    \end{alignedat}
+  \right.
+  \label{susy_tf}
+\end{equation}
+となっています．ただし，今回は（これ以降も）$\mathcal{N}=1$の話に限ります．この変換を眺めれば，ボゾンはフェルミオンへ，フェルミオンはボゾンへと変換されていることが分るかと思います．基本的に$\phi,\psi$があるときは，それぞれKlein-Gordon方程式とWeyl方程式を満たしてほしいわけなので，この理論の基本的なラグランジアンは
+\begin{equation}
+  \mathcal{L}_{0}
+  =
+  \partial_{\mu}\phi^{*}\partial^{\mu}\phi
+  +
+  i(\partial_{\mu}\bar{\psi}_{\dot{\alpha}})\bar{\sigma}^{\mu\dot{\alpha}\alpha}\psi_{\alpha}
+\end{equation}
+となります．ただし，別の補助場$F$があるので，
+\begin{equation}
+  \mathcal{L}_{F}
+  =
+  F^{*}F
+\end{equation}
+を加えてみましょう．すると
+\begin{equation}
+  \mathcal{L}_{0}+\mathcal{L}_{F}
+  =
+  \partial_{\mu}\phi^{*}\partial^{\mu}\phi
+  +
+  i(\partial_{\mu}\bar{\psi}_{\dot{\alpha}})\bar{\sigma}^{\mu\dot{\alpha}\alpha}\psi_{\alpha}
+  +
+  F^{*}F  
+  \label{lagrangian_minimal}
+\end{equation}
+となります．あまりピンとは来ないかもしれませんが，実はこのラグランジアンは\eqref{susy_tf}に対して不変となっています．次の節で実際に確認しますが，ここで覚えていてほしいのは，その計算はなかなか気をつけて計算をしないとすぐにはその不変性が見えてこないということです\footnote{
+  ここでやってもいいのですが，グラスマン数など，少々テクニカルなこともあるので，それを説明してから計算します．
+}．基本的に，ラグランジアンを超対称変換することで，その理論が超対称性を持っているか否かが判断できるわけですが，それでは新しい理論を作る際に，（その理論が超対称か分らないのに）毎回やっかいな計算をして確かめる必要があります．それはさすがに面倒なので，後に定義しておく超空間を用いれば，超対称な理論をつくりやすくなります．超空間を定義するためには，グラスマン数をしっかりと理解しておく必要があるので，次はそれについて確認していきましょう．
+
+\subsection{スピノールとグラスマン数}
+
+では，ここからはなるべくnotationをしっかりして書いていきたいと思います．まず，ラグランジアンを構成する場は，ボゾンとフェルミオンに分類されるわけですが，フェルミオンは少し特殊で，\textbf{スピノール場}として取り扱います．スピノール場は，時空の座標$x$を引数にもつグラスマン数の関数です．グラスマン数は反可換する数で，例えば，$\xi_1(x),\xi_2(x)$がスピノール場だとすると，
+\begin{equation}
+  \xi_{1}(x)\xi_{2}(x)
+  =
+  -\xi_{2}(x)\xi_{1}(x)
+\end{equation}
+のようになります．ここで，注意してほしいのは\textbf{同じスピノールがかかると消える}ということです．例えば，$\xi_{1}(x)
+\xi_1(x)$に対して反可換の性質を使うと，$-\xi_1(x)\xi_1(x)$
+と自分自身にマイナスがついたものになるので
+\begin{equation}
+  (\xi_1(x))^2
+  =
+  \xi_{1}(x)\xi_{1}(x)
+  =
+  -
+  \xi_{1}(x)\xi_{1}(x)
+  =
+  -
+  (\xi_1(x))^2
+\end{equation}
+で，$(\xi_1(x))^2=0$です．
+
+\uline{以後は，スピノール場の引数$x$を省略します}（つまり，$\xi_{1}(x)=\xi_{1}$など）．まず，ローレンツ群の表現論から，スピノールは$\xi_{1},\xi_{2}$や$\psi_{1},\psi_{2}$のように2つのペアを組むことになります．このスピノールの添え字は時空の添え字（$x_{\mu}$など）とは異なるので，$\alpha$で書くことにします．つまり
+\begin{equation}
+  (\xi_{\alpha})_{\alpha\in\{1,2\}}
+  =
+  \{\xi_{1},\xi_{2}\}
+\end{equation}
+といった感じでしょうか．前述したとおり，スピノールは同じものをふたつ以上組むことができないので，$\xi$に関連しいるスピノールの2次の項$\xi$は$\xi_{1}\xi_{2}$か$\xi_{2}\xi_{1}$しかありません．ここでは，
+\begin{equation}
+  \xi^2
+  \equiv
+  2\xi_{2}\xi_{1}
+  =
+  -2\xi_{1}\xi_{2}
+\end{equation}
+と約束しておきます（係数の2は見やすさのためです）．このあと，いろいろなスピノールが入り混じることになるので，計算をしやすくするためにこの規則とコンシステントとなるように，縮約を定義してあげましょう．そのためには，添え字が上についているスピノールを定義しておく必要があります：
+\begin{equation}
+  \xi^{1}
+  \equiv
+  -\xi_{2}
+  \ ,\quad
+  \xi^{2}
+  \equiv
+  \xi_{1}
+  .
+\end{equation}
+これは
+\begin{equation}
+  \xi^{\alpha}
+  =
+  \sum_{\beta=1,2}
+  \varepsilon^{\alpha\beta}\xi_{\beta}
+  \ ,\quad
+  \varepsilon^{\alpha\beta}
+  =
+  \begin{pmatrix}
+    \varepsilon^{11} & \varepsilon^{12} \\
+    \varepsilon^{21} & \varepsilon^{22}
+  \end{pmatrix}
+  =
+  \begin{pmatrix}
+    0 & 1 \\
+    -1 & 0
+  \end{pmatrix}
+\end{equation}
+と書くこともできます．この規則を用いれば
+\begin{equation}
+  \xi^2
+  =
+  \sum_{\alpha=1,2}
+  \xi^{\alpha}\xi_{\alpha}
+  =
+  \sum_{\alpha,\beta=1,2}
+  \varepsilon^{\alpha\beta}\xi_{\beta}\xi_{\alpha}
+  =
+  2\xi_{2}\xi_{1}
+\end{equation}
+となっています．以後は，添え字が同じものがある場合は基本的に総和をとているとして$\sum$を省略して，さらに\textbf{添え字を省略する場合は，左上から右下に縮約をとる}と約束しておきます．
+
+\vspace{7pt}
+
+{
+  \small
+  ちょっと話がごちゃごちゃしてきたので，整理しておきます．上では，スピノール$\psi_{\alpha}に対して$$\psi^2$と書かれたとき，$\psi_{\alpha}\psi^{\alpha}$ではなく$\alpha^{\alpha}\psi_{\alpha}$と読むと約束したことになります．なんでこんな丁寧に定義したかというと，$\psi_{\alpha}$がグラスマン数であることに由来しており，
+  \begin{equation*}
+    \psi^{\alpha}\psi_{\alpha}
+    =
+    -\psi_{\alpha}\psi^{\alpha}
+  \end{equation*}
+  と添え字の上下が全体の符号に影響しているからです．ちなみに、先ほどはグラスマン数の性質で示しましたが，
+  \begin{equation*}
+    \psi^{\alpha}\psi_{\alpha}
+    =
+    (\varepsilon^{\alpha\beta}\psi_{\beta})\psi_{\alpha}
+    =
+    -\psi_{\beta}(\varepsilon^{\beta\alpha}\psi_{\alpha})
+    =
+    -\psi_{\beta}\psi^{\beta}
+    =
+    -\psi_{\alpha}\psi^{\alpha}
+  \end{equation*}
+  と添え字のノーテーションがコンシステントであることも確認できます．
+}
+
+\vspace{7pt}
+
+一般に，スピノールがあれば，その複素共役も存在します．その複素共役なスピノールは変換性が違うので，\textbf{ドットをつけた}添え字をつけることにします．つまり，複素共役を$\bar{\xi}$のように書くことにすれば
+\begin{equation}
+  \{\bar{\xi}_{\dot{\alpha}}\}_{\dot{\alpha}\in\{\dot{1},\dot{2}\}}
+  =
+  \{\bar{\xi}_{\dot{1}},\bar{\xi}_{\dot{2}}\}
+\end{equation}
+のようになります．
+
+\vspace{1em}
+
+{
+  \small
+  ここで，このような$\dot{\alpha}$というような紛らわしい添え字を定義するのは，ローレンツ不変性を見やすくするためです．基本的に，共役でないスピノールはそれ同士で，共役なスピノールはそれ同士で組まない限りローレンツ不変にならないことが分っています．したがって，$\bar{\xi}_{\dot{1}}\psi_{2}$のようなものを考えるのはもちろんありですが，このような量はローレンツ不変ではないため，ラグランジアンには入ってきません．以下でも述べますが，\textbf{ドットが付いた添え字はそれ同士で，ドットなしの添え字はそれ同士で}縮約をとると約束すると，自然と縮約をとった量はローレンツ不変になって理論が分りやすくなります．
+}
+
+\vspace{1em}
+
+ドットなしの添え字と同様に，縮約を定義してあげましょう．反完全対称テンソルは同様に
+\begin{equation}
+  \varepsilon^{\dot{\alpha}\dot{\beta}}
+  =
+  \begin{pmatrix}
+    0 & 1 \\
+    -1 & 0
+  \end{pmatrix}
+\end{equation}
+だとしましょう．一方で縮約のほうは，
+\begin{equation}
+  \bar{\xi}^2
+  \equiv
+  \bar{\xi}_{\dot{\alpha}}\bar{\xi}^{\dot{\alpha}}
+  =
+  -2\bar{\xi}_{\bar{2}}\bar{\xi}_{\bar{1}}
+  \label{contraction_dotted}
+\end{equation}
+と添え字の向き（左下から右上）を逆に定義しておきます．その理由ですが，実は，次の量
+\begin{equation}
+  \psi\sigma^{\mu}\partial_{\mu}\bar{\psi}
+  =
+  \psi^{\alpha}\sigma^{\mu}_{\ \alpha\dot{\alpha}}\partial_{\mu}\bar{\psi}^{\dot{\alpha}}
+\end{equation}
+がローレンツ不変であることが知られているからです．\textbf{もし，ドットつきのスピノールのノーテーションが逆向き}だったら
+\begin{equation}
+  \psi\sigma^{\mu}\partial_{\mu}\bar{\psi}
+  =
+  \psi^{\alpha}\sigma^{\mu\ \dot{\alpha}}_{\ \alpha}\partial_{\mu}\bar{\psi}_{\dot{\alpha}}
+  \tag{??}
+\end{equation}
+となって，少し面倒でしょう．よって，\eqref{contraction_dotted}のように，ドットつきの添え字は縮約をとることにします．また，スピノールの積の複素共役は
+\begin{equation}
+  (\xi_{1}\xi_{2})^{*}
+  =
+  \bar{\xi}_{\dot{2}}\bar{\xi}_{\dot{1}}
+\end{equation}
+となっているので，
+\begin{equation}
+  (\xi^2)^{*}
+  =
+  (\xi^{\alpha}\xi_{\alpha})^{*}
+  =
+  \bar{\xi}_{\dot{\alpha}}\bar{\xi}^{\dot{\alpha}}
+  =
+  \bar{\xi}^2
+\end{equation}
+となっています．
+
+\vspace{1em}
+
+さて，では，前の節で飛ばしたラグランジアン\eqref{lagrangian_minimal}の不変性をチェックしてみましょう．少し大変な作業ですが，SUSYをやるうえでは一番簡単なモデルになっています．示すべきは$\delta_{\xi}\mathcal{L}$が時空の完全微分となっていることです\footnote{
+  解析力学をやっていない人には説明が足りないはずです．とりあえず，ラグランジアンが完全微分だけ，つまり
+  $$
+    \delta_{\xi}\mathcal{L}
+    =
+    \partial_{\mu}(\cdots\cdots)
+  $$
+  と変化するなら，運動方程式は変化しないので，理論が変わらないということにしてください
+}．丁寧に計算していけば
+\begin{align}
+  \delta_{\xi}\mathcal{L}
+  &=
+  \partial_{\mu}(\delta_{\xi}\phi^{*})\partial^{\mu}\phi
+  +
+  \partial_{\mu}\phi^{*}\partial^{\mu}(\delta_{\xi}\phi)
+  \nonumber
+  \\
+  &\qquad
+  +
+  i(\partial_{\mu}(\delta_{\xi}\bar{\psi}_{\dot{\alpha}}))\bar{\sigma}^{\mu\dot{\alpha}\alpha}\psi_{\alpha}
+  -
+  i(\partial_{\mu}\bar{\psi}_{\dot{\alpha}})\bar{\sigma}^{\mu\dot{\alpha}\alpha}(\delta_{\xi}\psi_{\alpha})
+  \nonumber
+  \\
+  &\qquad
+  +
+  (\delta_{\xi}F^{*})F  
+  +
+  F^{*}(\delta_{\xi}F)
+  \nonumber
+  \\
+  &=
+  \sqrt{2}\partial_{\mu}(\bar{\xi}_{\dot{\alpha}}\bar{\psi}^{\dot{\alpha}})\partial^{\mu}\phi
+  +
+  \sqrt{2}\partial_{\mu}\phi^{*}\partial^{\mu}(\xi^{\alpha}\psi_{\alpha})
+  \nonumber
+  \\
+  &\qquad  
+  +
+  i(\partial_{\mu}(
+    -i\sqrt{2}\bar{\sigma}^{\nu\ \beta}_{\ \dot{\alpha}}\xi_{\beta}\partial_{\nu}\phi^{*}
+    +
+    \sqrt{2}\bar{\xi}_{\dot{\alpha}}F^{*}
+  ))\bar{\sigma}^{\mu\dot{\alpha}\alpha}\psi_{\alpha}
+  -
+  i(\partial_{\mu}\bar{\psi}_{\dot{\alpha}})\bar{\sigma}^{\mu\dot{\alpha}\alpha}(
+    i\sqrt{2}\sigma^{\nu}_{\ \alpha\dot{\beta}}\bar{\xi}^{\dot{\beta}}\partial_{\nu}\phi+\sqrt{2}\xi_{\alpha}F
+    )
+  \nonumber
+  \\
+  &\qquad
+  +
+  (
+    -i\sqrt{2}\xi^{\beta}\sigma^{\mu}_{\beta\dot{\beta}}\partial_{\mu}\bar{\psi}^{\dot{\beta}}
+  )F  
+  +
+  F^{*}(
+    i\sqrt{2}\bar{\xi}_{\dot{\beta}}\bar{\sigma}^{\mu\dot{\beta}\beta}\partial_{\mu}\psi_{\beta}
+  )
+  \nonumber
+  \\
+  &=
+  \sqrt{2}\bar{\xi}_{\dot{\alpha}}(\partial_{\mu}\bar{\psi}^{\dot{\alpha}})\partial^{\mu}\phi
+  +
+  \sqrt{2}\partial_{\mu}\phi^{*}\xi^{\alpha}(\partial^{\mu}\psi_{\alpha})
+  +
+  \sqrt{2}\bar{\sigma}^{\nu\ \beta}_{\ \dot{\alpha}}\xi_{\beta}(\partial_{\mu}\partial_{\nu}\phi)
+  \bar{\sigma}^{\mu\dot{\alpha}\alpha}\psi_{\alpha}
+  +
+  i\sqrt{2}\bar{\xi}_{\dot{\alpha}}(\partial_{\mu}F^{*})\bar{\sigma}^{\mu\dot{\alpha}\alpha}\psi_{\alpha}
+  \nonumber
+  \\
+  &\qquad
+  +
+  \sqrt{2}(\partial_{\mu}\bar{\psi}_{\dot{\alpha}})\bar{\sigma}^{\mu\dot{\alpha}\alpha}\sigma^{\nu}_{\ \alpha\dot{\beta}}\bar{\xi}^{\dot{\beta}}\partial_{\nu}\phi
+  -
+  i\sqrt{2}(\partial_{\mu}\bar{\psi}_{\dot{\alpha}})\bar{\sigma}^{\mu\dot{\alpha}\alpha}\xi_{\alpha}F
+  -
+  i\sqrt{2}\xi^{\beta}\sigma^{\mu}_{\beta\dot{\beta}}\partial_{\mu}\bar{\psi}^{\dot{\beta}}F
+  +
+  i\sqrt{2}\bar{\xi}_{\dot{\beta}}\bar{\sigma}^{\mu\dot{\beta}\beta}\partial_{\mu}\psi_{\beta}F^{*}
+  \label{variation_Lagrangian}
+\end{align}
+と展開できることが分ります．ここで，グラスマン数の性質から，変分も$\delta_{\xi}(\bar{\psi}\sigma\psi)=(\delta_{\xi}\bar{\psi})\sigma\psi-\bar{\psi}\sigma(\delta_{\xi}\psi)$となることに注意しましょう．さて，結果が分っているのでできることですが，次のように並べ替えをしてみましょう：
+\begin{align}
+  &
+  \uline{
+    \sqrt{2}\bar{\xi}_{\dot{\alpha}}(\partial_{\mu}\bar{\psi}^{\dot{\alpha}})\partial^{\mu}\phi
+  }
+  +
+  \uwave{
+    \sqrt{2}\partial_{\mu}\phi^{*}\xi^{\alpha}(\partial^{\mu}\psi_{\alpha})
+  }
+  +
+  \uwave{
+    \sqrt{2}\bar{\sigma}^{\nu\ \beta}_{\ \dot{\alpha}}\xi_{\beta}(\partial_{\mu}\partial_{\nu}\phi^{*})\bar{\sigma}^{\mu\dot{\alpha}\alpha}\psi_{\alpha}
+  }
+  +
+  \dashuline{
+    i\sqrt{2}\bar{\xi}_{\dot{\alpha}}(\partial_{\mu}F^{*})\bar{\sigma}^{\mu\dot{\alpha}\alpha}\psi_{\alpha}
+  }
+  \nonumber
+  \\
+  &\qquad
+  +
+  \uline{
+    \sqrt{2}(\partial_{\mu}\bar{\psi}_{\dot{\alpha}})\bar{\sigma}^{\mu\dot{\alpha}\alpha}\sigma^{\nu}_{\ \alpha\dot{\beta}}\bar{\xi}^{\dot{\beta}}\partial_{\nu}\phi
+  }
+  -
+  \uuline{
+    i\sqrt{2}(\partial_{\mu}\bar{\psi}_{\dot{\alpha}})\bar{\sigma}^{\mu\dot{\alpha}\alpha}\xi_{\alpha}F
+  }
+  -
+  \uuline{
+    i\sqrt{2}\xi^{\beta}\sigma^{\mu}_{\beta\dot{\beta}}\partial_{\mu}\bar{\psi}^{\dot{\beta}}F
+  }
+  +
+  \dashuline{
+    i\sqrt{2}\bar{\xi}_{\dot{\beta}}\bar{\sigma}^{\mu\dot{\beta}\beta}\partial_{\mu}\psi_{\beta}F^{*}
+  }
+  \nonumber
+  \\
+  &\hspace{5cm}
+  \equiv
+  \uline{\ A\ }
+  +
+  \uwave{\ B\ }
+  +
+  \dashuline{\ C\ }
+  +
+  \uuline{\ D\ }
+  ,
+  \\
+  &\hspace{2cm}
+  A
+  =
+  \sqrt{2}\bar{\xi}_{\dot{\alpha}}(\partial_{\mu}\bar{\psi}^{\dot{\alpha}})\partial^{\mu}\phi  
+  +
+  \sqrt{2}(\partial_{\mu}\bar{\psi}_{\dot{\alpha}})\bar{\sigma}^{\mu\dot{\alpha}\alpha}\sigma^{\nu}_{\ \alpha\dot{\beta}}\bar{\xi}^{\dot{\beta}}\partial_{\nu}\phi
+  ,
+  \\
+  &\hspace{2cm}
+  B
+  =
+  \sqrt{2}\partial_{\mu}\phi^{*}\xi^{\alpha}(\partial^{\mu}\psi_{\alpha})
+  +
+  \sqrt{2}\bar{\sigma}^{\nu\ \beta}_{\ \dot{\alpha}}\xi_{\beta}(\partial_{\mu}\partial_{\nu}\phi^{*})\bar{\sigma}^{\mu\dot{\alpha}\alpha}\psi_{\alpha}
+  ,
+  \\
+  &\hspace{2cm}
+  C
+  =
+  i\sqrt{2}\bar{\xi}_{\dot{\alpha}}(\partial_{\mu}F^{*})\bar{\sigma}^{\mu\dot{\alpha}\alpha}\psi_{\alpha}
+  +
+  i\sqrt{2}\bar{\xi}_{\dot{\beta}}\bar{\sigma}^{\mu\dot{\beta}\beta}\partial_{\mu}\psi_{\beta}F^{*}
+  ,
+  \\
+  &\hspace{2cm}
+  D
+  =
+  -
+  i\sqrt{2}(\partial_{\mu}\bar{\psi}_{\dot{\alpha}})\bar{\sigma}^{\mu\dot{\alpha}\alpha}\xi_{\alpha}F
+  -
+  i\sqrt{2}\xi^{\beta}\sigma^{\mu}_{\beta\dot{\beta}}\partial_{\mu}\bar{\psi}^{\dot{\beta}}F
+  .
+\end{align}
+それぞれの項を見てみていきますが，そのときに
+\begin{gather}
+  (
+    \bar{\sigma}^{\mu}\sigma^{\nu}
+    +
+    \bar{\sigma}^{\nu}\sigma^{\mu}
+  )^{\dot{\alpha}}_{\ \dot{\beta}}
+  =
+  -2\eta^{\mu\nu}\delta^{\dot{\alpha}}_{\ \dot{\beta}}
+  \label{formula01}
+  \\
+  \bar{\sigma}^{\mu\dot{\alpha}\alpha}
+  =
+  \varepsilon^{\dot{\alpha}\dot{\beta}}\varepsilon^{\alpha\beta}
+  \sigma^{\mu}_{\ \beta\dot{\beta}}
+  \label{formula02}
+\end{gather}
+が成り立つことをもちいていきます\footnote{
+  \cite{Wess_SupersymmetrySupergravity_1992}に載ってる公式をそのまま書きましたが，ちゃんと示すにはどうやればいいんでしょうね（いくつかは示した記憶があるのですが…）．例えば，\eqref{formula01}を総当たりするためのMathematicaのコードは\href{https://dxmegvpw.github.io/docs/nb/20231203.nb}{ここ}に載せておきます．
+}．この公式を使えば
+\begin{equation}
+  \bar{\zeta}_{\dot{\alpha}}(\bar{\sigma}^{\mu}\sigma^{\nu})^{\dot{\alpha}}_{\ \dot{\beta}}\partial_{\mu}\partial_{\nu}\bar{\xi}^{\dot{\beta}}
+  =
+  \frac{1}{2}
+  \bar{\zeta}_{\dot{\alpha}}(\bar{\sigma}^{\mu}\sigma^{\nu})^{\dot{\alpha}}_{\ \dot{\beta}}\partial_{\mu}\partial_{\nu}\bar{\xi}^{\dot{\beta}}
+  +
+  \frac{1}{2}
+  \bar{\zeta}_{\dot{\alpha}}(\bar{\sigma}^{\nu}\sigma^{\mu})^{\dot{\alpha}}_{\ \dot{\beta}}\partial_{\nu}\partial_{\mu}\bar{\xi}^{\dot{\beta}}  
+\end{equation}
+と半分にわけて，第2項の添え字$\mu,\nu$を入れ替えれば
+\begin{align}
+  \frac{1}{2}
+  \bar{\zeta}_{\dot{\alpha}}(\bar{\sigma}^{\mu}\sigma^{\nu})^{\dot{\alpha}}_{\ \dot{\beta}}\partial_{\mu}\partial_{\nu}\bar{\xi}^{\dot{\beta}}
+  +
+  \frac{1}{2}
+  \bar{\zeta}_{\dot{\alpha}}(\bar{\sigma}^{\nu}\sigma^{\mu})^{\dot{\alpha}}_{\ \dot{\beta}}\partial_{\nu}\partial_{\mu}\bar{\xi}^{\dot{\beta}}  
+  &=
+  \frac{1}{2}
+  \bar{\zeta}_{\dot{\alpha}}(\bar{\sigma}^{\mu}\sigma^{\nu}+\bar{\sigma}^{\nu}\sigma^{\mu})^{\dot{\alpha}}_{\ \dot{\beta}}\partial_{\mu}\partial_{\nu}\bar{\xi}^{\dot{\beta}}  
+  \nonumber
+  \\
+  &=
+  -\bar{\zeta}_{\dot{\alpha}}\partial^{\mu}\partial_{\mu}\bar{\xi}^{\dot{\alpha}}
+\end{align}
+のようになったりします．ほかにも
+\begin{align}
+  \xi^{\alpha}
+  \sigma^{\mu}_{\ \alpha\dot{\alpha}}
+  \partial_{\mu}\bar{\zeta}^{\dot{\alpha}}
+  &=
+  \varepsilon^{\alpha\beta}\xi_{\beta}
+  \sigma^{\mu}_{\ \alpha\dot{\alpha}}
+  \varepsilon^{\dot{\alpha}\dot{\beta}}
+  \partial_{\mu}\bar{\zeta}_{\dot{\beta}}
+  \nonumber
+  \\
+  &=
+  \xi_{\alpha}
+  \bar{\sigma}^{\mu\dot{\alpha}\alpha}
+  \partial_{\mu}\bar{\zeta}_{\dot{\alpha}}
+  =
+  -
+  \bar{\zeta}_{\dot{\alpha}}
+  \bar{\sigma}^{\mu\dot{\alpha}\alpha}
+  \partial_{\mu}
+  \xi_{\alpha}
+\end{align}
+など．すると，$A,B,C,D$はそれぞれ
+\begin{align}
+  A
+  &=
+  \sqrt{2}\bar{\xi}_{\dot{\alpha}}(\partial_{\mu}\bar{\psi}^{\dot{\alpha}})\partial^{\mu}\phi  
+  +
+  \sqrt{2}(\partial_{\mu}\bar{\psi}_{\dot{\alpha}})\bar{\sigma}^{\mu\dot{\alpha}\alpha}\sigma^{\nu}_{\ \alpha\dot{\beta}}\bar{\xi}^{\dot{\beta}}\partial_{\nu}\phi
+  \nonumber
+  \\
+  &=
+  \partial_{\mu}  
+  (
+    \sqrt{2}\bar{\xi}_{\dot{\alpha}}\bar{\psi}^{\dot{\alpha}}\partial^{\mu}\phi
+    +
+    \sqrt{2}\bar{\psi}_{\dot{\alpha}}\bar{\sigma}^{\mu\dot{\alpha}\alpha}\sigma^{\nu}_{\ \alpha\dot{\beta}}\bar{\xi}^{\dot{\beta}}\partial_{\nu}\phi
+  )
+  -
+  \sqrt{2}\bar{\xi}_{\dot{\alpha}}\bar{\psi}^{\dot{\alpha}}\partial_{\mu}\partial^{\mu}\phi  
+  -
+  \sqrt{2}\bar{\psi}_{\dot{\alpha}}(\bar{\sigma}^{\mu}\sigma^{\nu})^{\dot{\alpha}}_{\ \dot{\beta}}\bar{\xi}^{\dot{\beta}}\partial_{\mu}\partial_{\nu}\phi
+  \nonumber
+  \\
+  &=
+  \partial_{\mu}  
+  (
+    \sqrt{2}\bar{\xi}_{\dot{\alpha}}\bar{\psi}^{\dot{\alpha}}\partial^{\mu}\phi
+    +
+    \sqrt{2}\bar{\psi}_{\dot{\alpha}}\bar{\sigma}^{\mu\dot{\alpha}\alpha}\sigma^{\nu}_{\ \alpha\dot{\beta}}\bar{\xi}^{\dot{\beta}}\partial_{\nu}\phi
+  )
+  \cancel{
+    -
+    \sqrt{2}\bar{\xi}_{\dot{\alpha}}\bar{\psi}^{\dot{\alpha}}\partial_{\mu}\partial^{\mu}\phi
+    +
+    \sqrt{2}\bar{\xi}_{\dot{\alpha}}\bar{\psi}^{\dot{\alpha}}\partial_{\mu}\partial^{\mu}\phi  
+  }
+  \\
+  B
+  &=
+  \sqrt{2}\partial_{\mu}\phi^{*}\xi^{\alpha}(\partial^{\mu}\psi_{\alpha})
+  +
+  \sqrt{2}\bar{\sigma}^{\nu\ \beta}_{\ \dot{\alpha}}\xi_{\beta}(\partial_{\mu}\partial_{\nu}\phi^{*})\bar{\sigma}^{\mu\dot{\alpha}\alpha}\psi_{\alpha}
+  \nonumber
+  \\
+  &=
+  \partial^{\mu}
+  (
+    \sqrt{2}\partial_{\mu}\phi^{*}\xi^{\alpha}\psi_{\alpha}
+  )
+  -
+  \sqrt{2}\partial^{\mu}\partial_{\mu}\phi^{*}\xi^{\alpha}\psi_{\alpha}
+  +
+  \sqrt{2}(\partial_{\mu}\partial_{\nu}\phi^{*})\bar{\sigma}^{\nu\ \beta}_{\ \dot{\alpha}}\xi_{\beta}\bar{\sigma}^{\mu\dot{\alpha}\alpha}\psi_{\alpha}
+  \nonumber
+  \\
+  &=
+  \partial^{\mu}
+  (
+    \sqrt{2}\partial_{\mu}\phi^{*}\xi^{\alpha}\psi_{\alpha}
+  )
+  \cancel{
+    -
+    \sqrt{2}\partial^{\mu}\partial_{\mu}\phi^{*}\xi^{\alpha}\psi_{\alpha}
+    -
+    \sqrt{2}(\partial_{\mu}\partial_{\nu}\phi^{*})\bar{\sigma}^{\mu\dot{\alpha}\alpha}\sigma^{\nu}_{\ \beta\dot{\alpha}}\xi^{\beta}\psi_{\alpha}
+  }
+  \\
+  C
+  &=
+  i\sqrt{2}\bar{\xi}_{\dot{\alpha}}(\partial_{\mu}F^{*})\bar{\sigma}^{\mu\dot{\alpha}\alpha}\psi_{\alpha}
+  +
+  i\sqrt{2}\bar{\xi}_{\dot{\beta}}\bar{\sigma}^{\mu\dot{\beta}\beta}\partial_{\mu}\psi_{\beta}F^{*}
+  \nonumber
+  \\
+  &=
+  \partial_{\mu}
+  (
+    i\sqrt{2}\bar{\xi}_{\dot{\alpha}}F^{*}\bar{\sigma}^{\mu\dot{\alpha}\alpha}\psi_{\alpha}
+  )
+  \cancel{
+    -
+    i\sqrt{2}\bar{\xi}_{\dot{\alpha}}\bar{\sigma}^{\mu\dot{\alpha}\alpha}\partial_{\mu}\psi_{\alpha}F^{*}
+    +
+    i\sqrt{2}\bar{\xi}_{\dot{\beta}}\bar{\sigma}^{\mu\dot{\beta}\beta}\partial_{\mu}\psi_{\beta}F^{*}
+  }
+  \\
+  D
+  &=
+  -
+  i\sqrt{2}(\partial_{\mu}\bar{\psi}_{\dot{\alpha}})\bar{\sigma}^{\mu\dot{\alpha}\alpha}\xi_{\alpha}F
+  -
+  i\sqrt{2}\xi^{\beta}\sigma^{\mu}_{\beta\dot{\beta}}\partial_{\mu}\bar{\psi}^{\dot{\beta}}F
+  =
+  0
+\end{align}
+となります．ただし，\eqref{formula01}，\eqref{formula02}に加えて，グラスマン数の交換や部分積分もしています．以上で\eqref{variation_Lagrangian}は
+\begin{equation}
+  \delta_{\xi}\mathcal{L}
+  =
+  \partial_{\mu}
+  \left[  
+    \vphantom{\dfrac{1}{2}}
+    \sqrt{2}\bar{\xi}_{\dot{\alpha}}\bar{\psi}^{\dot{\alpha}}\partial^{\mu}\phi
+    +
+    \sqrt{2}\bar{\psi}_{\dot{\alpha}}\bar{\sigma}^{\mu\dot{\alpha}\alpha}\sigma^{\nu}_{\ \alpha\dot{\beta}}\bar{\xi}^{\dot{\beta}}\partial_{\nu}\phi
+    +
+    \sqrt{2}\partial_{\mu}\phi^{*}\xi^{\alpha}\psi_{\alpha}
+    +
+    i\sqrt{2}\bar{\xi}_{\dot{\alpha}}F^{*}\bar{\sigma}^{\mu\dot{\alpha}\alpha}\psi_{\alpha}
+  \right]
+\end{equation}
+と，完全微分の形となっていることが示されました．したがって，\eqref{lagrangian_minimal}は超対称なラグランジアンです．
+
+
+\subsection{超空間と超場}
+
+どうでしょう，いきなりゴリゴリの計算で少し驚いていただけたでしょうか．前述したように，毎回こんなに計算していてはやっていられないので，少し工夫して理論を作る必要がありそうです．
+
+そのために，あるグラスマン数の組$\theta=(\theta_{1},\theta_{2})$を\textbf{新しい座標軸}だと思うことにしてみましょう．この$\theta_1$や$\theta_2$の方向を\textbf{超空間}といいます．そして，この超空間を引数にとる場$f(x,\theta,\bar{\theta})$を\textbf{超場}といいます．$\bar{\theta}$は$\theta$の複素共役で，これも自由度をもっています（「$f$は超空間の意味で正則ではない」とかいえば通じますかね）．この超場は，$x,\theta,\bar{\theta}$の関数なので，$\theta,\bar{\theta}$についてべき展開することができ（ると思い）ます．$\theta$や$\bar{\theta}$自身はそれ以上は2次以上は入ってこれないこと，$\theta$と$\bar{\theta}$が組むときは$\sigma^{\mu}$を挟まないとローレンツ不変にならないことに注意すれば
+\begin{align}
+  f(x,\theta,\bar{\theta})
+  &=
+  A(x)
+  \nonumber
+  \\
+  &\quad
+  +
+  \theta^{\alpha}B_{\alpha}(x)
+  +
+  \bar{\theta}_{\dot{\alpha}}\bar{B}^{\dot{\alpha}}(x)
+  \nonumber
+  \\
+  &\quad
+  +
+  \theta^{\alpha}\theta_{\alpha}C(x)
+  +
+  \bar{\theta}_{\dot{\alpha}}\bar{\theta}^{\dot{\alpha}}\bar{C}(x)
+  +
+  \theta^{\alpha}\sigma^{\mu}_{\ \alpha\dot{\alpha}}\bar{\theta}^{\dot{\alpha}}D_{\mu}(x)
+  \nonumber
+  \\
+  &\quad
+  +
+  \bar{\theta}_{\dot{\alpha}}\bar{\theta}^{\dot{\alpha}}\theta^{\alpha}E_{\alpha}(x)
+  +
+  \theta^{\alpha}\theta_{\alpha}\bar{\theta}_{\dot{\alpha}}\bar{E}^{\dot{\alpha}}(x)
+  +
+  \theta^{\alpha}\theta_{\alpha}\bar{\theta}_{\dot{\alpha}}\bar{\theta}^{\dot{\alpha}}F(x)
+  \label{superfield}
+\end{align}
+のように展開できます．これが一般的な超場の展開です．話の本質とは関係ないですが，いちいちスピノールの添え字を書くのも厄介ですので，前節で用いた縮約のノーテーションを用いて，\eqref{superfield}は
+\begin{align}f(x,\theta,\bar{\theta})
+  &=
+  A(x)
+  \nonumber
+  \\
+  &\quad
+  +
+  \theta B
+  +
+  \overline{\theta B}(x)
+  \nonumber
+  \\
+  &\quad
+  +
+  \theta\theta C
+  +
+  \overline{\theta\theta}\bar{C}(x)
+  +
+  \theta\sigma^{\mu}\bar{\theta} D_{\mu}(x)
+  \nonumber
+  \\
+  &\quad
+  +
+  \overline{\theta\theta}\theta E(x)
+  +
+  \theta\theta\overline{\theta E}(x)
+  +
+  \theta\theta\overline{\theta\theta}F(x)
+  \nonumber  
+\end{align}
+と書くことにします．
+
+さて，ここで次の事実が分かっています：
+
+\begin{prop}
+  超場の超対称変換は，
+  \begin{align}
+    D_{\alpha}
+    &=
+    \pdv{}{\theta^{\alpha}}
+    +
+    i\sigma^{\mu}_{\ \alpha\dot{\alpha}}\bar{\theta}^{\dot{\alpha}}\pdv{}{x^{\mu}}
+    \equiv
+    \partial_{\alpha}
+    +
+    i\sigma^{\mu}_{\ \alpha\dot{\alpha}}\bar{\theta}^{\dot{\alpha}}\partial_{\mu}
+    ,
+    \\
+    \bar{D}_{\dot{\alpha}}
+    &=
+    -
+    \pdv{}{\bar{\theta}^{\dot{\alpha}}}
+    -
+    i\theta^{\alpha}\sigma^{\mu}_{\ \alpha\dot{\alpha}}\pdv{}{x^{\mu}}
+    \equiv
+    -\partial_{\dot{\alpha}}-i\theta^{\alpha}\sigma^{\mu}_{\ \alpha\dot{\alpha}}\partial_{\mu}
+  \end{align}
+  で生成される．つまり，$\delta_{\xi}F(x,\theta,\bar{\theta})=D_{\alpha}\xi^{\alpha}F(x,\theta,\bar{\theta})$．
+\end{prop}
+
+このことから
+\begin{equation}
+  D_{\alpha}f(x,\theta,\bar{\theta})
+  =
+  0
+\end{equation}
+となるような超場を考えればうまく行くような気がしてきます．
+
+\begin{dfn}
+  次を満たす超場$\Phi(x,\theta,\bar{\theta})$を\textbf{カイラル超場}という：
+  \begin{equation}
+    \bar{D}_{\dot{\alpha}}\Phi(x,\theta,\bar{\theta})
+    =
+    0
+    ,\ 
+    D_{\alpha}\Phi^{\dag}(x,\theta,\bar{\theta})
+    =
+    0
+    .
+    \label{dfn_chiral}
+  \end{equation}
+\end{dfn}
+
+さて，カイラル超場を展開してみましょう．天下りですが，
+\begin{align}
+  \Phi(x,\theta,\bar{\theta})
+  &=
+  \phi(x)
+  +
+  i\theta\sigma^{\mu}\bar{\theta}\partial_{\mu}\phi(x)
+  +
+  \frac{1}{4}\theta\theta\overline{\theta\theta}\partial^{2}\phi(x)
+  \nonumber
+  \\
+  &\qquad
+  +
+  \sqrt{2}\theta\psi(x)
+  -
+  \frac{i}{\sqrt{2}}\theta\theta\partial_{\mu}\psi(x)\sigma^{\mu}\bar{\theta}
+  +
+  \theta\theta
+  F(x)
+\end{align}
+という展開であれば，$\Phi$は\eqref{dfn_chiral}を満たしています．
+
+\begin{proof}
+  計算するだけです：
+  \begin{align}
+    \bar{D}_{\dot{\alpha}}\Phi
+    &=
+    -
+    i\theta^{\alpha}\sigma^{\mu}_{\ \alpha\dot{\alpha}}\partial_{\mu}\phi
+    +
+    i
+    (
+      -\partial_{\dot{\alpha}}-i\theta^{\alpha}\sigma^{\nu}_{\ \alpha\dot{\alpha}}\partial_{\nu}
+    )
+    \theta\sigma^{\mu}\bar{\theta}\partial_{\mu}\phi
+    \nonumber
+    \\
+    &\quad
+    +
+    \frac{1}{4}
+    (
+      -\partial_{\dot{\alpha}}-i\theta^{\alpha}\sigma^{\mu}_{\ \alpha\dot{\alpha}}\partial_{\mu}
+    )
+    \theta\theta\overline{\theta\theta}\partial^2\phi
+    +
+    \sqrt{2}
+    (
+      -\partial_{\dot{\alpha}}-i\theta^{\alpha}\sigma^{\mu}_{\ \alpha\dot{\alpha}}\partial_{\mu}
+    )
+    \theta\psi
+    \nonumber
+    \\
+    &\quad
+    -
+    \frac{i}{\sqrt{2}}
+    (
+      -\partial_{\dot{\alpha}}-i\theta^{\alpha}\sigma^{\nu}_{\ \alpha\dot{\alpha}}\partial_{\nu}
+    )
+    \theta\theta\partial_{\mu}\psi\sigma^{\mu}\bar{\theta}
+    +
+    (
+      -\partial_{\dot{\alpha}}-i\theta^{\alpha}\sigma^{\mu}_{\ \alpha\dot{\alpha}}\partial_{\mu}
+    )
+    \theta\theta F
+    \nonumber
+    \\
+    &=
+    \cancel{
+      -
+      i\theta^{\alpha}\sigma^{\mu}_{\ \alpha\dot{\alpha}}\partial_{\mu}\phi
+    }
+    +
+    \cancel{
+      i\theta^{\alpha}\sigma^{\mu}_{\ \alpha\dot{\alpha}}\partial_{\mu}\phi
+    }
+    +
+    i\theta^{\alpha}\sigma^{\nu}_{\ \alpha\dot{\alpha}}
+    \theta\sigma^{\mu}\bar{\theta}\partial_{\nu}\partial_{\mu}\phi
+    +
+    \frac{1}{2}
+    \theta\theta\bar{\theta}_{\dot{\alpha}}
+    \partial^2\phi
+    +
+    \cancel{\mathcal{O}(\bar{\theta}^3)}
+    \nonumber
+    \\
+    &\quad
+    -
+    i\sqrt{2}\theta^{\alpha}\sigma^{\mu}_{\ \alpha\dot{\alpha}}
+    \theta\partial_{\mu}\psi
+    -
+    \frac{i}{\sqrt{2}}
+    \theta\theta\partial_{\mu}\psi^{\alpha}\sigma^{\mu}_{\ \alpha\dot{\alpha}}
+    +
+    \cancel{\mathcal{O}(\theta^3)}
+    .
+    \label{covdiff_Phi01}
+  \end{align}
+  ここで，
+  \begin{align}
+    \partial_{\dot{\alpha}}(\bar{\theta}\bar{\theta})
+    &=
+    \pdv{}{\bar{\theta}^{\dot{\alpha}}}
+    \left(\bar{\theta}_{\dot{\beta}}\bar{\theta}^{\beta}\right)
+    \nonumber
+    \\
+    &=
+    \pdv{\bar{\theta}_{\dot{\beta}}}{\bar{\theta}^{\dot{\alpha}}}
+    \bar{\theta}^{\dot{\beta}}
+    -
+    \bar{\theta}_{\dot{\beta}}
+    \pdv{\bar{\theta}^{\dot{\beta}}}{\bar{\theta}^{\dot{\alpha}}}
+    =
+    -2\bar{\theta}_{\dot{\alpha}}    
+    \label{formula03}
+  \end{align}
+  ということを用いています．ここでさらに
+  \begin{equation}
+    \theta^{\alpha}\theta^{\beta}
+    =
+    -
+    \frac{1}{2}\varepsilon^{\alpha\beta}\theta^{\gamma}\theta_{\gamma}
+    \label{formula04}
+  \end{equation}
+  という性質を用いれば
+  \begin{align}
+    \theta^{\alpha}
+    \sigma^{\nu}_{\ \alpha\dot{\alpha}}
+    \theta^{\beta}
+    \sigma^{\mu}_{\ \beta\dot{\beta}}
+    \bar{\theta}^{\dot{\beta}}
+    \partial_{\nu}\partial_{\mu}
+    &=
+    -
+    \frac{1}{2}\theta\theta
+    \varepsilon^{\alpha\beta}
+    \sigma^{\nu}_{\ \alpha\dot{\alpha}}
+    \sigma^{\mu}_{\ \beta\dot{\beta}}
+    \partial_{\mu}\partial_{\nu}
+    \nonumber
+    \\
+    &=
+    \frac{1}{2}\theta\theta\bar{\theta}^{\dot{\beta}}
+    \varepsilon_{\dot{\alpha}\dot{\gamma}}
+    \bar{\sigma}^{\nu\dot{\gamma}\beta}
+    \sigma^{\mu}_{\ \beta\dot{\beta}}
+    \partial_{\mu}\partial_{\nu}
+    \nonumber
+    \\
+    &=
+    \frac{1}{2}\theta\theta\bar{\theta}^{\dot{\beta}}
+    \varepsilon_{\dot{\alpha}\dot{\gamma}}
+    \left(  
+      \frac{1}{2}
+      \bar{\sigma}^{\nu\dot{\gamma}\beta}
+      \sigma^{\mu}_{\ \beta\dot{\beta}}
+      \partial_{\mu}\partial_{\nu}
+      +
+      \frac{1}{2}
+      \bar{\sigma}^{\nu\dot{\gamma}\beta}
+      \sigma^{\mu}_{\ \beta\dot{\beta}}
+      \partial_{\mu}\partial_{\nu}
+    \right)
+    \nonumber
+    \\
+    &=
+    \frac{1}{2}\theta\theta\bar{\theta}^{\dot{\beta}}
+    \varepsilon_{\dot{\alpha}\dot{\gamma}}
+    \cdot\frac{1}{2}
+    \left(        
+      \bar{\sigma}
+      \sigma^{\mu}
+      +
+      \bar{\sigma}
+      \sigma^{\nu}
+    \right)^{\dot{\gamma}}_{\ \dot{\beta}}
+    \partial_{\mu}\partial_{\nu}
+    \nonumber
+    \\
+    &=
+    -\frac{1}{2}\theta\theta\bar{\theta}_{\dot{\alpha}}\partial^{2}\phi
+    \\
+    \theta^{\alpha}\sigma^{\mu}_{\ \alpha\dot{\alpha}}\theta^{\beta}\partial_{\mu}\psi_{\beta}
+    &=
+    -
+    \frac{1}{2}\theta\theta\varepsilon^{\alpha\beta}\sigma^{\mu}_{\ \alpha\dot{\alpha}}\partial_{\mu}\psi_{\beta}
+    =
+    -
+    \frac{1}{2}\theta\theta\partial_{\mu}\psi^{\alpha}\sigma^{\mu}_{\ \alpha\dot{\alpha}}
+  \end{align}
+  となるので，\eqref{covdiff_Phi01}はキレイに
+  \begin{align}
+    \bar{D}_{\dot{\alpha}}\Phi
+    =
+    0
+  \end{align}
+  となり，確かに消えることが分りました．（ちなみに，\cite{Wess_SupersymmetrySupergravity_1992}や\cite{Bilal_IntroductionSupersymmetry_2001}では別の方法をとっています．ここでは，こっちのほうが教育的だと思ったので，ガッツリ計算していきました．）
+\end{proof}
+
+ここで，次の事実も分っています：
+
+\begin{prop}
+  $\Phi^{\dag}\Phi$の$\overline{\theta\theta}\theta\theta$の係数は超対称である．そして，その係数は\eqref{lagrangian_minimal}となっている．
+\end{prop}
+
+\begin{proof}
+  後半のstatementが分かれば，前節の内容から示したことになります．具体的なことは計算するだけです：
+  \begin{align}
+    \Phi^{\dag}\Phi
+    &=
+    \left(
+      \phi^{*}(x)
+      +
+      (-i)(-\bar{\theta}\bar{\sigma}^{\mu}\theta)\partial_{\mu}\phi^{*}(x)
+      +
+      \frac{1}{4}\theta\theta\overline{\theta\theta}\partial^{2}\phi^{*}(x)      
+      +
+      \sqrt{2}\overline{\theta\psi}(x)
+      -
+      \frac{(-i)}{\sqrt{2}}\overline{\theta\theta}\bar{\theta}\sigma^{\mu}\partial_{\mu}\bar{\psi}(x)
+      +
+      \overline{\theta\theta}
+      F^{*}(x)
+    \right)
+    \nonumber
+    \\
+    &\quad
+    \times
+    \left(
+      \phi(x)
+      +
+      i\theta\sigma^{\mu}\bar{\theta}\partial_{\mu}\phi(x)
+      +
+      \frac{1}{4}\theta\theta\overline{\theta\theta}\partial^{2}\phi(x)
+      +
+      \sqrt{2}\theta\psi(x)
+      -
+      \frac{i}{\sqrt{2}}\theta\theta\partial_{\mu}\psi(x)\sigma^{\mu}\bar{\theta}
+      +
+      \theta\theta
+      F(x)
+    \right)
+    \nonumber
+    \\
+    &=
+    \phi(x)\phi^{*}(x)
+    +
+    i\theta\sigma^{\mu}\bar{\theta}\phi^{*}\partial_{\mu}\phi(x)
+    +
+    \frac{1}{4}\theta\theta\overline{\theta\theta}\phi^{*}(x)\partial^{2}\phi(x)
+    +
+    \sqrt{2}\phi^{*}(x)\theta\psi(x)
+    \nonumber
+    \\
+    &\hspace{8cm}
+    -
+    \frac{i}{\sqrt{2}}\theta\theta\phi^{*}(x)\partial_{\mu}\psi(x)\sigma^{\mu}\theta
+    +
+    \theta\theta \phi^{*}(x)F(x)
+    \nonumber
+    \\
+    &\quad
+    +
+    i\bar{\theta}\bar{\sigma}^{\mu}\theta\partial_{\mu}\phi^{*}(x)
+    \phi(x)
+    -
+    \bar{\theta}\bar{\sigma}^{\mu}\theta\partial_{\mu}\phi^{*}(x)
+    \theta\sigma^{\nu}\bar{\theta}\partial_{\nu}\phi(x)
+    +
+    i\bar{\theta}\bar{\sigma}^{\mu}\theta\partial_{\mu}\phi^{*}(x)
+    \cdot
+    \sqrt{2}\theta\psi(x)
+    \nonumber
+    \\
+    &\quad
+    +
+    \frac{1}{4}\theta\theta\bar{\theta\theta}\partial^2\phi^{*}(x)\phi(x)
+    \nonumber
+    \\
+    &\quad
+    +
+    \sqrt{2}\overline{\theta\psi}(x)\phi(x)
+    +
+    i\sqrt{2}\overline{\theta\psi}(x)\theta\sigma^{\mu}\bar{\theta}\partial_{\mu}\phi(x)
+    +
+    2\overline{\theta\psi}(x)\theta\psi(x)
+    -
+    i\overline{\theta\psi}(x)
+    \theta\theta\partial_{\mu}\psi(x)\sigma^{\mu}\bar{\theta}
+    \nonumber
+    \\
+    &\quad
+    +
+    \frac{i}{\sqrt{2}}\overline{\theta\theta}\bar{\theta}\sigma^{\mu}\partial_{\mu}\bar{\psi}(x)
+    \phi(x)
+    +
+    i\overline{\theta\theta}\bar{\theta}\sigma^{\mu}\partial_{\mu}\bar{\psi}(x)
+    \theta\psi(x)
+    \nonumber
+    \\
+    &\quad
+    +
+    \overline{\theta\theta}F^{*}(x)
+    \phi(x)
+    +  
+    \sqrt{2}  
+    \overline{\theta\theta}F^{*}(x)
+    \theta\psi(x)
+    +
+    \theta\theta\overline{\theta\theta}F^{*}(x)F(x)
+    \nonumber
+    \\
+    &=
+    \phi(x)\phi^{*}(x)
+    \nonumber
+    \\
+    &\quad
+    +
+    \sqrt{2}\theta\psi(x)\phi^{*}(x)
+    +
+    \sqrt{2}\overline{\theta\psi}(x)\phi(x)
+    \nonumber
+    \\
+    &\quad
+    +
+    \theta\theta
+    \phi^{*}(x)F(x)
+    +
+    \overline{\theta\theta}F^{*}(x)\phi(x)
+    +
+    \theta^{\alpha}\bar{\theta}^{\dot{\alpha}}
+    \left[ \vphantom{\dfrac{1}{2}} \right.
+      i\sigma^{\mu}_{\ \alpha\dot{\alpha}}(\phi^{*}(x)\partial_{\mu}\phi(x)-\partial_{\mu}\phi^{*}(x)\phi(x))
+      -2\bar{\psi}_{\dot{\alpha}}(x)\psi_{\alpha}(x)
+    \left. \vphantom{\dfrac{1}{2}} \right]
+    \nonumber
+    \\
+    &\quad
+    +
+    \theta\theta\bar{\theta}^{\dot{\alpha}}
+    \left[  
+      \frac{i}{\sqrt{2}}\sigma^{\mu}_{\ \alpha\dot{\alpha}}
+      (\phi^{*}\partial_{\mu}\psi^{\alpha}-\partial_{\mu}\phi^{*}\psi^{\alpha})
+      -
+      \sqrt{2}F\bar{\psi}_{\dot{\alpha}}
+    \right]
+    \nonumber
+    \\
+    &\quad
+    +
+    \overline{\theta\theta}\theta^{\alpha}
+    \left[  
+      -
+      \frac{i}{\sqrt{2}}\sigma^{\mu}_{\ \alpha\dot{\alpha}}(\bar{\psi}^{\dot{\alpha}}\partial_{\mu}\phi-\partial_{\mu}\bar{\psi}^{\dot{\alpha}}\phi)
+      +
+      \sqrt{2}F^{*}\psi_{\alpha}
+    \right]
+    \nonumber
+    \\
+    &\quad
+    +
+    \theta\theta\overline{\theta\theta}
+    \left[ \vphantom{\dfrac{1}{2}} \right.
+      \uwave{F^{*}F
+      +
+      \frac{1}{4}\phi^{*}(x)\partial^2\phi(x)
+      +
+      \frac{1}{4}\partial^2\phi^{*}(x)\phi(x)
+      -
+      \frac{1}{2}\partial_{\mu}\phi^{*}(x)\partial^{\mu}\phi(x)}
+    \nonumber
+    \\
+    &\hspace{8cm}
+      \uwave{+
+      \frac{i}{2}\partial_{\mu}\bar{\psi}(x)\bar{\sigma}^{\mu}\psi
+      -
+      \frac{i}{2}\bar{\psi}(x)\bar{\sigma}^{\mu}\partial_{\mu}\psi(x)}
+    \left. \vphantom{\dfrac{1}{2}} \right]
+    .
+    \end{align}
+    確かに，$\theta\theta\bar{\theta\theta}$の係数を部分積分などをすれば\eqref{lagrangian_minimal}になってます．（部分積分をするぶんには，理論には関係ないので）
+\end{proof}
+
+次に，超対称なQEDをつくるために，新しい場を定義します．
+
+\begin{dfn}
+  次の性質を満たす超場$V(x,\theta,\bar{\theta})$を\textbf{ベクトル超場}という：
+  \begin{equation}
+    V^{\dag}
+    =
+    V
+    .
+    \label{dfn_vector}
+  \end{equation}
+\end{dfn}
+
+例によって，これも次のように展開できます：
+
+\begin{equation}
+  V
+  =
+  -
+  \theta\sigma^{\mu}\bar{\theta}A_{\mu}(x)
+  +
+  i\theta\theta\overline{\theta\lambda}(x)
+  -
+  i\overline{\theta\theta}\theta\lambda(x)
+  +
+  \frac{1}{2}\theta\theta\overline{\theta\theta}D(x)
+  .
+  \label{Wess_Zumino}
+\end{equation}
+
+ただし，$A_{\mu}(x)$は実ベクトル場で，$\lambda$はスピノール，$D(x)$は実スカラー場です．これが\eqref{dfn_vector}を満たしていることをチェックするのは簡単で，
+\begin{align}
+  (\theta\sigma^{\mu}\bar{\theta}A_{\mu})^{\dag}
+  &=
+  (\theta^{\alpha}
+  \bar{\theta}^{\dot{\alpha}})^{\dag}
+  \sigma^{\mu}_{\ \dot{\alpha}\alpha}
+  A_{\mu}
+  =
+  \theta\sigma^{\mu}\bar{\theta}A_{\mu}
+\end{align}
+です．\eqref{Wess_Zumino}は\textbf{ウェス・ツミーノゲージ}（WZゲージ）と言われており，\eqref{dfn_vector}の一般的な解のうち，ゲージ固定をして自由度をいくつか消しておいたものになっています．このゲージ固定では，$V^3$以上の項が消えることが分っており
+\begin{align}
+  V^2
+  &=
+  \theta\sigma^{\mu}\bar{\theta}A_{\mu}(x)
+  \theta\sigma^{\nu}\bar{\theta}A_{\nu}(x)
+  \nonumber
+  \\
+  &=
+  -\theta^{\alpha}\theta^{\beta}\bar{\theta}^{\dot{\alpha}}\bar{\theta}^{\dot{\beta}}
+  \sigma^{\mu}_{\ \alpha\dot{\alpha}}\sigma^{\nu}_{\ \beta\dot{\beta}}A_{\mu}A_{\nu}
+  \nonumber
+  \\
+  &=
+  \frac{1}{4}
+  \varepsilon^{\alpha\beta}\varepsilon^{\dot{\alpha}\dot{\beta}}\theta\theta\overline{\theta\theta}
+  \sigma^{\mu}_{\ \alpha\dot{\alpha}}\sigma^{\nu}_{\ \beta\dot{\beta}}A_{\mu}A_{\nu}
+  \nonumber
+  \\
+  &=
+  \frac{1}{4}\theta\theta\overline{\theta\theta}\tr[\dot{\sigma}^{\mu}\sigma^{\nu}]A_{\mu}A_{\nu}
+  =
+  -\frac{1}{2}\theta\theta\overline{\theta\theta}v^{m}v_{m}
+  \\
+  V^3
+  &=
+  0
+\end{align}
+です．ただし，
+\begin{equation}
+  \tr[\bar{\sigma}^{\mu}\sigma^{\nu}]
+  =
+  -2\eta^{\mu\nu}
+\end{equation}
+を用いました．
+
+さて，このベクトル超場は
+\begin{equation}
+  V
+  \rightarrow
+  V
+  +
+  \Phi
+  +
+  \Phi^{\dag}
+  \label{gauge_tf}
+\end{equation}
+と変換すると，これは4次元でいうところのゲージ変換になります．これは，$\Phi+\Phi^{\dag}$の形を見るとよくて
+\begin{align}
+  \Phi
+  +
+  \Phi^{\dag}
+  &=
+  \phi+\phi^{*}
+  +
+  \sqrt{2}
+  (\theta\psi+\overline{\theta\psi})
+  +
+  \theta\theta F
+  +
+  \overline{\theta\theta} F^{*}
+  +
+  \uwave{
+    i\theta\sigma^{\mu}\bar{\theta}\partial_{\mu}(\phi-\phi^{*})
+  }
+  \nonumber
+  \\
+  &\qquad
+  +
+  \frac{i}{\sqrt{2}}\theta\theta\bar{\theta}\bar{\sigma}^{\mu}\theta\partial_{\mu}\psi
+  +
+  \frac{i}{\sqrt{2}}\overline{\theta\theta}\theta\sigma^{\mu}\partial_{\mu}\bar{\psi}
+  +
+  \frac{1}{4}\theta\theta\overline{\theta\theta}\partial^2(\phi+\phi^{*})
+\end{align}
+の波線\uwave{\qquad}の部分に注目すると
+\begin{equation}
+  A_{\mu}
+  \rightarrow
+  A_{\mu}
+  -
+  i\partial_{\mu}(\phi-\phi^{*})
+\end{equation}
+となっており，これはヤン=ミルズ理論のゲージ変換のようになっているからです．したがって，\eqref{gauge_tf}をゲージ変換と認めるなら，この変換に対して共変的に変化する量を定義したくなります．そのような場は，いわゆる電磁場で，もっと一般的に\textbf{場の強度}（field strength）といわれる量になります．
+
+\begin{prop}
+  ベクトル超場$V$に対して，次の量
+  \begin{equation}
+    W_{\alpha}
+    =
+    -
+    \frac{1}{4}\overline{DD}D_{\alpha}V
+  \end{equation}
+  とその複素共役$\bar{W}_{\dot{\alpha}}$は（局所）ゲージ変換\eqref{gauge_tf}に対して不変である．
+\end{prop}
+
+\begin{proof}
+  計算すればよくて
+  \begin{align}
+    W_{\alpha}
+    &
+    \rightarrow
+    -
+    \frac{1}{4}
+    \overline{DD}D_{\alpha}(V+\Phi+\Phi^{\dag})
+    \nonumber
+    \\
+    &=
+    W_{\alpha}
+    -
+    \frac{1}{4}\cancel{\bar{D}\{\bar{D},D_{\alpha}\}\Phi}
+    -
+    \frac{1}{4}\overline{DD}\cancel{D_{\alpha}\Phi^{\dag}}
+    =
+    W_{\alpha}
+    .
+  \end{align}
+\end{proof}
+
+場の強さがもとまりましたが，定義より$W_{\alpha}$はカイラル超場です．実際，$\bar{D}_{\dot{\alpha}}$を$W_{\alpha}$にかけたら，$\bar{D}$が多すぎて消えてしまいます\footnote{せっかくなので，理由は考えてみてください．}．したがって，カイラル超場の議論を思い出せば，$W^{\alpha}W_{\alpha}$の$\theta\theta$の項は超対称となります．詳細はかなりテクニカルになるので，\ref{kin_term_QED}にまわしますが，運動項は
+\begin{equation}
+  \left.
+    W^{\alpha}W_{\alpha}
+  \right|_{\theta\theta}
+  =
+  -
+  2i\lambda\sigma^{\mu}\partial_{\mu}\bar{\lambda}
+  -
+  \frac{1}{2}F^{\mu\nu}F_{\mu\nu}
+  +
+  D^2
+  +
+  \frac{i}{4}\varepsilon_{\mu\nu\rho\sigma}F^{\mu\nu}F^{\rho\sigma}
+  \label{kinetic}
+\end{equation}
+となります\footnote{ちなみに，最後の項は完全微分になることが知られています．たしか\cite{九後_ゲー_1989}の演習にもあったような．}．ただし，$F_{\mu\nu}=\partial_{\mu}A_{\nu}-\partial_{\nu}A_{\mu}$です．
+
+
+\subsection{超対称なQED}
+
+では最後に，超対称なQEDを書き下してみましょう．力尽きてきたので，ここらへんの計算はサボります．素粒子に進む方は演習問題にでもしてください．
+
+前節でも言及した通り，$W^{\alpha}W_{\alpha}$の$\theta\theta$の係数は超対称です．\eqref{kinetic}を見れば，ヤン=ミルズ理論の運動項（$F^{\mu\nu}F_{\mu\nu}$のこと）はありますが，相互作用がありません．例えば，スピノールやスカラーは$\Phi$を構成している粒子なので，$\Phi$をラグランジアンに入れることにしましょう．もちろん，今までの議論から$\Phi^{\dag}\Phi$の$\theta\theta\overline{\theta\theta}$の項が超対称なので，ラグランジアンに入ってきますが，それはまだゲージ場との相互作用が入りません．物質とゲージのcouplingを得るためには，
+\begin{itemize}
+  \item 
+  $V$と$\Phi$（$\Phi^{\dag}$も必要であれば）が互いに掛け算されていて，
+  \item 
+  超対称であり，
+  \item 
+  （局所）ゲージ変換に対しても不変
+\end{itemize}
+であるような項が望まれます．ここまで条件が強いと，許される項がある程度定まってきます．
+
+カイラル超場のゲージ変換は
+\begin{equation}
+  \Phi\rightarrow e^{it\Lambda}\Phi
+  \qquad
+  (t\in\mathbb{R},\ \Phi:\text{カイラル超場})
+\end{equation}
+で書けるので，\eqref{gauge_tf}を見れば，ベクトル超場$V$は
+\begin{equation}
+  V
+  \rightarrow
+  V
+  +
+  i(\Lambda-\Lambda^{\dag})
+\end{equation}
+と変換されます．この変換則のもと，$\Phi$と$V$がゲージ不変で組めるのは
+\begin{equation}
+  \Phi^{\dag}e^{tV}\Phi
+  \rightarrow
+  \Phi^{\dag}e^{-it\Lambda^{\dag}}
+  \cdot
+  e^{it\Lambda^{\dag}}e^{tV}e^{-it\Lambda}
+  \cdot
+  e^{it\Lambda}\Phi
+  =
+  \Phi^{\dag}e^{tV}\Phi  
+\end{equation}
+くらいでしょう（他にあるかは私は知りません）．このうち，超対称なのは一番質量次元の大きい$\theta\theta\overline{\theta\theta}$です（\ref{susy_sym}）．したがって，相互作用は$\Phi^{\dag}e^{tV}\Phi$の形で入ってきます．
+
+現在，ラグランジアンの候補として分かっているのは
+\begin{align}
+  \mathcal{L}_{\text{kin}}
+  &=
+  \frac{1}{4}
+  \int\dd^2\theta\ 
+  W^{\alpha}W_{\alpha}
+  +
+  \frac{1}{4}
+  \int\dd^2\bar{\theta}\ 
+  \overline{W_{\dot{\alpha}}W^{\dot{\alpha}}}
+  \nonumber
+  \\
+  &=
+  \frac{1}{2}D^2
+  -
+  \frac{1}{4}F^{\mu\nu}F_{\mu\nu}
+  -
+  i\lambda\sigma^{\mu}\partial_{\mu}\bar{\lambda}
+  \\
+  \mathcal{L}_{\text{int}}
+  &=
+  \int\dd^4\theta\ 
+  \Phi^{\dag}e^{tV}\Phi
+  \nonumber
+  \\
+  &=
+  \int\dd^4\theta
+  \nonumber
+  \\
+  &\qquad
+  \left(
+    \phi^{*}(x)
+    +
+    (-i)(-\bar{\theta}\bar{\sigma}^{\mu}\theta)\partial_{\mu}\phi^{*}(x)
+    +
+    \frac{1}{4}\theta\theta\overline{\theta\theta}\partial^{2}\phi^{*}(x)      
+    +
+    \sqrt{2}\overline{\theta\psi}(x)
+    -
+    \frac{(-i)}{\sqrt{2}}\overline{\theta\theta}\bar{\theta}\sigma^{\mu}\partial_{\mu}\bar{\psi}(x)
+    +
+    \overline{\theta\theta}
+    F^{*}(x)
+  \right)
+  \nonumber
+  \\
+  &\qquad
+  \times
+  \left(  
+    1-tV+\frac{1}{2}tV^2
+  \right)
+  \nonumber
+  \\
+  &\quad
+    \times
+    \left(
+      \phi(x)
+      +
+      i\theta\sigma^{\mu}\bar{\theta}\partial_{\mu}\phi(x)
+      +
+      \frac{1}{4}\theta\theta\overline{\theta\theta}\partial^{2}\phi(x)
+      +
+      \sqrt{2}\theta\psi(x)
+      -
+      \frac{i}{\sqrt{2}}\theta\theta\partial_{\mu}\psi(x)\sigma^{\mu}\bar{\theta}
+      +
+      \theta\theta
+      F(x)
+    \right)
+  \nonumber
+  \\
+  &=
+  F^{*}F+\phi\partial^{2}\phi+i\partial_{\mu}\bar{\psi}\bar{\sigma}^{\mu}\psi
+  +
+  tA^{\mu}
+  \left(  
+    \frac{1}{2}\bar{\psi}\bar{\sigma}^{\mu}\psi
+    +
+    \frac{i}{2}\phi^{*}\partial_{\mu}\phi
+    -
+    \frac{i}{2}\partial_{\mu}\phi^{*}\phi
+  \right)
+  \nonumber
+  \\
+  &\hspace{5cm}
+  -
+  \frac{i}{\sqrt{2}}t(\phi\overline{\lambda\psi}-A^{*}\lambda\psi)
+  +
+  \frac{1}{2}\left( tD-\frac{1}{2}t^2A_{\mu}A^{\mu} \right)\phi^{*}\phi
+\end{align}
+たちです\footnote{
+  大丈夫とは思いますが
+  $$
+    \left.X\right|_{\theta\theta\overline{\theta\theta}}
+    =
+    \int\dd^4\theta\ X
+  $$
+  です．
+}．ただし，完全微分の項を除いたり，部分積分をしたりしています．これらを見てわかると思いますが，質量項がありません．質量をもつ粒子は$\Phi$にすべて入っているので
+\begin{equation}
+  \mathcal{L}_{\text{mass}}
+  =
+  \frac{1}{2}m
+  \left(  
+    \int\dd^2\theta\ \Phi\Phi
+    +
+    \int\dd^2\bar{\theta}\ \Phi^{\dag}\Phi^{\dag} 
+  \right)
+\end{equation}
+と組めばよいでしょう．
+
+以上で，QEDのラグランジアンを書く用意ができました．QEDのゲージ変換を考えると，チャージが正の粒子と，負の反粒子があるのでその点に注意してラグランジアンを組むと
+\begin{align}
+  \mathcal{L}_{\text{QED}}
+  &=
+  \frac{1}{4}
+  \int\dd^2\theta\ WW
+  +
+  \frac{1}{4}
+  \int\dd^2\bar{\theta}\ \overline{WW}
+  \nonumber
+  \\
+  &\hspace{2cm}
+  +
+  \int\dd^4\theta\ 
+  (
+    \Phi_{+}^{\dag}e^{eV}\Phi_{+}
+    +
+    \Phi_{-}^{\dag}e^{-eV}\Phi_{-}
+  )
+  +
+  m
+  \left( 
+    \int\dd^2\theta\ \Phi_{+}\Phi_{-}
+    +
+    \int\dd^2\bar{\theta}\ \Phi_{+}^{\dag}\Phi_{-}^{\dag}
+  \right)
+\end{align}
+となります．今までの議論を参考にして，これを全部展開してやると
+\begin{align}
+  \mathcal{L}_{\text{QED}}
+  &=
+  \frac{1}{2}D^2
+  -
+  \frac{1}{4}F_{\mu\nu}F^{\mu\nu}
+  -
+  i\lambda\sigma^{\mu}\partial_{\mu}\bar{\lambda}
+  +
+  F_{+}^{*}F_{+}
+  +
+  F_{-}^{*}F_{-}
+  +
+  \phi^{*}_{+}\partial^2\phi_{+}
+  -
+  \phi^{*}_{-}\partial^2\phi_{-}
+  \nonumber
+  \\
+  &\qquad
+  +
+  i
+  (
+    \partial_{\mu}\bar{\psi}_{+}\bar{\sigma}^{\mu}\psi_{+}
+    +
+    \partial_{\mu}\bar{\psi}_{-}\bar{\sigma}^{\mu}\psi_{-}
+  )
+  \nonumber
+  \\
+  &\qquad
+  +
+  eA^{\mu}
+  \left[  
+    \frac{1}{2}\bar{\psi}_{+}\bar{\sigma}^{\mu}\psi_{+}
+    -
+    \frac{1}{2}\bar{\psi}_{-}\bar{\sigma}^{\mu}\psi_{-}
+    +
+    \frac{i}{2}\phi_{+}^{*}\partial_{\mu}\phi_{+}
+    -
+    \frac{i}{2}\partial_{\mu}\phi_{+}^{*}\phi_{+}
+    -
+    \frac{i}{2}\phi_{-}^{*}\partial_{\mu}\phi_{-}
+    +
+    \frac{i}{2}\partial_{\mu}\phi_{-}^{*}\phi_{-}
+  \right]
+  \nonumber
+  \\
+  &\qquad
+  -\frac{ie}{\sqrt{2}}
+  (
+    \phi_{+}\bar{\psi}_{+}\bar{\lambda}
+    -
+    \phi_{+}^{*}\psi_{+}\lambda
+    -
+    \phi_{-}\bar{\psi}\bar{\lambda}
+    +
+    \phi_{-}^{*}\psi_{-}\lambda
+  )
+  \nonumber
+  \\
+  &\qquad
+  +
+  \frac{e}{2}D(\phi^{*}_{+}\phi_{+}-\phi^{*}_{-}\phi_{-})
+  -
+  \frac{1}{4}e^{2}A_{\mu}A^{\mu}
+  (\phi^{*}_{+}\phi_{+}+\phi^{*}_{-}\phi_{-})
+  \nonumber
+  \\
+  &\qquad
+  m
+  (
+    \phi_{+}F_{-}
+    +
+    \phi_{-}F_{+}
+    -
+    \psi_{+}\psi_{-}
+    -
+    \bar{\psi}_{+}\bar{\psi}_{-}
+    +
+    \phi_{+}^{*}F_{-}^{*}
+    +
+    \phi_{-}^{*}F_{+}^{*}
+  )
+\end{align}
+です．これが超対称なQEDのラグランジアンとなります\footnote{
+  少しでもQFTを勉強した方なら，QEDのラグランジアンがこの中に表れていることが分かるはずです．
+}．これまでの計算をやっていれば，このラグランジアンがこうなることはすぐに分かるでしょう．
+
+同じようなやり方で非可換ゲージ理論にも適用して，ヤン=ミルズ理論を超対称な理論へと格上げすることもできますし，さらには局所的なSUSYを考えることによってSUGRAも出てきます．
+
+
+\section{おわりに}
+
+このような記事を書いたきっかけの1つに，あるときの後輩との会話があります．本人が覚えているかどうかは知りませんが「結局，九後ゲ\cite{九後_ゲー_1989}の1章の計算は研究でも使うのかどうか？」といった話だったと記憶しています．それはすごくまっとうな疑問で，私もあの1章の内容を読んでいるときにおんなじことを思っていました．正直なところ，スピノールのところで添え字を$\alpha,\dot{\alpha}$と区別するのは非常にconfusingでしたし，$\sigma$行列の性質を示すところはかなりめんどくさかったです．今回の記事が，前述の質問の答えになっているのかは分りませんが「九後ゲのあのnotationは，割とSUSYで使うんだな」くらいには感じていただけたのではないでしょうか．
+
+と，なんだか今回はかなり身内ネタみたいな形になってしまいました．最初はかなり面白いテーマでは？と思ったのですが…，私と交流がない方にはあまり楽しめたものじゃないかもしれません．その点については，即興の記事ですし，みなさんの寛容を乞うことにしましょう．
+
+今日はここまでです．次の記事もお楽しみに！
+
+
+\clearpage
+
+\appendix
+\makeatletter
+\renewcommand{\appendix}{\par
+  \setcounter{section}{0}%
+  \setcounter{subsection}{0}%
+  \gdef\presectionname{\appendixname}%
+  \gdef\postsectionname{}%
+  \gdef\thesection{\presectionname\@Alph\c@section\postsectionname}%
+  \gdef\thesubsection{\@Alph\c@section.\@arabic\c@subsection}%
+  \renewcommand{\theequation}{\@Alph\c@section.\arabic{equation}}%
+  \renewcommand{\thefigure}{\@Alph\c@section.\arabic{figure}}%
+  \renewcommand{\thetable}{\@Alph\c@section.\arabic{table}}%
+}
+\makeatother
+\appendix
+
+\section{公式集}
+\label{relation}
+
+\begin{gather}
+  (
+    \bar{\sigma}^{\mu}\sigma^{\nu}
+    +
+    \bar{\sigma}^{\nu}\sigma^{\mu}
+  )^{\dot{\alpha}}_{\ \dot{\beta}}
+  =
+  -2\eta^{\mu\nu}\delta^{\dot{\alpha}}_{\ \dot{\beta}}
+  ,
+  \tag*{\eqref{formula01}}
+  \\
+  \bar{\sigma}^{\mu\dot{\alpha}\alpha}
+  =
+  \varepsilon^{\dot{\alpha}\dot{\beta}}\varepsilon^{\alpha\beta}
+  \sigma^{\mu}_{\ \beta\dot{\beta}}
+  ,
+  \tag*{\eqref{formula02}}
+  \\
+  \partial_{\dot{\alpha}}(\bar{\theta}\bar{\theta})
+  =
+  -2\bar{\theta}_{\dot{\alpha}}   
+  ,
+  \tag*{\eqref{formula03}}
+  \\
+  \theta^{\alpha}\theta^{\beta}
+  =
+  -
+  \frac{1}{2}\varepsilon^{\alpha\beta}\theta^{\gamma}\theta_{\gamma}
+  ,
+  \tag*{\eqref{formula04}}
+  \\
+  \bar{\partial}\bar{\partial}(\overline{\theta\theta})
+  =
+  4
+  .
+\end{gather}
+
+
+\section{QEDの運動項について}
+\label{kin_term_QED}
+
+普通に計算することもできると思うのですが，ここではもう少し楽にする方法（それでも大変ですが）を紹介したいと思います．
+
+超空間上での微分$\bar{D}_{\dot{\alpha}}$は，$y^{\mu}\equiv x^{\mu}+i\theta\sigma^{\mu}\bar{\theta}$という新しい座標をとれば，定義から
+\begin{equation}
+  \bar{D}_{\dot{\alpha}}y^{\mu}
+  =
+  0
+  ,\ 
+  \bar{D}_{\dot{\alpha}}\theta
+  =
+  0
+\end{equation}
+となることが分かります．このことから，この新しい座標を用いて超空間上の場を書き直せば，ある程度楽に計算することができます．ここでは，$W_{\alpha}$がカイラル超場なので，この新しい座標を用いれば，少し計算が分かりやすくなります．
+
+座標を$y$で書いたときの微分は
+\begin{equation}
+  D_{\alpha}
+  =
+  \partial_{\alpha}
+  +
+  2i\sigma^{\mu}_{\ \alpha\dot{\alpha}}\bar{\theta}^{\dot{\alpha}}\partial_{\mu}
+  ,\quad
+  \bar{D}_{\dot{\alpha}}
+  =
+  -
+  \bar{\partial}_{\dot{\alpha}}
+\end{equation}
+で
+\begin{equation}
+  V
+  =
+  -\theta\sigma^{\mu}\bar{\theta}A_{\mu}(y)
+  +
+  i\theta\theta\overline{\theta\lambda}(y)
+  -
+  i\overline{\theta\theta}\theta\lambda(y)
+  +
+  \frac{1}{2}\theta\theta\overline{\theta\theta}
+  \left[ D(y)-i\partial_{\mu}A^{\mu}(y) \right]
+\end{equation}
+ですので，これらから
+\begin{align}
+  W_{\alpha}
+  &=
+  -
+  \frac{1}{4}
+  \bar{D}_{\dot{\beta}}\bar{D}^{\dot{\beta}}
+  D_{\alpha}
+  V
+  \nonumber
+  \\
+  &=
+  -
+  \frac{1}{4}\bar{\partial}_{\dot{\beta}}\bar{\partial}^{\dot{\beta}}
+  \left(  
+    \partial_{\alpha}
+    +
+    2i\sigma^{\mu}_{\ \alpha\dot{\alpha}}\bar{\theta}^{\dot{\alpha}}\partial_{\mu}
+  \right)
+  \left(  
+    -\theta\sigma^{\nu}\bar{\theta}A_{\nu}
+    +
+    i\theta\theta\overline{\theta\lambda}
+    -
+    i\overline{\theta\theta}\theta\lambda
+    +
+    \frac{1}{2}\theta\theta\overline{\theta\theta}
+    \left[ D-i\partial_{\nu}A^{\nu} \right]
+  \right)
+  \nonumber
+  \\
+  &=
+  -
+  \frac{1}{4}\bar{\partial}_{\dot{\beta}}\bar{\partial}^{\dot{\beta}}
+  \left[  \vphantom{\frac{1}{2}} \right.
+    -
+    \sigma^{\mu}_{\ \alpha\dot{\alpha}}\bar{\theta}^{\dot{\alpha}}A_{\mu}
+    +
+    2i\theta_{\alpha}\overline{\theta\lambda}
+    -
+    i\overline{\theta\theta}\lambda_{\alpha}
+    +
+    \theta_{\alpha}\overline{\theta\theta}
+    \left[ D-i\partial_{\nu}A^{\nu} \right]
+  \nonumber
+  \\
+  &\hspace{4cm}
+    -
+    2i\sigma^{\mu}_{\alpha\dot{\alpha}}\bar{\theta}^{\dot{\alpha}}
+    \theta^{\beta}\sigma^{\nu}_{\ \beta\dot{\beta}}\bar{\theta}^{\dot{\beta}}
+    \partial_{\mu}A_{\nu}
+    -
+    2\sigma^{\mu}_{\ \alpha\dot{\alpha}}\bar{\theta}^{\dot{\alpha}}
+    \theta\theta\bar{\theta}_{\dot{\beta}}\partial_{\mu}\bar{\theta}^{\dot{\beta}}
+  \left.  \vphantom{\frac{1}{2}} \right]
+  \nonumber
+  \\
+  &=
+  -
+  \frac{1}{4}\bar{\partial}_{\dot{\beta}}\bar{\partial}^{\dot{\beta}}
+  \left[  \vphantom{\frac{1}{2}} \right.
+  \left\{  
+    -
+    i\lambda_{\alpha}
+    +
+    \theta_{\alpha}
+    \left[ D-i\partial_{\nu}A^{\nu} \right]
+  \right.
+  \nonumber
+  \\
+  &\hspace{4cm}
+  \left.
+    -
+    \frac{i}{2}(\sigma^{\mu}\bar{\sigma}^{\nu})_{\alpha}^{\ \beta}\theta_{\beta}
+    \partial_{\mu}A_{\nu}
+    +
+    \theta\theta
+    \sigma^{\mu}_{\ \alpha\dot{\alpha}}\partial_{\mu}\bar{\lambda}^{\dot{\alpha}}
+  \right\}
+  \overline{\theta\theta}
+  \cancel{
+    -
+    \sigma^{\mu}_{\ \alpha\dot{\alpha}}\bar{\theta}^{\dot{\alpha}}A_{\mu}
+    +
+    2i\theta_{\alpha}\overline{\theta\lambda}
+  }
+  \left.  \vphantom{\frac{1}{2}} \right]
+  \nonumber
+  \\
+  &=
+  -
+  i\lambda_{\alpha}
+  +
+  \left[  
+    (D-i\partial_{\mu}A^{\mu})\delta^{\ \beta}_{\alpha}
+    -
+    \frac{i}{2}(\sigma^{\mu}\bar{\sigma}^{\nu})_{\alpha}^{\ \beta}
+    \partial_{\mu}A_{\nu}
+  \right]
+  \theta_{\beta}
+  +
+  \theta\theta
+  \sigma^{\mu}_{\ \alpha\dot{\alpha}}\partial_{\mu}\bar{\lambda}^{\dot{\alpha}}
+\end{align}
+となります．よって
+\begin{align}
+  \left.
+    W^{\alpha}W_{\alpha}
+  \right|_{\theta\theta}
+  &=
+  -
+  i\lambda^{\alpha}\sigma^{\mu}_{\ \alpha\dot{\alpha}}\partial_{\mu}\bar{\lambda}^{\dot{\alpha}}
+  -
+  i\varepsilon^{\alpha\beta}\sigma^{\mu}_{\ \beta\dot{\alpha}}\partial_{\mu}\bar{\lambda}^{\dot{\alpha}}\lambda_{\alpha}
+  \nonumber
+  \\
+  &\qquad
+  +
+  \varepsilon^{\alpha\gamma}\varepsilon_{\beta\gamma}
+  \left[  
+    (D-i\partial_{\mu}A^{\mu})\delta_{\alpha}^{\ \beta}
+    -
+    \frac{i}{2}(\sigma^{\mu}\bar{\sigma}^{\nu})_{\alpha}^{\ \beta}
+    \partial_{\mu}A_{\nu}
+  \right]
+  \left[  
+    (D-i\partial_{\rho}A^{\rho})\delta_{\gamma}^{\ \delta}
+    -
+    \frac{i}{2}(\sigma^{\rho}\bar{\sigma}^{\lambda})_{\gamma}^{\ \delta}
+    \partial_{\rho}A_{\lambda}
+  \right]
+  \nonumber
+  \\
+  &=
+  -
+  2i\lambda\sigma^{\mu}\partial_{\mu}\bar{\lambda}
+  \nonumber
+  \\
+  &\quad
+  +
+  (D-i\partial_{\mu}A^{\mu})(D-i\partial_{\nu}A^{\nu})
+  \delta_{\alpha}^{\ \beta}\delta_{\gamma}^{\ \delta}\varepsilon^{\alpha\gamma}\varepsilon_{\beta\delta}
+  -
+  \frac{i}{2}(\sigma^{\mu}\bar{\sigma}^{\nu})_{\alpha}^{\ \beta}
+  (D-i\partial_{\rho}A^{\rho})\partial_{\mu}A_{\nu}\delta^{\ \delta}_{\gamma}\varepsilon^{\alpha\gamma}\varepsilon_{\beta\delta}
+  \nonumber
+  \\
+  &\qquad
+  -
+  \frac{i}{2}(\sigma^{\rho}\bar{\sigma}^{\lambda})_{\gamma}^{\ \delta}
+  (D-i\partial_{\mu}A^{\mu})\partial_{\rho}A_{\lambda}
+  \delta_{\alpha}^{\ \beta}\varepsilon^{\alpha\gamma}\varepsilon_{\beta\delta}
+  -
+  \frac{1}{4}(\sigma^{\mu}\bar{\sigma}^{\nu})_{\alpha}^{\ \beta}
+  (\sigma^{\rho}\bar{\sigma}^{\lambda})_{\gamma}^{\ \delta}
+  \partial_{\mu}A_{\nu}\partial_{\rho}A_{\lambda}
+  \varepsilon^{\alpha\gamma}\varepsilon_{\beta\delta}
+  \nonumber
+  \\
+  &=
+  -
+  2i\lambda\sigma^{\mu}\partial_{\mu}\bar{\lambda}
+  -
+  \frac{1}{2}F^{\mu\nu}F_{\mu\nu}
+  +
+  D^2
+  +
+  \frac{i}{4}\varepsilon_{\mu\nu\rho\sigma}F^{\mu\nu}F^{\rho\sigma}
+  \tag*{\eqref{kinetic}}
+\end{align}
+です．
+
+
+\section{超場形式からの超対称な理論の構成}
+\label{susy_sym}
+
+本文で述べた通り，超場を用いると，超対称な理論を簡単に構成することができます．構成の仕方をまとめると
+\begin{itemize}
+  \item 
+  カイラル超場の$\theta\theta$や$\overline{\theta\theta}$の係数をとってくる．
+  \item 
+  ベクトル超場からゲージ共変かつカイラル超場な場（場の強度）を構成して$\theta\theta$や$\overline{\theta\theta}$をとってくる．
+  \item 
+  超場の$\theta\theta\overline{\theta\theta}$をとってくる．
+\end{itemize}
+です．
+
+1つコメントですが，理論が超対称であるからといって，どんなラグランジアンでも許されるわけではありません．例えば，3つめの構成をみると分かりやすいですが，適当に超場をとってきてその$\theta\theta\overline{\theta\theta}$を見ればそれらは超対称ですが，そのことには何の意味もありません．
+
+\bibliography{hoge}
+\bibliographystyle{ytphys.bst}
+
+\nocite{Wess_SupersymmetrySupergravity_1992}
+\nocite{Martin_SupersymmetryPrimer_1998}
+\nocite{Bilal_IntroductionSupersymmetry_2001}
+\nocite{九後_ゲー_1989}
+
+
+
+\end{document}

@@ -1,0 +1,120 @@
+\pdfoutput=1
+\documentclass[pdftex]{beamer}
+% \usepackage[whole]{bxcjkjatype}
+% \usepackage[T1]{fontenc}
+% \usepackage{tgtermes}
+
+% ---Display \subsubsection at the Index
+% \setcounter{tocdepth}{3}
+
+% ---Setting about the geometry of the document----
+% \usepackage{a4wide}
+% \pagestyle{empty}
+
+% ---Physics and Math Packages---
+\usepackage{amssymb,amsfonts,amsthm,mathtools}
+\usepackage{physics,braket,bm}
+
+% ---underline---
+\usepackage{ulem}
+
+% ---cancel---
+\usepackage{cancel}
+
+% --- surround the texts or equations
+% \usepackage{fancybox,ascmac}
+
+% ---settings of theorem environment---
+% \usepackage{amsthm}
+% \theoremstyle{definition}
+
+% ---settings of proof environment---
+% \renewcommand{\proofname}{\textbf{証明}}
+% \renewcommand{\qedsymbol}{$\blacksquare$}
+
+% ---Ignore the Warnings---
+\usepackage{silence}
+\WarningFilter{latexfont}{Some font shapes,Font shape}
+
+% ---Insert the figure (If insert the `draft' at the option, the process becomes faster.)---
+% \usepackage{graphicx}
+% \usepackage{subcaption}
+
+% ----Add a link to a text---
+\usepackage{url}
+\usepackage{xcolor,hyperref}
+\hypersetup{colorlinks=true,citecolor=orange,linkcolor=blue,urlcolor=magenta}
+\usepackage[whole,autotilde]{bxcjkjatype}
+
+% ---Tikz---
+% \usepackage{tikz,pgf,pgfplots,circuitikz}
+% \pgfplotsset{compat=1.15}
+% \usetikzlibrary{intersections,arrows.meta,angles,calc,3d,decorations.pathmorphing}
+
+% ---Add the section number to the equation, figure, and table number---
+\makeatletter
+   \renewcommand{\theequation}{\thesection.\arabic{equation}}
+   \@addtoreset{equation}{section}
+   
+   \renewcommand{\thefigure}{\thesection.\arabic{figure}}
+   \@addtoreset{figure}{section}
+   
+   \renewcommand{\thetable}{\thesection.\arabic{table}}
+   \@addtoreset{table}{section}
+\makeatother
+
+% ---beamer settings---
+\usefonttheme{professionalfonts}
+\usecolortheme{seahorse}
+\setbeamercolor{structure}{fg=green}
+\setbeamercolor{itemize item}{fg=black}
+\setbeamercolor{bibliography entry author}{fg=black}
+\setbeamercolor{bibliography item}{fg=black}
+\setbeamertemplate{footline}[frame number]
+\setbeamertemplate{navigation symbols}{} 
+
+% ---Fonts---
+% \renewcommand{\familydefault}{\sfdefault}
+
+% ---Title---
+\title{\empty}
+\author{\empty}
+\date{Last modified:\ \today}
+
+\begin{document}
+
+\begin{frame}
+  \titlepage
+\end{frame}
+
+\begin{frame}%[allowframebreaks]
+  \frametitle{Index}
+  \tableofcontents
+\end{frame}
+
+\begin{frame}
+  \frametitle{\secname}
+
+\end{frame}
+
+
+
+
+\end{document}
+
+
+% \begin{frame}[noframenumbering]
+
+%   \frametitle{\secname}
+%   \thispagestyle{empty}
+
+%   \beamertemplatetextbibitems
+
+%   \begin{thebibliography}{99}
+
+%     \bibitem{peskin}    
+%     Peskin, M.E., Schroeder, D.V., 1995. \textit{An Introduction to Quantum Field Theory}. Addison-Wesley Pub. Co, Reading, Mass.
+
+%   \end{thebibliography}
+
+% \end{frame}

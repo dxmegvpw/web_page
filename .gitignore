@@ -1,0 +1,9 @@
+*.synctex.gz
+*.out
+*.log
+*.dvi
+*.aux
+*-blx.bib
+*.bbl
+*.bst
+*.Identifier

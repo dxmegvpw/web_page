@@ -1,0 +1,20 @@
+\documentclass{standalone}
+
+\usepackage{graphics}
+\usepackage[dvipsnames,svgnames]{xcolor}
+
+\usepackage{tikz,pgf,pgfplots,circuitikz}
+\pgfplotsset{compat=1.15}
+\usetikzlibrary{intersections,arrows.meta,angles,calc,3d,decorations.pathmorphing}
+
+\usepackage{amssymb,amsfonts,amsthm,mathtools}
+\usepackage{physics,braket,bm}
+
+\begin{document}  
+  \begin{tikzpicture}[scale=1]
+    \draw[-latex,thick](-0.5,0)--(4,0)node[right]{$G_{mn}$};
+    \draw[-latex,thick](0,-0.4)--(0,2.5)node[above]{$V$};
+    \draw[thick,samples=100,domain=0.18:4.00]plot(\x,{-ln(5*\x)/(2*\x)+1.8});    
+    \draw[dashed,thick](0.5,0.9)--(0.5,0)node[below]{$\ev*{G_{mn}}$};
+  \end{tikzpicture}
+\end{document}

@@ -1,0 +1,1878 @@
+\pdfoutput=1
+\documentclass[a4paper,pdflatex,ja=standard]{bxjsarticle}
+
+% ---Setting about the geometry of the document----
+% \usepackage{a4wide}
+% \pagestyle{empty}
+
+% ---Physics and Math Packages---
+\usepackage{amssymb,amsfonts,amsthm,mathtools}
+\usepackage{physics,braket,bm}
+
+% ---underline---
+\usepackage{ulem}
+
+% --- sorround the texts or equations
+% \usepackage{fancybox,ascmac}
+
+% ---settings of theorem environment---
+% \usepackage{amsthm}
+% \theoremstyle{definition}
+
+% ---settings of proof environment---
+% \renewcommand{\proofname}{\textbf{証明}}
+% \renewcommand{\qedsymbol}{$\blacksquare$}
+
+% ---Ignore the Warnings---
+\usepackage{silence}
+\WarningFilter{latexfont}{Some font shapes,Font shape}
+
+% ---Insert the figure (If insert the `draft' at the option, the process becomes faster)---
+\usepackage{graphicx}
+% \usepackage{subcaption}
+
+% ----Add a link to a text---
+\usepackage{url}
+\usepackage{xcolor,hyperref}
+\hypersetup{colorlinks=true,citecolor=orange,linkcolor=blue,urlcolor=magenta}
+\usepackage{bxcjkjatype}
+
+% ---Tikz---
+\usepackage{tikz,pgf,pgfplots,circuitikz}
+\pgfplotsset{compat=1.15}
+\usetikzlibrary{intersections,arrows.meta,angles,calc,3d,decorations.pathmorphing}
+
+% ---Add the section number to the equation, figure, and table number---
+\makeatletter
+   \renewcommand{\theequation}{\thesubsection.\arabic{equation}}
+   \@addtoreset{equation}{section}
+   
+   \renewcommand{\thefigure}{\thesection.\arabic{figure}}
+   \@addtoreset{figure}{section}
+   
+   \renewcommand{\thetable}{\thesection.\arabic{table}}
+   \@addtoreset{table}{section}
+\makeatother
+
+% ---enumerate---
+\renewcommand{\labelenumi}{\arabic{enumi}.}
+\renewcommand{\labelenumii}{(\roman{enumii})}
+
+% ---Index---
+% \usepackage{makeidx}
+% \makeindex 
+
+% ---Fonts---
+\renewcommand{\familydefault}{\sfdefault}
+
+% ---Title---
+\title{東京大学\ 平成30年\ 物理学専攻\ 院試\ 解答例}
+\author{ミヤネ}
+\date{最終更新：\today}
+
+\newcommand{\prb}[2]{
+  \phantomsection
+  \addcontentsline{toc}{subsection}{問題 #1: #2}
+  \subsection*{第#1問\phantom{#2}}
+  \setcounter{subsection}{#1}
+  \setcounter{equation}{0}
+}
+
+\begin{document}
+
+\maketitle
+
+\tableofcontents
+
+\clearpage
+
+\section{数学パート}
+
+\prb{1}{線形代数}
+\begin{enumerate}
+  \item 
+  固有方程式を解けば$\lambda=0,a^2+b^2$．対応する固有ベクトルはそれぞれ
+  \begin{equation}
+    \begin{pmatrix}
+      b \\
+      -a
+    \end{pmatrix}
+    \ ,\ 
+    \begin{pmatrix}
+      b \\
+      a
+    \end{pmatrix}
+    \ .
+  \end{equation}
+
+  \item 
+  次のようにおけばうまくいく：
+  \begin{equation}
+    B
+    =
+    (\sqrt{a^2+b^2}\ 0)
+    \ ,\ 
+    V
+    =
+    \frac{1}{\sqrt{a^2+b^2}}
+    \begin{pmatrix}
+      a & b \\
+      b & -a
+    \end{pmatrix}
+    \ .
+  \end{equation}
+
+  \item 
+  $\tilde{B}$を
+  \begin{equation}
+    \tilde{B}
+    =
+    \begin{pmatrix}
+      1/c \\
+      0
+    \end{pmatrix}
+  \end{equation}
+  とおけばOK．
+
+  \item 
+  $\tilde{A}\coloneqq V\tilde{B}$とおけば$A\tilde{A}=1$が成立．また
+  \begin{equation}
+    (\tilde{A}A)^{T}
+    =
+    (V\tilde{B}BV)^{T}
+    =
+    V(\tilde{B}B)^{T}V
+    =
+    V\tilde{B}BV
+    =
+    \tilde{A}A
+  \end{equation}
+  より，$\tilde{A}A$は実対称．
+
+  \item 
+  $X$の成分を$x_{1},\cdots,x_{n}$とおく．この問題は
+  \begin{equation}
+    f(x_{1},\cdots,x_{n})
+    \coloneqq
+    x_{1}^2+\cdots+x_{n}^2
+    \ ,\ 
+    g(x_{1},\cdots,x_{n})
+    \coloneqq
+    a_{1}x_{1}+\cdots+a_{n}x_{n}-v
+  \end{equation}
+  とおいたときに，拘束条件$g(x_{1},\cdots,x_{n})=0$のもとで$f(x_{1},\cdots,x_{n})$の最小値をもとめればよいので
+  \begin{equation}
+    L
+    \coloneqq
+    f(x_{1},\cdots,x_{n})
+    -
+    \lambda
+    g(x_{1},\cdots,x_{n})
+  \end{equation}
+  とおいて，未定乗数法を用いる．$L$を微分すると
+  \begin{equation}
+    \left\{
+    \begin{alignedat}{1}
+      \pdv{L}{x_{i}}
+      &=
+      2x_{i}-\lambda a_{i}x_{i}
+      \\
+      \pdv{L}{\lambda}
+      &=
+      a_{1}x_{1}+\cdots+a_{n}x_{n}-v
+    \end{alignedat}
+    \right.
+  \end{equation}
+  なので，
+  \begin{equation}
+    x_{i}
+    =
+    \frac{a_{i}}{\|A\|}v
+    \ ,\ 
+    \lambda
+    =
+    \frac{2v}{\|A\|}
+    \ ,\ 
+    \|A\|
+    \coloneqq
+    a_{1}^{2}+\cdots+a_{n}^{2}
+  \end{equation}
+  ともとまるので，
+  \begin{equation}
+    X_{0}
+    =
+    \frac{v}{\|A\|}
+    \begin{pmatrix}
+      a_{1} \\
+      \vdots \\
+      a_{n}
+    \end{pmatrix}
+  \end{equation}
+  である．つまり
+  \begin{equation}
+    \tilde{A}_{n}
+    =
+    \frac{1}{\|A\|}
+    \begin{pmatrix}
+      a_{1} \\
+      \vdots \\
+      a_{n}
+    \end{pmatrix}
+  \end{equation}
+  であり，これは
+  \begin{equation}
+    A_{n}\tilde{A}_{n}
+    =
+    \frac{1}{\|A\|}\left\{  
+      a_{1}\cdot a_{1}
+      +
+      \cdots
+      +
+      a_{n}\cdot a_{n}
+    \right\}
+    =
+    1
+  \end{equation}
+  かつ
+  \begin{equation}
+    (\tilde{A}_{n}A_{n})_{ij}
+    =
+    \frac{a_{i}a_{j}}{\|A\|} 
+    =
+    (\tilde{A}_{n}A_{n})_{ji}
+  \end{equation}
+  を満たす．
+
+  \item 
+  固有値を$\lambda$として，対応する固有ベクトルを$v$とすれば$M^{T}Mv=\lambda v$が成立．左から$M$をかければ
+  \begin{equation}
+    MM^{T}(Mv)
+    =
+    \lambda (Mv)
+  \end{equation}
+  となり，$\lambda$は依然として固有値．ただし，固有ベクトルは変化するが．
+
+  さて，$M=A_{n}^{T}A_{n}$ととってみよう．ここで，$\tilde{A}_{n}=A_{n}^{T}/\|A\|$であることに気をつければ
+  \begin{equation}
+    \left\{
+      \begin{alignedat}{1}
+        (A_{n}^{T}A_{n})^{T}A_{n}^{T}A_{n}
+        &=
+        A_{n}^{T}A_{n}\cdot\|A\| \tilde{A}_{n}A_{n}
+        =
+        \|A\|A_{n}^{T}A_{n}
+        \\
+        A_{n}^{T}A_{n}(A_{n}^{T}A_{n})^{T}
+        &=
+        (A_{n}^{T}A_{n})^2
+      \end{alignedat}
+    \right.
+  \end{equation}
+  の固有値は等しい．$A_{n}^{T}A_{n}$の固有値を$\lambda$とすれば，$(A_{n}^{T}A_{n})^2$の固有値は$\lambda^2$である．$\|A\|A_{n}^{T}A_{n}$の固有値は$\|A\|\lambda$なので\footnote{
+    行列が$k$倍されると固有値も$k$倍される．固有ベクトルのノルムは関係ないですが，行列をスカラー倍するのは関係あるので注意です．
+  }，
+  \begin{equation}
+    \lambda^2=\|A\|\lambda
+  \end{equation}
+  が成立し，$A_{n}^{T}A_{n}$の固有値は$0,\|A\|$のみである\footnote{
+    設問1.と一致しています．今回の解答は固有値の候補を述べているだけなので，本当はちゃんと存在も言わないといけないと思いますが，言及しなくてもよいでしょう．設問1.で$n=2$の場合は確認できていますし．
+  }．
+
+  \item   
+  固有ベクトルは合計$n$個なので，対角化可能である．
+
+\end{enumerate}
+
+\subsection*{補足}
+\begin{itemize}
+  \item 
+  設問4.をちゃんとチェックしてみると
+  \begin{equation}
+    \tilde{A}
+    =
+    V^{T}\tilde{B}
+    =
+    \frac{1}{a^{2}+b^{2}}
+    \begin{pmatrix}
+      a \\
+      b
+    \end{pmatrix}
+  \end{equation}
+  より，ちゃんと
+  \begin{equation}
+    \tilde{A}A
+    =
+    \frac{1}{a^{2}+b^{2}}
+    \begin{pmatrix}
+      a \\
+      b
+    \end{pmatrix}
+    (a\ b)
+    =
+    \frac{1}{a^{2}+b^{2}}
+    \begin{pmatrix}
+      a^2 & ab \\
+      ab & b^2
+    \end{pmatrix}
+  \end{equation}
+  と対称行列になっています．
+
+  \item 
+  一般の場合をちゃんとチェックするのはきついですが，$n=3$くらいはやってみましょう．行列
+  \begin{equation}
+    A_{3}^{T}A_{3}
+    =
+    \begin{pmatrix}
+      a_{1}^{2} & a_{1}a_{2} & a_{1}a_{3} \\
+      a_{2}a_{1} & a_{2}^{2} & a_{2}a_{3} \\
+      a_{3}a_{1} & a_{3}a_{2} & a_{3}^{2}
+    \end{pmatrix}
+  \end{equation}
+  の固有方程式は
+  \begin{align}
+    &
+    \begin{vmatrix}
+      \lambda-a_{1}^{2} & -a_{1}a_{2} & -a_{1}a_{3} \\
+      -a_{2}a_{1} & \lambda-a_{2}^{2} & -a_{2}a_{3} \\
+      -a_{3}a_{1} & -a_{3}a_{2} & \lambda-a_{3}^{2}
+    \end{vmatrix}
+    \nonumber
+    \\
+    &\hspace{10pt}
+    =
+    (\lambda-a_{1}^{2})(\lambda-a_{2}^{2})(\lambda-a_{3}^{2})
+    -
+    2a_{1}^{2}a_{2}^{2}a_{3}^{2}
+    -
+    \left(  
+      a_{1}^{2}a_{2}^{2}(\lambda-a_{3}^2)
+      +
+      a_{2}^{2}a_{3}^{2}(\lambda-a_{1}^2)
+      +
+      a_{3}^{2}a_{1}^{2}(\lambda-a_{2}^2)
+    \right)
+    \nonumber
+    \\
+    &\hspace{10pt}
+    =
+    \lambda^3
+    -
+    (a_{1}^2+a_{2}^2+a_{3}^2)\lambda^2
+    =
+    0
+  \end{align}
+  となるので
+  \begin{equation}
+    \lambda
+    =
+    0 \ ,\ a_{1}^2+a_{2}^2+a_{3}^2
+  \end{equation}
+  が固有値です．固有値$0$が重解となっています．これに対応する固有値は，
+  \begin{align}
+    \begin{pmatrix}
+      -a_{1}^{2} & -a_{1}a_{2} & -a_{1}a_{3} \\
+      -a_{2}a_{1} & -a_{2}^{2} & -a_{2}a_{3} \\
+      -a_{3}a_{1} & -a_{3}a_{2} & -a_{3}^{2}
+    \end{pmatrix}
+    &\rightarrow
+    \begin{pmatrix}
+      a_{1} & a_{2} & a_{3} \\
+      a_{1} & a_{2} & a_{3} \\
+      a_{1} & a_{2} & a_{3}
+    \end{pmatrix}
+    \nonumber
+    \\
+    &\rightarrow
+    \begin{pmatrix}
+      a_{1} & a_{2} & a_{3} \\
+      0 & 0 & 0 \\
+      0 & 0 & 0 
+    \end{pmatrix}
+  \end{align}
+  なので，$a_{1}x_{1}+a_{2}x_{2}+a_{3}x_{3}=0$を解けばよくて，これは2つのパラメター$s,t$を用いて
+  \begin{equation}
+    \begin{pmatrix}
+      x_{1} \\
+      x_{2} \\
+      x_{3}
+    \end{pmatrix}
+    =
+    s
+    \begin{pmatrix}
+      a_{2} \\
+      -a_{1} \\
+      0
+    \end{pmatrix}
+    +
+    t
+    \begin{pmatrix}
+      a_{3} \\
+      0 \\
+      -a_{1}
+    \end{pmatrix}
+  \end{equation}
+  と書けます\footnote{
+    こういうときは，$x_{2}=0$とおいて$x_{1},x_{3}$をもとめ，今度は逆に$x_{3}=0$とすればOKです．
+  }．よって，対応する固有ベクトルは
+  \begin{equation}
+    \begin{pmatrix}
+      a_{2} \\
+      -a_{1} \\
+      0
+    \end{pmatrix}
+    \ ,\ 
+    \begin{pmatrix}
+      a_{3} \\
+      0 \\
+      -a_{1}
+    \end{pmatrix}
+  \end{equation}
+  で2つです．
+
+\end{itemize}
+
+\clearpage
+\prb{2}{偏微分方程式}
+\begin{enumerate}
+  \item 
+  解の形を$u(t,x)=T(t)X(x)$と仮定すると
+  \begin{equation}
+    \frac{1}{X}\dv{X}{x}
+    =
+    -\frac{1}{T}\dv{T}{t}
+  \end{equation}
+  と変数分離できているので，$A,\lambda$を用いて
+  \begin{equation}
+    u(t,x)
+    =
+    Ae^{\lambda (x-t)}
+  \end{equation}
+  とかける．$t=0$で$u(0,x)=f(x)$だとすれば
+  \begin{equation}
+    u(t,x)
+    =
+    f(x)e^{-\lambda t}
+  \end{equation}
+  である．
+
+  \item 
+  \begin{enumerate}
+    \item 
+    $F$を
+    \begin{equation}
+      F=\frac{1}{2}u^2-\dv{u}{x}
+    \end{equation}
+    とおけばよい．
+
+    \item 
+    $F'=0$より
+    \begin{equation}
+      \frac{1}{2}u^2
+      -
+      \dv{u}{x}
+      =
+      C
+    \end{equation}
+    である．$x\rightarrow\infty$での境界条件より
+    \begin{equation}
+      \dv{u}{x}
+      =
+      \frac{1}{2}(u^2-W^2)
+    \end{equation}
+    なので\footnote{
+      $x\rightarrow\infty$では
+      \begin{equation}
+        u(x)^2
+        \rightarrow
+        W^2
+        \ ,\ 
+        \dv{u}{x}
+        \rightarrow
+        0
+      \end{equation}
+      なので，$C=W^2/2$です．
+    }，
+    \begin{equation}
+      \left( \frac{1}{u-W}-\frac{1}{u+W} \right)
+      \dv{u}{x}
+      =
+      W
+    \end{equation}
+    である．これを解けば
+    \begin{equation}
+      \left|\frac{u-W}{u+W}\right|
+      =
+      e^{Wx+D}
+    \end{equation}
+    である．ただし，$D$は定数．$x=0$での境界条件から$D=0$である．よって，もとめる解は
+    \begin{equation}
+      u(x)
+      =
+      \frac{1-e^{Wx}}{1+e^{Wx}}W
+    \end{equation}
+    である．
+
+  \end{enumerate}
+
+  \item 
+  \begin{enumerate}
+    \item 
+    $u^{*}$を式(2)に代入すると
+    \begin{align}
+      \text{(左辺)}
+      &=
+      \pdv{u^{*}}{t}
+      +
+      u^{*}\pdv{u^{*}}{x}
+      \nonumber
+      \\
+      &=
+      -
+      \pdv{s}{x}{t}
+      +
+      \pdv{s}{x}\pdv[2]{s}{x}
+      \nonumber
+      \\
+      &=
+      -\pdv{}{x}\left(  
+        \frac{1}{2}\left( \pdv{s}{x} \right)^2
+        +
+        D\pdv[2]{s}{x}
+      \right)
+      +
+      \pdv{s}{x}\pdv[2]{s}{x}
+      \nonumber
+      \\
+      &=
+      -D\pdv[3]{s}{x}
+      =
+      D\pdv[2]{u^{*}}{x}
+      =
+      \text{(右辺)}
+    \end{align}
+    となっている．
+
+    \item 
+    式(3)の両辺を計算してみると
+    \begin{align}
+      \text{(左辺)}
+      &=
+      \pdv{s^{*}}{t}
+      =
+      \pdv{S}{\phi}\pdv{\phi}{t}
+      =
+      D\pdv{S}{\phi}\pdv[2]{\phi}{x}
+      \nonumber
+      \\
+      \text{(右辺)}
+      &=
+      \frac{1}{2}
+      \left( \pdv{s^{*}}{x} \right)^2
+      +
+      D
+      \pdv[2]{s^{*}}{x}
+      \nonumber
+      \\
+      &=
+      \frac{1}{2}
+      \left( \pdv{S}{\phi} \right)^2
+      \left( \pdv{\phi}{x} \right)^2
+      +
+      D\pdv{}{x}\left( \pdv{S}{\phi}\pdv{\phi}{x} \right)
+      \nonumber
+      \\
+      &=
+      \frac{1}{2}
+      \left( \pdv{S}{\phi} \right)^2
+      \left( \pdv{\phi}{x} \right)^2
+      +
+      D\left\{  
+        \pdv{}{x}\left( \pdv{S}{\phi} \right)\pdv{\phi}{x}
+        +
+        \pdv{S}{\phi}\pdv[2]{\phi}{x}
+      \right\}
+      \nonumber
+      \\
+      &=
+      D\pdv{S}{\phi}\pdv[2]{\phi}{x}
+      +
+      \left( \pdv{\phi}{x} \right)^2
+      \left[  
+        \frac{1}{2}\left( \pdv{S}{\phi} \right)^2
+        +
+        D\pdv[2]{S}{\phi}
+      \right]
+    \end{align}
+    となっているので，
+    \begin{equation}
+      \frac{1}{2}\left( \pdv{S}{\phi} \right)^2
+      +
+      D\pdv[2]{S}{\phi}
+      =
+      0
+    \end{equation}
+    が$S(\phi)$が満たす微分方程式．$\phi$で積分すると
+    \begin{equation}
+      \pdv{S}{\phi}
+      =
+      \frac{2D}{\phi}
+    \end{equation}
+    となる\footnote{
+      $\pdv*{S}{\phi}$を1つの関数とみなせば，これは変数分離できています．
+    }．もう一回積分すれば
+    \begin{equation}
+      S(\phi)
+      =
+      2D\log |\phi|
+    \end{equation}
+    となる．
+
+    \item 
+    フーリエ変換すると
+    \begin{equation}
+      \frac{1}{\sqrt{2\pi}}
+      \int_{-\infty}^{\infty}\left[  
+        \pdv{\tilde{\phi}}{t}
+        +
+        Dk^2\tilde{\phi}
+      \right]e^{ikx}
+      \dd k
+      =
+      0
+    \end{equation}
+    となるので，$\tilde{\phi}(k,t)$が満たす微分方程式は
+    \begin{equation}
+      \pdv{\tilde{\phi}}{t}
+      +
+      Dk^2\tilde{\phi}
+      =
+      0
+    \end{equation}
+    である．これは
+    \begin{equation}
+      \frac{1}{\tilde{\phi}}
+      \pdv{\tilde{\phi}}{t}
+      =
+      -Dk^2
+    \end{equation}
+    となり，これを解けば
+    \begin{equation}
+      \tilde{\phi}(k,t)
+      =
+      A(k)e^{-Dk^2 t}
+    \end{equation}
+    である．初期条件より$A(k)=g(k)$なので，
+    \begin{equation}
+      \tilde{\phi}(k,t)
+      =
+      g(k)e^{-Dk^2 t}
+    \end{equation}
+    がもとめる解である．
+
+  \end{enumerate}
+\end{enumerate}
+
+\subsection*{補足}
+\begin{itemize}
+  \item 
+  ここで解いたのは，1階の時間微分と2階の空間微分の微分方程式で，一番身近なのはシュレーディンガー方程式や熱伝導方程式でしょう．今回の解は
+  \begin{equation}
+    \tilde{\phi}(k,t)
+    =
+    g(k)e^{-Dk^2 t}
+  \end{equation}
+  で，これをフーリエ変換で戻すと
+  \begin{equation}
+    \phi(x,t)
+    =
+    \frac{1}{\sqrt{2\pi}}
+    \int_{-\infty}^{\infty}
+    g(k)e^{-Dk^2 t+ikx}
+    \dd k
+  \end{equation}
+  となります．これ以上はちゃんと計算できませんが，例えば，$g(k)\equiv 1$の場合\footnote{
+    つまり，$t=0$での$\phi(x,0)$が$\delta(x)$の場合に対応し，$x=0$に集中していた波の伝搬の様子がわかります．
+  }は計算できて
+  \begin{equation}
+    \phi(x,t)
+    =
+    \frac{1}{\sqrt{2Dt}}e^{-\tfrac{x^2}{4Dt}}
+  \end{equation}
+  です．
+
+\end{itemize}
+
+\clearpage
+
+\section{物理パート}
+
+\prb{1}{量子力学}
+
+\begin{enumerate}
+  \item 
+  行列表示は
+  \begin{equation}
+    H-E_{2}\bm{1}
+    =
+    \begin{pmatrix}
+      E_{1}-E_{2} & V \\
+      V & 0
+    \end{pmatrix}
+  \end{equation}
+  である．よって，状態$\ket{2}$に対する期待値は
+  \begin{equation}
+    \mel**{2}{(H-E_2)}{2}
+    =
+    V
+    ,\ 
+    \mel**{2}{(H-E_2)^2}{2}
+    =    
+    V^2
+    .
+  \end{equation}
+
+  \item 
+  固有値は，
+  \begin{equation}
+    E_{\pm}
+    =
+    \frac{E_{1}+E_{2}}{2}
+    \pm
+    \sqrt{V^2+\left( \frac{E_{1}-E_{2}}{2} \right)^2}
+  \end{equation}
+  である．対応する固有ベクトルは
+  \begin{equation}
+    \ket{\psi_{\pm}}
+    =
+    \begin{pmatrix}
+      2V \\
+      -E_{1}+E_{2}
+      \pm
+      \sqrt{(E_{1}-E_{2})^2+4V^2}
+    \end{pmatrix}
+  \end{equation}
+  なので，
+  \begin{equation}
+    \frac{\ev*{2|\psi_{\pm}}}{\ev*{1|\psi_{\pm}}}
+    =
+    \frac{E_{2}-E_{1}}{2V}
+    \pm
+    \sqrt{1+\left( \frac{E_{1}-E_{2}}{2V} \right)^2}
+  \end{equation}
+  である．
+
+  \item 
+  素直に計算してみれば
+  \begin{align}
+    \ev{\psi_{-}|\psi_{+}}
+    &=
+    \left(  
+      2V \ 
+      -E_{1}+E_{2}
+      -
+      \sqrt{(E_{1}-E_{2})^2+4V^2}
+    \right)
+    \begin{pmatrix}
+      2V \\
+      -E_{1}+E_{2}
+      +
+      \sqrt{(E_{1}-E_{2})^2+4V^2}
+    \end{pmatrix}
+    \nonumber
+    \\
+    &=
+    4V^2
+    +
+    (E_{1}-E_{2})^2
+    -
+    ((E_{1}-E_{2})^2+4V^2)
+    =
+    0
+  \end{align}
+  なので，直交．
+
+  \item 
+  設問2.において，$E_{1}\rightarrow E_{2}-\mathcal{E}\lambda$を代入すれば
+  \begin{equation}
+    E_{\pm}(\lambda)
+    =
+    E_{2}-\frac{\mathcal{E}\lambda}{2}
+    \pm
+    \sqrt{V^2+\left( \frac{\mathcal{E}\lambda}{2} \right)^2}
+  \end{equation}
+  である．このとき，確かに
+  \begin{equation}
+    E_{+}(\lambda)
+    -
+    E_{-}(\lambda)
+    =
+    2\sqrt{V^2+\left( \frac{\mathcal{E}\lambda}{2} \right)^2}
+    \geq
+    2V
+  \end{equation}
+  である．
+
+  \item 
+  \begin{enumerate}
+    \item 
+    基底の変換公式は
+    \begin{equation}
+      \left\{
+        \begin{alignedat}{1}
+          \ket{\psi_{+}^{(\lambda)}}
+          &=
+          \cos(\theta(\lambda))
+          \ket{1}
+          +
+          \sin(\theta(\lambda))
+          \ket{2}
+          \\
+          \ket{\psi_{-}^{(\lambda)}}
+          &=
+          -\sin(\theta(\lambda))
+          \ket{1}
+          +
+          \cos(\theta(\lambda))
+          \ket{2}
+        \end{alignedat}
+      \right.
+    \end{equation}
+    である\footnote{
+      $\ket{\psi_{+}^{(\lambda)}}$の形が決まっているので，直交性から$\ket{\psi_{-}^{(\lambda)}}$の形も決まってきます．問題は$\ket{\psi_{-}^{(\lambda)}}$の符号ですが，ひとまず$\lambda=-1$で，それぞれちょうど$\ket{1},\ket{2}$になるようにとっておきました．
+    }．これを用いれば，
+    \begin{equation}
+      \ket{\psi(t)}
+      =
+      (c_{+}\cos(\theta(\lambda))-c_{-}\sin(\theta(\lambda)))
+      \ket{1}
+      +
+      (c_{+}\sin(\theta(\lambda))+c_{-}\cos(\theta(\lambda)))
+      \ket{2}
+    \end{equation}
+    となるので，
+    \begin{equation}
+      \begin{pmatrix}
+        c_{1}(t) \\
+        c_{2}(t)
+      \end{pmatrix}
+      =
+      \begin{pmatrix}
+        \cos(\theta(t/T)) & -\sin(\theta(t/T)) \\
+        \sin(\theta(t/T)) & \cos(\theta(t/T))
+      \end{pmatrix}
+      \begin{pmatrix}
+        c_{+}(t) \\
+        c_{-}(t)
+      \end{pmatrix}
+    \end{equation}
+    である．これをシュレーディンガー方程式$(5)$に代入すれば
+    \begin{align}
+      &i\hbar
+      \left\{  
+        -\frac{\theta^{\prime}(t/T)}{T}
+        \begin{pmatrix}
+          \sin(\theta(t/T)) & \cos(\theta(t/T)) \\
+          -\cos(\theta(t/T)) & \sin(\theta(t/T))
+        \end{pmatrix}
+        \begin{pmatrix}
+          c_{+}(t) \\
+          c_{-}(t)
+        \end{pmatrix}
+      \right.
+      \nonumber
+      \\
+      &\hspace{1.5cm}\left.
+        +
+        \begin{pmatrix}
+          \cos(\theta(t/T)) & -\sin(\theta(t/T)) \\
+          \sin(\theta(t/T)) & \cos(\theta(t/T))
+        \end{pmatrix}
+        \pdv{}{t}
+        \begin{pmatrix}
+          c_{+}(t) \\
+          c_{-}(t)
+        \end{pmatrix}
+      \right\}
+      \nonumber
+      \\
+      &\hspace{2cm}
+      =
+      \begin{pmatrix}
+        E_{2}-\mathcal{E}t/T & V \\
+        V & E_{2}
+      \end{pmatrix}
+      \begin{pmatrix}
+        \cos(\theta(t/T)) & -\sin(\theta(t/T)) \\
+        \sin(\theta(t/T)) & \cos(\theta(t/T))
+      \end{pmatrix}
+      \begin{pmatrix}
+        c_{+}(t) \\
+        c_{-}(t)
+      \end{pmatrix}
+      \label{shr1}
+    \end{align}
+    となる．
+
+    \item 
+    もちろん
+    \begin{equation}
+      c_{\pm}(t)
+      =
+      \tilde{c}_{\pm}(t)
+      \exp\left[  
+        -\frac{i}{\hbar}
+        \int_{-T}^{t}
+        \dd t^{\prime}
+        E_{\pm}(t^{\prime}/T)
+      \right]
+    \end{equation}
+    なので
+    \begin{equation}
+      \pdv{c_{\pm}}{t}
+      =
+      \left(  
+        \pdv{\tilde{c}_{\pm}}{t}
+        -
+        \frac{i}{\hbar}E_{\pm}(t/T)\tilde{c}_{\pm}(t)
+      \right)
+      \exp\left[  
+        -\frac{i}{\hbar T}
+        \int_{-T}^{t}
+        \dd t^{\prime}
+        E_{\pm}(t^{\prime}/T)
+      \right]
+    \end{equation}
+    と変換される．よって，\eqref{shr1}に代入すれば\begin{align}
+      &i\hbar
+      \left\{  
+        -\frac{\theta^{\prime}(t/T)}{T}
+        \begin{pmatrix}
+          \sin(\theta(t/T)) & \cos(\theta(t/T)) \\
+          -\cos(\theta(t/T)) & \sin(\theta(t/T))
+        \end{pmatrix}
+        \begin{pmatrix}
+          \tilde{c}_{+}(t) \\
+          \tilde{c}_{-}(t)
+        \end{pmatrix}
+      \right.
+      \nonumber
+      \\
+      &\hspace{0.5cm}\left.
+        +
+        \begin{pmatrix}
+          \cos(\theta(t/T)) & -\sin(\theta(t/T)) \\
+          \sin(\theta(t/T)) & \cos(\theta(t/T))
+        \end{pmatrix}
+        \left(  
+          \pdv{}{t}
+          \begin{pmatrix}
+            \tilde{c}_{+}(t) \\
+            \tilde{c}_{-}(t)
+          \end{pmatrix}
+          -
+          \frac{i}{\hbar}
+          \begin{pmatrix}
+            E_{+}(t/T) & 0 \\
+            0 & E_{-}(t/T)
+          \end{pmatrix}
+          \begin{pmatrix}
+            \tilde{c}_{+}(t) \\
+            \tilde{c}_{-}(t)
+          \end{pmatrix}
+        \right)        
+      \right\}
+      \nonumber
+      \\
+      &\hspace{2cm}
+      =
+      \begin{pmatrix}
+        E_{2}-\mathcal{E}t/T & V \\
+        V & E_{2}
+      \end{pmatrix}
+      \begin{pmatrix}
+        \cos(\theta(t/T)) & -\sin(\theta(t/T)) \\
+        \sin(\theta(t/T)) & \cos(\theta(t/T))
+      \end{pmatrix}
+      \begin{pmatrix}
+        \tilde{c}_{+}(t) \\
+        \tilde{c}_{-}(t)
+      \end{pmatrix}
+      \label{shr2}
+    \end{align}
+    となる\footnote{
+      $e^{\cdots}$は共通因子として全て落としています．
+    }．ここで，$T\gg 1$なので，$1/T$の項を無視すれば
+    \begin{align}
+      &i\hbar\pdv{}{t}
+      \begin{pmatrix}
+        \tilde{c}_{+}(t) \\
+        \tilde{c}_{-}(t)
+      \end{pmatrix}      
+      =
+      \left\{  
+        -
+        \begin{pmatrix}
+          E_{+}(t/T) & 0 \\
+          0 & E_{-}(t/T)
+        \end{pmatrix}
+      \right.
+      \nonumber
+      \\
+      &\quad
+      \left.
+        +
+        \begin{pmatrix}
+          E_{2}+V\sin 2\theta(t/T)
+          -
+          \mathcal{E}\lambda
+          \cos^2\theta(t/T)
+          &
+          \frac{1}{2}\mathcal{E}
+          \lambda
+          \sin 2\theta(t/T)
+          +
+          V\cos 2\theta(t/T)
+          \\
+          \frac{1}{2}\mathcal{E}\lambda\sin 2\theta(t/T)
+          +
+          V\cos 2\theta(t/T)
+          &
+          E_{2}
+          -
+          \mathcal{E}\lambda\sin^2\theta(t/T)
+          -
+          V\sin2\theta(t/T)
+        \end{pmatrix}
+      \right\}
+      \begin{pmatrix}
+        \tilde{c}_{+}(t) \\
+        \tilde{c}_{-}(t)
+      \end{pmatrix}
+    \end{align}
+    である．ここで，$V\ll\mathcal{E}$より，$E_2-E_+\sim 0, E_2-E_-\sim \mathcal{E}t/T$
+    \begin{equation}
+      i\hbar\pdv{}{t}
+      \begin{pmatrix}
+        \tilde{c}_{+}(t) \\
+        \tilde{c}_{-}(t)
+      \end{pmatrix}      
+      =
+      \begin{pmatrix}
+        V\sin2\theta - \dfrac{\mathcal{E} t}{T}\cos^2\theta
+        &
+        V\cos2\theta + \dfrac{\mathcal{E} t}{2T}\sin2\theta
+        \vphantom{\frac{\frac{1}{2}}{2}}
+        \\
+        V\cos2\theta + \dfrac{\mathcal{E} t}{2T}\sin2\theta
+        &
+        -V\sin2\theta + \dfrac{\mathcal{E} t}{T}\cos^2\theta        
+        \vphantom{\frac{\dfrac{1}{2}}{2}}
+      \end{pmatrix}
+      \begin{pmatrix}
+        \tilde{c}_{+}(t) \\
+        \tilde{c}_{-}(t)
+      \end{pmatrix}
+      \label{eqn}
+    \end{equation}
+    となる\footnote{
+      かなりゴリゴリ計算しましたが，早い段階で$1/T$を落としてもよかったかもしれません．
+    }．
+
+  \end{enumerate}
+
+  \item 
+
+  \eqref{eqn}の両辺を$-T$から時刻$t$まで積分すれば
+  \begin{align}
+        \tilde{c}_{+}(t)
+        &=        
+        \tilde{c}_{+}(-T)
+        +
+        \int_{-T}^{t}
+        \dd t'
+        \frac{1}{i\hbar}
+        \left\{  
+          \left(  
+            V\sin2\theta - \dfrac{\mathcal{E} t'}{T}\cos^2\theta
+          \right)
+          \tilde{c}_{+}(t')
+          +
+          \left( 
+            V\cos2\theta + \dfrac{\mathcal{E} t'}{2T}\sin2\theta
+          \right)
+          \tilde{c}_{-}(t')
+        \right\}
+        \\
+        \tilde{c}_{-}(t)
+        &=
+        \tilde{c}_{-}(-T)
+        +
+        \int_{-T}^{t}
+        \dd t'
+        \frac{1}{i\hbar}
+        \left\{  
+          \left(  
+            V\cos2\theta + \dfrac{\mathcal{E} t'}{2T}\sin2\theta
+          \right)
+          \tilde{c}_{+}(t')
+          +
+          \left( 
+            -V\sin2\theta + \dfrac{\mathcal{E} t'}{T}\cos^2\theta
+          \right)
+          \tilde{c}_{-}(t')
+        \right\}
+  \end{align}
+  であるが，右辺は$t$が$-T$から離れると激しく振動する項と$\mathcal{O}(1)$で変化する項の積を積分したものとなっている\footnote{
+    $t=0$付近で激しく振動するのは，問題文の図1から分かります．
+  }．よって，積分の項の寄与はほとんどないとみなせるので，$|\tilde{c}_{+}(t)|\sim 1, |\tilde{c}_{-}(t)|\sim 0$である．
+
+\end{enumerate}
+
+\subsection*{補足}
+\begin{itemize}
+  \item 
+  強引に$\ket{\psi_{+}^{\lambda}}$の係数を求めてみましょう．といっても，一般の場合の基底は分かっているので，代入してやるだけで
+  \begin{equation}
+    \ket{\psi_{\pm}^{(\lambda)}}
+    =
+    C_{\pm}
+    \begin{pmatrix}
+      2V \\
+      \mathcal{E}\lambda
+      \pm
+      \sqrt{\mathcal{E}^2\lambda^2+4V^2}
+    \end{pmatrix}
+  \end{equation}
+  ともとまります．ただし，$C_{\pm}$は規格化定数です．これを計算すると
+  \begin{equation}
+    C_{\pm}
+    =
+    \frac{1}{\sqrt{2(\mathcal{E}^2\lambda^2+4V^2\pm
+    \mathcal{E}\lambda\sqrt{\mathcal{E}^2\lambda^2+4V^2})}}
+  \end{equation}
+  となるので，
+  \begin{equation}
+    \ket{\psi_{+}^{(\lambda)}}
+    =
+    \frac{1}{\sqrt{2(\mathcal{E}^2\lambda^2+4V^2+
+    \mathcal{E}\lambda\sqrt{\mathcal{E}^2\lambda^2+4V^2})}}
+    \begin{pmatrix}
+      2V \\
+      \mathcal{E}\lambda
+      +
+      \sqrt{\mathcal{E}^2\lambda^2+4V^2}
+    \end{pmatrix}
+  \end{equation}
+  です．したがって，
+  \begin{align}
+    \sin(\theta(\lambda))
+    &=
+    \frac{2V}{\sqrt{2(\mathcal{E}^2\lambda^2+4V^2+
+    \mathcal{E}\lambda\sqrt{\mathcal{E}^2\lambda^2+4V^2})}}
+    \ ,
+    \nonumber
+    \\
+    \cos(\theta(\lambda))
+    &=
+    \frac{\mathcal{E}\lambda
+    +
+    \sqrt{\mathcal{E}^2\lambda^2+4V^2}}{\sqrt{2(\mathcal{E}^2\lambda^2+4V^2+
+    \mathcal{E}\lambda\sqrt{\mathcal{E}^2\lambda^2+4V^2})}}
+  \end{align}
+  となります．確かに，問題文中の図のようになりそうです．
+
+\end{itemize}
+
+
+
+\clearpage
+\prb{2}{統計力学}
+
+\begin{enumerate}
+  \item 
+  \begin{enumerate}
+    \item 
+    この系の分配関数は，古典的に
+    \begin{equation}
+      Z[\beta]
+      =
+      \frac{1}{h^{3N}N!}
+      \int\dd^3 \bm{r}_{1}\cdots\dd^3 \bm{r}_{N}
+      \int\dd^3 \bm{p}_{1}\cdots\dd^3 \bm{p}_{N}
+      \exp\left[ -\beta\sum_{i=1}^{N}\frac{\bm{p}_{i}^{2}}{2m} \right]  
+      =
+      \frac{V^{N}}{h^{3N}N!}
+      \left( \frac{2\pi m}{\beta} \right)^{3N/2}
+    \end{equation}
+    である．したがって，内部エネルギーと定積熱容量は
+    \begin{equation}
+      \left\{
+        \begin{alignedat}{1}
+          U
+          &=
+          -\pdv{}{\beta}
+          \log Z[\beta]
+          =
+          \frac{3}{2}Nk_{B}T
+          \\
+          C_{V}
+          &=
+          \pdv{U}{T}
+          =
+          \frac{3}{2}Nk_{B}
+        \end{alignedat}
+      \right.
+    \end{equation}
+    である．
+
+    \item 
+    自由エネルギーは，
+    \begin{equation}
+      F
+      =
+      -k_{B}T\log Z
+      =
+      Nk_{B}T\log V
+      +
+      (\text{$V$に関係のない項})
+    \end{equation}
+    なので
+    \begin{equation}
+      p
+      =
+      -\pdv{F}{V}
+      =
+      \frac{Nk_{B}T}{V}
+    \end{equation}
+    である．
+
+    \item 
+    定積熱容量は温度に依存しないので
+    \begin{equation}
+      \Delta
+      S(T_{0},T_{0}/2)
+      =
+      \frac{3}{2}Nk_{B}\cdot
+      \int_{T_{0}/2}^{T_{0}}
+      \dd T^{\prime}\ 
+      \frac{1}{T^{\prime}}
+      =
+      \frac{3}{2}Nk_{B}\log 2
+    \end{equation}
+    と一定である．
+
+  \end{enumerate}
+
+  \item 
+  \begin{enumerate}
+    \item 
+    大分配関数は
+    \begin{equation}
+      \Xi[\beta,\mu]
+      =
+      \sum_{N=0}^{\infty}
+      \frac{1}{h^{3N}N!}
+      \int\dd^3 \bm{r}_{1}\cdots\dd^3 \bm{r}_{N}
+      \int\dd^3 \bm{p}_{1}\cdots\dd^3 \bm{p}_{N}
+      \exp\left[ -\beta\left\{  
+        \sum_{i=1}^{N}\frac{\bm{p}_{i}^{2}}{2m}
+        -
+        \mu N
+      \right\} \right]
+    \end{equation}
+    である．この右辺を計算してやると
+    \begin{equation}
+      \Xi[\beta,\mu]
+      =
+      \exp\left[  
+        \frac{(2\pi mk_{B}T)^{3/2}}{h^{3}V}e^{\mu/k_{B}T}
+      \right]
+    \end{equation}
+    である．したがって，温度$T$のときの平均粒子数は
+    \begin{equation}
+      \ev{N(T)}
+      =
+      k_{B}T\pdv{}{\beta}
+      \log\Xi[\mu,T]
+      =
+      \frac{(2\pi mk_{B}T)^{3/2}}{h^{3}V}e^{\mu/k_{B}T}
+    \end{equation}
+    なので，
+    \begin{equation}
+      \frac{\ev{N(T_{1})}}{\ev{N(T_{2})}}
+      =
+      \left( \frac{T_{1}}{T_{2}} \right)^{3/2}
+      \exp\left[ 
+        \frac{\mu}{k_{B}}\left( \frac{1}{T_{1}}-\frac{1}{T_{2}} \right) 
+      \right]
+    \end{equation}
+    である．
+
+    \item 
+    圧力は
+    \begin{equation}
+      P
+      =
+      -
+      \frac{1}{\beta}\pdv{}{V}
+      \log\Xi
+      =
+      \frac{1}{\beta V}
+      \cdot
+      \frac{(2\pi mk_{B}T)^{3/2}}{h^{3}V}e^{\mu/k_{B}T}
+      =
+      \frac{\ev{N(T)}k_{B}T}{V}
+    \end{equation}
+    である．
+
+  \end{enumerate}
+
+
+  \item 
+
+  \begin{enumerate}
+    
+    \item 
+
+    もっともエネルギーが低いのは$(n_{x},n_{y},n_{z})=(1,1,1)$のときなので，基底状態のエネルギーは
+    \begin{equation}
+      E_0
+      =
+      E(1,1,1)
+      =
+      \frac{9\pi^2\hbar^2}{8mL^2}
+    \end{equation}
+    である．第1励起状態は
+    \begin{equation}
+      E_1
+      =
+      E(1,1,2)
+      =
+      \frac{3\pi^2\hbar^2}{2mL^2}
+    \end{equation}
+    である．
+    
+    \item 
+
+    ボーズ粒子なので，1粒子のエネルギーは
+    \begin{equation}
+      U_1
+      =
+      E_0 D(E_0)f(E_0)
+      +
+      E_11 D(E_1)f(E_1)
+      +
+      \cdots
+    \end{equation}
+    である．ただし，$D(\varepsilon)$は状態密度\footnote{
+      今回，状態密度は
+      $$
+        D(\varepsilon)
+        =
+        \frac{1}{4\pi}
+        \left(  
+          \frac{2mL^2}{\hbar^2}
+        \right)^{3/2}
+        \varepsilon^{1/2}
+      $$
+      です．いつもは球の体積ですが，今回は楕円体の体積であることに注意しましょう．
+    }で$f(\varepsilon)$はボーズ分布．$k_BT\ll E_1-E_0$ならば，$E_1 f(E_1)\ll E_0 f_0$なので，基底状態でエネルギーの平均値を評価してもよい．よって，
+    \begin{equation}
+      U
+      =
+      N \times U_1
+      \sim
+      N E_0 D(E_0)f(E_0)
+      =
+      \frac{1}{4\pi}
+      \left(  
+        \frac{2mL^2}{\hbar^2}
+      \right)^{3/2}
+      \frac{NE_0^{3/2}}{e^{\beta E_0}-1}
+    \end{equation}
+    であり，$T$の依存性は古典論と異なる．
+
+    \item 
+
+    定積熱容量は
+    \begin{equation}
+      C
+      =
+      \pdv{U}{T}
+      =
+      \frac{N}{4\pi k_BT^2}
+      \left(  
+        \frac{2mL^2}{\hbar^2}
+      \right)^{3/2}
+      \frac{E_0^{5/2}e^{E_0/k_BT}}{(e^{E_0/k_BT}-1)^2}
+    \end{equation}
+    なので，$T=0$では$C=0$となってしまう．
+
+    \item 
+    
+    公式を使えば
+    \begin{equation}
+      \Delta S(T_0, T_0/2)
+      =
+      \frac{N}{4\pi k_B}
+      \left(  
+        \frac{2mL^2}{\hbar^2}
+      \right)^{3/2}
+      \int_{T_0/2}^{T_0}
+      \frac{1}{T^3}\cdot\frac{e^{E_0/k_BT}}{(e^{E_0/k_BT}-1)^2}
+      \dd T
+    \end{equation}
+    である．ここで，$T_0\rightarrow 0$で，被積分関数は$0$に収束し積分区間も$0$になるので，$\Delta S\rightarrow 0$となる\footnote{
+      ちゃんとやるなら，被積分関数を上から$\varepsilon$で抑えて積分して$\varepsilon\rightarrow 0$とすればいいでしょう．
+    }．
+
+    \item 
+
+    古典論では$\Delta S=\mathrm{const.}$に対して，量子論では$T_0\rightarrow 0$で$\Delta S\rightarrow 0$となった．これは，古典論と量子論の状態数の考え方の違いからくる．ここでは，あるエネルギー$E$に対してとりうる状態の数を$\Omega(E)$と書くことにしよう．古典論では，状態数はphase spaceの表面積なので，$\Omega \propto E^{1/2} \propto T^{1/2}$である\footnote{
+      各自由度に$k_B T/2$が分配されるので，$E\propto T$です．
+    }．したがって，ボルツマンの関係式より
+    $S\propto\log T$であり，$\Delta S_{\mathrm{classical}}=\mathrm{const.}$となる．一方，量子論では，状態数は状態空間の表面積であるが，十分低温では基底状態$(n_x,n_y,n_z)=(1,1,1)$のみが取りうる状態になる．したがって，$S=\mathrm{const.}$となり$\Delta S=0$となる\footnote{
+      ちなみに，今回は箱の$z$軸方向の長さが$2L$なのはあまり効いてきませんでした．一応，第1励状態第の計算が影響を受けています．第1励起状態の縮退が変わったりするのですが，その影響が後半の議論に影響があるかというと$\cdots$，よくわかりません．
+    }．    
+
+  \end{enumerate}
+
+\end{enumerate}
+
+
+\clearpage
+\prb{3}{電磁気学}
+
+\begin{enumerate}
+  \item 
+  静電ポテンシャルは$\phi_{0}(\bm{r})=-\bm{p}\cdot\bm{r}=-qdr\cos\theta$．よって，
+  \begin{equation}
+    \bm{E}(\bm{r})
+    =
+    -\bm{\nabla}\phi_{0}(\bm{r})
+    =
+    qd(\cos\theta\bm{e}_{r}-\sin\theta\bm{e}_{\theta})
+  \end{equation}
+  である．
+
+  \item 
+  マクスウェル方程式を満たすようにとる：
+  \begin{equation}
+    \left\{
+      \begin{alignedat}{1}
+        \bm{E}
+        &=
+        -\bm{\nabla}\phi
+        -
+        \pdv{\bm{A}}{t}
+        \\
+        \bm{B}
+        &=
+        \bm{\nabla}\times\bm{A}
+        \ .
+      \end{alignedat}
+    \right.
+  \end{equation}
+
+  \item 
+  マクスウェル方程式(1)に，前問の第1式を代入すると
+  \begin{equation}
+    \nabla^2\phi
+    -
+    \frac{1}{c^2}\pdv[2]{\phi}{t}
+    =
+    -\frac{\rho}{\varepsilon_{0}}
+  \end{equation}
+  である．前問の第2式をマクスウェル方程式(4)に代入すれば
+  \begin{equation}
+    \bm{\nabla}(\bm{\nabla}\cdot\bm{A})
+    -
+    \nabla^2\bm{A}
+    =
+    \mu_{0}\bm{j}
+    +
+    \frac{1}{c^2}\pdv{}{t}
+    \left(  
+      -\bm{\nabla}\phi
+      -
+      \pdv{\bm{A}}{t}
+    \right)
+  \end{equation}
+  なので，これを整理してローレンツの条件を代入すれば
+  \begin{equation}
+    \nabla^2
+    \bm{A}
+    -
+    \frac{1}{c^2}\pdv[2]{\bm{A}}{t}
+    =
+    -\mu_{0}\bm{j}
+  \end{equation}
+  である．
+
+  \item 
+  $\bm{r}=(0,0,d/2)$における電流を調べれば
+  \begin{equation}
+    \dv{q}{t}
+    =
+    I_{0}e^{i\omega t}
+  \end{equation}
+  である．よって
+  \begin{equation}
+    q(t)
+    =
+    \frac{I_{0}}{i\omega}e^{i\omega t}
+  \end{equation}
+  である．
+
+  \item 
+  $\bm{j}(\bm{r},t)$は$z$成分しかもってないので，$\bm{A}$も$z$成分のみしか値をもたない．その値とは
+  \begin{align*}
+    A_{z}(\bm{r},t)
+    &=
+    \int
+    \dd^3 \bm{r}^{\prime}\ 
+    \frac{1}{|\bm{r}-\bm{r}^{\prime}|}
+    \cdot
+    I_{0}e^{i\omega (t-|\bm{r-r^{\prime}}|/c)}\delta(x^{\prime})\delta(y^{\prime
+    })
+    \nonumber
+    \\
+    &=
+    \frac{\mu_{0}}{4\pi}
+    \int\dd z^{\prime}\ 
+    \frac{I_{0}e^{i\omega(t-\sqrt{x^2+y^2+(z-z^{\prime})^2/c})}}{\sqrt{x^2+y^2+(z-z^{\prime})^2}}
+  \end{align*}
+  である．ここで
+  \begin{equation}
+    \sqrt{x^2+y^2+(z-z^{\prime})^2}
+    \sim
+    r\left( 1-\frac{zz^{\prime}}{r^2} \right)
+    =
+    r
+    -
+    \frac{z}{r}z^{\prime}
+  \end{equation}
+  と近似すれば，積分は
+  \begin{align}
+    \int\dd z^{\prime}\quad
+    \frac{I_{0}e^{i\omega(t-\sqrt{x^2+y^2+(z-z^{\prime})^2/c})}}{\sqrt{x^2+y^2+(z-z^{\prime})^2}}
+    \sim
+    \frac{I_{0}}{r}e^{i(\omega t-kr)}
+    \int_{-d/2}^{+d/2}\dd z^{\prime}\ 
+    e^{i(kz/r)z^{\prime}}
+    =
+    \frac{2I_{0}}{kz}e^{i(\omega t-kr)}\sin\left( \frac{dkz}{2r} \right)
+  \end{align}
+  となる
+  \footnote{
+    近似を用いれば，被積分関数の分母は
+    $$
+      \frac{1}{\sqrt{x^2+y^2+(z-z^{\prime})^2}}
+      \sim
+      \frac{1}{r}
+      \cdot
+      \left( 
+        1
+        +
+        \frac{zz^{\prime}}{r^2}
+        +
+        \mathcal{O}(r^{-4})
+       \right)
+    $$
+    と展開できますが，今回は「もっともゆっくり減衰する項」を取ってくればよいとのことなので，第1項の近似で打ち切りました．
+  }．したがって，これを極座標に書き直せば
+  \begin{equation}
+    \bm{A}
+    =
+    A_{z}\bm{e}_{z}
+    =
+    \frac{\mu_{0}I_{0}}{2\pi kr}
+    (\bm{e}_{r}-\tan\theta\bm{e}_{\theta})
+    e^{i(\omega t-kr)}
+    \sin\left( \frac{dk\cos\theta}{2} \right)
+  \end{equation}
+  である．よって，$\bm{B}(\bm{r},t)$は
+  \begin{align}
+    \bm{B}(\bm{r},t)
+    &=
+    \bm{\nabla}\times\bm{A}
+    \nonumber
+    \\
+    &=
+    \left( \bm{e}_{r}\pdv{}{r}+\bm{e}_{\theta}\frac{1}{r}\pdv{}{\theta}+\bm{e}_{\varphi}\frac{1}{r\sin\theta}\pdv{}{\varphi} \right)
+    \times
+    \left[  
+      \frac{\mu_{0}I_{0}}{2\pi kr}
+      (\bm{e}_{r}-\tan\theta\bm{e}_{\theta})
+      e^{i(\omega t-kr)}
+      \sin\left( \frac{dk\cos\theta}{2} \right)
+    \right]
+    \nonumber
+    \\
+    &=
+    -\bm{e}_{\varphi}\tan\theta\frac{\mu_{0}I_{0}}{2\pi k}
+    e^{i(\omega t-kr)}\sin\left( \frac{dk\cos\theta}{2} \right)
+    \left( -\frac{i+ikr}{r^2} \right)
+    \nonumber
+    \\
+    &\qquad
+    -\bm{e}_{\varphi}\tan\theta
+    \frac{\mu_{0}I_{0}}{2\pi k}e^{i(\omega t-kr)}\sin\left( \frac{dk\cos\theta}{2} \right)
+    \nonumber
+    \\
+    &\sim
+    \bm{e}_{\varphi}
+    \frac{\mu_{0}I_{0}d\sin\theta}{4\pi r^2}
+    e^{i(\omega t-kr)}
+    \cos\left( \frac{dk\cos\theta}{2} \right)
+  \end{align}
+  である
+  \footnote{
+    次の関係式
+    $$
+      \bm{e}_{r}\times\bm{e}_{\theta}=\bm{e}_{\varphi}
+      \quad ,\quad
+      \bm{e}_{\varphi}\times\bm{e}_{r}=\bm{e}_{\theta}
+      \quad ,\quad
+      \bm{e}_{\theta}\times\bm{e}_{\varphi}=\bm{e}_{r}
+    $$
+    を用いる．これは，図を書くとよくわかるかも． また，$kr\gg 1$なので，第1項をおとした．
+  }．また，$\bm{E}(\bm{r},t)$は
+  \begin{align}
+    \frac{1}{c^2}\pdv{\bm{E}}{t}
+    &=
+    \bm{\nabla}\times\bm{B}
+    -
+    \mu_{0}\bm{j}
+    \nonumber
+    \\
+    &=
+    \left( \bm{e}_{r}\pdv{}{r}+\bm{e}_{\theta}\frac{1}{r}\pdv{}{\theta}+\bm{e}_{\varphi}\frac{1}{r\sin\theta}\pdv{}{\varphi} \right)
+    \times
+    \bm{e}_{\varphi}
+    \frac{\mu_{0}I_{0}d\sin\theta}{4\pi r^2}
+    e^{i(\omega t-kr)}
+    \cos\left( \frac{dk\cos\theta}{2} \right)
+    \nonumber
+    \\
+    &\hspace*{3cm}
+    +
+    \mu_{0}j_{z}(\cos\theta\bm{e}_{r}-\sin\theta\bm{e}_{\theta})
+    \nonumber
+    \\
+    &=
+    -
+    \bm{e}_{\theta}
+    \frac{\mu_{0}I_{0}d\sin\theta}{4\pi}e^{i\omega t}\cos\left( \frac{dk\cos\theta}{2} \right)
+    \pdv{}{r}\left( \frac{e^{-ikr}}{r} \right)
+    \nonumber
+    \\
+    &\hspace*{3cm}
+    +
+    \bm{e}_{r}
+    \frac{\mu_{0}I_{0}d}{4\pi r^3}
+    e^{i(\omega t-kr)}
+    \pdv{}{\theta}
+    \left( \sin\theta\cos\left( \frac{dk\cos\theta}{2} \right) \right)
+    \nonumber
+    \\
+    &\hspace*{3cm}
+    +\mu_{0}I_{0}e^{i\omega t}\delta(x)\delta(y)(\cos\theta\bm{e}_{r}-\sin\theta\bm{e}_{\theta})
+    \nonumber
+    \\
+    &\sim
+    \bm{e}_{\theta}
+    \frac{ik\mu_{0}I_{0}d\sin\theta}{4\pi r^2
+    }e^{i(\omega t-kr)}\cos\left( \frac{dk\cos\theta}{2} \right)
+    +\mu_{0}I_{0}e^{i\omega t}\delta(x)\delta(y)(\cos\theta\bm{e}_{r}-\sin\theta\bm{e}_{\theta})
+  \end{align}
+  より，
+  \begin{equation}
+    \bm{E}(\bm{r},t)
+    =
+    \bm{e}_{\theta}
+    \frac{c\mu_{0}I_{0}d\sin\theta}{4\pi r^2
+    }e^{i(\omega t-kr)}\cos\left( \frac{dk\cos\theta}{2} \right)
+    +\frac{c^2\mu_{0}I_{0}}{i\omega}e^{i\omega t}\delta(x)\delta(y)(\cos\theta\bm{e}_{r}-\sin\theta\bm{e}_{\theta})
+  \end{equation}
+  である．
+
+  \item 
+  $\bm{E}=E_{r}\bm{e}_{r}+E_{\theta}\bm{e}_{\theta} , \bm{B}=B_{\varphi}\bm{e}_{\varphi}$とすると
+  \begin{equation}
+    \bm{S}
+    =
+    \frac{1}{\mu_{0}}
+    \bm{E}\times\bm{B}
+    =
+    \frac{1}{\mu_{0}}\cdot
+    B_{\varphi}
+    \left[ -E_{r}\bm{e}_{\varphi}+E_{\theta}\bm{e}_{r} \right]
+  \end{equation}
+  である．$\bm{E},\bm{B}$の実部を調べると
+  \begin{equation}
+    \left\{
+      \begin{alignedat}{1}
+        E_{r}
+        &=
+        \frac{c^2\mu_{0}I_{0}}{\omega}\sin\omega t\cos\theta\delta(x)\delta(y)
+        \\
+        E_{\theta}
+        &=
+        \frac{c\mu_{0}I_{0}d\sin\theta}{4\pi r^2}
+        \cos(\omega t-kr)\cos\left( \frac{dk\cos\theta}{2} \right)
+        -
+        \frac{c^2\mu_{0}I_{0}}{\omega}\sin\omega t\sin\theta\delta(x)\delta(y)
+        \\
+        B_{\varphi}
+        &=
+        \frac{\mu_{0}I_{0}d\sin\theta}{4\pi r^2}
+        \cos(\omega t-kr)
+        \cos\left( \frac{dk\cos\theta}{2} \right)
+      \end{alignedat}
+    \right.
+  \end{equation}
+  となっているので，ポインティングベクトルは
+  \begin{align}
+    \bm{S}(\bm{r},t)
+    &=
+    \frac{1}{\mu_{0}}\cdot
+    \frac{\mu_{0}I_{0}d\sin\theta}{4\pi r^2}
+    \cos(\omega t-kr)
+    \cos\left( \frac{dk\cos\theta}{2} \right)
+    \nonumber
+    \\
+    &\quad
+    \times
+    \left[  
+      -
+      \frac{c^2\mu_{0}I_{0}}{\omega}\sin\omega t\cos\theta\delta(x)\delta(y)
+      \bm{e}_{\varphi}
+    \right.
+    \nonumber
+    \\
+    &\quad
+    \left.
+      +
+      \left\{  
+        \frac{c\mu_{0}I_{0}d\sin\theta}{4\pi r^2}
+        \cos(\omega t-kr)\cos\left( \frac{dk\cos\theta}{2} \right)
+        -
+        \frac{c^2\mu_{0}I_{0}}{\omega}\sin\omega t\sin\theta\delta(x)\delta(y)
+      \right\}
+      \bm{e}_{r}
+    \right]
+  \end{align}
+  である．これの時間平均をとれば，
+  \begin{equation}
+    \frac{\omega}{2\pi}\int_{0}^{2\pi/\omega}
+    \dd t\ 
+    \cos(\omega t-kr)\sin\omega t
+    =
+    \frac{\omega}{4\pi}\sin kr
+    \int_{0}^{2\pi/\omega}
+    \dd t\ 
+    (1-\cos2\omega t)
+    =
+    \frac{1}{2}\sin kr
+  \end{equation}
+  より
+  \begin{equation}
+    \bar{\bm{S}}(\bm{r})
+    =
+    \frac{1}{2\pi/\omega}
+    \int_{0}^{2\pi/\omega}
+    \dd t
+    \bm{S}(\bm{r},t)
+    =
+    -
+    \frac{c^{2}\mu_{0}I_{0}^{2}d\sin\theta\sin kr}{8\pi\omega r^2}
+    \cos\left( \frac{dk\cos\theta}{2} \right)
+    \left[  
+      \cos\theta
+      \bm{e}_{\varphi}
+      +
+      \sin\theta
+      \bm{e}_{r}
+    \right]
+    \delta(x)\delta(y)
+  \end{equation}
+  である．
+
+  \item 
+  向きは$\bm{e}_{z}$でそろっており，$E_{0}(R_{1})=E_{0}(R_{2})$なので
+  \begin{equation}
+    |\bm{E}|^{2}
+    =
+    |E_{0}(R_{1})|^2
+    |\cos(\omega t-kR_{1}-\delta_{1})+\cos(\omega t-kR_{2}-\delta_{2})|^2
+    \label{power}
+  \end{equation}
+  である．ここで
+  \begin{equation}
+    R_{1}
+    \sim
+    r+\frac{D}{2}\sin\varphi
+    \ ,\ 
+    R_{2}
+    \sim
+    r-\frac{D}{2}\sin\varphi
+    \label{approx}
+  \end{equation}
+  と近似できるので，$\delta_{1}=\delta_{2}=0$なら
+  \begin{equation}
+    |\bm{E}|^2
+    =
+    4|E_{0}(R_{1})|^2
+    \cos^2(\omega t-kr)
+    \cos^2\left( \frac{kD}{2}\sin\varphi \right)
+  \end{equation}
+  である．よって，$\varphi=0$で最大で，最大値の半分になるためには
+  \begin{equation}
+    -\frac{\pi}{2kD}
+    \leq
+    \sin\varphi
+    \leq
+    \frac{\pi}{2kD}
+  \end{equation}
+  であればよい．この幅$\Delta\varphi$を減らすためには，$k$や$D$の値を大きくする，すなわち，波数を大きくしたり，波源の距離を大きくすればよい．また，一般の場合で(\ref{power})で近似(\ref{approx})を入れると
+  \begin{equation}
+    |\bm{E}|^2
+    =
+    |E_{0}(R_{1})|^2
+    \left|
+      \cos\left( \omega t-kr-\frac{kD}{2}\sin\varphi-\delta_{1} \right)
+      +
+      \cos\left( \omega t-kr+\frac{kD}{2}\sin\varphi-\delta_{2} \right)
+    \right|^2
+  \end{equation}
+  となる．$\varphi=\varphi_{0}$で$|\cos(\cdots)+\cos(\cdots)|$の部分が最大となるためには，$\omega t-kr$以外の部分の値の差が$2\pi$の整数倍であればよい．つまり，$m$を整数とすれば
+  \begin{equation}
+    -\frac{kD}{2}\sin\varphi_{0}
+    -
+    \delta_{1}
+    -
+    \left( \frac{kD}{2}\sin\varphi_{0}
+    -
+    \delta_{2} \right)
+    =
+    2m\pi
+  \end{equation}
+  である．これを整理すれば
+  \begin{equation}
+    \delta_{2}
+    -
+    \delta_{1}
+    =
+    kD\sin\varphi_{0}
+    +
+    2m\pi
+    \qquad
+    (m\in\mathbb{Z})
+  \end{equation}
+  である．
+
+\end{enumerate}
+
+
+\end{document}
