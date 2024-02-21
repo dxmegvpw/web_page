@@ -94,17 +94,6 @@
 
 \clearpage
 
-A Quantum Field Theory (QFT) is my main interest. I studied mainly
-\begin{itemize}
-  \item 
-  Supersymmetry(SUSY) and Supergravity(SUGRA)
-  \item 
-  Topological Quantum Field Theory(TQFT)
-  \item 
-  Conformal Field Theory(CFT)
-\end{itemize}
-in this year.
-
 \section{Einstein–Cartan spacetime}
 
 When we consider the effect of gravity, we have to introduce the notion of curved space. In this section, I would like to note mathematical tools for the theory of general relativity.
@@ -495,7 +484,11 @@ The vertex rule should be
   gf^{abc}[g^{\mu\nu}(k-p)^{\rho}+g^{\nu\rho}(p-q)^{\mu}+g^{\rho\mu}(q-k)^{\nu}]
   ,
   \\
-  \text{four gauge bosons\ (updating)\ }
+  \vcenter{
+    \hbox{
+      \includegraphics{fig/feynman_diagram/four-boson.pdf}
+    }
+  }  
   &=
   (\text{very messy }\cdots )
   .
@@ -729,11 +722,29 @@ Thus the final Lagrangian is
 
 The diagrams which violate the optical theorem are
 \begin{equation}
-  (updating).
+  \vcenter{
+    \hbox{
+      \includegraphics{fig/feynman_diagram/opt_thm.pdf}
+    }
+  }  
+  .
 \end{equation}
-We can prove the ghost diagram cancels such a contribution:
+We can prove the ghost diagram cancels such a contribution\footnote{
+  Note! I have to prepare a better one.
+}:
 \begin{equation}
-  (updating).
+  \vcenter{
+    \hbox{
+      \includegraphics{fig/feynman_diagram/opt_thm.pdf}
+    }
+  }  
+  +  
+  \vcenter{
+    \hbox{
+      \includegraphics{fig/feynman_diagram/opt_thm_ghost.pdf}
+    }
+  }  
+  .
 \end{equation}
 This example illustrates a general physical interpretation of FP ghost. These "particles" serve as negative degrees of freedom to cancel the effect of the unphysical timelike and longitudinal state of the gauge bosons. 
 
