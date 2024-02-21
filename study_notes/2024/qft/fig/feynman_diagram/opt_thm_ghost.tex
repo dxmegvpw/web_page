@@ -28,8 +28,8 @@
     \propag[fermion] (p3) to (o2);
     \propag[fermion] (p4) to (o2);
     \propag[boson] (o2) to (o2m);
-    \propag[scalar] (o2m) to [in=90, out=90, looseness=1.5] (o1m);
-    \propag[scalar] (o1m) to [in=270, out=270, looseness=1.5] (o2m);
+    \propag[gho] (o2m) to [out=180, in=180, looseness=1.5] (o1m);
+    \propag[gho] (o2m) to [out=0, in=0, looseness=1.5] (o1m);
     \propag[boson] (o1m) to (o1);
   \end{feynhand}
 \end{tikzpicture}

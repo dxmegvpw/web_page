@@ -19,18 +19,20 @@
     \vertex (p2) at (1,1.5) {};
     \vertex (p3) at (-1,-1.5) {};
     \vertex (p4) at (1,-1.5) {};
-    \vertex (o1r) at (0.3,1){};
-    \vertex (o1l) at (-0.3,1){};
-    \vertex (o2r) at (0.3,-1){};
-    \vertex (o2l) at (-0.3,-1){};
-    \vertex[NEblob] (o1) at (0,1){};
-    \vertex[NEblob] (o2) at (0,-1){};
+    \vertex (o1r) at (0.1,1){};
+    \vertex (o1l) at (-0.1,1){};
+    \vertex (o2r) at (0.1,-1){};
+    \vertex (o2l) at (-0.1,-1){};
     \propag[boson] (o1r) to (o2r);
     \propag[boson] (o1l) to (o2l);
+    \vertex (o1) at (0,1){};
+    \vertex (o2) at (0,-1){};
     \propag[fermion] (o1) to (p1);
     \propag[fermion] (o1) to (p2);
     \propag[fermion] (p3) to (o2);
     \propag[fermion] (p4) to (o2);
+    \filldraw[fill=gray, draw=black] (o1) circle [radius=0.30cm];
+    \filldraw[fill=gray, draw=black] (o2) circle [radius=0.30cm];
   \end{feynhand}
 \end{tikzpicture}
 \end{document}
