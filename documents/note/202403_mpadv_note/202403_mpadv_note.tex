@@ -1,6 +1,8 @@
-\documentclass[a4paper,uplatex,dvipdfmx,10pt]{jsarticle}
-\usepackage[T1]{fontenc}
-\usepackage{tgtermes}
+\documentclass[unicode,a4paper,10pt,ja=standard,lualatex]{bxjsarticle}
+
+\usepackage{luatexja-fontspec}
+\usepackage[no-math,ipa-hg]{luatexja-preset}
+\setmainfont{TeX Gyre Termes}
 
 % ---Display \subsubsection at the Index
 % \setcounter{tocdepth}{3}
@@ -32,7 +34,8 @@
 
 % ---Ignore the Warnings---
 \usepackage{silence}
-\WarningFilter{latexfont}{Some font shapes,Font shape}
+\WarningFilter{latexfont}{Some font shapes}
+\WarningFilter{latexfont}{Font shape}
 \ExplSyntaxOn
 \msg_redirect_name:nnn{hooks}{generic-deprecated}{none}
 \ExplSyntaxOff
@@ -45,7 +48,6 @@
 \usepackage{url,hyperref}
 \usepackage[dvipsnames,svgnames]{xcolor}
 \hypersetup{colorlinks=true,citecolor=FireBrick,linkcolor=Navy,urlcolor=purple}
-\usepackage{pxjahyper}
 % ---refer `texdoc xcolor' at the command line---
 
 % ---Tikz---

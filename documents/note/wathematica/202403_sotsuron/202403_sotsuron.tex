@@ -1,9 +1,17 @@
 \documentclass[
-  a4paper,uplatex,dvipdfmx,11pt,
+  unicode,a4paper,11pt,
   xcolor = {dvipsnames,svgnames},
-  hyperref ={colorlinks=true,citecolor=Navy,linkcolor=NavyBlue,urlcolor=purple}
+  hyperref ={colorlinks=true,citecolor=Navy,linkcolor=NavyBlue,urlcolor=purple},
+  ja=standard,lualatex
 ]{beamer}
 \renewcommand{\baselinestretch}{1.4}
+
+% ---fonts---
+\usefonttheme{serif}
+\mathversion{bold}
+\usepackage{luatexja-fontspec}
+\usepackage[no-math,ipa-hg]{luatexja-preset}
+\setmainfont{TeX Gyre Termes}
 
 % ---refer `texdoc xcolor' at the command line---
 
@@ -35,13 +43,6 @@
 % \renewcommand{\proofname}{\textbf{証明}}
 % \renewcommand{\qedsymbol}{$\blacksquare$}
 
-% ---Ignore the Warnings---
-\usepackage{silence}
-\WarningFilter{latexfont}{Some font shapes,Font shape}
-\ExplSyntaxOn
-\msg_redirect_name:nnn{hooks}{generic-deprecated}{none}
-\ExplSyntaxOff
-
 % ---Insert the figure (If insert the `draft' at the option, the process becomes faster.)---
 \usepackage{graphicx}
 % \usepackage{subcaption}
@@ -49,7 +50,6 @@
 % ----Add a link to a text---
 \usepackage{url,hyperref}
 \usepackage{xcolor}
-\usepackage{pxjahyper}
 
 % ---Tikz---
 \usepackage{tikz,pgf,pgfplots,circuitikz}
@@ -108,11 +108,14 @@ coltitle=black,
 drop fuzzy shadow, title={#2}
 ,#1}
 
-% ---fonts---
-\usefonttheme{default}
-\renewcommand{\familydefault}{\sfdefault}
-\renewcommand{\kanjifamilydefault}{\gtdefault}
-\mathversion{bold}
+% ---Ignore the Warnings---
+\usepackage{silence}
+\WarningFilter{latexfont}{Some font shapes}
+\WarningFilter{latexfont}{Font shape}
+\ExplSyntaxOn
+\msg_redirect_name:nnn{hooks}{generic-deprecated}{none}
+\ExplSyntaxOff
+
 % \usepackage{newtxmath}
 
 % ---citation---
@@ -359,7 +362,7 @@ drop fuzzy shadow, title={#2}
 
 \begin{frame}
 
-  
+  これらの問題点を解決する模型として\textcolor{DarkBlue}{高次元時空モデル}が提案される。
 
   
 
