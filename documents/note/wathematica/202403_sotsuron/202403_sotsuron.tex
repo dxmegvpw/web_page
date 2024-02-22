@@ -1,5 +1,5 @@
 \documentclass[
-  unicode,a4paper,11pt,
+  unicode,a4paper,11pt,aspectratio=169,
   xcolor = {dvipsnames,svgnames},
   hyperref ={colorlinks=true,citecolor=Navy,linkcolor=NavyBlue,urlcolor=purple},
   ja=standard,lualatex
@@ -10,8 +10,9 @@
 \usefonttheme{serif}
 \mathversion{bold}
 \usepackage{luatexja-fontspec}
-\usepackage[no-math,ipa-hg]{luatexja-preset}
 \setmainfont{TeX Gyre Termes}
+\setmainjfont{Meiryo}
+% \setmainjfont{IPAexGothic}
 
 % ---refer `texdoc xcolor' at the command line---
 
@@ -308,7 +309,7 @@ drop fuzzy shadow, title={#2}
   
     (2012年にヒッグス粒子が発見)
 
-    \includegraphics[width=0.6\textwidth]{fig/SM.png}  
+    \includegraphics[width=0.4\textwidth]{fig/SM.png}  
 
     \vspace*{-15pt}
     { \small
@@ -334,7 +335,7 @@ drop fuzzy shadow, title={#2}
 
   \only<1>{
     \begin{center}
-      \includegraphics[width=0.5\textwidth]{fig/SM.png}       
+      \includegraphics[width=0.38\textwidth]{fig/SM.png}       
 
       \vspace*{-10pt}
       { \small
@@ -363,6 +364,16 @@ drop fuzzy shadow, title={#2}
 \begin{frame}
 
   これらの問題点を解決する模型として\textcolor{DarkBlue}{高次元時空モデル}が提案される。
+
+  今回の研究では、特に
+  \begin{center}
+    10次元
+    $=$
+    4次元ミンコフスキー時空
+    $+$
+    6次元余剰空間
+  \end{center}
+  を考える。
 
   
 
