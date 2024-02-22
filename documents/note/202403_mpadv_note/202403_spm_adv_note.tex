@@ -162,13 +162,42 @@
    。
 \end{equation}
 これを5次元の実スカラー場の作用\eqref{eqn:action_5d_real_scalar}に代入すれば
-\begin{align}
+\begin{equation}
    S
-   &=
-   \nonumber
-   \\
-   &=
-\end{align}
+   =
+   \int\dd^4x\ 
+   \sqrt{-g_{4}}a\mathcal{L}_{4}
+   ,\ 
+   \mathcal{L}_{4}
+   =
+   -
+   \frac{1}{2}\partial_{\mu}\phi_{0}\partial^{\mu}\phi_{0}
+   -
+   \sum_{n\geq 1}
+   \left(  
+      \partial_{\mu}\phi^{\ast}_{n}\partial^{\mu}\phi_{n}
+      +
+      M_{n}^2 \phi_{n}^{\ast}\phi_{n}
+   \right)
+\end{equation}
+となります。これが4次元の有効作用となるわけですが、5次元の理論では現れなかった質量項$M_{n}^2 \phi_{n}^{\ast}\phi_{n}$が現れており、場$\phi_{n}$の質量は
+\begin{equation}
+   M_{n}
+   =
+   \frac{|n|}{a}
+\end{equation}
+です。ここで、もし$a$の値が十分に小さければ、励起される粒子の質量が非常に大きいことになり、十分なエネルギーがなければ$n=1$より大きいモードの粒子は生成されないことになります。
+
+次は、マクスウェル理論を見てみましょう。ベクトル場$A_{M}(z)$も先ほどのスカラー場のように5番目の座標の周期境界条件によってフーリエ級数展開できるので
+\begin{equation}
+   A_{M}(x,\theta)
+   =
+   \frac{1}{\sqrt{2\pi}}
+   \sum_{k}
+   A_{M}^{(k)}(x)e^{ik\theta}
+\end{equation}
+となります。
+
 
 
 
