@@ -28,7 +28,7 @@
 \usepackage{physics,braket,bm}
 
 % ---underline---
-\usepackage{ulem}
+\usepackage[normalem]{ulem}
 
 % ---cancel---
 \usepackage{cancel}
@@ -125,7 +125,7 @@ drop fuzzy shadow, title={#2}
 \newbibfield{year} 
 \newbibfield{journal} 
 \newbibfield{doi} 
-\bibinput{hoge}
+\bibinput{ref}
 
 \makeatletter
 \newcommand*{\journal}{\begingroup\@makeother\#\@mylink}
@@ -432,7 +432,7 @@ drop fuzzy shadow, title={#2}
   \scriptsize
   \beamertemplatetextbibitems
   \bibliographystyle{ytphys}
-  \bibliography{hoge}
+  \bibliography{ref}
 
   \nocite{Wess_SupersymmetrySupergravity_1992}
 

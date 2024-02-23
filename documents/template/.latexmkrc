@@ -19,13 +19,13 @@ $dvips = 'dvips %O -z -f %S | convbkmk -u > %D';
 $ps2pdf = 'ps2pdf.exe %O %S %D';
 
 # PDF
-## $pdf_mode = 0; PDF を作成しない。
+## $pdf_mode = 0; -no-pdf
 ## $pdf_mode = 1; $pdflatex
 ## $pdf_mode = 2; $ps2pdf
 ## $pdf_mode = 3; $dvipdf
 ## $pdf_mode = 4; $lualatex
-## $pdf_mode = 5; xdvipdfmx
+## $pdf_mode = 5; $xdvipdfmx
 $pdf_mode = 1;
 
-# PDF viewer の設定
+# PDF viewer
 $pdf_previewer = "start %S";
