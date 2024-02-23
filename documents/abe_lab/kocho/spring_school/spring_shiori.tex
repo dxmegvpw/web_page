@@ -1,6 +1,8 @@
-\documentclass[a4paper,uplatex,dvipdfmx,10pt]{jsarticle}
-\usepackage[T1]{fontenc}
-\usepackage{tgtermes}
+\documentclass[unicode,a4paper,10pt]{ltjsarticle}
+
+\usepackage{luatexja-fontspec}
+\setmainfont{TeX Gyre Termes}
+% \setmainjfont{IPAexGothic}
 
 % ---Display \subsubsection at the Index
 % \setcounter{tocdepth}{3}
@@ -14,7 +16,7 @@
 \usepackage{physics,braket,bm}
 
 % ---underline---
-\usepackage{ulem}
+\usepackage[normalem]{ulem}
 
 % ---cancel---
 \usepackage{cancel}
@@ -23,19 +25,17 @@
 % \usepackage{fancybox,ascmac}
 
 % ---settings of theorem environment---
-\usepackage{amsthm}
-\theoremstyle{definition}
-\newtheorem{dfn}{定義}
-\newtheorem{prop}{命題}
-\newtheorem{thm}{定理}
+% \usepackage{amsthm}
+% \theoremstyle{definition}
 
 % ---settings of proof environment---
-\renewcommand{\proofname}{\textbf{証明}}
-\renewcommand{\qedsymbol}{$\blacksquare$}
+% \renewcommand{\proofname}{\textbf{証明}}
+% \renewcommand{\qedsymbol}{$\blacksquare$}
 
 % ---Ignore the Warnings---
 \usepackage{silence}
-\WarningFilter{latexfont}{Some font shapes,Font shape}
+\WarningFilter{latexfont}{Some font shapes}
+\WarningFilter{latexfont}{Font shape}
 \ExplSyntaxOn
 \msg_redirect_name:nnn{hooks}{generic-deprecated}{none}
 \ExplSyntaxOff
@@ -48,7 +48,6 @@
 \usepackage{url,hyperref}
 \usepackage[dvipsnames,svgnames]{xcolor}
 \hypersetup{colorlinks=true,citecolor=FireBrick,linkcolor=Navy,urlcolor=purple}
-\usepackage{pxjahyper}
 % ---refer `texdoc xcolor' at the command line---
 
 % ---Tikz---
@@ -78,7 +77,6 @@
 
 % ---Fonts---
 % \renewcommand{\familydefault}{\sfdefault}
-% \renewcommand{\kanjifamilydefault}{\gtdefault}
 
 % ---Title---
 \title{
