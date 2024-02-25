@@ -11,7 +11,7 @@
 \mathversion{bold}
 \usepackage{luatexja-fontspec}
 \setmainfont{TeX Gyre Termes}
-\setmainjfont{Meiryo}
+\setmainjfont{Noto Sans JP}
 % \setmainjfont{IPAexGothic}
 
 % ---refer `texdoc xcolor' at the command line---
@@ -96,12 +96,6 @@ colback=RoyalBlue!10!white,
 coltitle=black,
 drop fuzzy shadow, title={#2}
 ,#1}
-\newtcolorbox{blueboxblank}[1][]{enhanced,
-colframe=RoyalBlue!40!white,
-colback=RoyalBlue!10!white,
-coltitle=black,
-drop fuzzy shadow
-,#1}
 \newtcolorbox{redbox}[2][]{enhanced,
 colframe=DarkRed!40!white,
 colback=DarkRed!10!white,
@@ -120,134 +114,134 @@ drop fuzzy shadow, title={#2}
 % \usepackage{newtxmath}
 
 % ---citation---
-\usepackage{usebib}
-\newbibfield{author} 
-\newbibfield{year} 
-\newbibfield{journal} 
-\newbibfield{doi} 
-\bibinput{ref}
+% \usepackage{usebib}
+% \newbibfield{author} 
+% \newbibfield{year} 
+% \newbibfield{journal} 
+% \newbibfield{doi} 
+% \bibinput{ref}
 
-\makeatletter
-\newcommand*{\journal}{\begingroup\@makeother\#\@mylink}
-\newcommand*{\@mylink}[1]{\href{http://dx.doi.org/\usebibentry{#1}{doi}}{\usebibentry{#1}{journal}}\endgroup} 
-\makeatother
+% \makeatletter
+% \newcommand*{\journal}{\begingroup\@makeother\#\@mylink}
+% \newcommand*{\@mylink}[1]{\href{http://dx.doi.org/\usebibentry{#1}{doi}}{\usebibentry{#1}{journal}}\endgroup} 
+% \makeatother
 
-\newcommand*{\citefone}[2]{
-  \begin{tikzpicture}[remember picture, overlay]
-    \node[anchor=north east, align=left] at ($(current page.north east)-(0,0.0)$){
-    {\tiny
-      \cite{#1}
-      #2,
-      \journal{#1}
-      (\usebibentry{#1}{year}).
-    }
-    };
-  \end{tikzpicture}
-}
+% \newcommand*{\citefone}[2]{
+%   \begin{tikzpicture}[remember picture, overlay]
+%     \node[anchor=north east, align=left] at ($(current page.north east)-(0,0.0)$){
+%     {\tiny
+%       \cite{#1}
+%       #2,
+%       \journal{#1}
+%       (\usebibentry{#1}{year}).
+%     }
+%     };
+%   \end{tikzpicture}
+% }
 
-\newcommand*{\citeftwo}[4]{
-  \begin{tikzpicture}[remember picture, overlay]
-    \node[anchor=north east, align=left] at ($(current page.north east)-(0,0.0)$){
-    {\tiny
-      \cite{#1}
-      #2,
-      \journal{#1}
-      (\usebibentry{#1}{year}).
-    }
-    \\[-2.4ex]
-    {\tiny
-      \cite{#3}
-      #4,
-      \journal{#3}
-      (\usebibentry{#3}{year}).
-    }
-    };
-  \end{tikzpicture}
-}
+% \newcommand*{\citeftwo}[4]{
+%   \begin{tikzpicture}[remember picture, overlay]
+%     \node[anchor=north east, align=left] at ($(current page.north east)-(0,0.0)$){
+%     {\tiny
+%       \cite{#1}
+%       #2,
+%       \journal{#1}
+%       (\usebibentry{#1}{year}).
+%     }
+%     \\[-2.4ex]
+%     {\tiny
+%       \cite{#3}
+%       #4,
+%       \journal{#3}
+%       (\usebibentry{#3}{year}).
+%     }
+%     };
+%   \end{tikzpicture}
+% }
 
-\newcommand*{\citefthree}[6]{
-  \begin{tikzpicture}[remember picture, overlay]
-    \node[anchor=north east, align=left] at ($(current page.north east)-(0,0.0)$){
-    {\tiny
-      \cite{#1}
-      #2,
-      \journal{#1}
-      (\usebibentry{#1}{year}).
-    }
-    \\[-2.4ex]
-    {\tiny
-      \cite{#3}
-      #4,
-      \journal{#3}
-      (\usebibentry{#3}{year}).
-    }
-    \\[-2.4ex]
-    {\tiny
-      \cite{#5}
-      #6,
-      \journal{#5}
-      (\usebibentry{#5}{year}).
-    }
-    };
-  \end{tikzpicture}
-}
+% \newcommand*{\citefthree}[6]{
+%   \begin{tikzpicture}[remember picture, overlay]
+%     \node[anchor=north east, align=left] at ($(current page.north east)-(0,0.0)$){
+%     {\tiny
+%       \cite{#1}
+%       #2,
+%       \journal{#1}
+%       (\usebibentry{#1}{year}).
+%     }
+%     \\[-2.4ex]
+%     {\tiny
+%       \cite{#3}
+%       #4,
+%       \journal{#3}
+%       (\usebibentry{#3}{year}).
+%     }
+%     \\[-2.4ex]
+%     {\tiny
+%       \cite{#5}
+%       #6,
+%       \journal{#5}
+%       (\usebibentry{#5}{year}).
+%     }
+%     };
+%   \end{tikzpicture}
+% }
 
-\newcommand*{\citefonev}[3]{
-  \begin{tikzpicture}[remember picture, overlay]
-    \node[anchor=north east, align=left, text width=#3cm] at ($(current page.north east)-(0,0.0)$){
-    {{\fontsize{5pt}{0pt}\selectfont
-      \cite{#1}
-      #2,
-      \journal{#1}
-      (\usebibentry{#1}{year}).\par}
-    }
-    };
-  \end{tikzpicture}
-}
+% \newcommand*{\citefonev}[3]{
+%   \begin{tikzpicture}[remember picture, overlay]
+%     \node[anchor=north east, align=left, text width=#3cm] at ($(current page.north east)-(0,0.0)$){
+%     {{\fontsize{5pt}{0pt}\selectfont
+%       \cite{#1}
+%       #2,
+%       \journal{#1}
+%       (\usebibentry{#1}{year}).\par}
+%     }
+%     };
+%   \end{tikzpicture}
+% }
 
-\newcommand*{\citeftwov}[5]{
-  \begin{tikzpicture}[remember picture, overlay]
-    \node[anchor=north east, align=left, text width=#5cm] at ($(current page.north east)-(0,0.0)$){
-    {{\fontsize{5pt}{0pt}\selectfont
-      \cite{#1}
-      #2,
-      \journal{#1}
-      (\usebibentry{#1}{year}).\par}
+% \newcommand*{\citeftwov}[5]{
+%   \begin{tikzpicture}[remember picture, overlay]
+%     \node[anchor=north east, align=left, text width=#5cm] at ($(current page.north east)-(0,0.0)$){
+%     {{\fontsize{5pt}{0pt}\selectfont
+%       \cite{#1}
+%       #2,
+%       \journal{#1}
+%       (\usebibentry{#1}{year}).\par}
 
-      {\fontsize{5pt}{0pt}\selectfont
-      \cite{#3}
-      #4,
-      \journal{#3}
-      (\usebibentry{#3}{year}).\par}
-    }
-    };
-  \end{tikzpicture}
-}
+%       {\fontsize{5pt}{0pt}\selectfont
+%       \cite{#3}
+%       #4,
+%       \journal{#3}
+%       (\usebibentry{#3}{year}).\par}
+%     }
+%     };
+%   \end{tikzpicture}
+% }
 
-\newcommand*{\citefthreev}[7]{
-  \begin{tikzpicture}[remember picture, overlay]
-    \node[anchor=north east, align=left, text width=#7cm] at ($(current page.north east)-(0,0.0)$){
-    {{\fontsize{5pt}{0pt}\selectfont
-    \cite{#1}
-    #2,
-    \journal{#1}
-    (\usebibentry{#1}{year}).\par}
+% \newcommand*{\citefthreev}[7]{
+%   \begin{tikzpicture}[remember picture, overlay]
+%     \node[anchor=north east, align=left, text width=#7cm] at ($(current page.north east)-(0,0.0)$){
+%     {{\fontsize{5pt}{0pt}\selectfont
+%     \cite{#1}
+%     #2,
+%     \journal{#1}
+%     (\usebibentry{#1}{year}).\par}
 
-    {\fontsize{5pt}{0pt}\selectfont
-    \cite{#3}
-    #4,
-    \journal{#3}
-    (\usebibentry{#3}{year}).\par}
+%     {\fontsize{5pt}{0pt}\selectfont
+%     \cite{#3}
+%     #4,
+%     \journal{#3}
+%     (\usebibentry{#3}{year}).\par}
 
-    {\fontsize{5pt}{0pt}\selectfont
-    \cite{#5}
-    #6,
-    \journal{#5}
-    (\usebibentry{#5}{year}).\par}
-    }
-    };
-  \end{tikzpicture}
-}
+%     {\fontsize{5pt}{0pt}\selectfont
+%     \cite{#5}
+%     #6,
+%     \journal{#5}
+%     (\usebibentry{#5}{year}).\par}
+%     }
+%     };
+%   \end{tikzpicture}
+% }
 
 
 % ---Title---
@@ -369,48 +363,115 @@ drop fuzzy shadow, title={#2}
   \begin{center}
     10次元
     $=$
-    4次元ミンコフスキー時空
+    \textcolor{DarkRed}{\uwave{\textcolor{black}{4次元ミンコフスキー時空}}}
     $+$
-    6次元余剰空間
+    \textcolor{DarkGreen}{\uwave{\textcolor{black}{6次元余剰空間}}}
   \end{center}
-  を考える。
+  を考える。  
 
-  
+  \pause
 
-
-
-  
+  \begin{tikzpicture}[remember picture, overlay]
+    \draw [-latex,DarkRed] (3.0,-0.3)--(6.7,1.2);
+    \node at (3.0,-0.3) [below,DarkRed] {私たちから見える時空$x^{0},x^{1},x^{2},x^{3}$};
+    \draw [-latex,DarkGreen] (10.0,-0.3)--(10.1,1.2);
+    \node at (10.0,-0.3) [below,DarkGreen] {見えないほど小さな空間$y^{4},\cdots,y^{9}$};
+    \node at (10.0,-0.9) [below,DarkGreen] {(コンパクト空間)};
+  \end{tikzpicture}
 
 \end{frame}
 
+\begin{frame}
+
+  理論は\textcolor{DarkRed}{作用$S$}によって決定される。
+
+  \uline{4次元の場合}\ (e.g.\ スカラー場)
+  \begin{equation}
+    S
+    =
+    \int\dd^4 x\ \mathcal{L}
+    =
+    \int\dd^4 x\ 
+    \left(  
+      \frac{1}{2}(\partial_{\mu}\phi)(\partial^{\mu}\phi)
+      +
+      \frac{1}{2}m^2\phi^2
+      +
+      \frac{\lambda}{4!}\phi^4
+    \right)
+    \nonumber
+  \end{equation}
+  \begin{center}
+    $m$は質量、$\lambda$は結合定数（粒子の相互作用の強さ）
+  \end{center}
+
+  \pause
+
+  \uline{10次元の場合}
+  \begin{align}
+    S
+    &=
+    \int\dd^4 x\ \dd^6 y\ 
+    \left(  
+      \frac{1}{2}(\partial_{\mu}\phi)(\partial^{\mu}\phi)
+      +
+      \frac{1}{2}\textcolor{DarkOrange}{m^2}\phi(x,y)^2
+      +
+      \frac{\textcolor{DarkMagenta}{\lambda}}{4!}\phi(x,y)^4
+    \right)
+    \nonumber
+    \\    
+    &\xrightarrow{\ y\text{方向で積分}\ }
+    \int\dd^4 x\ 
+    \left(  
+      \frac{1}{2}(\partial_{\mu}\phi)(\partial^{\mu}\phi)
+      +
+      \frac{1}{2}\textcolor{DarkOrange}{M^2}\phi(x)^2
+      +
+      \frac{\textcolor{DarkMagenta}{\Lambda}}{4!}\phi(x)^4
+    \right)    
+    \nonumber
+  \end{align}
+
+  \pause
+
+  \begin{bluebox}{\empty}
+    \centering
+    4次元の$\textcolor{DarkOrange}{M}$や$\textcolor{DarkMagenta}{\Lambda}$の値が余剰空間の幾何(大きさ、形など)で決定される。
+  \end{bluebox}
+
+\end{frame}
+
+
+\begin{frame}
+
+\end{frame}
 
 
 
 % --------------------------
 
-\newcounter{Appendix}
-\setcounter{Appendix}{\value{framenumber}}
-\setcounter{section}{0}
-\renewcommand{\thesubsection}{\Alph{subsection}}
-\makeatletter
-   \renewcommand{\theequation}{\thesubsection.\arabic{equation}}
-   \@addtoreset{equation}{section}
+% \newcounter{Appendix}
+% \setcounter{Appendix}{\value{framenumber}}
+% \setcounter{section}{0}
+% \renewcommand{\thesubsection}{\Alph{subsection}}
+% \makeatletter
+%    \renewcommand{\theequation}{\thesubsection.\arabic{equation}}
+%    \@addtoreset{equation}{section}
    
-   \renewcommand{\thefigure}{\thesubsection.\arabic{figure}}
-   \@addtoreset{figure}{section}
+%    \renewcommand{\thefigure}{\thesubsection.\arabic{figure}}
+%    \@addtoreset{figure}{section}
    
-   \renewcommand{\thetable}{\thesubsection.\arabic{table}}
-   \@addtoreset{table}{section}
-\makeatother
+%    \renewcommand{\thetable}{\thesubsection.\arabic{table}}
+%    \@addtoreset{table}{section}
+% \makeatother
 
-\section{付録}
+% \section{付録}
 
-\begin{frame}[plain]
-  \frametitle{\ }
-  \huge \secname
-\end{frame}
-
-\subsection{シナリオ}
+% \begin{frame}[plain]
+%   \frametitle{\ }
+%   \huge \secname
+% \end{frame}
 
 % \begin{frame}[plain]
 %   \frametitle{\thesubsection\ \subsecname}
@@ -440,5 +501,5 @@ drop fuzzy shadow, title={#2}
 % \end{frame}
 
 
-\setcounter{framenumber}{\value{Appendix}}
+% \setcounter{framenumber}{\value{Appendix}}
 \end{document}
