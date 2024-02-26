@@ -2,8 +2,8 @@
 
 \usepackage{luatexja-fontspec}
 \setmainfont{TeX Gyre Termes}
-% \setmainjfont{Noto Sans JP}
 \setmainjfont{IPAexMincho}
+% \setmainjfont{Noto Sans JP}
 
 % ---Display \subsubsection at the Index
 % \setcounter{tocdepth}{3}
@@ -91,7 +91,7 @@
 \begin{abstract}
    これは数物セミナー素粒子グループでのリレーセミナーの資料になります。私が現在所属している研究室\footnote{
       早稲田大学の安倍研究室といいます。ホームページは\href{http://www.hep.phys.waseda.ac.jp/index-j.html}{こちら}です。
-   }は、4次元よりも大きい次元の時空を仮定する高次元時空モデルから素粒子標準模型を再現することを目標とした研究を主にしています。そこで、ここでは高次元時空モデルからどのようにして統一理論の見通しがつくのかについて、議論したいと思います。そのため、今回はほとんどが古典論の議論となるので、聞く分には量子論の知識はいらないと思います。
+   }は、4次元よりも大きい次元の時空を仮定する高次元時空モデルから素粒子標準模型を再現することを目標とした研究を主にしています。そこで、ここでは高次元時空モデルからどのようにして統一理論の見通しがつくのかについて、議論したいと思います。
 \end{abstract}
 
 \tableofcontents
@@ -160,44 +160,134 @@
    =
    \frac{1}{\sqrt{2\pi}}
    \sum_{k}\tilde{\phi}_{k}(x)e^{ik\theta}
-   。
+   \text{。}
 \end{equation}
-これを5次元の実スカラー場の作用\eqref{eqn:action_5d_real_scalar}に代入すれば
+これを5次元の実スカラー場の作用\eqref{eqn:action_5d_real_scalar}に代入します。
+\begin{equation}
+   \int\dd^5 z\ 
+   \sqrt{-g}
+   =
+   \int\dd^4 x\ \sqrt{-g_{4}}
+   \cdot
+   a\int_{0}^{2\pi}\dd \theta
+\end{equation}
+なので、$\theta$方向の積分を考えると
+\begin{equation}
+   \int_{0}^{2\pi}\dd \theta\ 
+   \left(  
+      -\frac{1}{2}g^{MN}(\partial_{M}\phi)(\partial_{N}\phi)
+   \right)
+   =
+   \int_{0}^{2\pi}\dd \theta\ 
+   \left(  
+      -
+      \frac{1}{2}\eta^{\mu\nu}(\partial_{\mu}\phi)(\partial_{\nu}\phi)
+      -
+      \frac{1}{2a^2}\partial_{\theta}\phi^2
+   \right)   
+   \label{eqn:2_1}
+\end{equation}
+となりますが、
+\begin{equation}
+   \partial_{\mu}\phi
+   =
+   \frac{1}{\sqrt{2\pi}}
+   \sum_{k}\partial_{\mu}\tilde{\phi}_{k}(x)e^{ik\theta}
+\end{equation}
+より、
+\begin{align}
+   \int_{0}^{2\pi}\dd \theta\ 
+   \left(  
+      -
+      \frac{1}{2}\eta^{\mu\nu}(\partial_{\mu}\phi)(\partial_{\nu}\phi)
+   \right)   
+   &=
+   \int_{0}^{2\pi}\dd \theta\ 
+   \left(  
+      -\frac{1}{4\pi}\sum_{k,l}\partial_{\mu}\tilde{\phi}_{k}(x)\partial^{\mu}\tilde{\phi}_{l}(x)e^{i(k+l)\theta}
+   \right)
+   \nonumber
+   \\
+   &=
+   -\frac{1}{2}\partial_{\mu}\tilde{\phi}_{0}(x)\partial^{\mu}\tilde{\phi}_{0}
+   -\frac{1}{2}\sum_{k\neq 0}\partial_{\mu}\tilde{\phi}_{k}\partial^{\mu}\tilde{\phi}_{-k}
+   \nonumber
+   \\
+   &=
+   -\frac{1}{2}\partial_{\mu}\tilde{\phi}_{0}(x)\partial^{\mu}\tilde{\phi}_{0}
+   -\sum_{k\geq 1}\partial_{\mu}\tilde{\phi}_{k}\partial^{\mu}\tilde{\phi}_{k}^{\ast}
+\end{align}
+です。ただし、$\phi(x,\theta)$が実スカラー場であることから
+\begin{equation}
+   \tilde{\phi}_{k}^{\ast}=\tilde{\phi}_{-k}
+\end{equation}
+を用いました。\eqref{eqn:2_1}の残りの項を考えると
+\begin{align}
+   \int_{0}^{2\pi}\dd \theta\ 
+   \left(  
+      -
+      \frac{1}{2a^2}\partial_{\theta}\phi^2
+   \right)   
+   &=   
+   \frac{1}{4\pi a^2}
+   \int_{0}^{2\pi}\dd \theta\ 
+   \sum_{k,l}kl\tilde{\phi}_{k}\tilde{\phi}_{l}e^{i(k+l)\theta}
+   \nonumber
+   \\
+   &=
+   -\sum_{k\leq 1}\left( \frac{|k|}{a} \right)^2 \tilde{\phi}_{k}\tilde{\phi}_{k}^{\ast}
+\end{align}
+となるので、4次元の有効作用は
 \begin{equation}
    S
    =
-   \int\dd^4x\ 
-   \sqrt{-g_{4}}a\mathcal{L}_{4}
-   ,\ 
+   \int\dd^4 x\ a\mathcal{L}_{4}
+\end{equation}
+であり、ラグランジアンは
+\begin{equation}
    \mathcal{L}_{4}
    =
-   -
-   \frac{1}{2}\partial_{\mu}\phi_{0}\partial^{\mu}\phi_{0}
-   -
-   \sum_{n\geq 1}
+   -\frac{1}{2}\partial_{\mu}\tilde{\phi}_{0}(x)\partial^{\mu}\tilde{\phi}_{0}
+   -\sum_{n\geq 1}
    \left(  
-      \partial_{\mu}\phi^{\ast}_{n}\partial^{\mu}\phi_{n}
+      \partial_{\mu}\tilde{\phi}_{n}\partial^{\mu}\tilde{\phi}_{n}^{\ast}
       +
-      M_{n}^2 \phi_{n}^{\ast}\phi_{n}
+      M_{n}^{n}\tilde{\phi}_{n}\tilde{\phi}_{n}^{\ast}
    \right)
+   \label{eqn:effective_Lagrangian_from_5d}
 \end{equation}
-となります。これが4次元の有効作用となるわけですが、5次元の理論では現れなかった質量項$M_{n}^2 \phi_{n}^{\ast}\phi_{n}$が現れており、場$\phi_{n}$の質量は
+となります。ただし、
 \begin{equation}
    M_{n}
-   =
+   \equiv
    \frac{|n|}{a}
 \end{equation}
-です。ここで、もし$a$の値が十分に小さければ、励起される粒子の質量が非常に大きいことになり、十分なエネルギーがなければ$n=1$より大きいモードの粒子は生成されないことになります。
+とおきました。
 
-次は、マクスウェル理論を見てみましょう。ベクトル場$A_{M}(z)$も先ほどのスカラー場のように5番目の座標の周期境界条件によってフーリエ級数展開できるので
-\begin{equation}
-   A_{M}(x,\theta)
-   =
-   \frac{1}{\sqrt{2\pi}}
-   \sum_{k}
-   A_{M}^{(k)}(x)e^{ik\theta}
-\end{equation}
-となります。
+有効作用\eqref{eqn:effective_Lagrangian_from_5d}から次のことが分かります：
+\begin{itemize}
+   \item 
+   5次元の実スカラー場の理論からは、質量$M_{n}$をもつ複素スカラー場（KK粒子）が現れること。
+   \item 
+   $n=0$のモードは、masslessであること（\textbf{ゼロモード}）。
+   \item 
+   $n\neq 0$のときは、その粒子の質量は$M_{n}=|n|/a$であり、$a\ll 1$ならば$M_{n}\gg 1$であること。したがって、コンパクト空間の半径が非常に小さければ、十分なエネルギーがないとゼロモード以外の粒子を生成して観測することができないことになります\footnote{
+      \href{https://pdg.lbl.gov/2023/tables/rpp2023-sum-searches.pdf}{Particle Date Groupのデータ}によると、TeVスケールではまだKK粒子の存在が確認されていないようです。
+   }。
+\end{itemize}
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -230,7 +320,7 @@
 
 \section{標準模型の復習}
 
-夜ゼミの雰囲気が分かりませんが、もしかしたらと思って書いておきます\footnote{
+夜ゼミのネタになるかもしれないので、もしかしたらと思って書いておきます\footnote{
    夜ゼミがどんな感じかわかりませんが、真面目すぎたり簡単すぎたりしたらボツにします(笑)
 }。
 
