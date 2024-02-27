@@ -2,7 +2,7 @@
 
 \usepackage{luatexja-fontspec}
 \setmainfont{TeX Gyre Termes}
-\setmainjfont{IPAexMincho}
+\setmainjfont[BoldFont = IPAexGothic]{IPAexMincho}
 \setmathrm{Latin Modern Roman}
 % \setmainjfont{Noto Sans JP}
 
@@ -145,7 +145,7 @@
    。
 \end{equation}
 
-上述のように、余剰空間に境界条件を課すことを「コンパクト化」といいます。ここで、5次元のミンコフスキー時空$M_{5}$がコンパクト化によって時空が4次元ミンコフスキーと円周の直積$M_{4}\times S^{1}$になるとすれば、その計量は
+上述のように、余剰空間に境界条件を課すことを\textbf{コンパクト化}といいます。ここで、5次元のミンコフスキー時空$M_{5}$がコンパクト化によって時空が4次元ミンコフスキーと円周の直積$M_{4}\times S^{1}$になるとすれば、その計量は
 \begin{equation}
    g_{MN}
    =
@@ -280,6 +280,17 @@
    }。
 \end{itemize}
 
+次は、（スピノル場の前に）ベクトル場$A_{M}(z)$の理論を見ていきます。ベクトル場の作用は、一番簡単なマクスウェル理論
+\begin{equation}
+   S
+   =
+   \int\dd^5 z\ 
+   \sqrt{-g}
+   \left(  
+      -\frac{1}{4}g^{MP}g^{NQ}F_{MN}F_{PQ}
+   \right)
+\end{equation}
+を考えます。
 
 
 
@@ -325,7 +336,7 @@
 \section{標準模型の復習}
 
 夜ゼミのネタになるかもしれないので、もしかしたらと思って書いておきます\footnote{
-   夜ゼミがどんな感じかわかりませんが、真面目すぎたり簡単すぎたりしたらボツにします(笑)
+   夜ゼミがどんな感じかわかりませんが、真面目すぎたり簡単すぎたりしたらボツにします（笑）
 }。
 
 \subsection{Yang-Mills理論}
