@@ -109,7 +109,7 @@
 
 \section{高次元の場の理論とコンパクト化}
 
-この章では、$4+n$次元の(Einstein-Hilbert)作用がコンパクト化によって、4次元では、一般相対論とYang-Mills理論になることを見ていこうと思います。
+この章では、$4+n$次元のEinstein-Hilbert作用がコンパクト化によって、4次元では、一般相対論とYang-Mills理論になることを見ていこうと思います。
 
 
 \subsection{コンパクト化}
@@ -118,7 +118,7 @@
 \begin{equation}
    \eta_{MN}
    =
-   \text{diag}(-,+,+,+,+)
+   \mathrm{diag}(-,+,+,+,+)
 \end{equation}
 です。この時空上の場の理論は、たとえば実スカラー場$\phi(z)$なら
 \begin{equation}
@@ -280,7 +280,7 @@
    }。
 \end{itemize}
 
-次は、（スピノル場の前に）ベクトル場$A_{M}(z)$の理論を見ていきます。ベクトル場の作用は、一番簡単なマクスウェル理論
+次は、（スピノル場の前に）ベクトル場$A_{M}(z)$の理論を見ていきます。ベクトル場の作用は、一番簡単なMaxwell理論
 \begin{equation}
    S
    =
@@ -289,11 +289,151 @@
    \left(  
       -\frac{1}{4}g^{MP}g^{NQ}F_{MN}F_{PQ}
    \right)
+   \label{eqn:action_5d_maxwell}
 \end{equation}
-を考えます。
-
-
-
+を考えます。ベクトル場は$z^{4}$の方向の周期境界条件により、スカラー場の場合と同様に
+\begin{equation}
+   A_{M}(x,\theta)
+   =
+   \frac{1}{\sqrt{2\pi}}
+   \sum_{n}A_{M}^{(n)}(x)e^{in\theta}
+\end{equation}
+と展開できます。これを作用\eqref{eqn:action_5d_maxwell}に代入します。作用を少し書き換えると
+\begin{align}
+   S
+   &=
+   \int\dd^4 x\ \sqrt{-g_{4}}\ 
+   \cdot
+   a\int_{0}^{2\pi}\dd\theta\ 
+   \left( -\frac{1}{4}g^{MP}g^{NQ}F_{MN}F_{PQ} \right)
+   \nonumber
+   \\
+   &=
+   \int\dd^4 x\ \sqrt{-g_{4}}\ 
+   \cdot
+   a\int_{0}^{2\pi}\dd\theta\ 
+   \left(  
+      -\frac{1}{4}(\partial^{\mu}A^{\nu}-\partial^{\nu}A^{\mu})^2
+      -\frac{a}{2}(\partial^{\theta}A^{\mu}-\partial^{\mu}A^{\theta})^2
+   \right)   
+   \label{eqn:2_2}
+\end{align}
+となるので、被積分関数の各項は
+\begin{align}
+   (\partial^{\mu}A^{\nu}-\partial^{\nu}A^{\mu})^2
+   &=
+   \frac{1}{2\pi}
+   \sum_{m,n}e^{i(m+n)\theta}
+   \left(  
+      \partial^{\mu}A^{\nu,(m)}
+      -
+      \partial^{\nu}A^{\mu,(m)}
+   \right)
+   \left(  
+      \partial_{\nu}A_{\mu}^{(n)}
+      -
+      \partial_{\mu}A_{\nu}^{(n)}
+   \right)
+   \nonumber
+   \\
+   &\xrightarrow{\ \text{$\theta$方向の積分}\ }
+   \sum_{n}
+   \left(  
+      \partial^{\mu}A^{\nu,(-n)}
+      -
+      \partial^{\nu}A^{\mu,(-n)}
+   \right)
+   \left(  
+      \partial_{\nu}A_{\mu}^{(n)}
+      -
+      \partial_{\mu}A_{\nu}^{(n)}
+   \right)   
+   \\
+   (\partial^{\theta}A^{\mu}-\partial^{\mu}A^{\theta})
+   &=
+   -
+   \frac{1}{2\pi a^2}
+   \sum_{m,n}e^{i(m+n)\theta}
+   \left(  
+      mA^{\mu,(m)}-\partial^{\mu}A^{\theta,(m)}
+   \right)
+   \left(  
+      nA_{\mu}^{(n)}-\partial_{\mu}A_{\theta}^{(n)}
+   \right)
+   \nonumber
+   \\
+   &\xrightarrow{\ \text{$\theta$方向の積分}\ }
+   \frac{1}{a^2}
+   \sum_{n}
+   \left(  
+      nA^{\mu,(-n)}+\partial^{\mu}A^{\theta,(-n)}
+   \right)
+   \left(  
+      nA_{\mu}^{(n)}-\partial_{\mu}A_{\theta}^{(n)}
+   \right)
+\end{align}
+となります。ただし、
+\begin{equation}
+   \partial_{\theta}
+   =
+   \frac{1}{a}\pdv{}{\theta}
+\end{equation}
+として計算しています。この結果を、作用\eqref{eqn:2_2}の表式に代入すると
+\begin{align}
+   S
+   &=
+   \int\dd^4 x\ \sqrt{-g_{4}}\ 
+   a
+   \left(  
+      -
+      \frac{1}{4}
+      \sum_{n}
+      \left(  
+         \partial^{\mu}A^{\nu,(-n)}
+         -
+         \partial^{\nu}A^{\mu,(-n)}
+      \right)
+      \left(  
+         \partial_{\nu}A_{\mu}^{(n)}
+         -
+         \partial_{\mu}A_{\nu}^{(n)}
+      \right)  
+   \right.
+   \nonumber
+   \\
+   &\hspace*{3.5cm}
+   \left. 
+      -
+      \frac{1}{2a}   
+      \sum_{n}
+      \left(  
+         nA^{\mu,(-n)}+\partial^{\mu}A^{\theta,(-n)}
+      \right)
+      \left(  
+         nA_{\mu}^{(n)}-\partial_{\mu}A_{\theta}^{(n)}
+      \right)   
+   \right)
+   \\
+   &\equiv
+   \int\dd^4 x\ \sqrt{-g_{4}}a\ \mathcal{L}_{4}
+   \nonumber
+\end{align}
+です。このとき、ベクトル場の質量はどこからくるかというと
+\begin{equation}
+   \mathcal{L}_{4}
+   \sim
+   -\sum_{n}\frac{n^2}{2a}A^{\mu, (n)}A_{\mu}^{(n)\ast}
+\end{equation}
+の項からくるわけですが、やはり質量は$a^{-1}$に比例しています。したがって、effectiveなラグランジアンはゼロモードのみに注目すればよくて、それは
+\begin{equation}
+   \mathcal{L}_{\mathrm{eff}}
+   =
+   -\frac{1}{4}F^{\mu\nu}F_{\mu\nu}
+   -\frac{1}{2a^2}\partial_{\mu}A_{\theta}\partial^{\mu}A_{\theta}^{\ast}
+\end{equation}
+です。ただし、$A_{M}^{(n=0)}$のモードの添え字は省略しており、$F_{\mu\nu}$は4次元の場の強さです。この表式から、4次元ではベクトル場のほかに複素スカラー場が生じていることが分かります\footnote{
+   $A_{\theta}(x)$の添え字$\theta$は$4$次元のローレンツ変換では変換されません。したがって、この添え字は4次元の理論からは（ゲージ群の添え字と同様に）内部空間の添え字となるため、場$A_{\theta}(x)$はローレンツ変換に対してはスカラーです。
+}。このように、より低いスピンをもつ粒子が生じるのがコンパクト化の特徴（だそう）です。
 
 
 
@@ -332,7 +472,6 @@
 \makeatother
 \appendix
 
-
 \section{標準模型の復習}
 
 夜ゼミのネタになるかもしれないので、もしかしたらと思って書いておきます\footnote{
@@ -353,8 +492,5 @@
 \bibliographystyle{unsrt}
 
 \nocite{Peskin:1995}
-\nocite{Wess:1992}
 \nocite{Fujii:2005}
-\nocite{Dine:2007zp}
-
 \end{document}
