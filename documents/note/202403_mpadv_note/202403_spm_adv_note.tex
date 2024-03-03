@@ -2,7 +2,7 @@
 
 \usepackage{luatexja-fontspec}
 \setmainfont{TeX Gyre Termes}
-\setmainjfont[BoldFont = IPAexGothic]{IPAexMincho}
+\setmainjfont[BoldFont = IPAGothic]{IPAMincho}
 \setmathrm{Latin Modern Roman}
 % \setmainjfont{Noto Sans JP}
 
@@ -103,25 +103,6 @@
 \clearpage
 
 \section{はじめに}
-
-
-
-
-
-
-
-
-
-
-\clearpage
-
-\section{曲がった空間上での場の理論}
-
-
-
-
-
-
 
 
 
@@ -463,7 +444,7 @@
    \sim
    -\sum_{n}\frac{n^2}{2a}A^{\mu, (n)}A_{\mu}^{(n)\ast}
 \end{equation}
-の項からくるわけですが、やはり質量は$a^{-1}$に比例しています。したがって、effectiveなラグランジアンはゼロモードのみに注目すればよくて、それは
+の項からくるわけですが、やはり質量は$a^{-1/2}$に比例しています。したがって、effectiveなラグランジアンはゼロモードのみに注目すればよくて、それは
 \begin{equation}
    \mathcal{L}_{\mathrm{eff}}
    =
@@ -476,9 +457,26 @@
 
 
 
+\subsection{曲がった時空上でのスピノル場}
+
+5次元のスピノル場のコンパクト化を考える前に、（記号の定義の兼ねて）曲がった時空上での場の理論について簡単に復習したいと思います。
+
+スカラー場やベクトル場といったボゾンや、スピノル場といったフェルミオンは、平坦な時空でのローレンツ変換の既約表現として得られるものでした。ボゾンのほうは、一般座標変換に対してもスカラーやベクトルとして変換されるため、計量によって一般共変化が可能です。が、スピノル場は一般座標変換に対しては既約表現になっておらず、ボゾンの場合と同様に計量からうまく共変的な理論を作ることができません。
+
+そこで、時空の各点における接空間（\textbf{局所ローレンツ変換}）を考え、そこでは時空は計量が平坦\footnote{
+   等価原理からこの仮定は自然でしょう。 
+}ですので、そこでスピノル場とローレンツ変換を定義しておき、別の接空間とつなぐことにします。
 
 
 
+
+
+
+
+
+\clearpage
+
+\section{6次元の理論のコンパクト化}
 
 
 
