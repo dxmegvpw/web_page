@@ -102,34 +102,9 @@
 
 \clearpage
 
-\section{はじめに}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-\clearpage
-
 \section{高次元の場の理論とコンパクト化}
 
-この章では、$4+n$次元のEinstein-Hilbert作用がコンパクト化によって、4次元では、一般相対論とYang-Mills理論になることを見ていこうと思います。
+（更新中・・・）
 
 
 \subsection{5次元理論のコンパクト化}
@@ -459,13 +434,135 @@
 
 \subsection{曲がった時空上でのスピノル場}
 
-5次元のスピノル場のコンパクト化を考える前に、（記号の定義の兼ねて）曲がった時空上での場の理論について簡単に復習したいと思います。
+5次元のスピノル場のコンパクト化を考える前に、（記号の定義も兼ねて）曲がった時空上での場の理論について簡単に復習したいと思います。
 
 スカラー場やベクトル場といったボゾンや、スピノル場といったフェルミオンは、平坦な時空でのローレンツ変換の既約表現として得られるものでした。ボゾンのほうは、一般座標変換に対してもスカラーやベクトルとして変換されるため、計量によって一般共変化が可能です。が、スピノル場は一般座標変換に対しては既約表現になっておらず、ボゾンの場合と同様に計量からうまく共変的な理論を作ることができません。
 
-そこで、時空の各点における接空間（\textbf{局所ローレンツ変換}）を考え、そこでは時空は計量が平坦\footnote{
-   等価原理からこの仮定は自然でしょう。 
+そこで、時空の各点における接空間（\textbf{局所ローレンツ系}）を考え、そこでは時空は計量が平坦\footnote{
+   等価原理からも、この仮定は自然でしょう。 
 }ですので、そこでスピノル場とローレンツ変換を定義しておき、別の接空間とつなぐことにします。
+
+\subsubsection*{局所ローレンツ系と四脚場}
+
+ではまず、接空間を考えていきましょう。その接空間の時空の添え字をラテン文字$i,j,\cdots$で書くことにします。このときの計量は
+\begin{equation}
+   \eta_{ij}
+   =
+   \mathrm{diag}(-,+,+,+)
+   \mathrm{。}
+\end{equation}
+ここで、時空の座標の添え字$\mu,\nu,\cdots$と局所ローレンツ系の座標の添え字$i,j,\cdots$をもつ「場」を考え、それを$b^{i}_{\ \mu}$などと書くことにします。例えば、$b^{i}_{\ \mu}$は局所ローレンツ変換に対しては共変ベクトルで、時空の一般座標変換に対しては反変ベクトルとして変換します。
+
+$b^{i}_{\ \mu}$と$b_{i\nu}$の積を考えると、それは局所ローレンツ変換に対してはスカラーで、一般座標変換に対しては対称な2階のテンソルとなります。これが、ちょうど時空の計量となるような$b^{i}_{\ \mu}$を考えましょう。つまり、
+\begin{equation}
+   g_{\mu\nu}
+   =
+   b^{i}_{\ \mu}b_{i\nu}
+   =
+   \eta^{ij}b_{i\mu}b_{j\nu}
+\end{equation}
+です。このような$b^{i}_{\ \mu}$を\textbf{四脚場}(tetrad)といいます。
+
+以上のことから、次の公式が成り立ちます：
+\begin{itemize}
+   \item 
+   $g^{\mu\nu}=b^{i\mu}b^{\ \nu}_{i}$
+   。
+   \item 
+   $b_{i\mu}b^{\ \mu}_{j}=\eta_{ij},\ b^{i}_{\ \mu}b^{j\mu}=\eta^{ij}$
+   。
+   \item
+   $b^{i\mu}b_{j\mu}=\delta^{i}_{j},\ b^{i}_{\ \mu}b_{i}^{\ \nu}=\delta^{\nu}_{\mu}$
+   。
+\end{itemize}
+
+また、
+\begin{equation}
+   \mathrm{det}(g_{\mu\nu})
+   =
+   \mathrm{det}(\eta_{ij})\mathrm{det}(b^{i}_{\ \mu})\mathrm{det}(b^{j}_{\ \nu})
+   =
+   -\mathrm{det}(b^{i}_{\ \mu})^2
+\end{equation}
+ですので、$b\equiv\mathrm{det}(b^{i}_{\ \mu})$とおけば
+\begin{equation}
+   \sqrt{-g}=b
+   \mathrm{。}
+\end{equation}
+
+\subsubsection*{スピン接続}
+
+$\psi$を局所ローレンツ系で定義されたスピノル場とします。その上での無限小ローレンツ変換は
+\begin{equation}
+   \psi
+   \longrightarrow
+   \psi+\delta\psi
+   ,\ 
+   \delta\psi
+   =
+   \frac{1}{2}\varepsilon^{ij}S_{ij}\psi
+   \label{eqn:Lorentz_transformation_spinor}
+\end{equation}
+と書けました。ただし、
+\begin{equation}
+   S_{ij}
+   \equiv
+   \frac{1}{2}\gamma_{\left[\right.i}
+   \gamma_{j\left.\right]}
+   =
+   \frac{1}{4}[\gamma_{i},\gamma_{j}]
+\end{equation}
+であり、恒等式
+\begin{equation}
+   [S_{ij},\ S_{kl}]
+   =
+   -4
+   \left(  
+      -\eta_{ik}S_{jl}
+      +\eta_{jk}S_{il}
+      -\eta_{jl}S_{ik}
+      +\eta_{il}S_{jk}
+   \right)
+\end{equation}
+が成立しています。
+
+ローレンツ変換\eqref{eqn:Lorentz_transformation_spinor}が時空の点に依存しない大域的な変換であれば、$\partial_{\mu}\psi$も無限小ローレンツ変換に対して
+\begin{equation}
+   \delta(\partial_{\mu}\psi)
+   =
+   \partial_{\mu}(\delta \psi)
+   =
+   \frac{1}{2}\varepsilon^{ij}S_{ij}\partial_{\mu}\psi
+\end{equation}
+であり共変的です。しかしながら、局所ローレンツ系は時空の各点に設けられた接空間であり、その上でのローレンツ変換は時空の点に依存します。したがって、ローレンツ変換のパラメターである$\varepsilon^{ij}$は時空の点に依存する関数$\varepsilon^{ij}(x)$であり、したがって
+\begin{align}
+   \delta(\partial_{\mu}\psi)
+   &=
+   \partial_{\mu}(\delta \psi)
+   \nonumber
+   \\
+   &=
+   \frac{1}{2}\varepsilon^{ij}S_{ij}\partial_{\mu}\psi
+   +
+   \frac{1}{2}(\partial_{\mu}\varepsilon^{ij})S_{ij}\psi
+\end{align}
+となるため、微分$\partial_{\mu}$は局所ローレンツ変換に対して既約表現としてはふるまわないことになります。
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -477,6 +574,22 @@
 \clearpage
 
 \section{6次元の理論のコンパクト化}
+
+5次元の理論では、余剰空間は1次元しかないので円周にコンパクト化するしかありませんでした。ですが、6次元になると少しコンパクト化の自由度が増えます。この章では、コンパクト化の仕方によって、どのような4次元の有効理論が得られるのかを見ていこうと思います。
+
+\subsection{トーラスコンパクト化}
+
+（更新中・・・）
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -510,13 +623,15 @@
 \appendix
 
 
-\section{標準模型の復習}
+\section{標準模型のまとめ}
 
 夜ゼミのネタになるかもしれないので、もしかしたらと思って書いておきます\footnote{
-   夜ゼミがどんな感じかわかりませんが、真面目すぎたり簡単すぎたりしたらボツにします（笑）
+   夜ゼミがどんな感じか分からないので、ボツになるかもしれません（笑）
 }。
 
 \subsection{非可換ゲージ理論}
+
+（更新中・・・）
 
 
 
