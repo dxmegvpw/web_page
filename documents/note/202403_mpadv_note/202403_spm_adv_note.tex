@@ -549,6 +549,103 @@ $\psi$を局所ローレンツ系で定義されたスピノル場とします�
 となるため、微分$\partial_{\mu}$は局所ローレンツ変換に対して既約表現としてはふるまわないことになります。
 
 そこで、ゲージ理論や一般相対性理論のやり方を思い出すと、こういった場合は「接続場」を用意して共変微分を定義することにより、共変的な微分を考えることができました。ここでは、\textbf{スピン接続}と呼ばれる次の条件を満たす$\omega^{ij}_{\ \ ,\mu}$を定義することにします：
+\begin{align}
+   \omega^{ij}_{\ \ ,\mu}
+   \rightarrow
+   \omega^{ij}_{\ \ ,\mu}
+   +
+   \delta\omega^{ij}_{\ \ ,\mu}
+   ,\ 
+   \delta\omega^{ij}_{\ \ ,\mu}
+   =
+   \varepsilon^{i}_{\ k}\omega^{kj}_{\ \ ,\mu}
+   +
+   \varepsilon^{j}_{\ k}\omega^{ik}_{\ \ ,\mu}
+   -
+   \partial_{\mu}\varepsilon^{ij}
+   .
+\end{align}
+ただし、局所ローレンツ系の添え字については反対称$\omega^{ij}_{\ \ ,\mu}=-\omega^{ji}_{\ \ ,\mu}$です。この接続を用いて、共変微分$D_{\mu}$を
+\begin{equation}
+   D_{\mu}\psi
+   =
+   \partial_{\mu}\psi
+   +
+   \frac{1}{2}\omega^{ij}_{\ \ ,\mu}S_{ij}\psi
+\end{equation}
+とすると、
+\begin{align}
+   \delta(D_{\mu}\psi)
+   &=
+   \partial_{\mu}(\delta\psi)
+   +
+   \delta
+   \left(  
+      \frac{1}{2}\omega^{ij}_{\ \ ,\mu}S_{ij}\psi
+   \right)
+   \nonumber
+   \\
+   &=
+   \frac{1}{2}\varepsilon^{ij}S_{ij}\partial_{\mu}\psi
+   +
+   \frac{1}{2}(\partial_{\mu}\varepsilon^{ij})S_{ij}\psi
+   +
+   \frac{1}{2}(\delta\omega^{ij}_{\ \ ,\mu})S_{ij}\psi
+   +
+   \frac{1}{2}\omega^{ij}_{\ \ ,\mu}S_{ij}\delta\psi
+   \label{eqn:2_4}
+\end{align}
+であり、第3項と第4項を展開すると
+\begin{align}
+   \underbrace{
+      \frac{1}{2}
+      (
+         \varepsilon^{i}_{\ k}\omega^{ij}_{\ \ ,\mu}
+         +
+         \varepsilon^{j}_{\ k}\omega^{ik}_{\ \ ,\mu}
+      )
+      S_{ij}\psi
+   }_{
+      \varepsilon^{i}_{\ k}\omega^{ij}_{\ \ ,\mu}
+      S_{ij}\psi
+   }
+   +
+   \frac{1}{2}\omega^{ij}_{\ \ ,\mu}S_{ij}
+   \cdot
+   \frac{1}{2}\varepsilon^{ij}S_{ij}\psi
+   -
+   \frac{1}{2}(\partial_{\mu}\varepsilon^{ij})S_{ij}\psi
+   \mathrm{。}
+   \label{eqn:2_5}
+\end{align}
+つまり
+\begin{align}
+   \delta(D_{\mu}\psi)
+   &=
+   \frac{1}{2}\varepsilon^{ij}S_{ij}\partial_{\mu}\psi
+   +
+   \frac{1}{2}(\partial_{\mu}\varepsilon^{ij})S_{ij}\psi
+   +
+   \varepsilon^{i}_{\ k}\omega^{ij}_{\ \ ,\mu}
+   S_{ij}\psi
+   +
+   \frac{1}{2}\omega^{ij}_{\ \ ,\mu}S_{ij}
+   \cdot
+   \frac{1}{2}\varepsilon^{ij}S_{ij}\psi
+   -
+   \frac{1}{2}(\partial_{\mu}\varepsilon^{ij})S_{ij}\psi
+   \nonumber
+   \\
+   &=
+   \frac{1}{2}\varepsilon^{ij}S_{ij}\partial_{\mu}\psi
+   +
+   \varepsilon^{i}_{\ k}\omega^{ij}_{\ \ ,\mu}
+   S_{ij}\psi
+   +
+   \frac{1}{4}\omega^{ij}_{\ \ ,\mu}S_{ij}\varepsilon^{kl}S_{kl}\psi
+\end{align}
+です。
+
 
 
 \subsection{5次元スピノル場のコンパクト化}
