@@ -15,7 +15,7 @@
 
 % ---Physics and Math Packages---
 \usepackage{amssymb,amsfonts,amsthm,mathtools}
-\usepackage{physics,braket,bm}
+\usepackage{physics,braket,bm,slashed}
 
 % ---underline---
 \usepackage[normalem]{ulem}
@@ -548,30 +548,81 @@ $\psi$を局所ローレンツ系で定義されたスピノル場とします�
 \end{align}
 となるため、微分$\partial_{\mu}$は局所ローレンツ変換に対して既約表現としてはふるまわないことになります。
 
+そこで、ゲージ理論や一般相対性理論のやり方を思い出すと、こういった場合は「接続場」を用意して共変微分を定義することにより、共変的な微分を考えることができました。ここでは、\textbf{スピン接続}と呼ばれる次の条件を満たす$\omega^{ij}_{\ \ ,\mu}$を定義することにします：
 
 
+\subsection{5次元スピノル場のコンパクト化}
 
+5次元の場合はベクトル場の場合とほとんど変わらないのでそんなに面白くはないのですが、折角ですのでこの章の最後にスピノル場のコンパクト化を見ていきましょう。その作用は
+\begin{equation}
+   S
+   =
+   \int\dd^5 z\ b(-\bar{\psi}\slashed{\partial}_{5}\psi)
+\end{equation}
+によって与えられ、スピノル場は境界条件によって
+\begin{equation}
+   \psi(x,\theta)
+   =
+   \frac{1}{\sqrt{2\pi}}
+   \sum_{n}\psi_{n}(x)e^{in\theta}
+\end{equation}
+と展開されます。ここで、5次元の共変微分は
+\begin{align}
+   \slashed{\partial}_{5}\psi(x,\theta)
+   &=
+   (\slashed{\partial}+\gamma^{5}b_{4}^{\ \theta}\partial_{\theta})\psi(x,\theta)
+   \nonumber
+   \\
+   &=
+   \frac{1}{\sqrt{2\pi}}\sum_{n}
+   (\slashed{\partial}+in\gamma^{5}a^{-1})\psi_{n}(x)e^{in\theta}
+\end{align}
+です\footnote{
+   $g^{\mu\nu}=b^{i\mu}b_{i}^{\ \nu}$でしたので、$b_{4}^{\ \theta}=a^{-1}$としました。
+}ので、4次元の有効ラグランジアンは、$\theta$方向の積分を実行すれば
+\begin{equation}
+   \mathcal{L}_{4}
+   =
+   -
+   \sum_{n}\bar{\psi}_{n}(\slashed{\partial}+ina^{-1}\gamma_{5})\psi_{n}
+\end{equation}
+となります。ただし、$\slashed{\partial}$は4次元での微分です。第2項が質量項を与えるので、
+\begin{equation}
+   \psi_n
+   =
+   e^{\mp i(\pi/4)\gamma_{5}}\psi_{n}^{\prime}
+   \label{eqn:2_3}
+\end{equation}
+と変換すれば
+\begin{align}
+   \bar{\psi}_{n}\gamma_{5}\psi_{n}
+   &=
+   \bar{\psi}_{n}^{\prime}
+   \cdot
+   e^{\pm i(\pi/4)\gamma_{5}}\gamma_{5}e^{\mp i(\pi/4)\gamma_{5}}
+   \cdot
+   \psi_{n}^{\prime}
+   \nonumber
+   \\
+   &=
+   \bar{\psi}_{n}^{\prime}
+   \psi_{n}^{\prime}
+\end{align}
+と質量基底に移りますので、$n>0$のときは\eqref{eqn:2_3}の負の符号、$n<0$のときは正の符号で変換することにすれば
+\begin{equation}
+   \mathcal{L}_{4}
+   =
+   -
+   \sum_{n}\bar{\psi}_{n}(\slashed{\partial}+M_{n})\psi_{n}
+\end{equation}
+となります。ただし、プライム$^{\prime}$は省略しました。ここで、$n$番目のモードの質量は
+\begin{equation}
+   M_{n}
+   \equiv
+   \frac{|n|}{a}
+\end{equation}
+であり、やはり$a^{-1}$に比例します。
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-\clearpage
 
 \section{6次元の理論のコンパクト化}
 
