@@ -1,4 +1,4 @@
-\documentclass[unicode,a4paper,10pt]{ltjsarticle}
+\documentclass[unicode,a4paper,11pt]{ltjsarticle}
 
 \usepackage{luatexja-fontspec}
 \setmainfont{TeX Gyre Termes}
@@ -38,6 +38,7 @@
 \usepackage{silence}
 \WarningFilter{latexfont}{Some font shapes}
 \WarningFilter{latexfont}{Font shape}
+\WarningFilter{latexfont}{Size substitutions}
 \ExplSyntaxOn
 \msg_redirect_name:nnn{hooks}{generic-deprecated}{none}
 \ExplSyntaxOff
@@ -96,6 +97,8 @@
    これは数物セミナー素粒子グループでのリレーセミナーの資料になります。私が現在所属している研究室\footnote{
       早稲田大学の安倍研究室といいます。ホームページは\href{http://www.hep.phys.waseda.ac.jp/index-j.html}{こちら}です。
    }は、4次元よりも大きい次元の時空を仮定する高次元時空モデルから素粒子標準模型を再現することを目標とした研究を主にしています。そこで、ここでは高次元時空モデルからどのようにして統一理論の見通しがつくのかについて、議論したいと思います。
+
+   今回話す枠組みでは、高次元時空上でのダイナミクス自体は取り扱ず、古典的な性質のみを着目します。1章では、5次元時空のモデルを通して簡単にコンパクト化の概念について見ていこうと思います。2章では、6次元時空のモデルを通してコンパクト化の違いによって有効理論がどのようになるかを比較します。3章では、もっと一般に$4+n$次元の理論をコンパクト化し、高次元のEinstein-Hilbert作用から4次元のEinstein-Hilbert作用とYang-Mills作用が現れることを見ていきます。
 \end{abstract}
 
 \tableofcontents
@@ -120,9 +123,9 @@
    S
    =
    \int\dd^5 z\ \sqrt{-g}
-   \left(  
-      -\frac{1}{2}
-      g^{MN}\partial_{M}\phi\partial_{N}\phi
+   \left(
+   -\frac{1}{2}
+   g^{MN}\partial_{M}\phi\partial_{N}\phi
    \right)
    \label{eqn:action_5d_real_scalar}
 \end{equation}
@@ -145,12 +148,12 @@
    g_{MN}
    =
    \begin{pmatrix}
-      \eta_{\mu\nu} & 0 \\
-      0 & a^2
+      \eta_{\mu\nu} & 0   \\
+      0             & a^2
    \end{pmatrix}
 \end{equation}
 です\footnote{
-   ただし、$g_{\mu\theta}=g_{\theta\mu}=0$と4次元の部分と1次元の部分が完全に分離できているのは仮定です。
+ただし、$g_{\mu\theta}=g_{\theta\mu}=0$と4次元の部分と1次元の部分が完全に分離できているのは仮定です。
 }。
 
 このような時空の上で、実スカラー場$\phi(z)$の理論を考えてみましょう。今、$\theta$方向は円周$S^{1}$にコンパクト化されていることから、$\phi(z)$はフーリエ級数展開できます：
@@ -163,7 +166,7 @@
 \end{equation}
 これを5次元の実スカラー場の作用\eqref{eqn:action_5d_real_scalar}に代入します。
 \begin{equation}
-   \int\dd^5 z\ 
+   \int\dd^5 z\
    \sqrt{-g}
    =
    \int\dd^4 x\ \sqrt{-g_{4}}
@@ -172,18 +175,18 @@
 \end{equation}
 なので、$\theta$方向の積分を考えると
 \begin{equation}
-   \int_{0}^{2\pi}\dd \theta\ 
-   \left(  
-      -\frac{1}{2}g^{MN}(\partial_{M}\phi)(\partial_{N}\phi)
+   \int_{0}^{2\pi}\dd \theta\
+   \left(
+   -\frac{1}{2}g^{MN}(\partial_{M}\phi)(\partial_{N}\phi)
    \right)
    =
-   \int_{0}^{2\pi}\dd \theta\ 
-   \left(  
-      -
-      \frac{1}{2}\eta^{\mu\nu}(\partial_{\mu}\phi)(\partial_{\nu}\phi)
-      -
-      \frac{1}{2a^2}\partial_{\theta}\phi^2
-   \right)   
+   \int_{0}^{2\pi}\dd \theta\
+   \left(
+   -
+   \frac{1}{2}\eta^{\mu\nu}(\partial_{\mu}\phi)(\partial_{\nu}\phi)
+   -
+   \frac{1}{2a^2}\partial_{\theta}\phi^2
+   \right)
    \label{eqn:2_1}
 \end{equation}
 となりますが、
@@ -195,24 +198,24 @@
 \end{equation}
 より、
 \begin{align}
-   \int_{0}^{2\pi}\dd \theta\ 
-   \left(  
-      -
-      \frac{1}{2}\eta^{\mu\nu}(\partial_{\mu}\phi)(\partial_{\nu}\phi)
-   \right)   
-   &=
-   \int_{0}^{2\pi}\dd \theta\ 
-   \left(  
-      -\frac{1}{4\pi}\sum_{k,l}\partial_{\mu}\tilde{\phi}_{k}(x)\partial^{\mu}\tilde{\phi}_{l}(x)e^{i(k+l)\theta}
+   \int_{0}^{2\pi}\dd \theta\
+   \left(
+   -
+   \frac{1}{2}\eta^{\mu\nu}(\partial_{\mu}\phi)(\partial_{\nu}\phi)
+   \right)
+    & =
+   \int_{0}^{2\pi}\dd \theta\
+   \left(
+   -\frac{1}{4\pi}\sum_{k,l}\partial_{\mu}\tilde{\phi}_{k}(x)\partial^{\mu}\tilde{\phi}_{l}(x)e^{i(k+l)\theta}
    \right)
    \nonumber
    \\
-   &=
+    & =
    -\frac{1}{2}\partial_{\mu}\tilde{\phi}_{0}(x)\partial^{\mu}\tilde{\phi}_{0}
    -\frac{1}{2}\sum_{k\neq 0}\partial_{\mu}\tilde{\phi}_{k}\partial^{\mu}\tilde{\phi}_{-k}
    \nonumber
    \\
-   &=
+    & =
    -\frac{1}{2}\partial_{\mu}\tilde{\phi}_{0}(x)\partial^{\mu}\tilde{\phi}_{0}
    -\sum_{k\geq 1}\partial_{\mu}\tilde{\phi}_{k}\partial^{\mu}\tilde{\phi}_{k}^{\ast}
 \end{align}
@@ -222,18 +225,18 @@
 \end{equation}
 を用いました。\eqref{eqn:2_1}の残りの項を考えると
 \begin{align}
-   \int_{0}^{2\pi}\dd \theta\ 
-   \left(  
-      -
-      \frac{1}{2a^2}\partial_{\theta}\phi^2
-   \right)   
-   &=   
+   \int_{0}^{2\pi}\dd \theta\
+   \left(
+   -
+   \frac{1}{2a^2}\partial_{\theta}\phi^2
+   \right)
+    & =
    \frac{1}{4\pi a^2}
-   \int_{0}^{2\pi}\dd \theta\ 
+   \int_{0}^{2\pi}\dd \theta\
    \sum_{k,l}kl\tilde{\phi}_{k}\tilde{\phi}_{l}e^{i(k+l)\theta}
    \nonumber
    \\
-   &=
+    & =
    -\sum_{k\leq 1}\left( \frac{|k|}{a} \right)^2 \tilde{\phi}_{k}\tilde{\phi}_{k}^{\ast}
 \end{align}
 となるので、4次元の有効作用は
@@ -248,10 +251,10 @@
    =
    -\frac{1}{2}\partial_{\mu}\tilde{\phi}_{0}(x)\partial^{\mu}\tilde{\phi}_{0}
    -\sum_{n\geq 1}
-   \left(  
-      \partial_{\mu}\tilde{\phi}_{n}\partial^{\mu}\tilde{\phi}_{n}^{\ast}
-      +
-      M_{n}^{n}\tilde{\phi}_{n}\tilde{\phi}_{n}^{\ast}
+   \left(
+   \partial_{\mu}\tilde{\phi}_{n}\partial^{\mu}\tilde{\phi}_{n}^{\ast}
+   +
+   M_{n}^{n}\tilde{\phi}_{n}\tilde{\phi}_{n}^{\ast}
    \right)
    \label{eqn:effective_Lagrangian_from_5d}
 \end{equation}
@@ -265,24 +268,24 @@
 
 有効作用\eqref{eqn:effective_Lagrangian_from_5d}から次のことが分かります：
 \begin{itemize}
-   \item 
-   5次元の実スカラー場の理論からは、質量$M_{n}$をもつ複素スカラー場（KK粒子）が現れること。
-   \item 
-   $n=0$のモードは、masslessであること（\textbf{ゼロモード}）。
-   \item 
-   $n\neq 0$のときは、その粒子の質量は$M_{n}=|n|/a$であり、$a\ll 1$ならば$M_{n}\gg 1$であること。したがって、コンパクト空間の半径が非常に小さければ、十分なエネルギーがないとゼロモード以外の粒子を生成して観測することができないことになります\footnote{
-      \href{https://pdg.lbl.gov/2023/tables/rpp2023-sum-searches.pdf}{Particle Date Groupのデータ}によると、TeVスケールではまだKK粒子の存在が確認されていないようです。
-   }。
+   \item
+         5次元の実スカラー場の理論からは、質量$M_{n}$をもつ複素スカラー場（KK粒子）が現れること。
+   \item
+         $n=0$のモードは、masslessであること（\textbf{ゼロモード}）。
+   \item
+         $n\neq 0$のときは、その粒子の質量は$M_{n}=|n|/a$であり、$a\ll 1$ならば$M_{n}\gg 1$であること。したがって、コンパクト空間の半径が非常に小さければ、十分なエネルギーがないとゼロモード以外の粒子を生成して観測することができないことになります\footnote{
+            \href{https://pdg.lbl.gov/2023/tables/rpp2023-sum-searches.pdf}{Particle Date Groupのデータ}によると、TeVスケールではまだKK粒子の存在が確認されていないようです。
+         }。
 \end{itemize}
 
 次は、（スピノル場の前に）ベクトル場$A_{M}(z)$の理論を見ていきます。ベクトル場の作用は、一番簡単なMaxwell理論
 \begin{equation}
    S
    =
-   \int\dd^5 z\ 
+   \int\dd^5 z\
    \sqrt{-g}
-   \left(  
-      -\frac{1}{4}g^{MP}g^{NQ}F_{MN}F_{PQ}
+   \left(
+   -\frac{1}{4}g^{MP}g^{NQ}F_{MN}F_{PQ}
    \right)
    \label{eqn:action_5d_maxwell}
 \end{equation}
@@ -296,75 +299,75 @@
 と展開できます。これを作用\eqref{eqn:action_5d_maxwell}に代入します。作用を少し書き換えると
 \begin{align}
    S
-   &=
-   \int\dd^4 x\ \sqrt{-g_{4}}\ 
+    & =
+   \int\dd^4 x\ \sqrt{-g_{4}}\
    \cdot
-   a\int_{0}^{2\pi}\dd\theta\ 
+   a\int_{0}^{2\pi}\dd\theta\
    \left( -\frac{1}{4}g^{MP}g^{NQ}F_{MN}F_{PQ} \right)
    \nonumber
    \\
-   &=
-   \int\dd^4 x\ \sqrt{-g_{4}}\ 
+    & =
+   \int\dd^4 x\ \sqrt{-g_{4}}\
    \cdot
-   a\int_{0}^{2\pi}\dd\theta\ 
-   \left(  
-      -\frac{1}{4}(\partial^{\mu}A^{\nu}-\partial^{\nu}A^{\mu})^2
-      -\frac{a}{2}(\partial^{\theta}A^{\mu}-\partial^{\mu}A^{\theta})^2
-   \right)   
+   a\int_{0}^{2\pi}\dd\theta\
+   \left(
+   -\frac{1}{4}(\partial^{\mu}A^{\nu}-\partial^{\nu}A^{\mu})^2
+   -\frac{a}{2}(\partial^{\theta}A^{\mu}-\partial^{\mu}A^{\theta})^2
+   \right)
    \label{eqn:2_2}
 \end{align}
 となるので、被積分関数の各項は
 \begin{align}
    (\partial^{\mu}A^{\nu}-\partial^{\nu}A^{\mu})^2
-   &=
+    & =
    \frac{1}{2\pi}
    \sum_{m,n}e^{i(m+n)\theta}
-   \left(  
-      \partial^{\mu}A^{\nu,(m)}
-      -
-      \partial^{\nu}A^{\mu,(m)}
+   \left(
+   \partial^{\mu}A^{\nu,(m)}
+   -
+   \partial^{\nu}A^{\mu,(m)}
    \right)
-   \left(  
-      \partial_{\nu}A_{\mu}^{(n)}
-      -
-      \partial_{\mu}A_{\nu}^{(n)}
+   \left(
+   \partial_{\nu}A_{\mu}^{(n)}
+   -
+   \partial_{\mu}A_{\nu}^{(n)}
    \right)
    \nonumber
    \\
-   &\xrightarrow{\ \text{$\theta$方向の積分}\ }
+    & \xrightarrow{\ \text{$\theta$方向の積分}\ }
    \sum_{n}
-   \left(  
-      \partial^{\mu}A^{\nu,(-n)}
-      -
-      \partial^{\nu}A^{\mu,(-n)}
+   \left(
+   \partial^{\mu}A^{\nu,(-n)}
+   -
+   \partial^{\nu}A^{\mu,(-n)}
    \right)
-   \left(  
-      \partial_{\nu}A_{\mu}^{(n)}
-      -
-      \partial_{\mu}A_{\nu}^{(n)}
-   \right)   
+   \left(
+   \partial_{\nu}A_{\mu}^{(n)}
+   -
+   \partial_{\mu}A_{\nu}^{(n)}
+   \right)
    \\
    (\partial^{\theta}A^{\mu}-\partial^{\mu}A^{\theta})
-   &=
+    & =
    -
    \frac{1}{2\pi a^2}
    \sum_{m,n}e^{i(m+n)\theta}
-   \left(  
-      mA^{\mu,(m)}-\partial^{\mu}A^{\theta,(m)}
+   \left(
+   mA^{\mu,(m)}-\partial^{\mu}A^{\theta,(m)}
    \right)
-   \left(  
-      nA_{\mu}^{(n)}-\partial_{\mu}A_{\theta}^{(n)}
+   \left(
+   nA_{\mu}^{(n)}-\partial_{\mu}A_{\theta}^{(n)}
    \right)
    \nonumber
    \\
-   &\xrightarrow{\ \text{$\theta$方向の積分}\ }
+    & \xrightarrow{\ \text{$\theta$方向の積分}\ }
    \frac{1}{a^2}
    \sum_{n}
-   \left(  
-      nA^{\mu,(-n)}+\partial^{\mu}A^{\theta,(-n)}
+   \left(
+   nA^{\mu,(-n)}+\partial^{\mu}A^{\theta,(-n)}
    \right)
-   \left(  
-      nA_{\mu}^{(n)}-\partial_{\mu}A_{\theta}^{(n)}
+   \left(
+   nA_{\mu}^{(n)}-\partial_{\mu}A_{\theta}^{(n)}
    \right)
 \end{align}
 となります。ただし、
@@ -376,40 +379,40 @@
 として計算しています。この結果を、作用\eqref{eqn:2_2}の表式に代入すると
 \begin{align}
    S
-   &=
-   \int\dd^4 x\ \sqrt{-g_{4}}\ 
+    & =
+   \int\dd^4 x\ \sqrt{-g_{4}}\
    a
-   \left(  
-      -
-      \frac{1}{4}
-      \sum_{n}
-      \left(  
-         \partial^{\mu}A^{\nu,(-n)}
-         -
-         \partial^{\nu}A^{\mu,(-n)}
-      \right)
-      \left(  
-         \partial_{\nu}A_{\mu}^{(n)}
-         -
-         \partial_{\mu}A_{\nu}^{(n)}
-      \right)  
+   \left(
+   -
+   \frac{1}{4}
+   \sum_{n}
+   \left(
+   \partial^{\mu}A^{\nu,(-n)}
+   -
+   \partial^{\nu}A^{\mu,(-n)}
+   \right)
+   \left(
+   \partial_{\nu}A_{\mu}^{(n)}
+   -
+   \partial_{\mu}A_{\nu}^{(n)}
+   \right)
    \right.
    \nonumber
    \\
-   &\hspace*{3.5cm}
-   \left. 
-      -
-      \frac{1}{2a}   
-      \sum_{n}
-      \left(  
-         nA^{\mu,(-n)}+\partial^{\mu}A^{\theta,(-n)}
-      \right)
-      \left(  
-         nA_{\mu}^{(n)}-\partial_{\mu}A_{\theta}^{(n)}
-      \right)   
+    & \hspace*{3.5cm}
+   \left.
+   -
+   \frac{1}{2a}
+   \sum_{n}
+   \left(
+   nA^{\mu,(-n)}+\partial^{\mu}A^{\theta,(-n)}
+   \right)
+   \left(
+   nA_{\mu}^{(n)}-\partial_{\mu}A_{\theta}^{(n)}
+   \right)
    \right)
    \\
-   &\equiv
+    & \equiv
    \int\dd^4 x\ \sqrt{-g_{4}}a\ \mathcal{L}_{4}
    \nonumber
 \end{align}
@@ -433,13 +436,14 @@
 
 
 \subsection{曲がった時空上でのスピノル場}
+\label{subsec:spinor_curved_spacetime}
 
 5次元のスピノル場のコンパクト化を考える前に、（記号の定義も兼ねて）曲がった時空上での場の理論について簡単に復習したいと思います。
 
 スカラー場やベクトル場といったボゾンや、スピノル場といったフェルミオンは、平坦な時空でのローレンツ変換の既約表現として得られるものでした。ボゾンのほうは、一般座標変換に対してもスカラーやベクトルとして変換されるため、計量によって一般共変化が可能です。が、スピノル場は一般座標変換に対しては既約表現になっておらず、ボゾンの場合と同様に計量からうまく共変的な理論を作ることができません。
 
 そこで、時空の各点における接空間（\textbf{局所ローレンツ系}）を考え、そこでは時空は計量が平坦\footnote{
-   等価原理からも、この仮定は自然でしょう。 
+   等価原理からも、この仮定は自然でしょう。
 }ですので、そこでスピノル場とローレンツ変換を定義しておき、別の接空間とつなぐことにします。
 
 \subsubsection*{局所ローレンツ系と四脚場}
@@ -465,15 +469,15 @@ $b^{i}_{\ \mu}$と$b_{i\nu}$の積を考えると、それは局所ローレン�
 
 以上のことから、次の公式が成り立ちます：
 \begin{itemize}
-   \item 
-   $g^{\mu\nu}=b^{i\mu}b^{\ \nu}_{i}$
-   。
-   \item 
-   $b_{i\mu}b^{\ \mu}_{j}=\eta_{ij},\ b^{i}_{\ \mu}b^{j\mu}=\eta^{ij}$
-   。
    \item
-   $b^{i\mu}b_{j\mu}=\delta^{i}_{j},\ b^{i}_{\ \mu}b_{i}^{\ \nu}=\delta^{\nu}_{\mu}$
-   。
+         $g^{\mu\nu}=b^{i\mu}b^{\ \nu}_{i}$
+         。
+   \item
+         $b_{i\mu}b^{\ \mu}_{j}=\eta_{ij},\ b^{i}_{\ \mu}b^{j\mu}=\eta^{ij}$
+         。
+   \item
+         $b^{i\mu}b_{j\mu}=\delta^{i}_{j},\ b^{i}_{\ \mu}b_{i}^{\ \nu}=\delta^{\nu}_{\mu}$
+         。
 \end{itemize}
 
 また、
@@ -497,7 +501,7 @@ $\psi$を局所ローレンツ系で定義されたスピノル場とします�
    \psi
    \longrightarrow
    \psi+\delta\psi
-   ,\ 
+   ,\
    \delta\psi
    =
    \frac{1}{2}\varepsilon^{ij}S_{ij}\psi
@@ -517,12 +521,13 @@ $\psi$を局所ローレンツ系で定義されたスピノル場とします�
    [S_{ij},\ S_{kl}]
    =
    -4
-   \left(  
-      -\eta_{ik}S_{jl}
-      +\eta_{jk}S_{il}
-      -\eta_{jl}S_{ik}
-      +\eta_{il}S_{jk}
+   \left(
+   -\eta_{ik}S_{jl}
+   +\eta_{jk}S_{il}
+   -\eta_{jl}S_{ik}
+   +\eta_{il}S_{jk}
    \right)
+   \label{eqn:2_6}
 \end{equation}
 が成立しています。
 
@@ -537,11 +542,11 @@ $\psi$を局所ローレンツ系で定義されたスピノル場とします�
 であり共変的です。しかしながら、局所ローレンツ系は時空の各点に設けられた接空間であり、その上でのローレンツ変換は時空の点に依存します。したがって、ローレンツ変換のパラメターである$\varepsilon^{ij}$は時空の点に依存する関数$\varepsilon^{ij}(x)$であり、したがって
 \begin{align}
    \delta(\partial_{\mu}\psi)
-   &=
+    & =
    \partial_{\mu}(\delta \psi)
    \nonumber
    \\
-   &=
+    & =
    \frac{1}{2}\varepsilon^{ij}S_{ij}\partial_{\mu}\psi
    +
    \frac{1}{2}(\partial_{\mu}\varepsilon^{ij})S_{ij}\psi
@@ -555,7 +560,7 @@ $\psi$を局所ローレンツ系で定義されたスピノル場とします�
    \omega^{ij}_{\ \ ,\mu}
    +
    \delta\omega^{ij}_{\ \ ,\mu}
-   ,\ 
+   ,\
    \delta\omega^{ij}_{\ \ ,\mu}
    =
    \varepsilon^{i}_{\ k}\omega^{kj}_{\ \ ,\mu}
@@ -576,16 +581,16 @@ $\psi$を局所ローレンツ系で定義されたスピノル場とします�
 とすると、
 \begin{align}
    \delta(D_{\mu}\psi)
-   &=
+    & =
    \partial_{\mu}(\delta\psi)
    +
    \delta
-   \left(  
-      \frac{1}{2}\omega^{ij}_{\ \ ,\mu}S_{ij}\psi
+   \left(
+   \frac{1}{2}\omega^{ij}_{\ \ ,\mu}S_{ij}\psi
    \right)
    \nonumber
    \\
-   &=
+    & =
    \frac{1}{2}\varepsilon^{ij}S_{ij}\partial_{\mu}\psi
    +
    \frac{1}{2}(\partial_{\mu}\varepsilon^{ij})S_{ij}\psi
@@ -600,9 +605,9 @@ $\psi$を局所ローレンツ系で定義されたスピノル場とします�
    \underbrace{
       \frac{1}{2}
       (
-         \varepsilon^{i}_{\ k}\omega^{ij}_{\ \ ,\mu}
-         +
-         \varepsilon^{j}_{\ k}\omega^{ik}_{\ \ ,\mu}
+      \varepsilon^{i}_{\ k}\omega^{ij}_{\ \ ,\mu}
+      +
+      \varepsilon^{j}_{\ k}\omega^{ik}_{\ \ ,\mu}
       )
       S_{ij}\psi
    }_{
@@ -621,7 +626,7 @@ $\psi$を局所ローレンツ系で定義されたスピノル場とします�
 つまり
 \begin{align}
    \delta(D_{\mu}\psi)
-   &=
+    & =
    \frac{1}{2}\varepsilon^{ij}S_{ij}\partial_{\mu}\psi
    +
    \frac{1}{2}(\partial_{\mu}\varepsilon^{ij})S_{ij}\psi
@@ -636,7 +641,7 @@ $\psi$を局所ローレンツ系で定義されたスピノル場とします�
    \frac{1}{2}(\partial_{\mu}\varepsilon^{ij})S_{ij}\psi
    \nonumber
    \\
-   &=
+    & =
    \frac{1}{2}\varepsilon^{ij}S_{ij}\partial_{\mu}\psi
    +
    \varepsilon^{i}_{\ k}\omega^{ij}_{\ \ ,\mu}
@@ -644,7 +649,84 @@ $\psi$を局所ローレンツ系で定義されたスピノル場とします�
    +
    \frac{1}{4}\omega^{ij}_{\ \ ,\mu}S_{ij}\varepsilon^{kl}S_{kl}\psi
 \end{align}
-です。
+です。第3項は、\eqref{eqn:2_6}によって
+\begin{equation}
+   \frac{1}{4}\omega^{ij}_{\ \ ,\mu}S_{ij}\varepsilon^{kl}S_{kl}\psi
+   =
+   -
+   \varepsilon^{i}_{\ k}\omega^{ij}_{\ \ ,\mu}
+   S_{ij}\psi
+   +
+   \frac{1}{4}\varepsilon^{ij}S_{ij}\omega^{kl}_{\ \ ,\mu}S_{kl}\psi
+   \label{eqn:2_7}
+\end{equation}
+となることが分かります。結局、
+\begin{equation}
+   \delta(D_{\mu}\psi)
+   =
+   \frac{1}{2}\varepsilon^{ij}S_{ij}\partial_{\mu}\psi
+   +
+   \frac{1}{4}\varepsilon^{ij}S_{ij}\omega^{kl}_{\ \ ,\mu}S_{kl}\psi
+   =
+   \frac{1}{2}\varepsilon^{ij}S_{ij}D_{\mu}\psi
+\end{equation}
+となり、確かに共変微分であることが示されました。
+
+局所ローレンツ時空でのスピノル場でのラグランジアンは
+\begin{equation}
+   \mathcal{L}
+   =
+   -
+   \bar{\psi}\slashed{\partial}\psi
+   -
+   m\bar{\psi}\psi
+\end{equation}
+でしたので、これを共変的な理論にします。ここで、微分は$\slashed
+   {\partial}=\Gamma^{i}\partial_{i}$と局所ローレンツ系の添え字を持っています。曲がった時空上に持っていくためには、多脚場$b^{i}_{\ \mu}$を使えばいいです。$\Gamma^{i}$は局所ローレンツ系で定義され、微分$\partial_{\mu}$は時空の座標で定義されるとすれば
+\begin{equation}
+   \slashed{\partial}
+   =
+   \Gamma^{i}b^{\ \mu}_{i}\partial_{\mu}
+\end{equation}
+と書き換えればよく、さらに一般座標変換に対して共変な理論にするために共変微分に書き換えれば
+\begin{equation}
+   \mathcal{L}
+   =
+   b
+   \left[
+      -\bar{\psi}\slashed{D}\psi
+      -m\bar{\psi}\psi
+      \right]
+\end{equation}
+で、ただし
+\begin{equation}
+   \slashed{D}\psi
+   \equiv
+   \Gamma^{i}b^{\ \mu}_{i}
+   \left(
+   \partial_{\mu}+\frac{1}{4}\omega^{kl}_{\ \ ,\mu}\Gamma_{kl}
+   \right)
+   \psi
+   ,\
+   \Gamma_{kl}
+   \equiv
+   \frac{1}{2}\Gamma_{\left[\right.k}\Gamma_{l\left.\right]}
+\end{equation}
+です。また、全体にかかっている$b(=\sqrt{-g})$は体積因子になります。
+
+
+\subsubsection*{補足：\texorpdfstring{\eqref{eqn:2_7}}{公式}の計算}
+
+この節の最後に、公式\eqref{eqn:2_7}の計算を載せておきます。
+
+（更新中・・・）
+
+
+
+
+
+
+
 
 
 
@@ -654,7 +736,7 @@ $\psi$を局所ローレンツ系で定義されたスピノル場とします�
 \begin{equation}
    S
    =
-   \int\dd^5 z\ b(-\bar{\psi}\slashed{\partial}_{5}\psi)
+   \int\dd^5 z\ b(-\bar{\psi}\slashed{D}_{5}\psi)
 \end{equation}
 によって与えられ、スピノル場は境界条件によって
 \begin{equation}
@@ -665,25 +747,25 @@ $\psi$を局所ローレンツ系で定義されたスピノル場とします�
 \end{equation}
 と展開されます。ここで、5次元の共変微分は
 \begin{align}
-   \slashed{\partial}_{5}\psi(x,\theta)
-   &=
-   (\slashed{\partial}+\gamma^{5}b_{4}^{\ \theta}\partial_{\theta})\psi(x,\theta)
+   \slashed{D}_{5}\psi(x,\theta)
+    & =
+   (\slashed{D}+\gamma^{5}b_{4}^{\ \theta}D_{\theta})\psi(x,\theta)
    \nonumber
    \\
-   &=
+    & =
    \frac{1}{\sqrt{2\pi}}\sum_{n}
    (\slashed{\partial}+in\gamma^{5}a^{-1})\psi_{n}(x)e^{in\theta}
 \end{align}
 です\footnote{
-   $g^{\mu\nu}=b^{i\mu}b_{i}^{\ \nu}$でしたので、$b_{4}^{\ \theta}=a^{-1}$としました。
+$g^{\mu\nu}=b^{i\mu}b_{i}^{\ \nu}$でしたので、$b_{4}^{\ \theta}=a^{-1}$としました。また、余剰空間方向のスピン接続はゼロ(i.e. $\omega^{kl}_{\ \ ,\theta}=0$)としています。
 }ので、4次元の有効ラグランジアンは、$\theta$方向の積分を実行すれば
 \begin{equation}
    \mathcal{L}_{4}
    =
    -
-   \sum_{n}\bar{\psi}_{n}(\slashed{\partial}+ina^{-1}\gamma_{5})\psi_{n}
+   \sum_{n}\bar{\psi}_{n}(\slashed{D}+ina^{-1}\gamma_{5})\psi_{n}
 \end{equation}
-となります。ただし、$\slashed{\partial}$は4次元での微分です。第2項が質量項を与えるので、
+となります。ただし、$\slashed{D}$は4次元での微分です。第2項が質量項を与えるので、
 \begin{equation}
    \psi_n
    =
@@ -693,7 +775,7 @@ $\psi$を局所ローレンツ系で定義されたスピノル場とします�
 と変換すれば
 \begin{align}
    \bar{\psi}_{n}\gamma_{5}\psi_{n}
-   &=
+    & =
    \bar{\psi}_{n}^{\prime}
    \cdot
    e^{\pm i(\pi/4)\gamma_{5}}\gamma_{5}e^{\mp i(\pi/4)\gamma_{5}}
@@ -701,7 +783,7 @@ $\psi$を局所ローレンツ系で定義されたスピノル場とします�
    \psi_{n}^{\prime}
    \nonumber
    \\
-   &=
+    & =
    \bar{\psi}_{n}^{\prime}
    \psi_{n}^{\prime}
 \end{align}
@@ -710,7 +792,7 @@ $\psi$を局所ローレンツ系で定義されたスピノル場とします�
    \mathcal{L}_{4}
    =
    -
-   \sum_{n}\bar{\psi}_{n}(\slashed{\partial}+M_{n})\psi_{n}
+   \sum_{n}\bar{\psi}_{n}(\slashed{D}+M_{n})\psi_{n}
 \end{equation}
 となります。ただし、プライム$^{\prime}$は省略しました。ここで、$n$番目のモードの質量は
 \begin{equation}
@@ -727,17 +809,46 @@ $\psi$を局所ローレンツ系で定義されたスピノル場とします�
 
 \subsection{トーラスコンパクト化}
 
+余剰空間が2次元のとき、一番簡単なコンパクト化は$S^{1}\times S^{1}=T^{2}$かと思います。それぞれの円周の半径を$a_{1},a_{2}$と書くことにすると、計量は
+\begin{equation}
+   g_{MN}
+   =
+   \begin{pmatrix}
+      \eta_{\mu\nu} &         &         \\
+                    & a_{1}^2 &         \\
+                    &         & a_{2}^2
+   \end{pmatrix}
+\end{equation}
+です。余剰空間の座標をそれぞれ$\theta,\varphi$と書くことにすれば、場$\Phi(x,\theta,\varphi)$は2重にフーリエ展開することができるので、4次元の場は2つのモード$\Phi_{m,n}(x)$をもつことになります。
+
+
+\subsection{2次元球面}
+
+2次元の内部空間としてトーラスを選んだ場合はあまり面白くはなかったのですが、
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\clearpage
+
+\section{コンパクト化とゲージ場}
+
 （更新中・・・）
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -757,15 +868,15 @@ $\psi$を局所ローレンツ系で定義されたスピノル場とします�
 \clearpage
 \makeatletter
 \renewcommand{\appendix}{\par
-  \setcounter{section}{0}%
-  \setcounter{subsection}{0}%
-  \gdef\presectionname{\appendixname}%
-  \gdef\postsectionname{}%
-  \gdef\thesection{\presectionname\@Alph\c@section\postsectionname}%
-  \gdef\thesubsection{\@Alph\c@section.\@arabic\c@subsection}%
-  \renewcommand{\theequation}{\@Alph\c@section.\arabic{equation}}%
-  \renewcommand{\thefigure}{\@Alph\c@section.\arabic{figure}}%
-  \renewcommand{\thetable}{\@Alph\c@section.\arabic{table}}%
+   \setcounter{section}{0}%
+   \setcounter{subsection}{0}%
+   \gdef\presectionname{\appendixname}%
+   \gdef\postsectionname{}%
+   \gdef\thesection{\presectionname\@Alph\c@section\postsectionname}%
+   \gdef\thesubsection{\@Alph\c@section.\@arabic\c@subsection}%
+   \renewcommand{\theequation}{\@Alph\c@section.\arabic{equation}}%
+   \renewcommand{\thefigure}{\@Alph\c@section.\arabic{figure}}%
+   \renewcommand{\thetable}{\@Alph\c@section.\arabic{table}}%
 }
 \makeatother
 \appendix
@@ -780,12 +891,6 @@ $\psi$を局所ローレンツ系で定義されたスピノル場とします�
 \subsection{非可換ゲージ理論}
 
 （更新中・・・）
-
-
-
-
-
-
 
 
 
