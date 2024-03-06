@@ -96,7 +96,7 @@
 \begin{abstract}
    これは数物セミナー素粒子グループでのリレーセミナーの資料になります。私が現在所属している研究室\footnote{
       早稲田大学の安倍研究室といいます。ホームページは\href{http://www.hep.phys.waseda.ac.jp/index-j.html}{こちら}です。
-   }は、4次元よりも大きい次元の時空を仮定する高次元時空モデルから素粒子標準模型を再現することを目標とした研究を主にしています。そこで、ここでは高次元時空モデルからどのようにして統一理論の見通しがつくのかについて、議論したいと思います。
+   }は、4次元よりも大きい次元の時空を仮定する高次元時空モデルから素粒子標準模型を再現することを目標とした研究を主にしています。そこで、ここでは高次元時空モデルからどのようにして統一理論の見通しがつくのかについて、議論したいと思います。主に参考にしているのは、教科書\cite{Fujii:2005}です。
 \end{abstract}
 
 \tableofcontents
@@ -105,7 +105,11 @@
 
 \section{高次元の場の理論とコンパクト化}
 
-（更新中・・・）
+標準模型というのは、大雑把に言ってゲージ群が$SU(3)_{C}\times SU(2)_{L}\times U(1)_{Y}$であるようなYang-Mills理論でした。しかし、標準模型はゲージ群だけではなく、その表現も恣意的であり、それらが何かしらの高エネルギー理論のdecoupling limitとして得られるのではないか？と考えるのは自然なことかと思います。その候補として、高次元時空モデルというのがあるので、その高次元時空の理論からどのようにして4次元の理論が取り出せるのかを今回は発表したいと思います。特に、今回はボトムアップ的なアプローチとして、内部空間の次元はこだわりません\footnote{
+   一方で、高エネルギーの理論として超弦理論を想定するアプローチをトップダウンというそうです。このときは、特に10次元の超対称な場の理論を取り扱うことになります。
+}。
+
+この章では、簡単な5次元理論の余剰空間をコンパクト化することによって、4次元の理論にどのような影響を与えるのかを見ていこうと思います。
 
 
 \subsection{5次元理論のコンパクト化}
@@ -713,6 +717,11 @@ $\psi$を局所ローレンツ系で定義されたスピノル場とします�
 です。また、全体にかかっている$b(=\sqrt{-g})$は体積因子になります。
 
 
+\subsubsection*{全共変微分と四脚場仮説}
+
+
+
+
 \subsubsection*{補足：\texorpdfstring{\eqref{eqn:2_7}}{公式}の計算}
 
 この節の最後に、公式\eqref{eqn:2_7}の計算を載せておきます。
@@ -832,7 +841,89 @@ $g^{\mu\nu}=b^{i\mu}b_{i}^{\ \nu}$でしたので、$b_{4}^{\ \theta}=a^{-1}$と
                     &     & a^2\sin\theta
    \end{pmatrix}
 \end{equation}
-を選んでみます。
+を選んでみます。この場合は、スカラー場$\phi(x,\theta,\varphi)$は球面調和関数$Y_{lm}(\theta,\varphi)$で展開しておきます：
+\begin{equation}
+   \phi(x,\theta,\varphi)
+   =
+   \sum_{l,m}\phi_{l,m}(x)Y_{l,m}(\theta,\varphi)
+   .
+\end{equation}
+スカラー場の作用は
+\begin{equation}
+   S
+   =
+   \int\dd^6 z\ 
+   \frac{1}{2}\sqrt{-g}g^{MN}\partial_{M}\phi\partial_{N}\phi
+   =
+   \int\dd^6 z\ 
+   \frac{1}{2}\sqrt{-g}\phi\Box^{2}\phi
+\end{equation}
+なので、ラプラシアン$\Box^{2}$を4次元方向$\partial^2$と余剰空間方向$\Delta^2$に分けておけば
+\begin{equation}
+   S
+   =
+   \int\dd^6 z\ 
+   \frac{1}{2}\sqrt{-g}
+   \phi(z)
+   (\partial^{2}+\Delta^2)
+   \phi(z)
+\end{equation}
+です。このとき、余剰空間方向のラプラシアンは球面のラプラシアンですから、球面調和関数は固有基底
+\begin{equation}
+   \Delta^2 Y_{lm}
+   =
+   -\frac{1}{a^2}l(l+1) Y_{lm}
+\end{equation}
+となっています。よって、2次元球面を余剰空間に選んだときのスカラー場も、結局は$M\sim a^{-1}$ほどの質量をもった粒子がKKモードに現れており、あまり$T^{2}$の場合との差はありません。また、ゼロモードもやはりmasslessです。
+
+ですが、フェルミオンのモードを調べてみると、$T^2$の場合と違う結果が出てきます。$T^2$の場合はmasslessなフェルミオンがいましたが、$S^{2}$にコンパクト化する場合は全てのフェルミオンがmassiveになります。
+
+スピノル場を何かしらの基底（例えば球面調和関数）で展開することで、上述のことは示すことができる（と思う）のですが、ここでは別の方法を紹介します。まずは、Dirac演算子を$\slashed{D}_{6}=\slashed{\partial}+\slashed{D}_{2}$と展開しておくと、masslessなDirac方程式は
+\begin{equation}
+   (\slashed{\partial}+\slashed{D}_{2})\psi
+   =
+   0
+\end{equation}
+です。もう一度左から$\slashed{D}_{6}$を作用させると
+\begin{equation}
+   (
+      \slashed{\partial}^{2}
+      +
+      \slashed{\partial}\slashed{D}_{2}
+      +
+      \slashed{D}_{2}\slashed{\partial}
+      +
+      (\slashed{D}_{2})^{2}
+   )\psi
+   =
+   0
+\end{equation}
+となるわけですが、第2,3項は反可換なので消えます\footnote{
+   具体的に書いておくと、$\slashed{\partial}=\gamma^{\mu}\partial_{\mu}$と$\slashed{D}_{2}=\gamma^{m}(D_{2})_{m}$で$\gamma^{\mu}$と$\gamma^{m}$は反可換なので。
+}。したがって、
+\begin{equation}
+   (
+      \slashed{\partial}^{2}
+      +
+      (\slashed{D}_{2})^{2}
+   )\psi
+   =
+   0   
+\end{equation}
+となるので、あとは$(\slashed{D}_{2})^{2}$の固有値が分かればよいです。
+
+ここで、局所ローレンツ変換に対する共変微分$D_{\alpha}$を時空での共変微分$\mathcal{D}_{\alpha}$におきかえましょう（以下、下の添え字は略）。すると
+\begin{equation}
+   \mathcal{D}^2
+   =
+   \Gamma^{\alpha}\mathcal{D}_{\alpha}
+   \cdot
+   \Gamma^{\beta}\mathcal{D}_{\beta}
+   =
+   \Gamma^{\alpha}\Gamma^{\beta}
+   \mathcal{D}_{\alpha}\mathcal{D}_{\beta}
+\end{equation}
+となります。
 
 
 
@@ -844,12 +935,9 @@ $g^{\mu\nu}=b^{i\mu}b_{i}^{\ \nu}$でしたので、$b_{4}^{\ \theta}=a^{-1}$と
 
 
 
+\clearpage
 
-
-
-
-
-
+\section{超重力理論との関連}
 
 
 
@@ -908,6 +996,5 @@ $g^{\mu\nu}=b^{i\mu}b_{i}^{\ \nu}$でしたので、$b_{4}^{\ \theta}=a^{-1}$と
 \bibliographystyle{unsrt}
 
 \nocite{Peskin:1995}
-\nocite{Fujii:2005}
 
 \end{document}
