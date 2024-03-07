@@ -723,6 +723,41 @@ $\psi$を局所ローレンツ系で定義されたスピノル場とします�
 
 \subsubsection*{全共変微分と四脚場仮説}
 
+ここまで議論していた共変微分$D_{\mu}$は、局所ローレンツ変換に対する共変微分であり、一般座標変換に対する共変微分$\nabla_{\mu}$とは異なります。スピノルの場合にも、$\nabla_{\mu}$に対応する共変微分を作ることができ、それは$\nabla_{\mu}$の場合と同様にして、\textbf{全共変微分}を
+\begin{equation}
+   \mathcal{D}_{\mu}
+   b_{k\nu}
+   \equiv
+   D_{\mu}b_{k\mu}
+   +
+   \Gamma^{\lambda}_{\ \nu\mu} b^{k}_{\ \lambda}
+\end{equation}
+と定義しておくとよいです。
+
+この全共変微分は、計量条件
+\begin{equation}
+   \mathcal{D}_{\rho}g_{\mu\nu}
+   =
+   (\mathcal{D}_{\rho}b_{k\mu})b^{k}_{\ \nu}
+   +
+   b_{k\mu}(\mathcal{D}_{\rho}b^{k}_{\ \nu})
+   =
+   0
+\end{equation}
+を満たしています\footnote{
+   数学的に成立していたはずです。共変微分はそもそも曲がった時空上での微分で
+}。この等式をにらむと
+\begin{equation}
+   \mathcal{D}_{\rho}b_{k\mu}
+   =
+   D_{\rho}b_{k\mu}
+   +
+   \Gamma^{\lambda}_{\ \rho\mu} b^{k}_{\ \lambda}
+   =
+   0
+   \label{eqn:tetrad_conj}
+\end{equation}
+としておけば、計量条件が成立していそうです。したがって、条件\eqref{eqn:tetrad_conj}を\textbf{四脚場仮説}といい、基本的にはこの条件が成立しているとして、議論を進めていきます。
 
 
 
