@@ -114,4 +114,34 @@
 
 
 
+% ----------------------------------------
+% \clearpage
+
+% \makeatletter
+% \renewcommand{\appendix}{\par
+%   \setcounter{section}{0}%
+%   \setcounter{subsection}{0}%
+%   \gdef\presectionname{\appendixname}%
+%   \gdef\postsectionname{}%
+%   \gdef\thesection{\presectionname\@Alph\c@section\postsectionname}%
+%   \gdef\thesubsection{\@Alph\c@section.\@arabic\c@subsection}%
+%   \renewcommand{\theequation}{\@Alph\c@section.\arabic{equation}}%
+%   \renewcommand{\thefigure}{\@Alph\c@section.\arabic{figure}}%
+%   \renewcommand{\thetable}{\@Alph\c@section.\arabic{table}}%
+% }
+% \makeatother
+% \appendix
+
+% \section{＊＊＊}
+
+
+
+% ----------------------------------------
+\clearpage
+\bibliography{ref}
+\bibliographystyle{unsrt}
+
+\nocite{Mogi:2001}
+\nocite{Nakahara:2003}
+
 \end{document}
