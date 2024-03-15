@@ -27,12 +27,16 @@
 % \usepackage{fancybox,ascmac}
 
 % ---settings of theorem environment---
-% \usepackage{amsthm}
-% \theoremstyle{definition}
+\theoremstyle{definition}
+\newtheorem{dfn}{定義}[section]
+\newtheorem{prop}{命題}[section]
+\newtheorem{thm}{定理}[section]
+\newtheorem{exm}{例}[section]
+\newtheorem{exc}{演習}[section]
 
 % ---settings of proof environment---
-% \renewcommand{\proofname}{\textbf{証明}}
-% \renewcommand{\qedsymbol}{$\blacksquare$}
+\renewcommand{\proofname}{\textbf{証明}}
+\renewcommand{\qedsymbol}{$\blacksquare$}
 
 % ---Ignore the Warnings---
 \usepackage{silence}
@@ -60,7 +64,7 @@
 
 % ---Add the section number to the equation, figure, and table number---
 \makeatletter
-   \renewcommand{\theequation}{\thesection.\arabic{equation}}
+   \renewcommand{\theequation}{$\thesection.\arabic{equation}$}
    \@addtoreset{equation}{section}
    
    \renewcommand{\thefigure}{\thesection.\arabic{figure}}
@@ -96,7 +100,118 @@
 \tableofcontents
 
 \clearpage
-\section{多様体}
+\section{多様体とその周辺}
+
+\subsection{多様体}
+
+まずは多様体の定義から。
+
+\begin{dfn}
+  ハウスドルフ空間$M$に対して、$M$が開集合$U_{i}$によって
+  \begin{equation}
+    U
+    =
+    \bigcup_{i}U_{i}
+  \end{equation}
+  で表され、各$U_{i}$に対して、$U_{i}$から$n$次元ベクトル空間$\mathbb{R}^{n}$への全単射$\bm{x}_{U_{i}}$があって
+  \begin{itemize}
+    \item
+          像$\bm{x}_{U_{i}}(U)$は$\mathbb{R}^{n}$の開集合で、$\bm{x}_{U_{i}}$は$U_{i}$から$\bm{x}_{U_{i}}(U)$への同相写像。
+    \item
+          $U_{i}\cap U_{j}\neq\phi$ならば、写像
+          \begin{equation}
+            \bm{x}_{U_{j}}\circ\bm{x}_{U_{i}}^{-1}
+            :
+            \bm{x}_{U_{i}}(U_{i}\cap U_{j})\rightarrow\bm{x}_{U_{j}}(U_{i}\cap U_{j})
+          \end{equation}
+          が全単射で$C^{\infty}$かつ逆写像も同様。
+  \end{itemize}
+  を満たすとき、
+  \begin{itemize}
+    \item
+          組$\{(U_{i},\bm{x}_{U_{i}})\}$の全体は$M$に$C^{\infty}$構造を与え、
+    \item
+          $M$を$C^{\infty}$多様体という。
+  \end{itemize}
+\end{dfn}
+
+\begin{exm}[直積多様体]
+  $m$次元$C^{\infty}$多様体$M$、$n$次元$C^{\infty}$多様体$N$の$C^{\infty}$構造が$\{(U_{\alpha},\phi_{\alpha})\}_{\alpha\in A},\{(V_{\beta},\psi_{\beta})\}_{\beta\in B}$で定められているとき、
+  \begin{equation}
+    (\phi_{\alpha}\times\psi_{\beta})(x,y)
+    =
+    (\phi_{\alpha}(x),\psi_{\beta}(y))
+  \end{equation}
+  で定義しておけば、$\{(U_{\alpha}\times V_{\beta},\phi_{\alpha}\times\psi_{\beta})\}_{(\alpha,\beta)\in A\times B}$は$M\times N$上に$C^{\infty}$構造が定められて、$M\times N$は$C^{\infty}$多様体になる。これは直積多様体。
+\end{exm}
+
+\begin{exm}[$n$次元球面]
+  $\mathbb{R}^{n+1}$に対して
+  \begin{equation}
+    S^{n}
+    =
+    \{
+    (x^{1},\cdots,x^{n+1})\in\mathbb{R}^{n+1}
+    |
+    \sum (x^{i})^2=1
+    \}
+  \end{equation}
+  において、各$i=1,\cdots,n+1$に対して
+  \begin{equation}
+    U_{i}^{\pm}
+    \equiv
+    \{
+    (x^{1},\cdots,x^{i+1})\in S^{n}
+    |
+    x^{i}\gtrless 0
+    \}
+  \end{equation}
+  とおいて、$x_{i}^{\pm}:U_{i}^{\pm}\rightarrow\mathbb{R}^{n}$を
+  \begin{equation}
+    x_{i}^{\pm}(x^{1},\cdots,x^{n+1})
+    =
+    (x^{1},\cdots,\hat{x^{i}},\cdots,x^{n+1})
+    \in \mathbb{R}^{n}
+  \end{equation}
+  とする\footnote{
+    ハット$\hat{\ }$はその成分がないことを表す。
+  }と、$x^{\pm}_{i}$の像は$\mathbb{R}^{n}$の開球(内部を含む)である。これらは全単射で、$\{(U_{i}^{\pm},x_{i}^{\pm})\}_{i=1,\cdots,n}$が$S^{n}$上に$C^{\infty}$構造を定めるため、$S^{n}$は多様体。
+\end{exm}
+
+\begin{exm}[射影空間]
+  $\mathbb{K}=\mathbb{R}\ \mathrm{or}\ \mathbb{C}$に対して、
+\end{exm}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
