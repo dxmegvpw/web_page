@@ -27,12 +27,17 @@
 % \usepackage{fancybox,ascmac}
 
 % ---settings of theorem environment---
-% \usepackage{amsthm}
-% \theoremstyle{definition}
+\theoremstyle{definition}
+\newtheorem{dfn}{定義}[section]
+\newtheorem{prop}{命題}[section]
+\newtheorem{thm}{定理}[section]
+\newtheorem{exm}{例}[section]
+\newtheorem{rmk}{注}[section]
+\newtheorem{exc}{演習}[section]
 
 % ---settings of proof environment---
-% \renewcommand{\proofname}{\textbf{証明}}
-% \renewcommand{\qedsymbol}{$\blacksquare$}
+\renewcommand{\proofname}{\textbf{証明}}
+\renewcommand{\qedsymbol}{$\blacksquare$}
 
 % ---Ignore the Warnings---
 \usepackage{silence}
@@ -71,7 +76,7 @@
 \makeatother
 
 % ---enumerate---
-% \renewcommand{\labelenumi}{$\arabic{enumi}.$}
+% \renewcommand{\labelenumi}{(\roman{enumi})}
 % \renewcommand{\labelenumii}{$(\arabic{enumii})$}
 
 % ---Index---
@@ -83,7 +88,7 @@
 
 % ---Title---
 \title{
-  11章から13章
+  ペスキンゼミ\ 11章から13章
 }
 \author{
   宮根\ 一樹
@@ -103,7 +108,12 @@
 
 
 \clearpage
+\setcounter{section}{10}
 \section{くりこみと対称性}
+
+(更新中$\cdots$)
+
+\subsection{自発的対称性の破れ}
 
 
 
