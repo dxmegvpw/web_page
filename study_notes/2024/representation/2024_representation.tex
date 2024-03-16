@@ -27,12 +27,17 @@
 % \usepackage{fancybox,ascmac}
 
 % ---settings of theorem environment---
-% \usepackage{amsthm}
-% \theoremstyle{definition}
+\theoremstyle{definition}
+\newtheorem{dfn}{定義}[section]
+\newtheorem{prop}{命題}[section]
+\newtheorem{thm}{定理}[section]
+\newtheorem{exm}{例}[section]
+\newtheorem{rmk}{注}[section]
+\newtheorem{exc}{演習}[section]
 
 % ---settings of proof environment---
-% \renewcommand{\proofname}{\textbf{証明}}
-% \renewcommand{\qedsymbol}{$\blacksquare$}
+\renewcommand{\proofname}{\textbf{証明}}
+\renewcommand{\qedsymbol}{$\blacksquare$}
 
 % ---Ignore the Warnings---
 \usepackage{silence}
@@ -83,7 +88,7 @@
 
 % ---Title---
 \title{
-  11章から13章
+  量子群とリー環の表現論
 }
 \author{
   宮根\ 一樹
@@ -95,15 +100,8 @@
 \maketitle
 \tableofcontents
 
-\vspace*{10pt}
-
-すごい気が向いたのでゼミ資料でも作成してみようかと思い、作成しました。ですので、大したものではないです。あしからず。
-
-今回は、$\cdots\cdots$
-
-
 \clearpage
-\section{くりこみと対称性}
+\section{群の定義}
 
 
 
@@ -124,6 +122,49 @@
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+% ----------------------------------------
+% \clearpage
+
+% \makeatletter
+% \renewcommand{\appendix}{\par
+%   \setcounter{section}{0}%
+%   \setcounter{subsection}{0}%
+%   \gdef\presectionname{\appendixname}%
+%   \gdef\postsectionname{}%
+%   \gdef\thesection{\presectionname\@Alph\c@section\postsectionname}%
+%   \gdef\thesubsection{\@Alph\c@section.\@arabic\c@subsection}%
+%   \renewcommand{\theequation}{\@Alph\c@section.\arabic{equation}}%
+%   \renewcommand{\thefigure}{\@Alph\c@section.\arabic{figure}}%
+%   \renewcommand{\thetable}{\@Alph\c@section.\arabic{table}}%
+% }
+% \makeatother
+% \appendix
+
+% \section{***}
+
+
+
+% ----------------------------------------
+% \clearpage
+% \bibliography{ref}
+% \bibliographystyle{unsrt}
 
 
 

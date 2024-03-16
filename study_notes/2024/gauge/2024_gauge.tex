@@ -32,6 +32,7 @@
 \newtheorem{prop}{命題}[section]
 \newtheorem{thm}{定理}[section]
 \newtheorem{exm}{例}[section]
+\newtheorem{rmk}{注}[section]
 \newtheorem{exc}{演習}[section]
 
 % ---settings of proof environment---
@@ -92,7 +93,7 @@
 \author{
   宮根\ 一樹
 }
-\date{\today}
+\date{最終更新日：\today}
 
 \begin{document}
 
@@ -106,7 +107,7 @@
 
 まずは多様体の定義から。
 
-\begin{dfn}
+\begin{dfn}[多様体]
   ハウスドルフ空間$M$に対して、$M$が開集合$U_{i}$によって
   \begin{equation}
     U
@@ -170,7 +171,7 @@
   \begin{equation}
     x_{i}^{\pm}(x^{1},\cdots,x^{n+1})
     =
-    (x^{1},\cdots,\hat{x^{i}},\cdots,x^{n+1})
+    (x^{1},\cdots,\widehat{x^{i}},\cdots,x^{n+1})
     \in \mathbb{R}^{n}
   \end{equation}
   とする\footnote{
@@ -179,11 +180,126 @@
 \end{exm}
 
 \begin{exm}[射影空間]
-  $\mathbb{K}=\mathbb{R}\ \mathrm{or}\ \mathbb{C}$に対して、
+  $\mathbb{K}=\mathbb{R}\ \mathrm{or}\ \mathbb{C}$の元
+  \begin{equation}
+    \bm{x}=(x^{0},x^{1},\cdots,x^{n}),
+    \bm{y}=(y^{0},y^{1},\cdots,y^{n})
+    \in
+    \mathbb{K}^{n+1}
+  \end{equation}
+  に対して、ある$\alpha\in\mathbb{K}$があって$\bm{y}=\alpha\bm{x}$なら$\bm{y}\sim\bm{x}$だとする。するとこれは同値。$[\bm{x}]$は同値類で、それら全体の集合を$P^{n}(\mathbb{K})$とすれば、$P^{n}(\mathbb{K})$は射影空間。
+
+  これが$C^{\infty}$多様体であることを見るために、$C^{\infty}$構造を構成する。まず、
+  \begin{equation}
+    \pi
+    :
+    \mathbb{K}^{n+1}\ \{0\}\in\bm{x}
+    \rightarrow
+    [\bm{x}]\ni P^{n}(\mathbb{K})
+  \end{equation}
+  で、$P^{n}(\mathbb{K})$の位相を$\mathbb{K}^{n+1}$の位相から定義する。したがって、$P^{n}(\mathbb{K})$の開集合が考えられて、それを$U_{i}=\{[(x^{0},x^{1},\cdots,x^{n})]\in P^{n}(\mathbb{K})|x^{i}\neq 0\}$として、写像$\bm{x}_{i}:U_{i}\rightarrow\mathbb{K}^{n}$を
+  \begin{equation}
+    \bm{x}_{i}([(x^{0},x^{1},\cdots,x^{n})])
+    =
+    \left(
+    \frac{x^{0}}{x^{i}}
+    ,\cdots,
+    \widehat{
+      \frac{x^{i}}{x^{i}}
+    },\frac{x^{n+1}}{x^{i}}
+    \right)
+  \end{equation}
+  とする。すると、$\{(U_{i},x^{i})\}_{i=1,\cdots,n+1}$は$C^{\infty}$構造を定める。
+
+  最後に、この写像がwell-definedなことを確認する。$P^{n}(\mathbb{K})$の2つの元
+  \begin{equation}
+    [(x^{0},\cdots,x^{n})]
+    ,
+    [(y^{0},\cdots,y^{n})]
+  \end{equation}
+  が等しいとする。したがって、ある$\alpha\in\mathbb{K}$が存在して$y^{i}=\alpha x^{i}$なので、このことを用いれば
+  \begin{equation}
+    \bm{x}^{i}([(y^{0},\cdots,y^{n})])
+    =
+    \left(
+    \frac{y^{0}}{y^{i}}
+    ,\cdots,
+    \widehat{
+      \frac{y^{i}}{y^{i}}
+    },\frac{^{n+1}}{y^{i}}
+    \right)
+    =
+    \left(
+    \frac{x^{0}}{x^{i}}
+    ,\cdots,
+    \widehat{
+      \frac{x^{i}}{x^{i}}
+    },\frac{x^{n+1}}{x^{i}}
+    \right)
+    =
+    \bm{x}^{i}([(x^{0},\cdots,x^{n})])
+  \end{equation}
+  であり、well-defined。
 \end{exm}
 
+\begin{exm}
+  $C^{\infty}$多様体の開集合$U$もまた$C^{\infty}$多様体。$C^{\infty}$構造は、元の多様体の構造と$U$の共通部分をとればよい。また、閉集合は多様体とは限らない。
+\end{exm}
 
+\begin{dfn}[座標近傍と局所座標系]
+  $C^{\infty}$多様体$M$の開集合$W$、写像$\psi:W\rightarrow\mathbb{R}^{n}$が次の条件を満たすとき、$(W,\psi)$を座標近傍という：
+  \begin{itemize}
+    \item
+          $\psi:W\rightarrow\psi(W)$は同相写像。
+    \item
+          $C^{\infty}$構造を$\{(U,\bm{x}_{U})\}$とするとき、$U\cap W\neq\phi$なる全ての$U$に対して、写像
+          \begin{equation}
+            \bm{x}_{U}\circ\psi^{-1}
+            :
+            \psi(W\cap U)\rightarrow \bm{x}_{U}(W\cap U)
+          \end{equation}
+          とその逆写像は$\mathbb{R}^{n}$の意味で$C^{\infty}$写像。
+  \end{itemize}
 
+  また、$p\in U$に対して、$\mathbb{R}^{n}$の点$\bm{x}_{U}(p)$を
+  \begin{equation}
+    \bm{x}_{U}(p)
+    =
+    (x^{1}(p),\cdots,x^{n}(p))
+  \end{equation}
+  と表すことがある。このとき、$x^{1},\cdots,x^{n}$を局所座標系という。
+\end{dfn}
+
+\begin{rmk}
+  $C^{\infty}$構造$\{(U,\bm{x}_{U})\}$も定義から座標近傍。
+\end{rmk}
+
+\begin{dfn}[$C^{\infty}$写像と微分同相]
+  $M,N$は$C^{\infty}$多様体、写像$f:M\rightarrow N$を考える。$f$が次の条件を満たすとき、$C^{\infty}$写像という：
+  \begin{flushleft}
+    $M,N$の任意の座標近傍$(U,\bm{x}_{U}),(V,\bm{y}_{V})$に対して、$V\cap f(U)\neq\phi$ならば、写像
+    \begin{equation}
+      \bm{y}_{V}\circ f\circ\bm{x}_{U}^{-1}
+      :
+      \bm{x}_{U}(U)\rightarrow\bm{y}_{V}(V)
+    \end{equation}
+    は、$\mathbb{R}^{m}$から$\mathbb{R}^{n}$への$C^{\infty}$写像。
+  \end{flushleft}
+  また、$f:M\rightarrow N$が全単射で上の意味で$C^{\infty}$写像であり、逆写像$f^{-1}$も同様ならば、$f$は$M$と$N$の間の微分同相という。
+\end{dfn}
+
+\begin{exm}
+  3次元球面$S^{3}$と2次の特殊ユニタリー群
+  \begin{equation}
+    SU(2)
+    =
+    \{U\in GL(2,\mathbb{C})|UU^{\dag}=1,\det U=1\}
+  \end{equation}
+  は微分同相。
+  \begin{proof}
+    ちょいまち。
+  \end{proof}
+\end{exm}
 
 
 
