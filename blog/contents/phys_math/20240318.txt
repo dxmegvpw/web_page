@@ -10,7 +10,7 @@ and it implies the matrices anticommuting with each other. Thus we take the trac
 \[
     \mathrm{tr}[\gamma^{\nu}\gamma^{\mu}\gamma^{\nu}]    
     \quad
-    (\text{not summed for indices $\mu$}).
+    (\text{not summed for indices $\nu$}).
 \]
 Evaluating this form by using the cyclicity of the trace, we find \( +\text{tr}\gamma^{\mu}=-\text{tr}\gamma^{\mu} \) and then conclude they are traceless. And you also get the condition that the eigenvalue of \(\gamma^{0}\) are only \(\pm 1\) since it satisfies \((\gamma^{0})^2=1\).
 
