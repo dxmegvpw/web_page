@@ -6,4 +6,5 @@ The gamma matrices are defined by the relation
 \[
     \{\gamma^{\mu},\gamma^{\nu}\}=2g^{\mu\nu}\cdot\mathrm{\textbf{1}}_{4}
 \]
-and it implies the matrices anticommuting with each other. Thus we take the trace for two different matrices \(\gamma^{\mu}, \gamma^{\nu}\)
+and it implies the matrices anticommuting with each other. Thus we take the trace for the product of two different matrices \(\gamma^{\mu}, \gamma^{\nu}\)
+
