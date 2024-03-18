@@ -106,9 +106,9 @@
 
 \begin{itemize}
   \item 
-  例\ref{prf:eg_s3_unitary}の証明。
-  \item 
   注\ref{rmk:vector_str_TpM}の内容の吟味・補足。
+  \item 
+  証明\ref{prf:prop_1_1}。
 \end{itemize}
 
 \clearpage
@@ -141,9 +141,9 @@
   を満たすとき、
   \begin{itemize}
     \item
-          組$\{(U_{i},\bm{x}_{U_{i}})\}$の全体は$M$に$C^{\infty}$構造を与え、
+          組$\{(U_{i},\bm{x}_{U_{i}})\}$の全体は$M$に\textbf{$C^{\infty}$構造}を与え、
     \item
-          $M$を$C^{\infty}$多様体という。
+          $M$を\textbf{$C^{\infty}$多様体}という。
   \end{itemize}
 \end{dfn}
 
@@ -260,7 +260,7 @@
 \end{exm}
 
 \begin{dfn}[座標近傍と局所座標系]
-  $C^{\infty}$多様体$M$の開集合$W$、写像$\psi:W\rightarrow\mathbb{R}^{n}$が次の条件を満たすとき、$(W,\psi)$を座標近傍という：
+  $C^{\infty}$多様体$M$の開集合$W$、写像$\psi:W\rightarrow\mathbb{R}^{n}$が次の条件を満たすとき、$(W,\psi)$を\textbf{座標近傍}という：
   \begin{enumerate}
     \item
           $\psi:W\rightarrow\psi(W)$は同相写像。
@@ -280,7 +280,7 @@
     =
     (x^{1}(p),\cdots,x^{n}(p))
   \end{equation}
-  と表すことがある。このとき、$x^{1},\cdots,x^{n}$を局所座標系という。
+  と表すことがある。このとき、$x^{1},\cdots,x^{n}$を\textbf{局所座標系}という。
 \end{dfn}
 
 \begin{rmk}
@@ -288,7 +288,7 @@
 \end{rmk}
 
 \begin{dfn}[$C^{\infty}$写像と微分同相]
-  $M,N$は$C^{\infty}$多様体、写像$f:M\rightarrow N$を考える。$f$が次の条件を満たすとき、$C^{\infty}$写像という：
+  $M,N$は$C^{\infty}$多様体、写像$f:M\rightarrow N$を考える。$f$が次の条件を満たすとき、\textbf{$C^{\infty}$写像}という：
   \begin{flushleft}
     $M,N$の任意の座標近傍$(U,\bm{x}_{U}),(V,\bm{y}_{V})$に対して、$V\cap f(U)\neq\phi$ならば、写像
     \begin{equation}
@@ -298,7 +298,7 @@
     \end{equation}
     は、$\mathbb{R}^{m}$から$\mathbb{R}^{n}$への$C^{\infty}$写像。
   \end{flushleft}
-  また、$f:M\rightarrow N$が全単射で上の意味で$C^{\infty}$写像であり、逆写像$f^{-1}$も同様ならば、$f$は$M$と$N$の間の微分同相という。
+  また、$f:M\rightarrow N$が全単射で上の意味で$C^{\infty}$写像であり、逆写像$f^{-1}$も同様ならば、$f$は$M$と$N$の間の\textbf{微分同相}という。
 \end{dfn}
 
 \begin{exm}
@@ -311,12 +311,42 @@
   は微分同相。
   \begin{proof}
     \label{prf:eg_s3_unitary}
-    (更新中$\cdots$)
+    $SU(2)$は、定義から
+    \begin{equation}
+      SU(2)
+      =
+      \left\{
+        \left.
+        \begin{pmatrix}
+          a & -\bar{b} \\
+          b & \bar{a}
+         \end{pmatrix}
+        \right|
+        a,b\in \mathbb{C}
+        ,\ 
+        |a|^2+|b|^2
+        =
+        1
+      \right\}
+    \end{equation}
+    と書ける。2つの複素数は、その実部と虚部を具体的に書いてしまえば
+    \begin{equation}
+      (\Re a)^2
+      +
+      (\Im a)^2
+      +
+      (\Re b)^2
+      +
+      (\Im b)^2
+      =
+      1
+    \end{equation}
+    なので、$S^{3}$の上に乗っている。(本当は同型であることをもっとまじめに言わないとダメなのだろうが。)
   \end{proof}
 \end{exm}
 
 \begin{dfn}[曲線と接ベクトル、接ベクトル空間]
-  $\mathbb{R}$の開区間$(a,b)$から$C^{\infty}$多様体$M$への$C^{\infty}$写像$c:(a,b)\rightarrow M$を$M$上の曲線という。  以後は簡単のため、$t=0$で$c(0)=p\in M$とする。つまり、この曲線は点$p$を通る。
+  $\mathbb{R}$の開区間$(a,b)$から$C^{\infty}$多様体$M$への$C^{\infty}$写像$c:(a,b)\rightarrow M$を$M$上の\textbf{曲線}という。以後は簡単のため、$t=0$で$c(0)=p\in M$とする。つまり、この曲線は点$p$を通る。
 
   $p$を通る2つの曲線$c_{1},c_{2}$に対して、その座標近傍$(U,\bm{x}_{U})$で$(\bm{x}_{U}\circ c_{1})^{\prime}(0)=(\bm{x}_{U}\circ c_{2})^{\prime}(0)$であるとき、$c_{1}\sim c_{2}$とする。この定義によって定まる曲線$c$の同値類を
   \begin{equation}
@@ -324,9 +354,9 @@
     \mathrm{\ or\ }
     \left.\dv{}{t}c(t)\right|_{t=0}
   \end{equation}
-  と書くことにし、これらを接ベクトルという。
+  と書くことにし、これらを\textbf{接ベクトル}という。
 
-  $p$を通る曲線の同値類全体を$T_{p}M$とする。すると、$T_{p}M$はベクトル空間の構造をもつので、この$T_{p}M$を$p$における$M$の接ベクトル空間という。
+  $p$を通る曲線の同値類全体を$T_{p}M$とする。すると、$T_{p}M$はベクトル空間の構造をもつので、この$T_{p}M$を$p$における$M$の\textbf{接ベクトル空間}という。
 \end{dfn}
 
 \begin{rmk}[$T_{p}M$のベクトル空間としての構造]
@@ -337,7 +367,7 @@
     \equiv
     \bm{x}^{-1}\circ(a\bm{x}\circ c_{1}+b\bm{x}\circ c_{2})
   \end{equation}
-  でたぶんOK。
+  でたぶんOK?
 \end{rmk}
 
 \begin{dfn}
@@ -381,7 +411,7 @@
   \begin{equation}
     TM=\bigcup_{p\in M}T_{p}M
   \end{equation}
-  とする。対応$X:M\rightarrow TM$が次の条件を満たすとき、$X$を$M$上のベクトル場という：
+  とする。対応$X:M\rightarrow TM$が次の条件を満たすとき、$X$を$M$上の\textbf{ベクトル場}という：
   \begin{enumerate}
     \item
           任意の$p\in M$に対して、$X(p)=X_{p}\in T_{p}M$。
@@ -424,17 +454,132 @@
 \end{rmk}
 
 \begin{dfn}[交換子積]
-  
+  $X,Y\in\mathfrak{X}(M),\ f\in C^{\infty}(M)$に対して
+  \begin{equation}
+    [X,Y]_{p}(f)
+    \equiv
+    X_{p}(Y(f))
+    -
+    Y_{p}(X(f))
+  \end{equation}
+  とすれば、$[X,Y]\in\mathfrak{X}(M)$であることが分かる。これを\textbf{交換子積}という。
 \end{dfn}
 
+\begin{rmk}
+  $[X,Y]\in\mathfrak{X}(M)$であることは
+  \begin{align}
+    [X,Y]_{p}(f)
+    &=
+    X_{p}(Y(f))
+    -
+    Y_{p}(X(f))
+    \nonumber
+    \\
+    &=
+    X_{p}
+    \left( 
+      \sum Y^{i}\pdv{f}{y^{i}}
+     \right)
+     -
+     Y_{p}
+     \left(  
+      \sum X^{j}\pdv{f}{x^{j}}
+     \right)
+     \nonumber
+     \\
+     &=
+     \sum\left[  
+      X_{j}(p)
+      \left(  
+        \pdv{Y^{i}}{x^{j}}\pdv{f}{y^{i}}
+        +
+        Y^{i}(p)\pdv{f}{x^{j}}{y^{i}}
+      \right)
+     \right]
+     -
+     Y^{i}(p)
+     \left(  
+      \pdv{X^{j}}{y^{i}}\pdv{f}{x^{j}}
+      +
+      X^{j}(p)\pdv{f}{y^{i}}{x^{j}}
+     \right)
+     \nonumber
+     \\
+     &=
+     \sum
+     \left(  
+      X^{j}\pdv{Y^{i}}{x^{j}}\pdv{}{y^{i}}
+      -
+      Y^{i}\pdv{X^{j}}{y^{i}}\pdv{}{x^{j}}
+     \right)_{p}
+     f
+  \end{align}
+  ということから分かる。交換子積じゃないと、2階微分が相殺しない。
+\end{rmk}
 
+\begin{prop}
+  $a,b\in \mathbb{R},\ X,Y,Z\in \mathfrak{X}(M)$とするとき
+  \begin{gather}
+    [aX+bY,Z]
+    =
+    a[X,Z]
+    +
+    b[Y,Z]
+    \\
+    [X,Y]
+    +
+    [Y,X]
+    =
+    0
+    \\
+    [[X,Y],Z]
+    +
+    [[Y,Z],X]
+    +
+    [[Z,X],Y]
+    =
+    0
+  \end{gather}
+  が成立する。特に最後の等式は、ヤコビ恒等式といわれる。
+\end{prop}
 
-\clearpage
+\begin{proof}
+  \label{prf:prop_1_1}
+  (更新中)
+\end{proof}
 
-\subsection{微分形式}
+\begin{dfn}
+  ベクトル場$X$について、任意の$p\in M$に対して$p$を通る曲線$c_{p}:\mathbb{R}\rightarrow M$で
+  \begin{equation}
+    c_{p}(0)
+    =
+    p
+    ,\ 
+    c^{\prime}_{p}(t)
+    =
+    X_{c_{p}(t)}
+    ,\ 
+    t\in\mathbb{R}
+  \end{equation}
+  となるものが存在するとき、$X$は\textbf{完備である}という。
 
+  また、この曲線$c_{p}$を$X$の\textbf{積分曲線}という。
 
-
+  $t\in\mathbb{R}$に対して、写像
+  \begin{equation}
+    \varphi_{t}:M\ni p\mapsto c_{p}(t)\in M
+  \end{equation}
+  は$M$の微分同相写像を定め、
+  \begin{equation}
+    \varphi_{s}\circ\varphi_{t}(p)
+    =
+    \varphi_{s+t}(p)
+    \label{eqn:one_parameter_grp}
+  \end{equation}
+  である\footnote{
+    この関係を示すには、常微分方程式論の考えが必要である。詳しい証明はともかく、説明が欲しいなら\cite{Nakahara:2003}を参照のこと。
+  }。ここで、$\{\varphi_{t}\in M|t\in \mathbb{R}\}$は$X$によって生成された$M$上の\textbf{1パラメター変換群}とよばれ、$\{\varphi_{t}(p)|t\in\mathbb{R}\}$を$p$を通る\textbf{軌道}という。
+\end{dfn}
 
 
 
