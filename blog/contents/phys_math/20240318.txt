@@ -1,3 +1,4 @@
 Why the dimension of representation of gamma matrices \(\gamma^{\mu}\) is even?
 
-I will prove why the odd 
+I will prove why the odd-dimensional representation of the gamma matrices is prohibited.
+
