@@ -1,4 +1,9 @@
 Why the dimension of representation of gamma matrices \(\gamma^{\mu}\) is even?
 
-I will prove why the odd-dimensional representation of the gamma matrices is prohibited.
+I will prove why the odd-dimensional representation of the gamma matrices is prohibited. You already have almost the answer to this problem, they are traceless. Let us review its property.
 
+The gamma matrices are defined by the relation
+\[
+    \{\gamma^{\mu},\gamma^{\nu}\}=2g^{\mu\nu}\cdot\bm{1}_{4}
+\]
+and it implies the matrices anticommuting with each other.
