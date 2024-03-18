@@ -10,7 +10,20 @@ and it implies the matrices anticommuting with each other. Thus we take the trac
 \[
     \mathrm{tr}[\gamma^{\nu}\gamma^{\mu}\gamma^{\nu}]    
     \quad
-    (\text{ not summed for indices $\mu$}).
+    (\text{not summed for indices $\mu$}).
 \]
-Evaluating this form by using the cyclicity of the trace, we find \( +\text{tr}\gamma^{\mu}=-\text{tr}\gamma^{\mu} \) and then conclude they are traceless.
+Evaluating this form by using the cyclicity of the trace, we find \( +\text{tr}\gamma^{\mu}=-\text{tr}\gamma^{\mu} \) and then conclude they are traceless. And you also get the condition that the eigenvalue of \(\gamma^{0}\) are only \(\pm 1\) since it satisfies \((\gamma^{0})^2=1\).
 
+You assumed \(\gamma^{0}\) is diagonalized as
+\[
+    \gamma^{0}
+    =
+    \begin{\pmatrix}
+        c_{1} & 0 & 0 & \cdots & 0 \\
+        0 & c_{2} & 0 & \cdots & 0 \\
+        0 & 0 & c_{3} & \cdots & 0 \\
+        \vdots  & \vdots  & \vdots  &  \ddots & \vdots \\
+        0 & 0 & 0 & \cdots & c_{N}
+    \end{\pmatrix}
+\]
+where \(c_{i}=\pm 1\) for every \(i=1,\cdots N\) since they are eigenvalue of \(\gamma^{0}\).

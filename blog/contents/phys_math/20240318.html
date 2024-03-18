@@ -3,8 +3,8 @@
 
 <head>
     <title>20240318</title>
-    <link rel="shortcut icon" type="image/x-icon" href="/imiya.github.io/favicon.ico">
-    <link rel="stylesheet" href="/imiya.github.io/style.css">
+    <link rel="shortcut icon" type="image/x-icon" href="/docs/favicon.ico">
+    <link rel="stylesheet" href="/docs/style.css">
 
     <script type="text/javascript" id="MathJax-script" async
         src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
@@ -31,7 +31,24 @@
         (\text{ not summed for indices $\mu$}).
         \]
         Evaluating this form by using the cyclicity of the trace, we find \(
-        +\text{tr}\gamma^{\mu}=-\text{tr}\gamma^{\mu} \) and then conclude they are traceless.
+        +\text{tr}\gamma^{\mu}=-\text{tr}\gamma^{\mu} \) and then conclude they are traceless. And you also get the
+        condition that the eigenvalue of \(\gamma^{0}\) are only \(\pm 1\) since it satisfies \((\gamma^{0})^2=1\).
+    </p>
+
+    <p>
+        You assumed \(\gamma^{0}\) is diagonalized as
+        \[
+        \gamma^{0}
+        =
+        \begin{\pmatrix}
+        c_{1} & 0 & 0 & \cdots & 0 \\
+        0 & c_{2} & 0 & \cdots & 0 \\
+        0 & 0 & c_{3} & \cdots & 0 \\
+        \vdots & \vdots & \vdots & \ddots & \vdots \\
+        0 & 0 & 0 & \cdots & c_{N}
+        \end{\pmatrix}
+        \]
+        where \(c_{i}=\pm 1\) for every \(i=1,\cdots N\) since they are eigenvalue of \(\gamma^{0}\).
     </p>
 
 </body>
