@@ -6,5 +6,11 @@ The gamma matrices are defined by the relation
 \[
     \{\gamma^{\mu},\gamma^{\nu}\}=2g^{\mu\nu}\cdot\mathrm{\textbf{1}}_{4}
 \]
-and it implies the matrices anticommuting with each other. Thus we take the trace for the product of two different matrices \(\gamma^{\mu}, \gamma^{\nu}\)
+and it implies the matrices anticommuting with each other. Thus we take the trace for the product of two different matrices \(\gamma^{\mu}, \gamma^{\nu}\) like
+\[
+    \mathrm{tr}[\gamma^{\nu}\gamma^{\mu}\gamma^{\nu}]    
+    \quad
+    (\text{ not summed for indices $\mu$}).
+\]
+Evaluating this form by using the cyclicity of the trace, we find \( +\text{tr}\gamma^{\mu}=-\text{tr}\gamma^{\mu} \) and then conclude they are traceless.
 
