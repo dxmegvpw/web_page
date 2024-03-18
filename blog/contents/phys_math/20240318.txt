@@ -18,12 +18,12 @@ You assumed \(\gamma^{0}\) is diagonalized as
 \[
     \gamma^{0}
     =
-    \begin{\pmatrix}
+    \begin{pmatrix}
         c_{1} & 0 & 0 & \cdots & 0 \\
         0 & c_{2} & 0 & \cdots & 0 \\
         0 & 0 & c_{3} & \cdots & 0 \\
         \vdots  & \vdots  & \vdots  &  \ddots & \vdots \\
         0 & 0 & 0 & \cdots & c_{N}
-    \end{\pmatrix}
+    \end{pmatrix}
 \]
-where \(c_{i}=\pm 1\) for every \(i=1,\cdots N\) since they are eigenvalue of \(\gamma^{0}\).
+where \(c_{i}=\pm 1\) for every \(i=1,\cdots N\) since they are eigenvalue of \(\gamma^{0}\). From the above hypothesis, we can prove that \(N\) is an even number and the dimension of the representations is also even. 
