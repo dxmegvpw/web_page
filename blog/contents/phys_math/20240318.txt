@@ -27,3 +27,19 @@ You assumed \(\gamma^{0}\) is diagonalized as
     \end{pmatrix}
 \]
 where \(c_{i}=\pm 1\) for every \(i=1,\cdots N\) since they are eigenvalue of \(\gamma^{0}\). From the above hypothesis, we can prove that \(N\) is an even number and the dimension of the representations is also even. 
+
+Though your proof was true, it is not general, like Peskin's book takes the non-diagonal representations. 
+
+You get almost proof since what you have to do is diagonalize \(\gamma^{0}\). Even if \(\gamma^{0}\) has an off-diagonal coronet, we can diagonalize it as
+\[
+    U\gamma^{0}U^{-1}
+    =
+    \begin{pmatrix}
+        c_{1} & 0 & 0 & \cdots & 0 \\
+        0 & c_{2} & 0 & \cdots & 0 \\
+        0 & 0 & c_{3} & \cdots & 0 \\
+        \vdots  & \vdots  & \vdots  &  \ddots & \vdots \\
+        0 & 0 & 0 & \cdots & c_{N}
+    \end{pmatrix}
+\]
+since there exists such a unitary matrix \(U\). You just take a trace of this relation and carry the same proof before.
