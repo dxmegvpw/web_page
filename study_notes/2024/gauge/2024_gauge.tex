@@ -105,10 +105,10 @@
 \subsection*{To Doリスト}
 
 \begin{itemize}
-  \item 
-  注\ref{rmk:vector_str_TpM}の内容の吟味・補足。
-  \item 
-  証明\ref{prf:prop_1_1}。
+  \item
+        注\ref{rmk:vector_str_TpM}の内容の吟味・補足。
+  \item
+        証明\ref{prf:prop_1_1}。
 \end{itemize}
 
 \clearpage
@@ -316,17 +316,17 @@
       SU(2)
       =
       \left\{
-        \left.
-        \begin{pmatrix}
-          a & -\bar{b} \\
-          b & \bar{a}
-         \end{pmatrix}
-        \right|
-        a,b\in \mathbb{C}
-        ,\ 
-        |a|^2+|b|^2
-        =
-        1
+      \left.
+      \begin{pmatrix}
+        a & -\bar{b} \\
+        b & \bar{a}
+      \end{pmatrix}
+      \right|
+      a,b\in \mathbb{C}
+      ,\
+      |a|^2+|b|^2
+      =
+      1
       \right\}
     \end{equation}
     と書ける。2つの複素数は、その実部と虚部を具体的に書いてしまえば
@@ -415,8 +415,8 @@
   \begin{enumerate}
     \item
           任意の$p\in M$に対して、$X(p)=X_{p}\in T_{p}M$。
-    \item 
-    任意の$f\in C^{\infty}(M)$について、写像$p\mapsto X_{p}(f)$は$C^{\infty}$写像。
+    \item
+          任意の$f\in C^{\infty}(M)$について、写像$p\mapsto X_{p}(f)$は$C^{\infty}$写像。
   \end{enumerate}
   以後、$M$上のベクトル場全体を$\mathfrak{X}(M)$と書く。
 \end{dfn}
@@ -427,7 +427,7 @@
     X_{p}
     =
     \sum X^{i}(p)\left( \pdv{}{x^{i}} \right)_{p}
-    ,\ 
+    ,\
     X^{i}\in C^{\infty}(U)
     \label{eqn:x}
   \end{equation}
@@ -469,50 +469,50 @@
   $[X,Y]\in\mathfrak{X}(M)$であることは
   \begin{align}
     [X,Y]_{p}(f)
-    &=
+     & =
     X_{p}(Y(f))
     -
     Y_{p}(X(f))
     \nonumber
     \\
-    &=
+     & =
     X_{p}
-    \left( 
-      \sum Y^{i}\pdv{f}{y^{i}}
-     \right)
-     -
-     Y_{p}
-     \left(  
-      \sum X^{j}\pdv{f}{x^{j}}
-     \right)
-     \nonumber
-     \\
-     &=
-     \sum\left[  
+    \left(
+    \sum Y^{i}\pdv{f}{y^{i}}
+    \right)
+    -
+    Y_{p}
+    \left(
+    \sum X^{j}\pdv{f}{x^{j}}
+    \right)
+    \nonumber
+    \\
+     & =
+    \sum\left[
       X_{j}(p)
-      \left(  
-        \pdv{Y^{i}}{x^{j}}\pdv{f}{y^{i}}
-        +
-        Y^{i}(p)\pdv{f}{x^{j}}{y^{i}}
-      \right)
-     \right]
-     -
-     Y^{i}(p)
-     \left(  
-      \pdv{X^{j}}{y^{i}}\pdv{f}{x^{j}}
+      \left(
+      \pdv{Y^{i}}{x^{j}}\pdv{f}{y^{i}}
       +
-      X^{j}(p)\pdv{f}{y^{i}}{x^{j}}
-     \right)
-     \nonumber
-     \\
-     &=
-     \sum
-     \left(  
-      X^{j}\pdv{Y^{i}}{x^{j}}\pdv{}{y^{i}}
-      -
-      Y^{i}\pdv{X^{j}}{y^{i}}\pdv{}{x^{j}}
-     \right)_{p}
-     f
+      Y^{i}(p)\pdv{f}{x^{j}}{y^{i}}
+      \right)
+      \right]
+    -
+    Y^{i}(p)
+    \left(
+    \pdv{X^{j}}{y^{i}}\pdv{f}{x^{j}}
+    +
+    X^{j}(p)\pdv{f}{y^{i}}{x^{j}}
+    \right)
+    \nonumber
+    \\
+     & =
+    \sum
+    \left(
+    X^{j}\pdv{Y^{i}}{x^{j}}\pdv{}{y^{i}}
+    -
+    Y^{i}\pdv{X^{j}}{y^{i}}\pdv{}{x^{j}}
+    \right)_{p}
+    f
   \end{align}
   ということから分かる。交換子積じゃないと、2階微分が相殺しない。
 \end{rmk}
@@ -554,11 +554,11 @@
     c_{p}(0)
     =
     p
-    ,\ 
+    ,\
     c^{\prime}_{p}(t)
     =
     X_{c_{p}(t)}
-    ,\ 
+    ,\
     t\in\mathbb{R}
   \end{equation}
   となるものが存在するとき、$X$は\textbf{完備である}という。
@@ -581,6 +581,15 @@
   }。ここで、$\{\varphi_{t}\in M|t\in \mathbb{R}\}$は$X$によって生成された$M$上の\textbf{1パラメター変換群}とよばれ、$\{\varphi_{t}(p)|t\in\mathbb{R}\}$を$p$を通る\textbf{軌道}という。
 \end{dfn}
 
+\begin{dfn}[微分、余接空間]
+  $p\in M$における接ベクトル空間$T_{p}M$に対して、$p$の近傍で定義された$C^{\infty}$関数$f$は線形形式
+  \begin{equation}
+    (\dd f)_{p}
+    :
+    T_{p}M\ni X\mapsto X(f)\in\mathbb{R}
+  \end{equation}
+  を定める。
+\end{dfn}
 
 
 
