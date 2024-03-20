@@ -588,7 +588,24 @@
     :
     T_{p}M\ni X\mapsto X(f)\in\mathbb{R}
   \end{equation}
-  を定める。
+  を定める。これを$p$における$f$の\textbf{微分}という。これは$T_{p}M$も双対ベクトル空間$T_{p}M^{\ast}$の元である。この$T_{p}M^{\ast}$を$p$における余接空間といい、その基底を座標近傍系では$(\dd x^{1})_{p},\cdots,(\dd x^{n})_{p}$と書くことにする。  
+\end{dfn}
+
+\begin{dfn}[1-形式]
+  まず、
+  \begin{equation}
+    TM^{\ast}
+    =
+    \bigcup_{p\in M}T_{p}M^{\ast}
+  \end{equation}
+  とおく。対応$\alpha:M\mapsto TM^{\ast}$が
+  \begin{enumerate}
+    \item 
+    任意の$p\in M$に対して、$\alpha(p)=\alpha_{p}\in T_{p}M^{\ast}$
+    \item 
+    任意の$X\in \mathfrak{X}$に対して、$\alpha(X)(p)=\alpha_{p}(X_{p})$で定義される$M$上の関数が$C^{\infty}$である。
+  \end{enumerate}
+  という2つの条件を満たすとき、$M$上の\textbf{1-形式}という。
 \end{dfn}
 
 
