@@ -1,0 +1,158 @@
+\documentclass[unicode,a4paper,11pt]{ltjsarticle}
+
+\usepackage{luatexja-fontspec}
+\setmainfont{TeX Gyre Termes}
+\setmainjfont[BoldFont = IPAGothic]{IPAMincho}
+\setmathrm{Latin Modern Roman}
+% \setmainjfont{Noto Sans JP}
+
+% ---Display \subsubsection at the Index
+% \setcounter{tocdepth}{3}
+
+% ---Setting about the geometry of the document----
+% \usepackage{a4wide}
+% \pagestyle{empty}
+
+% ---Physics and Math Packages---
+\usepackage{amssymb,amsfonts,amsthm,mathtools}
+\usepackage{physics,braket,bm}
+
+% ---underline---
+\usepackage[normalem]{ulem}
+
+% ---cancel---
+\usepackage{cancel}
+
+% --- surround the texts or equations
+% \usepackage{fancybox,ascmac}
+
+% ---settings of theorem environment---
+\theoremstyle{definition}
+\newtheorem{dfn}{定義}
+\newtheorem{prop}{命題}
+\newtheorem{thm}{定理}
+\newtheorem{exm}{例}
+\newtheorem{exc}{演習}
+
+% ---settings of proof environment---
+\renewcommand{\proofname}{\textbf{証明}}
+\renewcommand{\qedsymbol}{$\blacksquare$}
+
+% ---Ignore the Warnings---
+\usepackage{silence}
+\WarningFilter{latexfont}{Some font shapes}
+\WarningFilter{latexfont}{Font shape}
+\WarningFilter{latexfont}{Size substitutions}
+\ExplSyntaxOn
+\msg_redirect_name:nnn{hooks}{generic-deprecated}{none}
+\ExplSyntaxOff
+
+% ---Insert the figure (If insert the `draft' at the option, the process becomes faster.)---
+\usepackage{graphicx}
+% \usepackage{subcaption}
+
+% ----Add a link to a text---
+\usepackage{url,hyperref}
+\usepackage[dvipsnames,svgnames]{xcolor}
+\hypersetup{colorlinks=true,citecolor=FireBrick,linkcolor=Navy,urlcolor=purple}
+% ---refer `texdoc xcolor' at the command line---
+
+% ---Tikz---
+% \usepackage{tikz,pgf,pgfplots,circuitikz}
+% \pgfplotsset{compat=1.15}
+% \usetikzlibrary{intersections,arrows.meta,angles,calc,3d,decorations.pathmorphing}
+
+% ---Add the section number to the equation, figure, and table number---
+\makeatletter
+   \renewcommand{\theequation}{$\thesection.\arabic{equation}$}
+   \@addtoreset{equation}{section}
+   
+   \renewcommand{\thefigure}{\thesection.\arabic{figure}}
+   \@addtoreset{figure}{section}
+   
+   \renewcommand{\thetable}{\thesection.\arabic{table}}
+   \@addtoreset{table}{section}
+\makeatother
+
+% ---enumerate---
+% \renewcommand{\labelenumi}{$\arabic{enumi}.$}
+% \renewcommand{\labelenumii}{$(\arabic{enumii})$}
+
+% ---Index---
+% \usepackage{makeidx}
+% \makeindex 
+
+% ---Fonts---
+% \renewcommand{\familydefault}{\sfdefault}
+
+% ---Title---
+\title{ペスキンゼミ\ 11章から13章}
+\author{宮根 一樹}
+\date{最終更新日：\today}
+
+\begin{document}
+
+\maketitle
+
+\tableofcontents
+
+\vspace*{10pt}
+
+卒論発表前後のときとは打って変わってとっても元気なので、ゼミ資料とか作ってみました。勢いに任せているので、クオリティはあまり保証しません。それ以前に、ぺスキンのここらへんは評判良くないらしいですし、僕もそう思います。ですので、僕が犠牲になって(この地雷パートの)雰囲気だけは伝えられたらなと思います。(そもそもこまこまが去る前に僕の発表は終わらないと思うので、文字にしとくのは良いことでしょう。こまこまは卒アルの(あのよく分からない)白いページにこれをはっといてください。卒業のメッセージです。)
+
+\vspace*{10pt}
+
+\begin{itemize}
+   \item
+         Youtubeを見てたら、深夜の首都高一周ドライブをしたくなりました。これを読んだ誰か、一緒に行きましょう。別に危ないことをしたいわけじゃないです。「山手線を$\ast\ast\ast$で一周しました！」って人たちと同じモチベーションです。
+\end{itemize}
+
+\clearpage
+
+\section{くりこみと対称性}
+
+対称性というのがQFT(というか物理全般)で大事なのは周知のこととは思いますが、では、それはくりこみをした後の物理では、もとの対称性ではどうなっているのでしょうか？素朴に考えれば、くりこみでやってることは、ラグランジアンのパラメターをいじることだけですので、ラグランジアン自体の対称性は変わらないような気がするのですが$\cdots$。この章では、まずは古典レベルで一部の対称性を破っておいて、くりこんだ理論がどうなるかどうかを見ていきます。
+
+得られる結果としては
+\begin{itemize}
+   \item
+         古典論のレベルでは、対称性を破ると質量が0の粒子が生成される(ゴールドストーンの定理, \S11.1)
+   \item
+         任意のオーダーでくりこみをした後でも、ゴールドストーンの定理は成立する(\S11.2,\S11.6)
+\end{itemize}
+ということです\footnote{
+   個人的に導入で結論まで言ってしまう構成が好きなので、この資料ではこのスタイルで行こうと思います。
+}。
+
+\subsection{対称性の破れとゴールドストーンの定理}
+
+ここでは、古典レベルで対称性を一部だけ破る
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\end{document}
