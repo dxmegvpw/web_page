@@ -106,14 +106,14 @@
    \item
          春の学校の発表の準備や、研究の進捗があまり芳しくありません。全てはこのゼミ資料のせいです。これを身代わりに助かりたいところですが、まあ、そんなわけにはいかないでしょう。頑張ります。
    \item
-         Youtubeを見てたら、深夜の首都高一周ドライブをしたくなりました。これを読んだ誰か、一緒に行きましょう。別に危ないことをしたいわけじゃないです。「山手線を徒歩/チャリ/電車で一周しました！」って人たちと同じモチベーションです。
+         Youtubeを見てたら、深夜の首都高一周ドライブをしたくなりました。これを読んだ誰か、一緒に行きましょう。別に危ないことをしたいわけじゃないです。「山手線を徒歩/チャリ/電車で一周しました!」って人たちと同じモチベーションです。
 \end{itemize}
 
 \clearpage
 
 \section{くりこみと対称性}
 
-対称性というのがQFT(というか物理全般)で大事なのは周知のこととは思いますが、では、くりこみをした後の物理では、もとの対称性はどうなっているのでしょうか？素朴に考えれば、くりこみでやってることは、ラグランジアンのパラメターをいじることだけですので、ラグランジアン自体の対称性は変わらないような気がするのですが、量子補正は物理量を変えてしまうため、得られる物理量は対称性を反映していない可能性もありそうです。この章では、まずは古典レベルで一部の対称性を破っておいて、くりこんだ理論がどうなるかどうかを見ていきます。
+対称性というのがQFT(というか物理全般)で大事なのは周知のこととは思いますが、では、くりこみをした後の物理では、もとの対称性はどうなっているのでしょうか?素朴に考えれば、くりこみでやってることは、ラグランジアンのパラメターをいじることだけですので、ラグランジアン自体の対称性は変わらないような気がするのですが、量子補正は物理量を変えてしまうため、得られる物理量は対称性を反映していない可能性もありそうです。この章では、まずは古典レベルで一部の対称性を破っておいて、くりこんだ理論がどうなるかどうかを見ていきます。
 
 得られる結果としては
 \begin{itemize}
@@ -164,7 +164,7 @@
    \phi_{0}^{i}
    =
    (0,0,\cdots,v)
-   ,\ 
+   ,\
    v\equiv\frac{\mu}{\sqrt{\lambda}}
 \end{equation}
 ととりましょう。この最小点で場$\phi^{i}$を展開すると
@@ -176,7 +176,7 @@
 と書けるので、ラグランジアン\eqref{eqn:lagrangian_N_linearsigma}を新しい場$\pi^{k},\sigma$で書き換えると
 \begin{align}
    \mathcal{L}
-   &=
+    & =
    \frac{1}{2}(\partial_{\mu}\pi^{k})^2
    +
    \frac{1}{2}(\partial_{\mu}\sigma)^2
@@ -184,11 +184,11 @@
    \frac{1}{2}(2\mu^2)\sigma^2
    \nonumber
    \\
-   &\qquad
+    & \qquad
    -\sqrt{\lambda}\mu\sigma^3
    -\sqrt{\lambda}\mu(\pi^{k})^2\sigma
-   -\frac{\lambda}{4}\sigma^4 
-   -\frac{\lambda}{2}(\pi^{k})^2\sigma^2  
+   -\frac{\lambda}{4}\sigma^4
+   -\frac{\lambda}{2}(\pi^{k})^2\sigma^2
    -\frac{\lambda}{4}[(\pi^{k})^2]^2
    \label{eqn:lagrangian_N_linearsigma_2}
 \end{align}
@@ -198,10 +198,10 @@
 
 ゴールドストーンの定理は教科書に証明があるので、ここでは省略します。読書の手助けのために、その証明のスケッチを述べておくと
 \begin{enumerate}
-   \item 
-   ポテンシャルをVEVの周りで展開して、その2次の係数が質量行列なのだからそこをみる。
-   \item 
-   もし、そのVEVでは元の対称性が保っていないなら、その分だけ質量行列のランクが削れて固有値に0が含まれることになる。
+   \item
+         ポテンシャルをVEVの周りで展開して、その2次の係数が質量行列なのだからそこをみる。
+   \item
+         もし、そのVEVでは元の対称性が保っていないなら、その分だけ質量行列のランクが削れて固有値に0が含まれることになる。
 \end{enumerate}
 といった感じです。
 
@@ -213,11 +213,11 @@
    \delta_{Z}
    \equiv
    Z-1
-   ,\ 
+   ,\
    \delta_{m}
    \equiv
    m_{0}^2Z-m^2
-   ,\ 
+   ,\
    \delta_{\lambda}
    \equiv
    \lambda_{0}Z^2
@@ -230,19 +230,131 @@
    \equiv
    \mathcal{L}_{\mathrm{phys.}}+\mathcal{L}_{\mathrm{c.t.}}
 \end{equation}
-と物理的な項$\mathcal{L}_{\mathrm{phys.}}$と相殺項$\mathcal{L}_{\mathrm{c.t.}}$に分離できます。それぞれ
+と物理的な項$\mathcal{L}_{\mathrm{phys.}}$と相殺項$\mathcal{L}_{\mathrm{c.t.}}$に分離できます。$\mathcal{L}_{\mathrm{phys.}}$のほうは\eqref{eqn:lagrangian_N_linearsigma_2}と同じで、相殺項のほうは
 \begin{align}
-   \mathcal{L}_{\mathrm{phys}}
-   &=
+   \mathcal{L}_{\mathrm{c.t.}}
+    & =
+   \frac{\delta_{Z}}{2}(\partial_{\mu}\pi^{k})^2
+   -
+   \frac{1}{2}(\delta_{\mu}+\delta_{\lambda}v^2)(\pi^{k})^2
+   +
+   \frac{\delta_{Z}}{2}(\partial_{\mu}\sigma^2)^2
+   -
+   \frac{1}{2}(\delta_{\mu}+3\delta_{\lambda}v^2)\sigma^2
+   \nonumber
+   \\
+    & \qquad
+   -
+   (\delta_{\mu}v+\delta_{\lambda}v^3)\sigma
+   -
+   \delta_{\lambda}v\sigma(\pi^{k})^2
+   -
+   \delta_{\lambda}v\sigma^3
+   -
+   \frac{\delta_{\lambda}}{4}[(\pi^{k})^2]^2
+   -
+   \frac{\delta_{\lambda}}{2}\sigma^{2}(\pi^{k})^2
+   -
+   \frac{\delta_{\lambda}}{4}\sigma^4
+   \label{eqn:lagrangian_N_linearsigma_counter}
 \end{align}
+と書けます。したがって、\eqref{eqn:lagrangian_N_linearsigma_2}と\eqref{eqn:lagrangian_N_linearsigma_counter}からファインマンダイアグラムは図\ref{fig:feynman_1}ようになります。
 
+\begin{figure}[ht]
+   \centering
+   (ダイアグラム)
+   \caption{ファインマンダイアグラム}
+   \label{fig:feynman_1}
+\end{figure}
 
+この理論には、相殺項が3つ$\delta_{Z},\delta_{\mu},\delta_{\lambda}$しかありません。したがって、くりこみ条件を3つ用意して発散を相殺しようと思うわけですが、理論が複数の頂点をもつことから、3つのパラメターチューニングだけで発散が消せるかどうかは自明ではないように思います。もし、3つのくりこみ条件が足りないなら、新たに相殺項を導入することによって発散を消そうと思うわけですが、それはラグランジアンの対称性をさらに破る可能性が考えられます。
 
+しかしながら、少なくともone-loopのレベルでのくりこみは、上のゴールドストーンの定理を破らないことが分かっているので、ここでは愚直に計算してその事実を確認してみましょう。まずはくりこみ条件ですが、ここでは以下のようにします：
+\begin{align}
+   \vcenter{\hbox{\includegraphics{fig/11_17_1.pdf}}}
+    & =
+   0
+   ,
+   \label{eqn:renorm_cond_1}
+   \\
+   \dv{}{p^2}
+   \left(
+   \vcenter{\hbox{\includegraphics{fig/11_17_2.pdf}}}
+   \right)
+    & =
+   0
+   \qquad
+   (p^2=m^2)
+   ,
+   \label{eqn:renorm_cond_2}
+   \\
+   \vcenter{\hbox{\includegraphics{fig/11_17_3.pdf}}}
+    & =
+   -6i\lambda
+   .
+   \label{eqn:renorm_cond_3}
+\end{align}
+1つめの条件はVEVのシフトを無視して簡単にするための条件、残り2つは$m,\lambda$を決めるための条件に対応しているそうです。まずは3つめの条件\eqref{eqn:renorm_cond_3}を見ていきます。この条件は発散を相殺する頂点も併せて条件を考えてやると、
+\begin{equation}
+   \cdots
+\end{equation}
+といった量が$-6i\lambda$になればよいです\footnote{
+   教科書の$\mathrm{Im}$はタイポ?
+}。ただし、crossesのところは、ダイアグラムの形が変わるところで、例えば1つめは
+\begin{equation}
+   \cdots
+\end{equation}
+のことです。計算は省略しますが、これらの条件の漸近的なふるまいから$\delta_{\lambda}$が決まって
+\begin{equation}
+   \delta_{\lambda}
+   \sim
+   \lambda^{\lambda}(N+8)\frac{\Gamma(2-d/2)}{(4\pi)^2}
+\end{equation}
+です。
 
+同様にして、残りの$\delta_{\mu},\delta_{Z}$を決めましょう。条件\eqref{eqn:renorm_cond_1}は
+\begin{equation}
+   \vcenter{\hbox{\includegraphics{fig/11_30_1.pdf}}}
+   +
+   \vcenter{\hbox{\includegraphics{fig/11_30_2.pdf}}}
+   +
+   \vcenter{\hbox{\includegraphics{fig/11_30_3.pdf}}}
+   =
+   0
+\end{equation}
+に対応していて、これを計算すると
+\begin{equation}
+   \delta_{\mu}
+   +
+   v^2\delta_{\lambda}
+   =
+   -\lambda\frac{\Gamma(1-d/2)}{(4\pi)^{d/2}}
+   \left(
+   \frac{3}{(2\mu^2)^{1-d/2}}
+   +
+   \frac{N-1}{(\zeta^2)^{1-d/2}}
+   \right)
+\end{equation}
+から$\delta_{\mu}$が決まります(既に$\delta_{\lambda}$は知っているので)。残りは条件\eqref{eqn:renorm_cond_2}ですが、これを書き下すと
+\begin{equation}
+   \dv{}{p^2}
+   \left(  
+      \vcenter{\hbox{\includegraphics{fig/11_34_1.pdf}}}
+      +
+      \vcenter{\hbox{\includegraphics{fig/11_34_2.pdf}}}
+      +
+      \vcenter{\hbox{\includegraphics{fig/11_34_3.pdf}}}
+      +
+      \vcenter{\hbox{\includegraphics{fig/11_34_4.pdf}}}
+      +
+      \vcenter{\hbox{\includegraphics{fig/11_34_5.pdf}}}
+   \right)
+   =
+   0
+\end{equation}
+となりますが、実はこれを計算すると$\delta_{Z}=0$でよいことが分かります。
 
-
-
-
+以上の議論で、くりこみ定数がもとまったわけですが、これらの定数から他の発散のあるダイアグラムが消えるかどうかは調べる必要があります。教科書はいくつかやっているので、ここでは後の議論に関わってくる$\pi$の2点振幅を見ていきましょう。
 
 
 
