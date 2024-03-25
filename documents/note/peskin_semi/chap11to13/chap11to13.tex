@@ -409,11 +409,126 @@
 
 \subsection{有効作用の計算}
 
+実際に今の文脈で計算する方法を見ていきます。まず、ラグランジアンは
+\begin{equation}
+   \mathcal{L}
+   =
+   \mathcal{L}_{1}
+   +
+   \delta\mathcal{L}
+\end{equation}
+と物理的な項$\mathcal{L}_{1}$と相殺項$\delta\mathcal{L}$に分けておきます。
 
+摂動の0次では、その解は古典解$\phi_{\mathrm{c}}$のはずなので、
+\begin{equation}
+   \left.
+   \frac{\delta\mathcal{L}}{\delta\phi}
+   \right|_{\phi=\phi_{\mathrm{c}}}
+   +
+   J
+   =
+   0
+\end{equation}
+が成立しています(紛らわしくてぶん殴りたくなりますが、第1項は変分ですのでそれ自体が運動方程式です)。ここで、$J_{1}$をこのうち相殺項を除いた方程式
+\begin{equation}
+   \left.
+   \frac{\delta\mathcal{L}_1}{\delta\phi}
+   \right|_{\phi=\phi_{\mathrm{c}}}
+   +
+   J_{1}
+   =
+   0
+\end{equation}
+で定義しておきます。後は$\delta J\equiv J-J_{1}$としておけば、相殺項は分離できて
+\begin{equation}
+   e^{-i E[J]}
+   =
+   \int\mathcal{D}\phi\
+   \exp
+   \left[
+   i\int\dd^4 x\
+   (\mathcal{L}_{1}+J_{1}\phi)
+   \right]
+   \exp
+   \left[
+      i\int\dd^4 x\
+      (\delta\mathcal{L}+\delta J\phi)
+      \right]
+\end{equation}
+となります。後ろのほうはいったん忘れて、1つめの因子に注目しましょう。今回やりたいのは、古典場$\phi=\phi_{\mathrm{c}}$が従うポテンシャルを有効的に書き下してやることですので、その周りで展開して
+\begin{align}
+   \mathcal{L}_{1}+J_{1}\phi
+    & =
+   \left(
+   \mathcal{L}_{1}[\phi_{\mathrm{c}}]+J_{1}\phi_{\mathrm{c}}
+   \right)
+   +
+   \left(
+   \frac{\delta\mathcal{L}_{1}}{\delta\phi}[\phi_{\mathrm{c}}]
+   +
+   J
+   \right)\eta
+   \nonumber
+   \\
+    & \qquad
+   +
+   \frac{1}{2}\int\dd^4 y\
+   \frac{\delta^2 \mathcal{L}_1}{\delta\phi(x)\delta\phi(y)}[\phi_{\mathrm{c}}]\eta(x)\eta(y)
+   +
+   \cdots
+\end{align}
+としておきます。ただし、$\eta\equiv\phi-\phi_{\mathrm{c}}$。$\eta$の1次は古典解の条件から消えて、2次以降が量子補正となります。経路積分の変数を$\phi$から$\eta$に変えて、最初の補正を加えた部分を見ると
+\begin{equation}
+   \int\mathcal{D}\eta\ 
+   \exp
+   \left[  
+      i
+      \left(  
+         \int\dd^4 x (\mathcal{L}_{1}[\phi_{\mathrm{c}}]+J\phi_{\mathrm{c}})
+      \right)
+   \right]
+   \cdot
+   \exp
+   \left[  
+      \frac{1}{2}
+      \int\dd^4 x\dd^4 y\ 
+      \eta\frac{\delta^2\mathcal{L}_{1}}{\delta\phi\delta\phi}\eta
+   \right]
+\end{equation}
+となっており、量子補正のほうはガウシアンの積分なのでこれは行列式がでてきて
+\begin{equation}
+   \int\mathcal{D}\eta\    
+   \exp
+   \left[  
+      \frac{1}{2}
+      \int\dd^4 x\dd^4 y\ 
+      \eta\frac{\delta^2\mathcal{L}_{1}}{\delta\phi\delta\phi}\eta
+   \right]
+   =
+   \left(  
+      \mathrm{det\ }
+      \left[  
+         -\frac{\delta^2\mathcal{L}_{1}}{\delta\phi\delta\phi}
+      \right]
+   \right)^{-1/2}
+\end{equation}
+です。この部分が量子補正として有効ポテンシャルに関わってきます。
 
-
-
-
+線形シグマ模型を例に計算してみましょう。ラグランジアン
+\begin{equation}
+   \mathcal{L}_{1}
+   =
+   \frac{1}{2}(\partial_{\mu}\phi^{i})^2
+   +
+   \frac{1}{2}\mu^2 (\phi^{i})^2
+   -
+   \frac{\lambda}{4}[(\phi^{i})^2]^2
+\end{equation}
+をテイラー展開すると
+\begin{align}
+   \mathcal{L}_{1}
+   &=
+\end{align}
 
 
 
