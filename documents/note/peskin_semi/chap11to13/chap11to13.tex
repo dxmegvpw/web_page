@@ -106,6 +106,8 @@
    \item
          春の学校の発表の準備や、研究の進捗があまり芳しくありません。全てはこのゼミ資料のせいです。これを身代わりに助かりたいところですが、まあ、そんなわけにはいかないでしょう。頑張ります。
    \item
+         ファインマンダイアグラムを書くのがきつい。もう少し時間があったらちゃんとやったのですが。
+   \item
          Youtubeを見てたら、深夜の首都高一周ドライブをしたくなりました。これを読んだ誰か、一緒に行きましょう。別に危ないことをしたいわけじゃないです。「山手線を徒歩/チャリ/電車で一周しました!」って人たちと同じモチベーションです。
 \end{itemize}
 
@@ -258,14 +260,7 @@
    \frac{\delta_{\lambda}}{4}\sigma^4
    \label{eqn:lagrangian_N_linearsigma_counter}
 \end{align}
-と書けます。したがって、\eqref{eqn:lagrangian_N_linearsigma_2}と\eqref{eqn:lagrangian_N_linearsigma_counter}からファインマンダイアグラムは図\ref{fig:feynman_1}ようになります。
-
-\begin{figure}[ht]
-   \centering
-   (ダイアグラム)
-   \caption{ファインマンダイアグラム}
-   \label{fig:feynman_1}
-\end{figure}
+と書けます。したがって、\eqref{eqn:lagrangian_N_linearsigma_2}と\eqref{eqn:lagrangian_N_linearsigma_counter}からファインマンダイアグラムは教科書の図11.3のようになります。
 
 この理論には、相殺項が3つ$\delta_{Z},\delta_{\mu},\delta_{\lambda}$しかありません。したがって、くりこみ条件を3つ用意して発散を相殺しようと思うわけですが、理論が複数の頂点をもつことから、3つのパラメターチューニングだけで発散が消せるかどうかは自明ではないように思います。もし、3つのくりこみ条件が足りないなら、新たに相殺項を導入することによって発散を消そうと思うわけですが、それはラグランジアンの対称性をさらに破る可能性が考えられます。
 
@@ -294,17 +289,9 @@
    .
    \label{eqn:renorm_cond_3}
 \end{align}
-1つめの条件はVEVのシフトを無視して簡単にするための条件、残り2つは$m,\lambda$を決めるための条件に対応しているそうです。まずは3つめの条件\eqref{eqn:renorm_cond_3}を見ていきます。この条件は発散を相殺する頂点も併せて条件を考えてやると、
-\begin{equation}
-   \cdots
-\end{equation}
-といった量が$-6i\lambda$になればよいです\footnote{
+1つめの条件はVEVのシフトを無視して簡単にするための条件、残り2つは$m,\lambda$を決めるための条件に対応しているそうです。まずは3つめの条件\eqref{eqn:renorm_cond_3}を見ていきます。この条件は発散を相殺する頂点も併せて条件を考えてやると、教科書の式(11.18)が$-6i\lambda$になればよいです\footnote{
    教科書の$\mathrm{Im}$はタイポ?
-}。ただし、crossesのところは、ダイアグラムの形が変わるところで、例えば1つめは
-\begin{equation}
-   \cdots
-\end{equation}
-のことです。計算は省略しますが、これらの条件の漸近的なふるまいから$\delta_{\lambda}$が決まって
+}。ただし、crossesのところは、ダイアグラムの形が変わるところで、教科書の326ページの式の最初の式の第1項みたいな感じです。計算は省略しますが、これらの条件の漸近的なふるまいから$\delta_{\lambda}$が決まって
 \begin{equation}
    \delta_{\lambda}
    \sim
@@ -338,23 +325,111 @@
 から$\delta_{\mu}$が決まります(既に$\delta_{\lambda}$は知っているので)。残りは条件\eqref{eqn:renorm_cond_2}ですが、これを書き下すと
 \begin{equation}
    \dv{}{p^2}
-   \left(  
-      \vcenter{\hbox{\includegraphics{fig/11_34_1.pdf}}}
-      +
-      \vcenter{\hbox{\includegraphics{fig/11_34_2.pdf}}}
-      +
-      \vcenter{\hbox{\includegraphics{fig/11_34_3.pdf}}}
-      +
-      \vcenter{\hbox{\includegraphics{fig/11_34_4.pdf}}}
-      +
-      \vcenter{\hbox{\includegraphics{fig/11_34_5.pdf}}}
+   \left(
+   \vcenter{\hbox{\includegraphics{fig/11_34_1.pdf}}}
+   +
+   \vcenter{\hbox{\includegraphics{fig/11_34_2.pdf}}}
+   +
+   \vcenter{\hbox{\includegraphics{fig/11_34_3.pdf}}}
+   +
+   \vcenter{\hbox{\includegraphics{fig/11_34_4.pdf}}}
+   +
+   \vcenter{\hbox{\includegraphics{fig/11_34_5.pdf}}}
    \right)
    =
    0
 \end{equation}
 となりますが、実はこれを計算すると$\delta_{Z}=0$でよいことが分かります。
 
-以上の議論で、くりこみ定数がもとまったわけですが、これらの定数から他の発散のあるダイアグラムが消えるかどうかは調べる必要があります。教科書はいくつかやっているので、ここでは後の議論に関わってくる$\pi$の2点振幅を見ていきましょう。
+以上の議論で、くりこみ定数がもとまったわけですが、これらの定数から他の発散のあるダイアグラムが消えるかどうかは調べる必要があります。教科書はいくつかやっているので、ここでは後の議論に関わってくる$\pi$の2点振幅を見ていきましょう。そのためには$\pi$と$\pi$の相殺項を見ればよいのですが、それは教科書の式(11.37)のようになります。このダイアグラムはこれまでにもとめた$\delta_{\lambda},\delta_{\mu},\delta_{Z}$によってちょうど有限になることが計算から分かるのですが、そもそも$p=0$でその値が0になることが分かります。このダイアグラムの極が質量の場所を示すわけですが、そもそも0なら極なしで質量はありませんので$\pi$は質量なし、と結論付けられるわけです。
+
+
+\subsection{有効作用}
+
+前節では、くりこみ条件をうまくとることによってVEVのシフトが起こらないようにしていましたが、一般にはそういったことが起こりえます。VEVは古典的にはポテンシャルの最小点であるわけですが、量子補正が入るとVEVが最小点からずれる可能性があります。量子補正を取り込んだVEVも\textbf{量子効果込みの}新しいポテンシャルの最小点になっているはずですので、そのようなポテンシャルをもとめる手続きを考えよう、というのが今後の目標になります。このときに、熱力学のギブスポテンシャルが参考になります。ギブスエネルギーは、ヘルムホルツの自由エネルギーをルジャンドル変換して得られるわけですが、この最小点が熱力学的に安定な状態となります\footnote{
+   もちろん、ヘルムホルツの自由エネルギーを最小化するところも安定点なのですが、それは見ている変数が違います。今回は、分配関数から始める都合上、変数はヘルムホルツよりもギブスのものがいいっていう感じなんじゃないでしょうか。完全に私の憶測ですが。
+}。
+
+お話はこれぐらいにしておいて、分配関数が
+\begin{equation}
+   Z[J]
+   =
+   \int\mathcal{D}\phi\
+   \exp
+   \left[
+      \mathcal{L}+J\phi
+      \right]
+   \equiv
+   e^{-i E[J]}
+\end{equation}
+と書けると思いましょう。ここで、$E[J]$はヘルムホルツの自由エネルギーに対応するものです。したがって、これを$J$で微分したものが場$\phi$の真空期待値になっているはずなので、これを
+\begin{equation}
+   \phi_{\mathrm{c}}
+   \equiv
+   -
+   \frac{\delta}{\delta J(x)}E[J]
+\end{equation}
+と定義しておきましょう\footnote{
+   これはスピン系に外場をかけたときに、スピンが平均してどの向きに傾くのかに対応しています。
+}。と、すると、これをむしろ1つの変数だとみなすポテンシャルがルジャンドル変換によって得られるので、それを
+\begin{equation}
+   \Gamma[\phi_{\mathrm{c}}]
+   \equiv
+   -
+   E[J]
+   -
+   \int\dd^4 y\
+   J(y)\phi_{\mathrm{c}}(y)
+\end{equation}
+と書くことにします。この$\Gamma[\phi_{\mathrm{c}}]$を\textbf{有効作用}と呼び、これらが時空の体積$V\cdot T$に比例しているとしたとき、その係数
+\begin{equation}
+   V_{\mathrm{rff}}[\phi_{\mathrm{c}}]
+   \equiv
+   -\frac{1}{VT}\Gamma[\phi_{\mathrm{c}}]
+\end{equation}
+を\textbf{有効ポテンシャル}とよぶことにします。これらは、
+\begin{align}
+   \frac{\delta}{\delta \phi_{\mathrm{c}}(x)}E[J]
+    & =
+   -
+   \frac{\delta}{\delta \phi_{\mathrm{c}}(x)}
+   -
+   \frac{\delta}{\delta \phi_{\mathrm{c}}(x)}
+   \int\dd^4 y\
+   J(y)\phi_{\mathrm{c}}(y)
+   \nonumber
+   \\
+    & =
+   -J(x)
+\end{align}
+となることから、$J=0$のときはVEVが古典レベルのVEVと一致します。
+
+実は、この手続きはもともとのポテンシャルを強引に凸関数にして準安定な真空をつぶしていることに対応するのですが、これの説明については省略します。とにかく、この有効ポテンシャル$V_{\mathrm{rff}}[\phi_{\mathrm{c}}]$が計算できれば、後は視覚的にVEVの位置が分かるので非常に有用です。
+
+
+\subsection{有効作用の計算}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

@@ -14,11 +14,12 @@
 \begin{document}  
 \begin{tikzpicture}[scale=1]
   \begin{feynhand}
-    \vertex [particle] (a) at (0.5,0) {};
-    \vertex [crossdot] (b) at (0,0) {};
-    \vertex [particle] (c) at (-0.5,0) {};
-    \draw [double distance=2pt] (a) to (b);
-    \draw [double distance=2pt] (b) to (c);
+    \vertex [particle] (a) at (0.7,0) {};
+    % \vertex [crossdot] (b) at (0,0) {};
+    \vertex [particle] (c) at (-0.7,0) {$\pi^{i}$};
+    \draw [] (a) to (c);
+    \draw [arrows = {-Latex[scale=1.5]}] (0.1,0) -- (0.2,0);
+    \node (0.1,0) [below] {\small $p$} ; 
   \end{feynhand}
 \end{tikzpicture}
 \end{document}
