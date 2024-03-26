@@ -479,36 +479,36 @@
 \end{align}
 としておきます。ただし、$\eta\equiv\phi-\phi_{\mathrm{c}}$。$\eta$の1次は古典解の条件から消えて、2次以降が量子補正となります。経路積分の変数を$\phi$から$\eta$に変えて、最初の補正を加えた部分を見ると
 \begin{equation}
-   \int\mathcal{D}\eta\ 
+   \int\mathcal{D}\eta\
    \exp
-   \left[  
-      i
-      \left(  
-         \int\dd^4 x (\mathcal{L}_{1}[\phi_{\mathrm{c}}]+J\phi_{\mathrm{c}})
-      \right)
+   \left[
+   i
+   \left(
+   \int\dd^4 x (\mathcal{L}_{1}[\phi_{\mathrm{c}}]+J\phi_{\mathrm{c}})
+   \right)
    \right]
    \cdot
    \exp
-   \left[  
+   \left[
       \frac{1}{2}
-      \int\dd^4 x\dd^4 y\ 
+      \int\dd^4 x\dd^4 y\
       \eta\frac{\delta^2\mathcal{L}_{1}}{\delta\phi\delta\phi}\eta
-   \right]
+      \right]
 \end{equation}
 となっており、量子補正のほうはガウシアンの積分なのでこれは行列式がでてきて
 \begin{equation}
-   \int\mathcal{D}\eta\    
+   \int\mathcal{D}\eta\
    \exp
-   \left[  
+   \left[
       \frac{1}{2}
-      \int\dd^4 x\dd^4 y\ 
+      \int\dd^4 x\dd^4 y\
       \eta\frac{\delta^2\mathcal{L}_{1}}{\delta\phi\delta\phi}\eta
-   \right]
+      \right]
    =
-   \left(  
-      \mathrm{det\ }
-      \left[  
-         -\frac{\delta^2\mathcal{L}_{1}}{\delta\phi\delta\phi}
+   \left(
+   \mathrm{det\ }
+   \left[
+      -\frac{\delta^2\mathcal{L}_{1}}{\delta\phi\delta\phi}
       \right]
    \right)^{-1/2}
 \end{equation}
@@ -524,12 +524,49 @@
    -
    \frac{\lambda}{4}[(\phi^{i})^2]^2
 \end{equation}
-をテイラー展開すると
+を$\phi^{I}=\phi_{\mathrm{c}}^{I}$のまわりで展開すると
 \begin{align}
    \mathcal{L}_{1}
-   &=
+    & =
+   \frac{1}{2}(\partial_{\mu}\eta^{i})^2
+   +
+   \frac{1}{2}\mu^2 (\phi_{\mathrm{c}}^{i}+\eta^{i}(x))^2
+   -
+   \frac{\lambda}{4}[(\phi_{\mathrm{c}}^{i}+\eta^{i}(x))^2]^2
+   \nonumber
+   \\
+    & =
+   \frac{1}{2}(\partial_{\mu}\eta^{i})^2
+   +
+   \frac{1}{2}\mu^2(\phi_{\mathrm{c}^{i}})^2
+   -
+   \frac{\lambda}{4}[(\phi_{\mathrm{c}}^{i})^2]^2
+   +
+   (\mu^2-\lambda(\phi_{\mathrm{c}}^{i})^2)\phi_{\mathrm{c}}^{i}\eta^{i}
+   \nonumber
+   \\
+    & \qquad
+   +
+   \frac{1}{2}\mu^2(\eta^{i})^2
+   -
+   \frac{\lambda}{2}[(\phi_{\mathrm{c}}^{i})^2(\eta^{i})^2+2(\phi_{\mathrm{c}}^{i}\eta^{i})^2]
+   +
+   \cdots
 \end{align}
-
+となります。この場合、$\eta^{i}$について2次なのは
+\begin{equation}
+   \frac{\delta^{2}}{\delta\eta^{i}\delta\eta^{j}}\mathcal{L}_{1}
+   =
+   -
+   \delta^{ij}\partial^{2}
+   +
+   \mu^2\delta^{ij}
+   -
+   \lambda[(\phi_{\mathrm{c}}^{k})^2\delta^{ij}+2\phi_{\mathrm{c}}^{i}\phi_{\mathrm{c}}^{j}]
+\end{equation}
+です。ただし、変分をとっていることから第1項は微の形で残しておきます\footnote{
+   固有値が作る行列です。
+}。あとは、これの$\mathrm{det}$をとりたいのですが、VEVを決めてしまってもう少し計算を楽にしましょう。
 
 
 
