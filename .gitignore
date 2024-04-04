@@ -7,3 +7,7 @@
 *.bbl
 *.Identifier
 *.xdv
+*.blg
+*.nav
+*.snm
+*.toc

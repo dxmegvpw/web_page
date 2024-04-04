@@ -1,5 +1,6 @@
 \documentclass[
-  unicode,a4paper,11pt,aspectratio=169,
+  unicode,a4paper,10pt,
+  % aspectratio=169,
   xcolor = {dvipsnames,svgnames},
   hyperref ={colorlinks=true,citecolor=Navy,linkcolor=NavyBlue,urlcolor=purple},
   ja=standard,lualatex
@@ -26,7 +27,8 @@
 
 % ---Physics and Math Packages---
 \usepackage{amssymb,amsfonts,amsthm,mathtools}
-\usepackage{physics,braket,bm}
+\usepackage{physics,braket}
+\usepackage{bm}
 
 % ---underline---
 \usepackage[normalem]{ulem}
@@ -87,11 +89,13 @@
 \setbeamertemplate{frametitle continuation}{}
 \setbeamertemplate{footline}[frame number]
 \setbeamertemplate{navigation symbols}{} 
-\setbeamersize{text margin left=15pt, text margin right=15pt}
+\setbeamersize{text margin left=10pt, text margin right=10pt}
 
 % ---tcolorbox---
 \usepackage{tcolorbox}
-\tcbuselibrary{raster,skins,theorems}
+\tcbuselibrary{theorems}
+\tcbuselibrary{raster}
+\tcbuselibrary{skins}
 \newtcolorbox{bluebox}[2][]{enhanced,
 colframe=RoyalBlue!40!white,
 colback=RoyalBlue!10!white,
@@ -273,7 +277,7 @@ drop fuzzy shadow, title={#2}
     \Large
     Moduli stabilization
 
-    on (for/at ?) supersymmetric magnetized D9-brane model
+    on (for/at/in ?) supersymmetric magnetized D9-brane model
   \end{block}
 
   \begin{center}
@@ -341,10 +345,49 @@ drop fuzzy shadow, title={#2}
 
 \begin{frame}{Moduli stabilization}
 
+  The metrics in 10-dimensional spacetime are dynamical fields:
+  \begin{align}
+    \dd s^{10}
+     & =
+    \textcolor{DarkBlue}{G_{MN}}\dd X^{M}\dd X^{N}
+    \nonumber
+    \\
+     & =
+    \textcolor{DarkBlue}{g_{\mu\nu}(x,y)}\dd x^{\mu}\dd x^{\nu}
+    +
+    \textcolor{DarkBlue}{g_{mn}(x,y)}\dd y^{m}\dd y^{n}
+    \nonumber
+  \end{align}
 
-  $\cdots$
+  Thus, its vacuum expectation value (VEV) should be determined \textbf{\textcolor{Goldenrod}{by its dynamics}}.
 
-  These procedures are called \textcolor{Red}{moduli stabilization}.
+  \pause
+
+  \uline{How?}
+
+  \begin{columns}[t]
+    \begin{column}{0.4\textwidth}
+      What we have to do is just
+      \begin{itemize}
+        \item
+              Write down the potential \\
+              for moduli (\uline{e.g.}\ $g_{mn}$)
+        \item
+              Compute the minimum and \\
+              identify the value $\ev*{g_{mn}}$
+      \end{itemize}
+    \end{column}
+    \begin{column}{0.4\textwidth}
+      \vspace*{-20pt}
+      \begin{center}
+        \includegraphics[width=1.0\textwidth]{fig/vev_idea.png}
+      \end{center}
+    \end{column}
+  \end{columns}
+
+  \vspace{10pt}
+
+  These procedures are called \textcolor{red}{moduli stabilization}.
 
 \end{frame}
 
@@ -352,6 +395,8 @@ drop fuzzy shadow, title={#2}
 \begin{frame}{Purpose of my study}
 
   We will discuss the \textcolor{Red}{moduli stabilization} on \textcolor{DarkOrange}{magnetized torus model}.
+
+  $\cdots\cdots$
 
 
 
@@ -367,8 +412,231 @@ drop fuzzy shadow, title={#2}
 
 \begin{frame}{Torus compactification and Magnetic flux}
 
+  \uline{Torus compactification}
+  \begin{itemize}
+    \item
+          Compactifying 6d extra dimensions for three tori $(T^2)^3$.
+          \\
+          \vspace*{5pt}
+          \hspace*{2.8cm}\includegraphics[width=0.4\textwidth]{fig/tori.png}
+          \\
+          \hspace*{3.0cm}
+          $\mathcal{A}^{(1)}$
+          \hspace*{1.0cm}
+          $\mathcal{A}^{(2)}$
+          \hspace*{1.0cm}
+          $\mathcal{A}^{(3)}$
+          \hspace*{0.5cm}
+          : area of the $i$-th torus
+    \item
+          $\mathcal{A}^{(i)}(x)$ are also \textcolor{DarkMagenta}{moduli} since it is related to the metric.
+  \end{itemize}
+
+  \vspace*{15pt}
+
+  \pause
+
+  \begin{columns}[t]
+    \begin{column}{0.5\textwidth}
+      \uline{\textcolor{DarkOrange}{Magnetic flux}}
+      \begin{itemize}
+        \item
+              Assigning the magnetic flux $M_{a}^{(i)}\ (a=1,2)$
+              \\
+              for two gauge fields on each tori.
+      \end{itemize}
+    \end{column}
+    \begin{column}{0.48\textwidth}
+      \vspace*{-15pt}
+      \includegraphics[width=1.0\textwidth]{fig/tori_fluxed.png}
+    \end{column}
+  \end{columns}
+
+\end{frame}
 
 
+\begin{frame}{Finding the VEVs by fluxes}
+
+  By \textcolor{DarkOrange}{magnetic fluxes} in an extra dimension, \textcolor{DarkMagenta}{moduli $\mathcal{A}^{(i)}(x)$} obtain its potential \textcolor{DarkOrange}{$V^{(D)}$}.
+
+  \vspace{-20pt}
+
+  \begin{center}
+    \huge $\downarrow$
+  \end{center}
+
+  \vspace{-10pt}
+
+  Finding minima and determining the VEVs of $\ev*{\mathcal{A}^{i}}$.
+
+  \pause
+
+  \vspace{10pt}
+
+  \uline{Potential by \textcolor{DarkOrange}{magnetic fluxes}}\qquad
+  $
+    F^{MN}F_{MN}
+    =
+    F^{\mu\nu}F_{\mu\nu}
+    +
+    \uwave{F^{mn}F_{mn}}
+    +
+    \cdots
+  $
+  \\
+  \hspace*{9cm}{\Large $\downarrow$}
+  \begin{equation}
+    \textcolor{DarkOrange}{V^{(D)}}
+    =
+    \pi^2
+    \prod_{i}\mathcal{A}^{i}
+    \times
+    \left\{
+    \uline{
+      \left(
+      \sum_{i}\frac{M_{1}^{(i)}}{\mathcal{A}^{(i)}}
+      \right)^2
+    }
+    +
+    \uline{
+      \left(
+      \sum_{i}\frac{M_{2}^{(i)}}{\mathcal{A}^{(i)}}
+      \right)^2
+    }
+    \right\}
+    \nonumber
+  \end{equation}
+
+  \pause
+
+  \begin{center}
+    $\longrightarrow$\hspace*{10pt}
+    \tikz[baseline=(x.base)]{
+      \node(x)[rectangle, fill=DarkRed!10, rounded corners]{
+        \
+        $
+          \displaystyle
+          \frac{M_{a}^{(1)}}{\ev*{\mathcal{A}^{(1)}}}
+          +
+          \frac{M_{a}^{(2)}}{\ev*{\mathcal{A}^{(2)}}}
+          +
+          \frac{M_{a}^{(3)}}{\ev*{\mathcal{A}^{(3)}}}
+          =
+          0
+          \quad
+          \text{for}
+          \
+          a=1,2$\ };
+    }
+  \end{center}
+
+\end{frame}
+
+
+\begin{frame}{Finding the VEVs by fluxes}
+
+  \uline{Relation of the VEVs $\ev*{\mathcal{A}^{(1)}},\ev*{\mathcal{A}^{(2)}},\ev*{\mathcal{A}^{(3)}}$}
+
+  \begin{center}
+    \tikz[baseline=(x.base)]{
+      \node(x)[rectangle, fill=DarkRed!10, rounded corners]{
+        \
+        $
+          \displaystyle
+          \frac{M_{a}^{(1)}}{\ev*{\mathcal{A}^{(1)}}}
+          +
+          \frac{M_{a}^{(2)}}{\ev*{\mathcal{A}^{(2)}}}
+          +
+          \frac{M_{a}^{(3)}}{\ev*{\mathcal{A}^{(3)}}}
+          =
+          0
+          \quad
+          \text{for}
+          \
+          a=1,2$\ };
+    }
+  \end{center}
+
+  \pause
+
+  \vspace*{-20pt}
+
+  \begin{gather}
+    \longrightarrow\quad
+    M_{a}^{(1)}
+    +
+    M_{a}^{(2)}
+    \frac{\ev*{\mathcal{A}^{(1)}}}{\ev*{\mathcal{A}^{(2)}}}
+    +
+    M_{a}^{(3)}
+    \frac{\ev*{\mathcal{A}^{(1)}}}{\ev*{\mathcal{A}^{(3)}}}
+    =
+    0
+    \nonumber
+    \\
+    \text{\Large $\downarrow$}
+    \nonumber
+    \\
+    \hspace*{-10pt}
+    \frac{\ev*{\mathcal{A}^{(1)}}}{\ev*{\mathcal{A}^{(2)}}}
+    =
+    \frac{
+    M_{1}^{(3)} M_{2}^{(1)}-M_{1}^{(1)} M_{2}^{(3)}
+    }{
+    M_{1}^{(2)} M_{2}^{(3)}- M_{1}^{(3)} M_{2}^{(2)}
+    }
+    \ ,\
+    \frac{\ev*{\mathcal{A}^{(1)}}}{\ev*{\mathcal{A}^{(3)}}}
+    =
+    -\frac{
+    M_{1}^{(2)} M_{2}^{(1)}-M_{1}^{(1)} M_{2}^{(2)}
+    }{
+    M_{1}^{(2)} M_{2}^{(3)}-M_{1}^{(3)} M_{2}^{(2)}
+    }
+    \nonumber
+  \end{gather}
+
+  \pause
+
+  \setbeamertemplate{blocks}[rounded][shadow=true]
+  \setbeamercolor{block body}{bg=Goldenrod!10!white, fg=black}
+
+  \begin{block}{}
+    \centering
+    The ratios of the moduli's VEVs are determined by the fluxes potential.
+  \end{block}
+
+\end{frame}
+
+
+\begin{frame}{Summary so far}
+
+  \begin{itemize}
+    \item
+          We could stabilize the moduli\\
+          and obtain the ratio of its VEVs $\textcolor{DarkMagenta}{\ev*{\mathcal{A}^{(1)}}/\ev*{\mathcal{A}^{(2)}}\ \&\ \ev*{\mathcal{A}^{(1)}}/\ev*{\mathcal{A}^{(3)}}}$.
+          \pause
+    \item
+          But the \textcolor{Green}{\textbf{overall factor} $T$} is undetermined.
+          \begin{equation}
+            \textcolor{Green}{T}
+            \propto
+            \textcolor{DarkMagenta}{\ev*{\mathcal{A}^{(1)}}} ,
+            \textcolor{DarkMagenta}{\ev*{\mathcal{A}^{(2)}}} ,
+            \textcolor{DarkMagenta}{\ev*{\mathcal{A}^{(3)}}}
+            \nonumber
+          \end{equation}
+  \end{itemize}
+
+  \vspace*{10pt}
+
+  \pause
+
+  \begin{center}
+    Introducing a potential that \textcolor{Goldenrod}{has a different origin} than the magnetic fluxes
+    \\
+    to stabilize \textcolor{Green}{\textbf{overall factor} $T$}.
+  \end{center}
 
 \end{frame}
 
@@ -381,20 +649,62 @@ drop fuzzy shadow, title={#2}
 
 \begin{frame}{$F$-term potential}
 
+  \uline{Effective potential for the moduli $T$}
+  \begin{itemize}
+    \item
+          Its effective theory remains supersymmetric.
+    \item
+          Supersymmetric action is determined\\
+          \qquad by \textcolor{RoyalBlue}{\textbf{super potential} $W$} and \textcolor{DarkRed}{\textbf{K\"{a}hler potential} $K$}.
+    \item
+          We will study the following potential now\cite{Abe:2006xp}:
+          \begin{equation}
+            \left\{
+            \begin{alignedat}{1}
+              W
+              &=
+              w_{0}-Ae^{-a\textcolor{DarkRed}{T}}+B\textcolor{DarkBlue}{X}
+              \\
+              K
+              &=
+              -
+              \ln (\textcolor{DarkRed}{T}+\textcolor{DarkRed}{\bar{T}})
+              +
+              \textcolor{DarkBlue}{|X|^2}
+            \end{alignedat}
+            \right.
+            \nonumber
+          \end{equation}
+          \begin{center}
+            \small
+            $\textcolor{DarkBlue}{X}$は新たに導入したスカラー場
+            ，
+            $w_{0}, A, B, a$は実パラメター
+          \end{center}
+  \end{itemize}
 
+\end{frame}
+
+
+\begin{frame}{$F$-term potential}
+  
 
 
 \end{frame}
 
 
 
-
-
 \section{Summary}
 
 
-\begin{frame}{Summary}
+\begin{frame}{Interests}
 
+
+
+\end{frame}
+
+
+\begin{frame}{Summary}
 
 
 
@@ -403,20 +713,20 @@ drop fuzzy shadow, title={#2}
 
 % --------------------------
 
-% \newcounter{Appendix}
-% \setcounter{Appendix}{\value{framenumber}}
-% \setcounter{section}{0}
-% \renewcommand{\thesubsection}{\Alph{subsection}}
-% \makeatletter
-%    \renewcommand{\theequation}{\thesubsection.\arabic{equation}}
-%    \@addtoreset{equation}{section}
+\newcounter{Appendix}
+\setcounter{Appendix}{\value{framenumber}}
+\setcounter{section}{0}
+\renewcommand{\thesubsection}{\Alph{subsection}}
+\makeatletter
+\renewcommand{\theequation}{\thesubsection.\arabic{equation}}
+\@addtoreset{equation}{section}
 
-%    \renewcommand{\thefigure}{\thesubsection.\arabic{figure}}
-%    \@addtoreset{figure}{section}
+\renewcommand{\thefigure}{\thesubsection.\arabic{figure}}
+\@addtoreset{figure}{section}
 
-%    \renewcommand{\thetable}{\thesubsection.\arabic{table}}
-%    \@addtoreset{table}{section}
-% \makeatother
+\renewcommand{\thetable}{\thesubsection.\arabic{table}}
+\@addtoreset{table}{section}
+\makeatother
 
 % \section{付録}
 
@@ -439,18 +749,17 @@ drop fuzzy shadow, title={#2}
 
 % --------------------------
 
+\nocite{Wess:1992}
+
 \section{Reference}
 \begin{frame}[plain,allowframebreaks]{Reference}
-  
-  \begin{thebibliography}{99}
-    \beamertemplatetextbibitems
 
-    \bibitem{cite}
-      hogehoge
-
-  \end{thebibliography}
+  \scriptsize
+  \beamertemplatetextbibitems
+  \bibliographystyle{ytphys}
+  \bibliography{ref}
 
 \end{frame}
 
-% \setcounter{framenumber}{\value{Appendix}}
+\setcounter{framenumber}{\value{Appendix}}
 \end{document}

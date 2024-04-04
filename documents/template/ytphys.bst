@@ -842,7 +842,7 @@ FUNCTION {format.incoll.inproc.crossref}
 FUNCTION {format.journal}
 { journal missing$   
     { "" }
-    {journal emphasize " " *
+    {journal " " *
      format.volume *
      format.number *
      format.date.paren *
@@ -861,9 +861,9 @@ FUNCTION {article}
   { journal missing$   
         {}
         { format.journal 
-          url missing$
+          doi missing$
+	          {}
 	          {  add.doi }
-	          {  add.url }
 	  if$
          "journal" output.check}
       if$
@@ -903,7 +903,6 @@ FUNCTION {book}
   format.btitle add.doi "title" output.check
   crossref missing$
     { format.bvolume output
-      new.block
       format.number.series output
       new.sentence
       publisher "publisher" output.check
