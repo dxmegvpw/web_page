@@ -290,7 +290,7 @@ drop fuzzy shadow, title={#2}
   \end{center}
 
   \begin{center}
-    *I will speak in Japanese though this slide is written in English.
+    $^{\ast}$I will speak in Japanese though this slide is written in English.
   \end{center}
 \end{frame}
 
@@ -371,7 +371,7 @@ drop fuzzy shadow, title={#2}
       \begin{itemize}
         \item
               Write down the potential \\
-              for moduli (\uline{e.g.}\ $g_{mn}$)
+              for moduli (\uline{e.g.}\ \  $g_{mn}$)
         \item
               Compute the minimum and \\
               identify the value $\ev*{g_{mn}}$
@@ -649,7 +649,7 @@ drop fuzzy shadow, title={#2}
 
 \begin{frame}{$F$-term potential}
 
-  \uline{Effective potential for the moduli $T$}
+  \uline{Effective potential for \textcolor{Green}{moduli $T$}}
   \begin{itemize}
     \item
           Its effective theory remains supersymmetric.
@@ -661,14 +661,14 @@ drop fuzzy shadow, title={#2}
           \begin{equation}
             \left\{
             \begin{alignedat}{1}
-              W
+              \textcolor{RoyalBlue}{W}
               &=
-              w_{0}-Ae^{-a\textcolor{DarkRed}{T}}+B\textcolor{DarkBlue}{X}
+              w_{0}-Ae^{-a\textcolor{Green}{T}}+B\textcolor{DarkBlue}{X}
               \\
-              K
+              \textcolor{DarkRed}{K}
               &=
               -
-              \ln (\textcolor{DarkRed}{T}+\textcolor{DarkRed}{\bar{T}})
+              3\ln (\textcolor{Green}{T}+\textcolor{Green}{\bar{T}})
               +
               \textcolor{DarkBlue}{|X|^2}
             \end{alignedat}
@@ -677,9 +677,9 @@ drop fuzzy shadow, title={#2}
           \end{equation}
           \begin{center}
             \small
-            $\textcolor{DarkBlue}{X}$は新たに導入したスカラー場
-            ，
-            $w_{0}, A, B, a$は実パラメター
+            Introducing a new scalar field $\textcolor{DarkBlue}{X}$
+            and
+            $w_{0}, A, B, a$ are parameters.
           \end{center}
   \end{itemize}
 
@@ -687,21 +687,137 @@ drop fuzzy shadow, title={#2}
 
 
 \begin{frame}{$F$-term potential}
-  
+
+  $^{\ast}$We set the Planck constant as $M_{\text{Pl}}(\sim 2.4\times 10^{18}\ \text{GeV})=1$.
+
+  \begin{columns}[t]
+    \begin{column}{0.6\textwidth}
+      \uline{Scalar potential}
+      \vspace*{-5pt}
+      \begin{gather}
+        V^{(F)}
+        =
+        e^{K}(K^{I\bar{J}}(D_{I}W)(D_{\bar{J}}\bar{W})-3|W|^2)
+        \nonumber
+        \\
+        \left\{
+        \begin{alignedat}{1}
+          D_{I}W
+          &\equiv
+          \partial_{I}W+K_{I}W
+          \\
+          K^{I\bar{J}}
+          &\text{: inverse matrix of $K_{I\bar{J}}$}
+        \end{alignedat}
+        \right.
+        \quad
+        (I=X,T)
+        \nonumber
+      \end{gather}
+    \end{column}
+    \begin{column}{0.38\textwidth}
+      \vspace*{-5pt}
+      \includegraphics[width=1.0\textwidth]{fig/result.jpg}
+    \end{column}
+  \end{columns}
+
+  \vspace*{10pt}
+
+  \uline{Parameters}\\
+  \begin{center}
+    $
+      w_{0}
+      \sim
+      2.17
+      \times
+      10^{-18}
+      \ ,\
+      a=4\pi^2
+      \ ,\
+      A=1
+      \ ,\
+      B=e^{-4\pi^2}
+    $
+    \\
+    \textbf{and} $\ev*{X}=\sqrt{3}-1$
+  \end{center}
+
+  \begin{center}
+    $\rightarrow \ev*{T}\sim 1.085$
+  \end{center}
+
+\end{frame}
+
+\section{Progresses}
+
+\begin{frame}{Report progresses}
+
+  In my senior thesis, we
+  \begin{itemize}
+    \item
+          fix the value of the \textcolor{DarkOrange}{fluxes $M_{a}^{(i)}$}
+    \item
+          and compute \textcolor{DarkMagenta}{the area of the tori $\ev*{\mathcal{A}^{(i)}}\ (i=1,2,3)$}.
+  \end{itemize}
+
+  \pause
+
+  During this vacation, I mainly studied the $F$-term potential more general form:
+  \begin{equation}
+    \left\{
+    \begin{alignedat}{1}
+      \textcolor{RoyalBlue}{W}
+      &=
+      w_{0}-Ae^{-a\textcolor{Green}{T}}+B\uwave{e^{-b\textcolor{Green}{T}}}\textcolor{DarkBlue}{X}
+      \\
+      \textcolor{DarkRed}{K}
+      &=
+      -
+      3\ln (\textcolor{Green}{T}+\textcolor{Green}{\bar{T}})
+      +
+      \textcolor{DarkBlue}{|X|^2}
+      \uwave{-
+        \frac{1}{\Lambda^2}
+        \textcolor{DarkBlue}{|X|^4}
+      }
+    \end{alignedat}
+    \right.
+    \nonumber
+  \end{equation}
+
+  \vspace*{-15pt}
+
+  \begin{center}
+    \uwave{Wavy factors} are the difference from the previous one.
+  \end{center}
+
+\end{frame}
+
+
+\begin{frame}{Report progresses}
+
 
 
 \end{frame}
 
+
+\begin{frame}{Difficulites\ \&\ Future Works }
+
+  \begin{itemize}
+    \item 
+    We should uplift the potential minima \textcolor{Green}{$V_{\mathrm{min}}$} to the order $10^{-120}$.
+
+    \pause
+
+    \item 
+    how
+
+  \end{itemize}
+
+\end{frame}
 
 
 \section{Summary}
-
-
-\begin{frame}{Interests}
-
-
-
-\end{frame}
 
 
 \begin{frame}{Summary}
