@@ -286,7 +286,7 @@ drop fuzzy shadow, title={#2}
 
     \vspace*{5pt}
 
-    Saturday, April 6th, 2024
+    Sunday, April 7th, 2024
   \end{center}
 
   \begin{center}
@@ -297,9 +297,9 @@ drop fuzzy shadow, title={#2}
 \begin{frame}{Topics}
   \begin{itemize}
     \item
-          Review the senior thesis
+          Reviewing the senior thesis
     \item
-          Report progress and difficulties I met
+          Reporting progress and difficulties I met
   \end{itemize}
 \end{frame}
 
@@ -349,7 +349,7 @@ drop fuzzy shadow, title={#2}
   \begin{align}
     \dd s^{10}
      & =
-    \textcolor{DarkBlue}{G_{MN}}\dd X^{M}\dd X^{N}
+    \textcolor{DarkBlue}{G_{MN}(X)}\dd X^{M}\dd X^{N}
     \nonumber
     \\
      & =
@@ -387,19 +387,36 @@ drop fuzzy shadow, title={#2}
 
   \vspace{10pt}
 
-  These procedures are called \textcolor{red}{moduli stabilization}.
+  These procedures are called \textbf{\textcolor{red}{moduli stabilization}}.
 
 \end{frame}
 
 
-\begin{frame}{Purpose of my study}
+\begin{frame}{Purpose of our study}
 
-  We will discuss the \textcolor{Red}{moduli stabilization} on \textcolor{DarkOrange}{magnetized torus model}.
+  On the other hand, it is known that \textbf{\textcolor{DarkOrange}{magnetized torus model}}.
 
-  $\cdots\cdots$
+  \pause
 
+  \begin{itemize}
+    \item
+          \textcolor{DarkOrange}{This model} realize the generation structure of the Standard Model \cite{Abe:2012ya,Abe:2017gye}.
+    \item
+          But the VEVs of the \textcolor{DarkMagenta}{moduli} are not determined dynamically.
+  \end{itemize}
 
+  \vspace*{15pt}
 
+  \pause
+
+  \setbeamertemplate{blocks}[rounded][shadow=true]
+  \setbeamercolor{block body}{bg=red!10!white, fg=black}
+
+  \begin{block}{}
+    \centering
+    \large
+    We will discuss the \textcolor{red}{moduli stabilization} on \textcolor{DarkOrange}{magnetized torus model}.
+  \end{block}
 
 \end{frame}
 
@@ -421,15 +438,15 @@ drop fuzzy shadow, title={#2}
           \hspace*{2.8cm}\includegraphics[width=0.4\textwidth]{fig/tori.png}
           \\
           \hspace*{3.0cm}
-          $\mathcal{A}^{(1)}$
+          $\textcolor{DarkMagenta}{\mathcal{A}^{(1)}}$
           \hspace*{1.0cm}
-          $\mathcal{A}^{(2)}$
+          $\textcolor{DarkMagenta}{\mathcal{A}^{(2)}}$
           \hspace*{1.0cm}
-          $\mathcal{A}^{(3)}$
+          $\textcolor{DarkMagenta}{\mathcal{A}^{(3)}}$
           \hspace*{0.5cm}
           : area of the $i$-th torus
     \item
-          $\mathcal{A}^{(i)}(x)$ are also \textcolor{DarkMagenta}{moduli} since it is related to the metric.
+          $\textcolor{DarkMagenta}{\mathcal{A}^{(i)}(x)}$ are also \textcolor{DarkMagenta}{moduli} since it is related to the metric.
   \end{itemize}
 
   \vspace*{15pt}
@@ -441,7 +458,8 @@ drop fuzzy shadow, title={#2}
       \uline{\textcolor{DarkOrange}{Magnetic flux}}
       \begin{itemize}
         \item
-              Assigning the magnetic flux $M_{a}^{(i)}\ (a=1,2)$
+              Assigning the magnetic flux\\
+              \qquad  $\textcolor{DarkOrange}{M_{a}^{(i)}}\ (a=1,2)$
               \\
               for two gauge fields on each tori.
       \end{itemize}
@@ -688,7 +706,7 @@ drop fuzzy shadow, title={#2}
 
 \begin{frame}{$F$-term potential}
 
-  $^{\ast}$We set the Planck constant as $M_{\text{Pl}}(\sim 2.4\times 10^{18}\ \text{GeV})=1$.
+  $^{\ast}$We set the Planck constant as $M_{\text{Pl}}\ (\sim 2.4\times 10^{18}\ \text{GeV})=1$.
 
   \begin{columns}[t]
     \begin{column}{0.6\textwidth}
@@ -805,46 +823,73 @@ drop fuzzy shadow, title={#2}
     \end{column}
     \begin{column}{0.5\textwidth}
       \centering
-      \includegraphics[width=0.8\textwidth]{fig/contourplot.png}      
+      \includegraphics[width=0.8\textwidth]{fig/contourplot.png}
     \end{column}
   \end{columns}
 
   \uline{Parameters}
   \begin{center}
-    $A=B=1, a=b=4\pi^2, w_{0}=10^{-17}, \Lambda=10^{-4}$\\    
-    $\longrightarrow\quad \ev*{T}\sim 1.07,\ \ev*{X}\sim 10^{-8}, V_{\mathrm{min}}\sim 10^{-35}$
+    $A=B=1, a=b=4\pi^2, w_{0}=10^{-17}, \Lambda=10^{-4}$\\
+    $\longrightarrow\quad \textcolor{Green}{\ev*{T}}\sim 1.07,\ \textcolor{DarkBlue}{\ev*{X}}\sim 10^{-8},\ \textcolor{red}{V_{\mathrm{min}}}\sim -10^{-35}$
   \end{center}
 
 \end{frame}
 
 
-\begin{frame}{Difficulites\ \&\ Future Works }
+\begin{frame}{Difficulites}
 
   \begin{itemize}
-    \item 
-    We should tune the parameters $A,B,a,b,w_{0},\Lambda$\\
-    to \textbf{uplift the potential minima \textcolor{Green}{$V_{\mathrm{min}}$} to the order $+10^{-120}$}.
+    \item
+          We should tune the parameters $A,B,a,b,w_{0},\Lambda$\\
+          to \textbf{uplift the potential minima \textcolor{red}{$V_{\mathrm{min}}$} to the order $+10^{-120}$}.
 
-    \pause
+          \pause
 
-    \item 
-    But it is difficult (at least for me) since
-    \begin{itemize}
-      \item 
-      we can not find the minimum points analytically
-      \item 
-      thus what we can do is only to 
-    \end{itemize}
+    \item
+          But it is difficult (at least for me) since
+          \begin{itemize}
+            \item
+                  we can not find the minimum points analytically
+            \item
+                  thus what we can do is only\\
+                  \qquad \textbf{\textcolor{DarkBlue}{to choose the parameters and find the minimum for each time}}.
+          \end{itemize}
 
-    \pause
+          \pause
 
-    I tried and/or will try following the method:
-    \begin{enumerate}
-      \item 
+          \begin{center}
+            {\huge \textcolor{DarkBlue}{$\Downarrow$}}
+            \\
+            I want to find \textcolor{Goldenrod}{more efficient ways to search the set of parameters}.
+          \end{center}
 
-    \end{enumerate}
-    but $\cdots$
-
+          \begin{equation}
+            \text{\uline{e.g.}}
+            \quad
+            \pdv{V}{T}
+            =
+            \pdv{V}{X}
+            =
+            0
+            \quad
+            \&
+            \quad
+            \pdv{V}{a}
+            =
+            \pdv{V}{b}
+            =
+            \pdv{V}{A}
+            =
+            \pdv{V}{B}
+            =
+            \pdv{V}{w_{0}}
+            =
+            0
+            \nonumber
+          \end{equation}
+          \begin{center}
+            (I tried it but it seems not to converge the Newtonian method...)
+          \end{center}
 
   \end{itemize}
 
@@ -854,9 +899,25 @@ drop fuzzy shadow, title={#2}
 \section{Summary}
 
 
-\begin{frame}{Summary}
+\begin{frame}{Summary\ \&\ Future Works}
 
+  \uline{Summary}
+  \begin{itemize}
+    \item
+          Discussing moduli stabilization in magnetized torus model
+    \item
+          Determining the ratio of the moduli by potential $V^{(D)}$ with fluxes
+    \item
+          Stabilizing the overall moduli $T$ by potential $V^{(F)}$ that has a different origin
+  \end{itemize}
 
+  \uline{Future Works}
+  \begin{itemize}
+    \item
+          {[new!]}\ Finding more efficient ways to search the set of parameters.
+    \item
+          Discussing soft SUSY breaking and mass of supersymmetric particles, etc.
+  \end{itemize}
 
 \end{frame}
 
