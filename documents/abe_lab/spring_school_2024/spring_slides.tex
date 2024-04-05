@@ -120,134 +120,134 @@ drop fuzzy shadow, title={#2}
 % \usepackage{newtxmath}
 
 % ---citation---
-% \usepackage{usebib}
-% \newbibfield{author} 
-% \newbibfield{year} 
-% \newbibfield{journal} 
-% \newbibfield{doi} 
-% \bibinput{ref}
+\usepackage{usebib}
+\newbibfield{author} 
+\newbibfield{year} 
+\newbibfield{journal} 
+\newbibfield{doi} 
+\bibinput{ref}
 
-% \makeatletter
-% \newcommand*{\journal}{\begingroup\@makeother\#\@mylink}
-% \newcommand*{\@mylink}[1]{\href{http://dx.doi.org/\usebibentry{#1}{doi}}{\usebibentry{#1}{journal}}\endgroup} 
-% \makeatother
+\makeatletter
+\newcommand*{\journal}{\begingroup\@makeother\#\@mylink}
+\newcommand*{\@mylink}[1]{\href{http://dx.doi.org/\usebibentry{#1}{doi}}{\usebibentry{#1}{journal}}\endgroup} 
+\makeatother
 
-% \newcommand*{\citefone}[2]{
-%   \begin{tikzpicture}[remember picture, overlay]
-%     \node[anchor=north east, align=left] at ($(current page.north east)-(0,0.0)$){
-%     {\tiny
-%       \cite{#1}
-%       #2,
-%       \journal{#1}
-%       (\usebibentry{#1}{year}).
-%     }
-%     };
-%   \end{tikzpicture}
-% }
+\newcommand*{\citefone}[2]{
+  \begin{tikzpicture}[remember picture, overlay]
+    \node[anchor=north east, align=left] at ($(current page.north east)-(0,0.0)$){
+    {\tiny
+      \cite{#1}
+      #2,
+      \journal{#1}
+      (\usebibentry{#1}{year}).
+    }
+    };
+  \end{tikzpicture}
+}
 
-% \newcommand*{\citeftwo}[4]{
-%   \begin{tikzpicture}[remember picture, overlay]
-%     \node[anchor=north east, align=left] at ($(current page.north east)-(0,0.0)$){
-%     {\tiny
-%       \cite{#1}
-%       #2,
-%       \journal{#1}
-%       (\usebibentry{#1}{year}).
-%     }
-%     \\[-2.4ex]
-%     {\tiny
-%       \cite{#3}
-%       #4,
-%       \journal{#3}
-%       (\usebibentry{#3}{year}).
-%     }
-%     };
-%   \end{tikzpicture}
-% }
+\newcommand*{\citeftwo}[4]{
+  \begin{tikzpicture}[remember picture, overlay]
+    \node[anchor=north east, align=left] at ($(current page.north east)-(0,0.0)$){
+    {\tiny
+      \cite{#1}
+      #2,
+      \journal{#1}
+      (\usebibentry{#1}{year}).
+    }
+    \\[-2.4ex]
+    {\tiny
+      \cite{#3}
+      #4,
+      \journal{#3}
+      (\usebibentry{#3}{year}).
+    }
+    };
+  \end{tikzpicture}
+}
 
-% \newcommand*{\citefthree}[6]{
-%   \begin{tikzpicture}[remember picture, overlay]
-%     \node[anchor=north east, align=left] at ($(current page.north east)-(0,0.0)$){
-%     {\tiny
-%       \cite{#1}
-%       #2,
-%       \journal{#1}
-%       (\usebibentry{#1}{year}).
-%     }
-%     \\[-2.4ex]
-%     {\tiny
-%       \cite{#3}
-%       #4,
-%       \journal{#3}
-%       (\usebibentry{#3}{year}).
-%     }
-%     \\[-2.4ex]
-%     {\tiny
-%       \cite{#5}
-%       #6,
-%       \journal{#5}
-%       (\usebibentry{#5}{year}).
-%     }
-%     };
-%   \end{tikzpicture}
-% }
+\newcommand*{\citefthree}[6]{
+  \begin{tikzpicture}[remember picture, overlay]
+    \node[anchor=north east, align=left] at ($(current page.north east)-(0,0.0)$){
+    {\tiny
+      \cite{#1}
+      #2,
+      \journal{#1}
+      (\usebibentry{#1}{year}).
+    }
+    \\[-2.4ex]
+    {\tiny
+      \cite{#3}
+      #4,
+      \journal{#3}
+      (\usebibentry{#3}{year}).
+    }
+    \\[-2.4ex]
+    {\tiny
+      \cite{#5}
+      #6,
+      \journal{#5}
+      (\usebibentry{#5}{year}).
+    }
+    };
+  \end{tikzpicture}
+}
 
-% \newcommand*{\citefonev}[3]{
-%   \begin{tikzpicture}[remember picture, overlay]
-%     \node[anchor=north east, align=left, text width=#3cm] at ($(current page.north east)-(0,0.0)$){
-%     {{\fontsize{5pt}{0pt}\selectfont
-%       \cite{#1}
-%       #2,
-%       \journal{#1}
-%       (\usebibentry{#1}{year}).\par}
-%     }
-%     };
-%   \end{tikzpicture}
-% }
+\newcommand*{\citefonev}[3]{
+  \begin{tikzpicture}[remember picture, overlay]
+    \node[anchor=north east, align=left, text width=#3cm] at ($(current page.north east)-(0,0.0)$){
+    {{\fontsize{5pt}{0pt}\selectfont
+      \cite{#1}
+      #2,
+      \journal{#1}
+      (\usebibentry{#1}{year}).\par}
+    }
+    };
+  \end{tikzpicture}
+}
 
-% \newcommand*{\citeftwov}[5]{
-%   \begin{tikzpicture}[remember picture, overlay]
-%     \node[anchor=north east, align=left, text width=#5cm] at ($(current page.north east)-(0,0.0)$){
-%     {{\fontsize{5pt}{0pt}\selectfont
-%       \cite{#1}
-%       #2,
-%       \journal{#1}
-%       (\usebibentry{#1}{year}).\par}
+\newcommand*{\citeftwov}[5]{
+  \begin{tikzpicture}[remember picture, overlay]
+    \node[anchor=north east, align=left, text width=#5cm] at ($(current page.north east)-(0,0.0)$){
+    {{\fontsize{5pt}{0pt}\selectfont
+      \cite{#1}
+      #2,
+      \journal{#1}
+      (\usebibentry{#1}{year}).\par}
 
-%       {\fontsize{5pt}{0pt}\selectfont
-%       \cite{#3}
-%       #4,
-%       \journal{#3}
-%       (\usebibentry{#3}{year}).\par}
-%     }
-%     };
-%   \end{tikzpicture}
-% }
+      {\fontsize{5pt}{0pt}\selectfont
+      \cite{#3}
+      #4,
+      \journal{#3}
+      (\usebibentry{#3}{year}).\par}
+    }
+    };
+  \end{tikzpicture}
+}
 
-% \newcommand*{\citefthreev}[7]{
-%   \begin{tikzpicture}[remember picture, overlay]
-%     \node[anchor=north east, align=left, text width=#7cm] at ($(current page.north east)-(0,0.0)$){
-%     {{\fontsize{5pt}{0pt}\selectfont
-%     \cite{#1}
-%     #2,
-%     \journal{#1}
-%     (\usebibentry{#1}{year}).\par}
+\newcommand*{\citefthreev}[7]{
+  \begin{tikzpicture}[remember picture, overlay]
+    \node[anchor=north east, align=left, text width=#7cm] at ($(current page.north east)-(0,0.0)$){
+    {{\fontsize{5pt}{0pt}\selectfont
+    \cite{#1}
+    #2,
+    \journal{#1}
+    (\usebibentry{#1}{year}).\par}
 
-%     {\fontsize{5pt}{0pt}\selectfont
-%     \cite{#3}
-%     #4,
-%     \journal{#3}
-%     (\usebibentry{#3}{year}).\par}
+    {\fontsize{5pt}{0pt}\selectfont
+    \cite{#3}
+    #4,
+    \journal{#3}
+    (\usebibentry{#3}{year}).\par}
 
-%     {\fontsize{5pt}{0pt}\selectfont
-%     \cite{#5}
-%     #6,
-%     \journal{#5}
-%     (\usebibentry{#5}{year}).\par}
-%     }
-%     };
-%   \end{tikzpicture}
-% }
+    {\fontsize{5pt}{0pt}\selectfont
+    \cite{#5}
+    #6,
+    \journal{#5}
+    (\usebibentry{#5}{year}).\par}
+    }
+    };
+  \end{tikzpicture}
+}
 
 
 % ---Title---
@@ -393,14 +393,14 @@ drop fuzzy shadow, title={#2}
 
 
 \begin{frame}{Purpose of our study}
-
+  \citeftwo{Abe:2012ya}{H. Abe, T. Kobayashi, H. Ohki, and K. Sumita}{Abe:2017gye}{H. Abe, T. Kobayashi, K. Sumita, and S. Uemura}
   On the other hand, it is known that \textbf{\textcolor{DarkOrange}{magnetized torus model}}.
-
-  \pause
-
   \begin{itemize}
     \item
           \textcolor{DarkOrange}{This model} realize the generation structure of the Standard Model \cite{Abe:2012ya,Abe:2017gye}.
+
+          \pause
+
     \item
           But the VEVs of the \textcolor{DarkMagenta}{moduli} are not determined dynamically.
   \end{itemize}
@@ -428,7 +428,7 @@ drop fuzzy shadow, title={#2}
 \end{frame}
 
 \begin{frame}{Torus compactification and Magnetic flux}
-
+  \citefone{Abe:2012ya}{H. Abe, T. Kobayashi, H. Ohki, and K. Sumita}
   \uline{Torus compactification}
   \begin{itemize}
     \item
@@ -474,7 +474,7 @@ drop fuzzy shadow, title={#2}
 
 
 \begin{frame}{Finding the VEVs by fluxes}
-
+  \citefone{Abe:2012ya}{H. Abe, T. Kobayashi, H. Ohki, and K. Sumita}
   By \textcolor{DarkOrange}{magnetic fluxes} in an extra dimension, \textcolor{DarkMagenta}{moduli $\mathcal{A}^{(i)}(x)$} obtain its potential \textcolor{DarkOrange}{$V^{(D)}$}.
 
   \vspace{-20pt}
@@ -666,7 +666,7 @@ drop fuzzy shadow, title={#2}
 \end{frame}
 
 \begin{frame}{$F$-term potential}
-
+  \citeftwo{Abe:2006xp}{H. Abe, T. Higaki, T. Kobayashi, and Y. Omura}{Abe:2007yb}{H. Abe, T. Higaki, and T. Kobayashi}
   \uline{Effective potential for \textcolor{Green}{moduli $T$}}
   \begin{itemize}
     \item
@@ -705,7 +705,7 @@ drop fuzzy shadow, title={#2}
 
 
 \begin{frame}{$F$-term potential}
-
+  \citeftwo{Abe:2006xp}{H. Abe, T. Higaki, T. Kobayashi, and Y. Omura}{Abe:2007yb}{H. Abe, T. Higaki, and T. Kobayashi}
   $^{\ast}$We set the Planck constant as $M_{\text{Pl}}\ (\sim 2.4\times 10^{18}\ \text{GeV})=1$.
 
   \begin{columns}[t]
@@ -779,7 +779,7 @@ drop fuzzy shadow, title={#2}
   \end{itemize}
 
   \pause
-
+  \citefone{Abe:2007yb}{H. Abe, T. Higaki, and T. Kobayashi}
   During this vacation, I mainly studied the $F$-term potential more general form:
   \begin{equation}
     \left\{
