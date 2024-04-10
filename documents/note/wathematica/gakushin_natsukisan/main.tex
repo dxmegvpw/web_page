@@ -1,0 +1,209 @@
+\documentclass[unicode,a4paper,10pt]{ltjsarticle}
+
+\usepackage{luatexja-fontspec}
+\setmainfont{TeX Gyre Termes}
+\setmainjfont[BoldFont = IPAGothic]{IPAMincho}
+\setmathrm{Latin Modern Roman}
+% \setmainjfont{Noto Sans JP}
+
+% ---Display \subsubsection at the Index
+% \setcounter{tocdepth}{3}
+
+% ---Setting about the geometry of the document----
+% \usepackage{a4wide}
+% \pagestyle{empty}
+
+% ---Physics and Math Packages---
+\usepackage{amssymb,amsfonts,amsthm,mathtools}
+\usepackage{physics,braket,bm}
+
+% ---underline---
+\usepackage[normalem]{ulem}
+
+% ---cancel---
+\usepackage{cancel}
+
+% --- surround the texts or equations
+% \usepackage{fancybox,ascmac}
+
+% ---settings of theorem environment---
+\theoremstyle{definition}
+\newtheorem{dfn}{定義}
+\newtheorem{prop}{命題}
+\newtheorem{thm}{定理}
+\newtheorem{exm}{例}
+\newtheorem{exc}{演習}
+
+% ---settings of proof environment---
+\renewcommand{\proofname}{\textbf{証明}}
+\renewcommand{\qedsymbol}{$\blacksquare$}
+
+% ---Ignore the Warnings---
+\usepackage{silence}
+\WarningFilter{latexfont}{Some font shapes}
+\WarningFilter{latexfont}{Font shape}
+\WarningFilter{latexfont}{Size substitutions}
+\ExplSyntaxOn
+\msg_redirect_name:nnn{hooks}{generic-deprecated}{none}
+\ExplSyntaxOff
+
+% ---Insert the figure (If insert the `draft' at the option, the process becomes faster.)---
+\usepackage{graphicx}
+% \usepackage{subcaption}
+
+% ----Add a link to a text---
+\usepackage{url,hyperref}
+\usepackage[dvipsnames,svgnames]{xcolor}
+\hypersetup{colorlinks=true,citecolor=FireBrick,linkcolor=Navy,urlcolor=purple}
+% ---refer `texdoc xcolor' at the command line---
+
+% ---Tikz---
+% \usepackage{tikz,pgf,pgfplots,circuitikz}
+% \pgfplotsset{compat=1.15}
+% \usetikzlibrary{intersections,arrows.meta,angles,calc,3d,decorations.pathmorphing}
+
+% ---Add the section number to the equation, figure, and table number---
+\makeatletter
+   \renewcommand{\theequation}{$\thesection.\arabic{equation}$}
+   \@addtoreset{equation}{section}
+   
+   \renewcommand{\thefigure}{\thesection.\arabic{figure}}
+   \@addtoreset{figure}{section}
+   
+   \renewcommand{\thetable}{\thesection.\arabic{table}}
+   \@addtoreset{table}{section}
+\makeatother
+
+% ---enumerate---
+% \renewcommand{\labelenumi}{$\arabic{enumi}.$}
+% \renewcommand{\labelenumii}{$(\arabic{enumii})$}
+
+% ---Index---
+% \usepackage{makeidx}
+% \makeindex 
+
+% ---Fonts---
+% \renewcommand{\familydefault}{\sfdefault}
+
+% ---Title---
+\title{
+  title
+}
+\author{
+  author
+}
+\date{最終更新：\today}
+
+\begin{document}
+
+\uline{読み取れたこと}
+
+\begin{itemize}
+  \item 
+  リーマン多様体の性質を調べたい。
+  \item 
+  やり方の一つとして、リーマン多様体の構造と大きく関係しているものを調べるのが良いだろう。
+  \item 
+  その中にキリングスピノールがあり、さらにその一般化であるGKsという概念がある。が、GKsはキリングスピノールよりも良く分かっていない。なので、それを調べてやろう。
+  \item 
+  特にGKsの以下の性質を研究していきたい。
+  \begin{enumerate}
+    \item 
+    単純な$S^{3}$でも良く分かってないので、とりあえずこの上でも出し尽くす。そして、その過程で得たノウハウを他の多様体に応用していきたい。\\
+    とりあえず、$S^{7}$ではいくつかGKsがわかっているので、他のGKsがいるかどうか調べて、そのまま他の多様体を対象にしていきたい。
+    \item 
+    6,7次元では、GKsと同じ構造をもつ代数(?)みたいなのが見つかっているが、他の次元のは良く分かっていない。6,7次元のときに使っている手法があるので、それを他の次元に拡張したらどうなるのか?
+    \item 
+    GKsは平行スピノールから定義するんだから、平行スピノールが存在する特殊な多様体を調べるのにも役に立つはずだ。
+  \end{enumerate}
+  \item 
+  先行研究では、条件の強い多様体でのGKsを議論している。より一般的な多様体はどうなるのか?と考えたいわけだが、ゲージ理論的な手法を用いればうまくいくのではないか。
+  \item 
+  また、GKsの具体例を増やしていけば、GKsを分類できてさらに幾何構造との関連が分かるかもしれない。
+  \item 
+  さらに研究が進んで、ある程度一般的な多様体でGKsがわかるようになったら、これまで調べられてなかった多様体上で実際にGKsを構成して、そこから幾何構造がわかるようになるはずだ。(GKsを用いた研究はないので、その点が新しい。)
+  \item 
+  以上のことから、GKsについて
+  \begin{itemize}
+    \item 
+    多様体が与えられたとき、そこの上に存在するGKsを出し尽くす方法
+    \item 
+    GKsと多様体の幾何構造の関係
+  \end{itemize}
+  がはっきりすれば、GKsを用いた幾何構造の探索ができるようになるので、それはリーマン幾何の研究にとってかなり嬉しい。
+  \item 
+  GKsの条件が緩いので、キリングスピノールよりも色々調べられるだろう。
+\end{itemize}
+
+
+\uline{気になったこと}
+
+役に立つかどうかわからないので、書くだけ書きます。
+
+\begin{itemize}
+  \item 
+  研究B,Cがあまりピンときてません。
+  \begin{itemize}
+    \item [Bについて]
+    \begin{itemize}
+      \item 
+      『6,7次元のときは「内在的ねじれ」を用いてG-構造というものを分類すると、6次元のときはhalf-flat $SU(3)$構造が、7次元のときはco-calibrated$G_{2}$-構造がそれぞれそこの上に存在するGKsの構造と同じ構造をもつことがわかっている。じゃあ、2,3,4次元でも内在的ねじれを調べれば、GKsと同じ構造をもつなにかを求めることができるのでは?』
+      \item 
+      っていうことを言いたいのでしょうか?
+    \end{itemize}
+    \item [Cについて]
+    \begin{itemize}
+      \item 
+      上に書いたことしか読み取れてません。
+      \item 
+      具体例っぽいのがあればもう少し雰囲気が伝わるのかな?って思いましたが、あんまり自信はないです。
+    \end{itemize}
+  \end{itemize}
+  \item 
+  「ゲージ理論的な考え方」っていうのが、個人的になんとなくワクワクしているのですが、なぜゲージ理論的手法なら一般的にGKsを調べられるのか、よくわかりませんでした。
+  \item 
+  GKsを使って幾何構造を調べるというのが大きな目的のように感じたのですが、例えばスピノール以外を用いた多様体の幾何を調べる方法はあるのでしょうか?
+  \item 
+  将来の見通し(3ページ目の(3))は、(2)に書いてあってもいいものとか、これまでの内容と重複しているものとかが多いように感じました。まとめを書くところならばそれでいいのですが、そうじゃないのならちょっとくどいかもしれません\footnote{
+    僕が何も知らないので思ったことを書きました。(「(3)にはまとめは書くんだ」という不文律みたいなのがあって、)僕が見当違いのことを言っていたら教えてほしいです。
+  }。
+\end{itemize}
+
+
+
+
+% ----------------------------------------
+% \clearpage
+
+% \makeatletter
+% \renewcommand{\appendix}{\par
+%   \setcounter{section}{0}%
+%   \setcounter{subsection}{0}%
+%   \gdef\presectionname{\appendixname}%
+%   \gdef\postsectionname{}%
+%   \gdef\thesection{\presectionname\@Alph\c@section\postsectionname}%
+%   \gdef\thesubsection{\@Alph\c@section.\@arabic\c@subsection}%
+%   \renewcommand{\theequation}{\@Alph\c@section.\arabic{equation}}%
+%   \renewcommand{\thefigure}{\@Alph\c@section.\arabic{figure}}%
+%   \renewcommand{\thetable}{\@Alph\c@section.\arabic{table}}%
+% }
+% \makeatother
+
+% \appendix
+
+% \section{Notes}
+
+
+% ----------------------------------------
+% \clearpage
+% \bibliography{ref}
+% \bibliographystyle{ytamsalpha}
+
+
+% ----------------------------------------
+% \clearpage
+% \index{hoge@hoge}
+% \printindex
+
+
+\end{document}
