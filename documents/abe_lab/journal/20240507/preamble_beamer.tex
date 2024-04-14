@@ -1,13 +1,14 @@
 \renewcommand{\baselinestretch}{1.4}
-\PassOptionsToPackage{quiet}{fontspec}
 
 % ---fonts---
+\PassOptionsToPackage{quiet}{fontspec}
 \usefonttheme{serif}
 \mathversion{bold}
 \usepackage{luatexja-fontspec}
 \setmainfont{TeX Gyre Termes}
 \setmainjfont{Noto Sans CJK JP}
 \setmathrm{Latin Modern Roman}
+% \usepackage{newtxmath}
 
 \usepackage{newunicodechar}
 \newunicodechar{–}{-}
@@ -113,8 +114,6 @@ drop fuzzy shadow, title={#2}
 \ExplSyntaxOn
 \msg_redirect_name:nnn{hooks}{generic-deprecated}{none}
 \ExplSyntaxOff
-
-% \usepackage{newtxmath}
 
 % ---citation---
 \usepackage{usebib}

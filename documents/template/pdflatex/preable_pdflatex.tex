@@ -1,6 +1,4 @@
-\pdfoutput=1
-\documentclass[a4paper,pdftex,10pt]{article}
-% \usepackage[whole]{bxcjkjatype}
+% \usepackage[whole,autotilde]{bxcjkjatype}
 \usepackage[T1]{fontenc}
 \usepackage{tgtermes}
 
@@ -22,17 +20,17 @@
 \usepackage{cancel}
 
 % --- surround the texts or equations
-% \usepackage{fancybox,ascmac}
+\usepackage{fancybox,ascmac}
 
 % ---settings of theorem environment---
-% \theoremstyle{definition}
-% \newtheorem{dfn}{Definition}
-% \newtheorem{prop}{Proposition}
-% \newtheorem{thm}{Theorem}
+\theoremstyle{definition}
+\newtheorem{dfn}{Definition}
+\newtheorem{prop}{Proposition}
+\newtheorem{thm}{Theorem}
 
 % ---settings of proof environment---
-% \renewcommand{\proofname}{\textbf{Proof}}
-% \renewcommand{\qedsymbol}{$\blacksquare$}
+\renewcommand{\proofname}{\textbf{Proof}}
+\renewcommand{\qedsymbol}{$\blacksquare$}
 
 % ---Ignore the Warnings---
 \usepackage{silence}
@@ -49,7 +47,6 @@
 \usepackage{url,hyperref}
 \usepackage[dvipsnames,svgnames]{xcolor}
 \hypersetup{colorlinks=true,citecolor=FireBrick,linkcolor=Navy,urlcolor=purple}
-% \usepackage[whole,autotilde]{bxcjkjatype}
 
 % ---Tikz---
 \usepackage{tikz,pgf,pgfplots,circuitikz}
@@ -77,9 +74,6 @@
 % \usepackage{makeidx}
 % \makeindex 
 
-% ---Fonts---
-% \renewcommand{\familydefault}{\sfdefault}
-
 % ---footnotes---
 \renewcommand{\thefootnote}{$\ast$\arabic{footnote}}
 
@@ -87,37 +81,3 @@
 \title{title}
 \author{author}
 \date{Last modified:\ \today}
-
-\begin{document}
-
-\maketitle
-
-\tableofcontents
-
-\clearpage
-\section{Introduction}
-
-
-
-
-
-
-
-
-
-
-
-
-% \clearpage
-% \appendix
-% \section{Notes}
-
-% \clearpage
-% \bibliography{ref}
-% \bibliographystyle{ytamsalpha}
-
-% \clearpage
-% \index{hoge@hoge}
-% \printindex
-
-\end{document}

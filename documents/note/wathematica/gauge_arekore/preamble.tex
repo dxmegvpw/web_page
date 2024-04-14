@@ -1,10 +1,10 @@
-\documentclass[unicode,a4paper,10pt]{ltjsarticle}
-
+% ---fonts---
+\PassOptionsToPackage{quiet}{fontspec}
 \usepackage{luatexja-fontspec}
 \setmainfont{TeX Gyre Termes}
 \setmainjfont[BoldFont = IPAGothic]{IPAMincho}
-\setmathrm{Latin Modern Roman}
 % \setmainjfont{Noto Sans CJK JP}
+\setmathrm{Latin Modern Roman}
 
 % ---Display \subsubsection at the Index
 % \setcounter{tocdepth}{3}
@@ -82,70 +82,11 @@
 % \usepackage{makeidx}
 % \makeindex 
 
-% ---Fonts---
-% \renewcommand{\familydefault}{\sfdefault}
-
 % ---Title---
 \title{
-  title
+  ゲージ理論の古典論と量子論
 }
 \author{
-  author
+  ミヤ
 }
 \date{最終更新：\today}
-
-\begin{document}
-
-\maketitle
-\tableofcontents
-
-\clearpage
-\section{はじめに}
-
-
-
-
-
-
-
-
-
-
-
-
-
-% ----------------------------------------
-% \clearpage
-
-% \makeatletter
-% \renewcommand{\appendix}{\par
-%   \setcounter{section}{0}%
-%   \setcounter{subsection}{0}%
-%   \gdef\presectionname{\appendixname}%
-%   \gdef\postsectionname{}%
-%   \gdef\thesection{\presectionname\@Alph\c@section\postsectionname}%
-%   \gdef\thesubsection{\@Alph\c@section.\@arabic\c@subsection}%
-%   \renewcommand{\theequation}{\@Alph\c@section.\arabic{equation}}%
-%   \renewcommand{\thefigure}{\@Alph\c@section.\arabic{figure}}%
-%   \renewcommand{\thetable}{\@Alph\c@section.\arabic{table}}%
-% }
-% \makeatother
-
-% \appendix
-
-% \section{Notes}
-
-
-% ----------------------------------------
-% \clearpage
-% \bibliography{ref}
-% \bibliographystyle{ytamsalpha}
-
-
-% ----------------------------------------
-% \clearpage
-% \index{hoge@hoge}
-% \printindex
-
-
-\end{document}

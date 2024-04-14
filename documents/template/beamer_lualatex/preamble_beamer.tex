@@ -1,13 +1,17 @@
 \renewcommand{\baselinestretch}{1.4}
-\PassOptionsToPackage{quiet}{fontspec}
 
 % ---fonts---
+\PassOptionsToPackage{quiet}{fontspec}
 \usefonttheme{serif}
 \mathversion{bold}
 \usepackage{luatexja-fontspec}
 \setmainfont{TeX Gyre Termes}
 \setmainjfont{Noto Sans CJK JP}
 \setmathrm{Latin Modern Roman}
+% \usepackage{newtxmath}
+
+\usepackage{newunicodechar}
+\newunicodechar{–}{-}
 
 % ---refer `texdoc xcolor' at the command line---
 
@@ -110,8 +114,6 @@ drop fuzzy shadow, title={#2}
 \ExplSyntaxOn
 \msg_redirect_name:nnn{hooks}{generic-deprecated}{none}
 \ExplSyntaxOff
-
-% \usepackage{newtxmath}
 
 % ---citation---
 \usepackage{usebib}
@@ -246,12 +248,9 @@ drop fuzzy shadow, title={#2}
 
 % ---Title---
 \title{
-  Journal Club @Abe Lab
+  title
 }
 \author{
-  Abe Lab. \ M1
-  \texorpdfstring{\\}{}
-  \texorpdfstring{\vspace*{3pt}}{}
-  Itsuki Miyane
+  author
 }
-\date{Tuesdayy, May 7th, 2024}
+\date{Last modified: \today}
