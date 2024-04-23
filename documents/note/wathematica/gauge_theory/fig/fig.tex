@@ -1,5 +1,12 @@
 \documentclass{standalone}
 
+\PassOptionsToPackage{quiet}{fontspec}
+\usepackage{luatexja-fontspec}
+\setmainfont{TeX Gyre Termes}
+\setmainjfont[BoldFont = IPAGothic]{IPAMincho}
+% \setmainjfont{Noto Sans CJK JP}
+\setmathrm{Latin Modern Roman}
+
 \usepackage{graphics}
 \usepackage[dvipsnames,svgnames]{xcolor}
 
@@ -13,10 +20,10 @@
 \begin{document}  
   \begin{tikzpicture}
     \fill[opacity=0.2] plot [smooth,samples=100,domain=-4:4] (\x,{sqrt(abs(4*4*4*4-\x*\x*\x*\x))/16*3}) -- (4,0) -- (-4,0);
-    \draw[-latex,thick] (-4.4,0)--(4.4,0) node [below]{$x$};
+    \draw[-latex,thick] (-4.4,0)--(4.4,0) node [above]{$x$};
     \draw[-latex,thick] (0,-0.3)--(0,3.4) node [above right] {$y$};
     \draw[name path=int, domain=-4:4,samples=1000] plot (\x,{sqrt(abs(4*4*4*4-\x*\x*\x*\x))/16*3});
     \fill(-4,0)circle(0.06)node[below]{$-x_0$};
-    \fill(4,0)circle(0.06)node[below]{$x_0$};
+    \fill(4,0)circle(0.06)node[below]{$\text{ここが}x_0$};
   \end{tikzpicture}
 \end{document}
