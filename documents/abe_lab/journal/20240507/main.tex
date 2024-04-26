@@ -76,8 +76,6 @@
     \includegraphics[width=0.7\textwidth]{fig/Arkani-Hamed2001uol.png}
   \end{figure}
 
-  (他にも、Groot, Nilles, Olechowskiらの仕事もあるようですので、そっちのほうもここかアクティビティかで話したいです。)
-
 \end{frame}
 
 
@@ -92,24 +90,30 @@
 
   恐縮ですが、私の復習のためにも4次元の場合から振り返ります。
 
+  \pause
   \vspace*{10pt}
 
-  ディラック場を考える。
+  QEDのラグランジアン
   \begin{equation}
     \mathcal{L}
     =
-    \bar{\psi}(i\gamma^{\mu}\partial_{\mu}-m)\psi
+    -\frac{1}{4}F^{\mu\nu}F_{\mu\nu}
+    +
+    \bar{\psi}(i\slashed{\partial}-m)\psi
+    +
+    e\bar{\psi}\gamma^{\mu}\psi A_{\mu}
     \nonumber
-  \end{equation}  
+  \end{equation}
 
   \vspace*{10pt}
 
-  カイラル変換$\psi\rightarrow e^{i\gamma^{5}\alpha(x)}\psi$に対するカレントの方程式
+  カイラル変換$\psi\rightarrow e^{i\gamma^{5}\alpha(x)}\psi$に対するカレントの方程式は
   \begin{equation}
     \partial_{\mu}
     (\bar{\psi}\gamma^{\mu}\gamma^{5}\psi)
     =
     2im\bar{\psi}\gamma^{5}\psi
+    \nonumber
   \end{equation}
 
 \end{frame}
@@ -118,6 +122,7 @@
 
 \begin{frame}
 
+  しかし、先ほどの結果は古典論の結果。
 
   
 
@@ -176,7 +181,7 @@
 
 \subsection{目次}
 
-\begin{frame}[plain]{\subsecname}
+\begin{frame}[plain]{\thesubsection. \subsecname}
   \tableofcontents
 \end{frame}
 
@@ -184,8 +189,31 @@
 \subsection{定義・記法など}
 
 
-\begin{frame}
+\begin{frame}{\thesubsection. \subsecname}
 
+  
+
+\end{frame}
+
+
+\subsection{4次元のカイラルアノマリーの計算}
+
+
+\begin{frame}{\thesubsection. \subsecname}
+
+  QEDのカイラルアノマリー
+  \begin{equation}
+    \partial
+    \ev*{\bar{\psi}(x)\gamma^{\mu}\gamma^{5}\psi(x)}
+    =
+    2im\ev*{\bar{\psi}(x)\gamma^{5}\psi(x)}
+    +
+    \textcolor{Green}{ 
+      2i\left( \frac{e^2}{32\pi^2} \right)\varepsilon^{\mu\nu\rho\sigma}F_{\mu\nu}F_{\rho\sigma}
+    }
+    \nonumber
+  \end{equation}
+  を計算する。
   
 
 \end{frame}
