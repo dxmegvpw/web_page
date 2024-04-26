@@ -12,12 +12,12 @@
 
 \begin{frame}
 
-  \setbeamertemplate{blocks}[rounded][shadow=true]
-  \setbeamercolor{block body}{bg=LimeGreen!10!white, fg=black}
-
   \begin{center}
     \uline{文献紹介}
   \end{center}
+
+  \setbeamertemplate{blocks}[rounded][shadow=true]
+  \setbeamercolor{block body}{bg=LimeGreen!10!white, fg=black}
   \begin{block}{}
     \vspace*{5pt}
 
@@ -88,17 +88,15 @@
 
 \begin{frame}{アノマリー}
 
-  恐縮ですが、私の復習のためにも4次元の場合から振り返ります。
+  4次元の場合のカイラルアノマリーを確認する。
 
   \pause
   \vspace*{10pt}
 
-  QEDのラグランジアン
+  ゲージ場$A_{\mu}$と結合しているフェルミオン$\psi$を考える
   \begin{equation}
     \mathcal{L}
     =
-    -\frac{1}{4}F^{\mu\nu}F_{\mu\nu}
-    +
     \bar{\psi}(i\slashed{\partial}-m)\psi
     +
     e\bar{\psi}\gamma^{\mu}\psi A_{\mu}
@@ -107,12 +105,15 @@
 
   \vspace*{10pt}
 
-  カイラル変換$\psi\rightarrow e^{i\gamma^{5}\alpha(x)}\psi$に対するカレントの方程式は
+  カイラル変換$\psi\rightarrow e^{i\gamma^{5}\alpha(x)}\psi$に対するネーターカレントの方程式は
   \begin{equation}
-    \partial_{\mu}
-    (\bar{\psi}\gamma^{\mu}\gamma^{5}\psi)
+    \partial_{\mu}j^{\mu}_{5}
     =
     2im\bar{\psi}\gamma^{5}\psi
+    ,\quad
+    j^{\mu}_{5}
+    =
+    \bar{\psi}\gamma^{\mu}\gamma^{5}\psi
     \nonumber
   \end{equation}
 
@@ -124,15 +125,43 @@
 
   しかし、先ほどの結果は古典論の結果。
 
+  \vspace*{10pt}
+
+  カレント$j^{\mu}_{5}$の真空期待値の微分を計算すると
+  \begin{equation}
+    \partial_{\mu}
+    \ev*{j^{\mu}_{5}}
+    =
+    2im\ev*{\bar{\psi}\gamma^{5}\psi}
+    +
+    \textcolor{DarkGreen}{
+      Q
+    }
+    ,\quad    
+    \textcolor{DarkGreen}{
+      Q
+    }
+    =
+    \textcolor{DarkGreen}{
+      \frac{e^2}{16\pi^2}\varepsilon^{\mu\nu\rho\sigma}\ev*{F_{\mu\nu}F_{\rho\sigma}}
+    }
+    \nonumber
+  \end{equation}
   
+  この余分な$\textcolor{DarkGreen}{Q}$は、ゲージ不変性を保って発散を正則化するときに生じる項。
+
+  \begin{center}
+    この$\textcolor{DarkGreen}{Q}$を\textcolor{DarkRed}{カイラルアノマリー}という。    
+  \end{center}
 
 \end{frame}
 
 
-
-\begin{frame}{この論文の流れ・結論}
-
+\begin{frame}  
   
+  一般に、5次元の理論はカイラルな理論となるため、
+
+
 
   
 
@@ -201,19 +230,7 @@
 
 \begin{frame}{\thesubsection. \subsecname}
 
-  QEDのカイラルアノマリー
-  \begin{equation}
-    \partial
-    \ev*{\bar{\psi}(x)\gamma^{\mu}\gamma^{5}\psi(x)}
-    =
-    2im\ev*{\bar{\psi}(x)\gamma^{5}\psi(x)}
-    +
-    \textcolor{Green}{ 
-      2i\left( \frac{e^2}{32\pi^2} \right)\varepsilon^{\mu\nu\rho\sigma}F_{\mu\nu}F_{\rho\sigma}
-    }
-    \nonumber
-  \end{equation}
-  を計算する。
+  QEDのカイラルアノマリーを計算する。
   
 
 \end{frame}
