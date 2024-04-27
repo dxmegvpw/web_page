@@ -1,0 +1,396 @@
+\pdfoutput=1
+\documentclass[a4paper,pdftex,10pt]{article}
+\input{preable_pdflatex.tex}
+\begin{document}
+
+\maketitle
+
+\tableofcontents
+
+% ----------------------------------------------------------------------------------------------------
+\clearpage
+\section{Problem 1*}
+
+The Christoffel symbol is defined as
+\begin{equation}
+  \Gamma_{\mu\alpha\beta}
+  =
+  \frac{1}{2}
+  \left(
+  \pdv{g_{\mu\alpha}}{x^{\beta}}
+  +
+  \pdv{g_{\mu\beta}}{x^{\alpha}}
+  -
+  \pdv{g_{\alpha\beta}}{x^{\mu}}
+  \right)
+  \label{eqn:christoffel_symbol}
+\end{equation}
+in a coordinate system $x^{\lambda}$ and transform into a system $\tilde{x}^{\lambda}$\footnote{
+  In the problem statement, we should consider the transformation $x^{\lambda}$ into a system "${x^{\prime}}^{\lambda}$" but I should apologize since we will use a different label "$\tilde{x}^{\lambda}$", though it is trivial.
+}. The transformation laws of the coordinate are
+\begin{align}
+  g^{\mu\nu}
+   & =
+  \pdv{x^{\mu}}{\tilde{x}^{\rho}}\pdv{x^{\nu}}{\tilde{x}^{\sigma}}\tilde{g}^{\rho\sigma}
+  \\
+  \pdv{}{x^{\mu}}
+   & =
+  \pdv{\tilde{x}^{\lambda}}{x^{\mu}}\pdv{}{\tilde{x}^{\lambda}}  .
+\end{align}
+Putting these relations into the definition \eqref{eqn:christoffel_symbol}, we obtain the transformation law
+\begin{align}
+  \Gamma_{\mu\alpha\beta}
+   & =
+  \frac{1}{2}
+  \left(
+  \pdv{g_{\mu\alpha}}{x^{\beta}}
+  +
+  \pdv{g_{\mu\beta}}{x^{\alpha}}
+  -
+  \pdv{g_{\alpha\beta}}{x^{\mu}}
+  \right)
+  \nonumber
+  \\
+   & =
+  \frac{1}{2}
+  \left\{
+  \pdv{\tilde{x}^{\delta}}{x^{\beta}}\pdv{}{\tilde{x}^{\delta}}
+  \left(
+  \pdv{\tilde{x}^{\lambda}}{x^{\mu}}\pdv{\tilde{x}^{\gamma}}{x^{\alpha}}g_{\lambda\gamma}
+  \right)
+  +
+  \pdv{\tilde{x}^{\gamma}}{x^{\alpha}}\pdv{}{\tilde{x}^{\gamma}}
+  \left(
+  \pdv{\tilde{x}^{\lambda}}{x^{\mu}}\pdv{\tilde{x}^{\delta}}{x^{\beta}}g_{\lambda\delta}
+  \right)
+  -
+  \pdv{\tilde{x}^{\lambda}}{x^{\mu}}\pdv{}{\tilde{x}^{\lambda}}
+  \left(
+  \pdv{\tilde{x}^{\gamma}}{x^{\alpha}}\pdv{\tilde{x}^{\delta}}{x^{\beta}}g_{\gamma\delta}
+  \right)
+  \nonumber
+  \right\}
+  \nonumber
+  \\
+   & =
+  \frac{1}{2}
+  \left\{
+  \pdv{\tilde{x}^{\delta}}{x^{\beta}}\pdv{}{\tilde{x}^{\delta}}
+  \left( \pdv{\tilde{x}^{\lambda}}{x^{\mu}} \right)
+  \pdv{\tilde{x}^{\gamma}}{x^{\alpha}}g_{\lambda\gamma}
+  +
+  \pdv{\tilde{x}^{\delta}}{x^{\beta}}
+  \pdv{\tilde{x}^{\lambda}}{x^{\mu}}
+  \pdv{}{\tilde{x}^{\delta}}
+  \left(  \pdv{\tilde{x}^{\gamma}}{x^{\alpha}} \right)
+  g_{\lambda\gamma}
+  +
+  \uwave{
+    \pdv{\tilde{x}^{\delta}}{x^{\beta}}
+    \pdv{\tilde{x}^{\lambda}}{x^{\mu}}\pdv{\tilde{x}^{\gamma}}{x^{\alpha}}
+    \pdv{g_{\lambda\gamma}}{\tilde{x}^{\delta}}
+  }
+  \right.
+  \nonumber
+  \\
+   & \qquad
+  +
+  \pdv{\tilde{x}^{\gamma}}{x^{\alpha}}\pdv{}{\tilde{x}^{\gamma}}
+  \left(
+  \pdv{\tilde{x}^{\lambda}}{x^{\mu}}
+  \right)
+  \pdv{\tilde{x}^{\delta}}{x^{\beta}}g_{\lambda\delta}
+  +
+  \pdv{\tilde{x}^{\gamma}}{x^{\alpha}}\pdv{}{\tilde{x}^{\gamma}}
+  \pdv{\tilde{x}^{\lambda}}{x^{\mu}}
+  \left(  \pdv{\tilde{x}^{\delta}}{x^{\beta}}
+  \right)
+  g_{\lambda\delta}
+  +
+  \uwave{
+    \pdv{\tilde{x}^{\gamma}}{x^{\alpha}}
+    \pdv{\tilde{x}^{\lambda}}{x^{\mu}}\pdv{\tilde{x}^{\delta}}{x^{\beta}}
+    \pdv{g_{\lambda\delta}}{\tilde{x}^{\gamma}}
+  }
+  \nonumber
+  \\
+   & \qquad
+  \left.
+  -
+  \pdv{\tilde{x}^{\lambda}}{x^{\mu}}\pdv{}{\tilde{x}^{\lambda}}
+  \left(
+  \pdv{\tilde{x}^{\gamma}}{x^{\alpha}}
+  \right)
+  \pdv{\tilde{x}^{\delta}}{x^{\beta}}g_{\gamma\delta}
+  -
+  \pdv{\tilde{x}^{\lambda}}{x^{\mu}}\pdv{\tilde{x}^{\gamma}}{x^{\alpha}}
+  \pdv{}{\tilde{x}^{\lambda}}
+  \left(
+  \pdv{\tilde{x}^{\delta}}{x^{\beta}}
+  \right)
+  g_{\gamma\delta}
+  -
+  \uwave{
+    \pdv{\tilde{x}^{\lambda}}{x^{\mu}}
+    \pdv{\tilde{x}^{\gamma}}{x^{\alpha}}\pdv{\tilde{x}^{\delta}}{x^{\beta}}
+    \pdv{g_{\gamma\delta}}{\tilde{x}^{\lambda}}
+  }
+  \right\}
+  .
+  \label{eqn:1}
+\end{align}
+The waved terms $\uwave{\qquad}$ in \eqref{eqn:1} become a twice of the Christoffel symbol:
+\begin{equation}
+  \pdv{\tilde{x}^{\delta}}{x^{\beta}}
+  \pdv{\tilde{x}^{\lambda}}{x^{\mu}}\pdv{\tilde{x}^{\gamma}}{x^{\alpha}}
+  \pdv{g_{\lambda\gamma}}{\tilde{x}^{\delta}}
+  +
+  \pdv{\tilde{x}^{\gamma}}{x^{\alpha}}
+  \pdv{\tilde{x}^{\lambda}}{x^{\mu}}\pdv{\tilde{x}^{\delta}}{x^{\beta}}
+  \pdv{g_{\lambda\delta}}{\tilde{x}^{\gamma}}
+  -
+  \pdv{\tilde{x}^{\lambda}}{x^{\mu}}
+  \pdv{\tilde{x}^{\gamma}}{x^{\alpha}}\pdv{\tilde{x}^{\delta}}{x^{\beta}}
+  \pdv{g_{\gamma\delta}}{\tilde{x}^{\lambda}}
+  =
+  2
+  \pdv{\tilde{x}^{\lambda}}{x^{\mu}}
+  \pdv{\tilde{x}^{\gamma}}{x^{\alpha}}\pdv{\tilde{x}^{\delta}}{x^{\beta}}
+  \tilde{\Gamma}_{\lambda\gamma\delta}
+  .
+\end{equation}
+But we know that there are additional terms in \eqref{eqn:1} and they violate the transformation law of the 3-rank covariant tensor. Thus we find the law as
+\begin{align}
+  \Gamma_{\mu\alpha\beta}
+   & =
+  \pdv{\tilde{x}^{\lambda}}{x^{\mu}}
+  \pdv{\tilde{x}^{\gamma}}{x^{\alpha}}\pdv{\tilde{x}^{\delta}}{x^{\beta}}
+  \tilde{\Gamma}_{\lambda\gamma\delta}
+  +
+  \frac{1}{2}
+  \left\{
+  \pdv{\tilde{x}^{\delta}}{x^{\beta}}\pdv{x^{\epsilon}}{\tilde{x}^{\delta}}
+  \left(
+  \pdv{\tilde{x}^{\lambda}}{x^{\epsilon}}{x^{\mu}}\pdv{\tilde{x}^{\gamma}}{x^{\alpha}}
+  +
+  \pdv{\tilde{x}^{\lambda}}{x^{\mu}}\pdv{\tilde{x}^{\gamma}}{x^{\epsilon}}{x^{\alpha}}
+  \right)g_{\lambda\gamma}
+  \right.
+  \nonumber
+  \\
+   & \qquad
+  +
+  \pdv{\tilde{x}^{\gamma}}{x^{\alpha}}\pdv{x^{\epsilon}}{\tilde{x}^{\gamma}}
+  \left(
+  \pdv{\tilde{x}^{\lambda}}{x^{\mu}}{x^{\epsilon}}
+  \pdv{\tilde{x}^{\delta}}{x^{\beta}}
+  +
+  \pdv{\tilde{x}^{\delta}}{x^{\mu}}{x^{\epsilon}}\pdv{\tilde{x}^{\lambda}}{x^{\beta}}
+  \right)
+  g_{\lambda\delta}
+  \nonumber
+  \\
+   & \qquad
+  \left.
+  -
+  \pdv{\tilde{x}^{\lambda}}{x^{\mu}}\pdv{x^{\epsilon}}{\tilde{x}^{\lambda}}
+  \left(
+  \pdv{\tilde{x}^{\gamma}}{x^{\epsilon}}{x^{\alpha}}\pdv{\tilde{x}^{\delta}}{x^{\beta}}
+  +
+  \pdv{\tilde{x}^{\gamma}}{x^{\beta}}\pdv{\tilde{x}^{\delta}}{x^{\epsilon}}{x^{\alpha}}
+  \right)
+  g_{\gamma\delta}
+  \right\}
+  \nonumber
+  \\
+   & =
+  \pdv{\tilde{x}^{\lambda}}{x^{\mu}}
+  \pdv{\tilde{x}^{\gamma}}{x^{\alpha}}\pdv{\tilde{x}^{\delta}}{x^{\beta}}
+  \tilde{\Gamma}_{\lambda\gamma\delta}
+  +
+  \pdv{\tilde{x}^{\delta}}{x^{\beta}}\pdv{x^{\epsilon}}{\tilde{x}^{\delta}}
+  \pdv{\tilde{x}^{\lambda}}{x^{\mu}}\pdv{\tilde{x}^{\gamma}}{x^{\epsilon}}{x^{\alpha}}
+  g_{\lambda\gamma}
+  \nonumber
+  \\
+   & \qquad
+  +
+  \pdv{\tilde{x}^{\gamma}}{x^{\alpha}}\pdv{x^{\epsilon}}{\tilde{x}^{\gamma}}
+  \pdv{\tilde{x}^{\lambda}}{x^{\mu}}{x^{\epsilon}}
+  \pdv{\tilde{x}^{\delta}}{x^{\beta}}
+  g_{\lambda\delta}
+  -
+  \pdv{\tilde{x}^{\lambda}}{x^{\mu}}\pdv{x^{\epsilon}}{\tilde{x}^{\lambda}}
+  \pdv{\tilde{x}^{\gamma}}{x^{\epsilon}}{x^{\alpha}}\pdv{\tilde{x}^{\delta}}{x^{\beta}}
+  g_{\gamma\delta}
+  .
+\end{align}
+(I think this result is somewhat strange.)
+
+
+% ----------------------------------------------------------------------------------------------------
+\clearpage
+\section{Problem 2}
+
+From the previous problem, we obtain the transformation law
+\begin{equation}
+  \tilde{\Gamma}^{\lambda}_{\ \mu\nu}
+  =
+  \pdv{\tilde{x}^{\lambda}}{x^{\gamma}}
+  \pdv{x^{\alpha}}{\tilde{x}^{\mu}}
+  \pdv{x^{\beta}}{\tilde{x}^{\nu}}
+  \Gamma^{\gamma}_{\ \alpha\beta}
+  +
+  \pdv{\tilde{x}^{\lambda}}{x^{\gamma}}\pdv{x^{\gamma}}{\tilde{x}^{\mu}}{\tilde{x}^{\nu}}
+  .
+\end{equation}
+Since we already know the transformation laws, what we have to do is just to compute them. Thus the transformation should be
+\begin{align}
+  \tilde{\nabla}_{\mu}\tilde{V}_{\nu}
+   & \equiv
+  \pdv{\tilde{V}_{\nu}}{\tilde{x}^{\mu}}
+  -
+  \tilde{\Gamma}^{\lambda}_{\ \mu\nu}\tilde{V}_{\lambda}
+  \nonumber
+  \\
+   & =
+  \pdv{x^{\alpha}}{\tilde{x}^{\mu}}\pdv{}{x^{\alpha}}\left( \pdv{x^{\beta}}{\tilde{x}^{\nu}}V_{\beta} \right)
+  -
+  \left(
+  \pdv{\tilde{x}^{\lambda}}{x^{\gamma}}
+  \pdv{x^{\alpha}}{\tilde{x}^{\mu}}
+  \pdv{x^{\beta}}{\tilde{x}^{\nu}}
+  \Gamma^{\gamma}_{\ \alpha\beta}
+  +
+  \pdv{\tilde{x}^{\lambda}}{x^{\gamma}}\pdv{x^{\gamma}}{\tilde{x}^{\mu}}{\tilde{x}^{\nu}}
+  \right)
+  \cdot
+  \pdv{x^{\delta}}{\tilde{x}^{\lambda}}V_{\delta}
+  \nonumber
+  \\
+   & =
+  \cancel{
+  \pdv{x^{\beta}}{\tilde{x}^{\mu}}{\tilde{x}^{\nu}}V_{\beta}
+  }
+  +
+  \pdv{x^{\alpha}}{\tilde{x}^{\mu}}\pdv{x^{\beta}}{\tilde{x}^{\nu}}\pdv{V_{\beta}}{x^{\alpha}}
+  -
+  \pdv{\tilde{x}^{\lambda}}{x^{\gamma}}
+  \pdv{x^{\alpha}}{\tilde{x}^{\mu}}
+  \pdv{x^{\beta}}{\tilde{x}^{\nu}}
+  \Gamma^{\gamma}_{\ \alpha\beta}
+  \cdot
+  \pdv{x^{\delta}}{\tilde{x}^{\lambda}}V_{\delta}
+  -
+  \cancel{
+  \pdv{\tilde{x}^{\lambda}}{x^{\gamma}}\pdv{x^{\gamma}}{\tilde{x}^{\mu}}{\tilde{x}^{\nu}}
+  \cdot
+  \pdv{x^{\delta}}{\tilde{x}^{\lambda}}V_{\delta}
+  }
+  \nonumber
+  \\
+   & =
+  \pdv{x^{\alpha}}{\tilde{x}^{\mu}}\pdv{x^{\beta}}{\tilde{x}^{\nu}}
+  \left(
+  \pdv{V_{\beta}}{x^{\alpha}}
+  -
+  \Gamma^{\gamma}_{\ \alpha\beta}V_{\gamma}
+  \right)
+  =
+  \pdv{x^{\alpha}}{\tilde{x}^{\mu}}\pdv{x^{\beta}}{\tilde{x}^{\nu}}\nabla_{\alpha}V_{\beta}
+\end{align}
+and we finally attain
+\begin{equation}  
+  \tilde{\nabla}_{\mu}\tilde{V}_{\nu}
+  =
+  \pdv{x^{\alpha}}{\tilde{x}^{\mu}}\pdv{x^{\beta}}{\tilde{x}^{\nu}}\nabla_{\alpha}V_{\beta}
+  .
+\end{equation}
+
+
+
+% ----------------------------------------------------------------------------------------------------
+\clearpage
+\section{Problem 3*}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+% ----------------------------------------------------------------------------------------------------
+\clearpage
+\section{Problem 4}
+
+Let us show the following formula:
+\begin{equation}
+  \pdv{}{x^{\mu}}\sqrt{-g}
+  =
+  \sqrt{-g}\Gamma^{\lambda}_{\ \mu\lambda}
+  .
+  \label{eqn:4-1}
+\end{equation}
+Assuming this relation, we immediately reach the answer
+\begin{align}
+  \frac{1}{\sqrt{-g}}\pdv{}{x^{\lambda}}\left(\sqrt{-g}A^{\lambda}\right)
+  &=
+  \frac{1}{\sqrt{-g}}\left( \pdv{}{x^{\lambda}}\sqrt{-g} \right)A^{\lambda}
+  +
+  \pdv{A^{\lambda}}{x^{\lambda}}
+  \nonumber
+  \\
+  &=
+  \Gamma^{\sigma}_{\ \lambda\sigma}A^{\kappa}
+  +
+  \pdv{A^{\lambda}}{x^{\lambda}}
+  =
+  \nabla_{\lambda}A^{\lambda}
+  .
+\end{align}
+So what is left is to prove the relation \eqref{eqn:4-1}.
+\begin{proof}
+  We will use the relation 
+  \begin{equation}
+    \ln \det g
+    =
+    \Tr \ln g
+    \label{eqn:4-2}
+  \end{equation}
+  and take the derivative to $x^{\lambda}$.
+\end{proof}
+
+
+
+
+
+
+
+
+
+
+
+% ----------------------------------------
+% \clearpage
+% \appendix
+% \section{Notes}
+
+% ----------------------------------------
+% \clearpage
+% \bibliography{ref}
+% \bibliographystyle{ytamsalpha}
+
+% ----------------------------------------
+% \clearpage
+% \index{hoge@hoge}
+% \printindex
+
+\end{document}
