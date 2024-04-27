@@ -331,7 +331,14 @@ and we finally attain
 \clearpage
 \section{Problem 4}
 
-Let us show the following formula:
+Let us show the following formula\footnote{
+  The exponential of matrix $A$ satisfies
+  \begin{equation}
+    \det e^{A}=e^{\Tr A}
+    \nonumber
+  \end{equation}
+  and taking $A\equiv\ln g$, we find \eqref{eqn:4-1}.
+}:
 \begin{equation}
   \pdv{}{x^{\mu}}\sqrt{-g}
   =
@@ -360,21 +367,52 @@ So what is left is to prove the relation \eqref{eqn:4-1}.
 \begin{proof}
   We will use the relation 
   \begin{equation}
-    \ln \det g
+    \ln g
     =
     \Tr \ln g
     \label{eqn:4-2}
   \end{equation}
-  and take the derivative to $x^{\lambda}$.
+  and take the derivative to $x^{\lambda}$. Then we get
+  \begin{equation}
+    \pdv{}{x^{\lambda}}\ln g
+    =
+    \pdv{}{x^{\lambda}}\Tr\ln g
+    \label{eqn:4-3}
+  \end{equation}
+  and by computing both sides carefully, we can obtain
+  \begin{equation}
+    \frac{1}{g}\pdv{g}{x^{\lambda}}
+    =
+    g^{\alpha\beta}\pdv{g_{\alpha\beta}}{x^{\lambda}}
+    .    
+    \label{eqn:4-4}
+  \end{equation} 
+  Note that we use the relation 
+  \begin{equation}
+    \pdv{}{x^{\lambda}}\ln g_{\alpha\beta}
+    =
+    (g^{-1})_{\alpha\gamma}\pdv{g_{\gamma\beta}}{x^{\lambda}}
+  \end{equation}
+  when we derivate the RHS of \eqref{eqn:4-3}. Thus we find
+  \begin{align}
+    \pdv{}{x^{\lambda}}\sqrt{-g}
+    &=
+    -\pdv{g}{x^{\lambda}}
+    \cdot
+    \frac{1}{2}\frac{1}{\sqrt{-g}}
+    \nonumber
+    \\
+    &=
+    \frac{1}{2}\sqrt{-g}g^{\alpha\beta}\pdv{g_{\alpha\beta}}{x^{\lambda}}
+  \end{align}
+  by using \eqref{eqn:4-4}. On the other hand, the Christoffel symbol is defined as \eqref{eqn:christoffel_symbol} and contracting the indices, the relation holds
+  \begin{equation}
+    \Gamma^{\lambda}_{\ \mu\lambda}
+    =
+    \frac{1}{2}g^{\alpha\beta}\pdv{g_{\alpha\beta}}{x^{\lambda}}
+  \end{equation}
+  and finally we attain \eqref{eqn:4-1}.
 \end{proof}
-
-
-
-
-
-
-
-
 
 
 
