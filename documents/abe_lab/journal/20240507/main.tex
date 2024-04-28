@@ -50,6 +50,7 @@
   くりこみ、有効作用、(非可換)ゲージ場の(経路積分)量子化など$\cdots\cdots$。
 
   \vspace*{5pt}
+  \pause
   
   その中で、\textcolor{DarkOrange}{アノマリー}を勉強してみたいなと思いました。
 
@@ -81,12 +82,13 @@
 
 \section{イントロダクション}
 
-\begin{frame}
+\begin{frame}[plain]
   \huge \secname
 \end{frame}
 
+\subsection{アノマリー}
 
-\begin{frame}{アノマリー}
+\begin{frame}{\subsecname}
 
   4次元の場合のカイラルアノマリーを確認する。
 
@@ -123,14 +125,31 @@
 
 \begin{frame}
 
-  しかし、先ほどの結果は古典論の結果。
+  しかし、この結果は古典論の結果
 
-  \vspace*{10pt}
-
-  カレント$j^{\mu}_{5}$の真空期待値の微分を計算すると
   \begin{equation}
     \partial_{\mu}
-    \ev*{j^{\mu}_{5}}
+    (\bar{\psi}\gamma^{\mu}\gamma^{5}\psi)
+    =
+    2im\bar{\psi}\gamma^{5}\psi
+    \nonumber
+  \end{equation}
+
+  \pause
+  \vspace*{10pt}
+
+  量子論の意味では、以下のファインマンダイアグラムの計算をすることと等価
+
+
+\end{frame}
+
+
+\begin{frame}  
+
+  左側のダイアグラムの振幅を計算して位置基底に戻すと
+  \begin{equation}
+    \partial_{\mu}
+    \ev*{\bar{\psi}\gamma^{\mu}\gamma^{5}\psi}
     =
     2im\ev*{\bar{\psi}\gamma^{5}\psi}
     +
@@ -148,39 +167,27 @@
     \nonumber
   \end{equation}
   
-  この余分な$\textcolor{DarkGreen}{Q}$は、ゲージ不変性を保って発散を正則化するときに生じる項。
+  この余分な$\textcolor{DarkGreen}{Q}$は、ゲージ不変性を保って発散を正則化するときに生じる項
 
   \begin{center}
     この$\textcolor{DarkGreen}{Q}$を\textcolor{DarkRed}{カイラルアノマリー}という。    
-  \end{center}
+  \end{center}  
 
 \end{frame}
 
 
-\begin{frame}  
+\subsection{KK理論とアノマリー}
+
+\begin{frame}{\subsecname}
+
+  一般に、\textcolor{DarkOrange}{奇数次元}の理論は左右対称な理論であるため、カイラルアノマリーは生じない。
+
   
-  一般に、5次元の理論はカイラルな理論となるため、
-
-
-
-  
-
-\end{frame}
-
-
-
-\section{オービフォールド\texorpdfstring{$S^{1}/Z_{2}$}{S1/Z2}}
-
-\begin{frame}
-  \huge \secname
-\end{frame}
-
-
-\begin{frame}
-
   
 
 \end{frame}
+
+
 
 
 
@@ -212,16 +219,6 @@
 
 \begin{frame}[plain]{\thesubsection. \subsecname}
   \tableofcontents
-\end{frame}
-
-
-\subsection{定義・記法など}
-
-
-\begin{frame}{\thesubsection. \subsecname}
-
-  
-
 \end{frame}
 
 
