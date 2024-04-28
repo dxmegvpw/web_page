@@ -9,7 +9,7 @@
 
 % ----------------------------------------------------------------------------------------------------
 \clearpage
-\section{Problem 1*}
+\section{Problem 1}
 
 The Christoffel symbol is defined as
 \begin{equation}
@@ -101,8 +101,9 @@ Putting these relations into the definition \eqref{eqn:christoffel_symbol}, we o
   \right)
   \pdv{\tilde{x}^{\delta}}{x^{\beta}}g_{\lambda\delta}
   +
-  \pdv{\tilde{x}^{\gamma}}{x^{\alpha}}\pdv{}{\tilde{x}^{\gamma}}
+  \pdv{\tilde{x}^{\gamma}}{x^{\alpha}}
   \pdv{\tilde{x}^{\lambda}}{x^{\mu}}
+  \pdv{}{\tilde{x}^{\gamma}}
   \left(  \pdv{\tilde{x}^{\delta}}{x^{\beta}}
   \right)
   g_{\lambda\delta}
@@ -159,7 +160,7 @@ The waved terms $\uwave{\qquad}$ in \eqref{eqn:1} become a twice of the Christof
   \tilde{\Gamma}_{\lambda\gamma\delta}
   .
 \end{equation}
-But we know that there are additional terms in \eqref{eqn:1} and they violate the transformation law of the 3-rank covariant tensor. Thus we find the law as
+But we already find that there are additional terms in \eqref{eqn:1} and they violate the transformation law of the 3-rank covariant tensor. Thus we find the law as
 \begin{align}
   \Gamma_{\mu\alpha\beta}
    & =
@@ -169,63 +170,35 @@ But we know that there are additional terms in \eqref{eqn:1} and they violate th
   +
   \frac{1}{2}
   \left\{
-  \pdv{\tilde{x}^{\delta}}{x^{\beta}}\pdv{x^{\epsilon}}{\tilde{x}^{\delta}}
-  \left(
-  \pdv{\tilde{x}^{\lambda}}{x^{\epsilon}}{x^{\mu}}\pdv{\tilde{x}^{\gamma}}{x^{\alpha}}
+  \pdv{\tilde{x}^{\lambda}}{x^{\beta}}{x^{\mu}}\pdv{\tilde{x}^{\gamma}}{x^{\alpha}}g_{\lambda\gamma}
   +
-  \pdv{\tilde{x}^{\lambda}}{x^{\mu}}\pdv{\tilde{x}^{\gamma}}{x^{\epsilon}}{x^{\alpha}}
-  \right)g_{\lambda\gamma}
+  \pdv{\tilde{x}^{\gamma}}{x^{\beta}}{x^{\alpha}}\pdv{\tilde{x}^{\lambda}}{x^{\mu}}g_{\lambda\gamma}
   \right.
   \nonumber
   \\
    & \qquad
-  +
-  \pdv{\tilde{x}^{\gamma}}{x^{\alpha}}\pdv{x^{\epsilon}}{\tilde{x}^{\gamma}}
-  \left(
-  \pdv{\tilde{x}^{\lambda}}{x^{\mu}}{x^{\epsilon}}
-  \pdv{\tilde{x}^{\delta}}{x^{\beta}}
-  +
-  \pdv{\tilde{x}^{\delta}}{x^{\mu}}{x^{\epsilon}}\pdv{\tilde{x}^{\lambda}}{x^{\beta}}
-  \right)
-  g_{\lambda\delta}
-  \nonumber
-  \\
-   & \qquad
   \left.
-  -
-  \pdv{\tilde{x}^{\lambda}}{x^{\mu}}\pdv{x^{\epsilon}}{\tilde{x}^{\lambda}}
-  \left(
-  \pdv{\tilde{x}^{\gamma}}{x^{\epsilon}}{x^{\alpha}}\pdv{\tilde{x}^{\delta}}{x^{\beta}}
   +
-  \pdv{\tilde{x}^{\gamma}}{x^{\beta}}\pdv{\tilde{x}^{\delta}}{x^{\epsilon}}{x^{\alpha}}
-  \right)
-  g_{\gamma\delta}
+  \pdv{\tilde{x}^{\lambda}}{x^{\alpha}}{x^{\mu}}\pdv{\tilde{x}^{\delta}}{x^{\beta}}g_{\lambda\delta}
+  +
+  \pdv{\tilde{x}^{\delta}}{x^{\alpha}}{x^{\beta}}\pdv{\tilde{x}^{\lambda}}{x^{\mu}}g_{\lambda\delta}
+  -
+  \pdv{\tilde{x}^{\gamma}}{x^{\mu}x^{\alpha}}\pdv{\tilde{x}^{\delta}}{x^{\beta}}g_{\gamma\delta}
+  -
+  \pdv{\tilde{x}^{\delta}}{x^{\mu}}{x^{\beta}}\pdv{\tilde{x}^{\gamma}}{x^{\alpha}}g_{\delta\gamma}
   \right\}
   \nonumber
   \\
-   & =
+  &=
   \pdv{\tilde{x}^{\lambda}}{x^{\mu}}
   \pdv{\tilde{x}^{\gamma}}{x^{\alpha}}\pdv{\tilde{x}^{\delta}}{x^{\beta}}
   \tilde{\Gamma}_{\lambda\gamma\delta}
   +
-  \pdv{\tilde{x}^{\delta}}{x^{\beta}}\pdv{x^{\epsilon}}{\tilde{x}^{\delta}}
-  \pdv{\tilde{x}^{\lambda}}{x^{\mu}}\pdv{\tilde{x}^{\gamma}}{x^{\epsilon}}{x^{\alpha}}
-  g_{\lambda\gamma}
-  \nonumber
-  \\
-   & \qquad
-  +
-  \pdv{\tilde{x}^{\gamma}}{x^{\alpha}}\pdv{x^{\epsilon}}{\tilde{x}^{\gamma}}
-  \pdv{\tilde{x}^{\lambda}}{x^{\mu}}{x^{\epsilon}}
-  \pdv{\tilde{x}^{\delta}}{x^{\beta}}
-  g_{\lambda\delta}
-  -
-  \pdv{\tilde{x}^{\lambda}}{x^{\mu}}\pdv{x^{\epsilon}}{\tilde{x}^{\lambda}}
-  \pdv{\tilde{x}^{\gamma}}{x^{\epsilon}}{x^{\alpha}}\pdv{\tilde{x}^{\delta}}{x^{\beta}}
-  g_{\gamma\delta}
-  .
+  \pdv{\tilde{x}^{\lambda}}{x^{\mu}}\pdv{\tilde{x}^{\gamma}}{x^{\alpha}}{x^{\beta}}g_{\lambda\gamma}
 \end{align}
-(I think this result is somewhat strange.)
+Note we freely change the dummy indices and cancel out equivalent terms.
+
+
 
 
 % ----------------------------------------------------------------------------------------------------
@@ -300,7 +273,7 @@ Since we already know the transformation laws, what we have to do is just to com
   \pdv{x^{\alpha}}{\tilde{x}^{\mu}}\pdv{x^{\beta}}{\tilde{x}^{\nu}}\nabla_{\alpha}V_{\beta}
 \end{align}
 and we finally attain
-\begin{equation}  
+\begin{equation}
   \tilde{\nabla}_{\mu}\tilde{V}_{\nu}
   =
   \pdv{x^{\alpha}}{\tilde{x}^{\mu}}\pdv{x^{\beta}}{\tilde{x}^{\nu}}\nabla_{\alpha}V_{\beta}
@@ -311,20 +284,209 @@ and we finally attain
 
 % ----------------------------------------------------------------------------------------------------
 \clearpage
-\section{Problem 3*}
+\section{Problem 3}
 
-
-
-
-
-
-
-
-
-
-
-
-
+The definition of the covariant derivative of two-rank tensor and as followings:
+\begin{gather}
+  \nabla_{\lambda} T_{\mu\nu}
+  =
+  \pdv{T_{\mu\nu}}{x^{\lambda}}
+  -
+  \Gamma^{\rho}_{\ \mu\lambda}T_{\rho\nu}
+  -
+  \Gamma^{\rho}_{\ \nu\lambda}T_{\mu\rho}
+  ,
+  \\
+  R^{\mu}_{\ \nu\lambda\rho}
+  =
+  \pdv{}{x^{\lambda}}
+  \Gamma^{\mu}_{\ \nu\rho}
+  -
+  \pdv{}{x^{\rho}}
+  \Gamma^{\mu}_{\ \nu\lambda}
+  +
+  \Gamma^{\mu}_{\ \alpha\lambda}\Gamma^{\alpha}_{\ \nu\rho}
+  -
+  \Gamma^{\mu}_{\ \alpha\rho}\Gamma^{\alpha}_{\ \nu\lambda}
+  .
+\end{gather}
+We already showed that $\nabla_{\lambda}A_{\sigma}$ is the 2-rank covariant tensor in the previous problem. Thus we should find $[\nabla_{\mu},\nabla_{\nu}]T_{\lambda\rho}$ for a general two-rank tensor $T_{\mu\nu}$. Let us compute $\nabla_{\mu}\nabla_{\nu}T_{\lambda\rho}$ first. It is
+\begin{align}
+  \nabla_{\mu}\nabla_{\nu}T_{\lambda\rho}
+  &=
+  \pdv{}{x^{\mu}}
+  \left(  \nabla_{\nu}T_{\lambda\rho} \right)
+  -
+  \textcolor{gray}{\Gamma^{\alpha}_{\ \nu\mu}(\nabla_{\delta}T_{\lambda\rho})}
+  -
+  \Gamma^{\sigma}_{\ \lambda\mu}(\nabla_{\nu}T_{\sigma\rho})
+  -
+  \Gamma^{\sigma}_{\ \rho\mu}(\nabla_{\nu}T_{\lambda\sigma})
+  \nonumber
+  \\
+  &=
+  \textcolor{gray}{\pdv{T_{\lambda\rho}}{x^{\mu}}{x^{\nu}}}
+  -
+  \pdv{\Gamma^{\sigma}_{\ \lambda\nu}}{x^{\mu}}T_{\sigma\rho}
+  -
+  \Gamma^{\sigma}_{\ \lambda\nu}\pdv{T_{\sigma\rho}}{x^{\mu}}
+  -
+  \pdv{\Gamma^{\sigma}_{\ \rho\nu}}{x^{\mu}}T_{\lambda\sigma}
+  -
+  \Gamma^{\sigma}_{\ \rho\nu}\pdv{T_{\lambda\sigma}}{x^{\mu}}
+  -
+  \textcolor{gray}{\Gamma^{\alpha}_{\ \nu\mu}(\nabla_{\delta}T_{\lambda\rho})}
+  \nonumber
+  \\
+  &\quad
+  -
+  \Gamma^{\sigma}_{\ \lambda\mu}\pdv{T_{\sigma\rho}}{x^{\nu}}
+  +
+  \Gamma^{\sigma}_{\ \lambda\mu}\Gamma^{\alpha}_{\ \sigma\nu}T_{\alpha\rho}
+  +
+  \Gamma^{\sigma}_{\ \lambda\mu}\Gamma^{\alpha}_{\ \rho\nu}T_{\sigma\alpha}
+  \nonumber
+  \\
+  &\qquad
+  -
+  \Gamma^{\sigma}_{\ \rho\mu}\pdv{T_{\lambda\sigma}}{x^{\nu}}
+  +
+  \Gamma^{\sigma}_{\ \rho\mu}\Gamma^{\alpha}_{\ \lambda\nu}T_{\alpha\sigma}
+  +
+  \Gamma^{\sigma}_{\ \rho\mu}\Gamma^{\alpha}_{\ \sigma\nu}T_{\lambda\alpha}
+  .
+  \nonumber
+\end{align}
+Note that grayed terms vanish from contributions of $\nabla_{\nu}\nabla_{\mu}T_{\lambda\rho}$. When we evaluate $\nabla_{\mu}\nabla_{\nu}T_{\lambda\rho}$, we just need to flip the indices as $\mu\leftrightarrow\nu$ and we get 
+\begin{align}
+  [\nabla_{\mu},\nabla_{\nu}]T_{\lambda\rho}
+  &=
+  -
+  \uline{
+  \pdv{\Gamma^{\sigma}_{\ \lambda\nu}}{x^{\mu}}T_{\sigma\rho}
+  }
+  -
+  \cancel{
+  \Gamma^{\sigma}_{\ \lambda\nu}\pdv{T_{\sigma\rho}}{x^{\mu}}
+  }
+  -
+  \uwave{
+  \pdv{\Gamma^{\sigma}_{\ \rho\nu}}{x^{\mu}}T_{\lambda\sigma}
+  }
+  -
+  \cancel{
+  \Gamma^{\sigma}_{\ \rho\nu}\pdv{T_{\lambda\sigma}}{x^{\mu}}
+  }
+  -
+  \cancel{
+  \Gamma^{\sigma}_{\ \lambda\mu}\pdv{T_{\sigma\rho}}{x^{\nu}}
+  }
+  \nonumber
+  \\
+  &\qquad
+  +
+  \uline{
+  \Gamma^{\sigma}_{\ \lambda\mu}\Gamma^{\alpha}_{\ \sigma\nu}T_{\alpha\rho}
+  }
+  +
+  \textcolor{DarkGreen}{
+  \Gamma^{\sigma}_{\ \lambda\mu}\Gamma^{\alpha}_{\ \rho\nu}T_{\sigma\alpha}
+  }
+  -
+  \cancel{
+  \Gamma^{\sigma}_{\ \rho\mu}\pdv{T_{\lambda\sigma}}{x^{\nu}}
+  }
+  +
+  \textcolor{DarkRed}{
+  \Gamma^{\sigma}_{\ \rho\mu}\Gamma^{\alpha}_{\ \lambda\nu}T_{\alpha\sigma}
+  }
+  +
+  \uwave{
+  \Gamma^{\sigma}_{\ \rho\mu}\Gamma^{\alpha}_{\ \sigma\nu}T_{\lambda\alpha}
+  }
+  \nonumber
+  \\
+  &\qquad
+  +
+  \uline{
+  \pdv{\Gamma^{\sigma}_{\ \lambda\mu}}{x^{\nu}}T_{\sigma\rho}
+  }
+  +
+  \cancel{
+  \Gamma^{\sigma}_{\ \lambda\mu}\pdv{T_{\sigma\rho}}{x^{\nu}}
+  }
+  +
+  \uwave{
+  \pdv{\Gamma^{\sigma}_{\ \rho\mu}}{x^{\nu}}T_{\lambda\sigma}
+  }
+  +
+  \cancel{
+  \Gamma^{\sigma}_{\ \rho\mu}\pdv{T_{\lambda\sigma}}{x^{\nu}}
+  }
+  +
+  \cancel{
+  \Gamma^{\sigma}_{\ \lambda\nu}\pdv{T_{\sigma\rho}}{x^{\mu}}
+  }
+  \nonumber
+  \\
+  &\qquad
+  -
+  \uline{
+  \Gamma^{\sigma}_{\ \lambda\nu}\Gamma^{\alpha}_{\ \sigma\mu}T_{\alpha\rho}
+  }
+  -
+  \textcolor{DarkRed}{
+  \Gamma^{\sigma}_{\ \lambda\nu}\Gamma^{\alpha}_{\ \rho\mu}T_{\sigma\alpha}
+  }
+  +
+  \cancel{
+  \Gamma^{\sigma}_{\ \rho\nu}\pdv{T_{\lambda\sigma}}{x^{\mu}}
+  }
+  -
+  \textcolor{DarkGreen}{
+  \Gamma^{\sigma}_{\ \rho\nu}\Gamma^{\alpha}_{\ \lambda\mu}T_{\alpha\sigma}
+  }
+  -
+  \uwave{
+  \Gamma^{\sigma}_{\ \rho\nu}\Gamma^{\alpha}_{\ \sigma\mu}T_{\lambda\alpha}
+  }
+  \nonumber
+  \\
+  &=
+  \uline{
+    \left(  
+      \pdv{\Gamma^{\sigma}_{\ \lambda\mu}}{x^{\nu}}
+      -
+      \pdv{\Gamma^{\sigma}_{\ \lambda\nu}}{x^{\mu}}
+      +
+      \Gamma^{\alpha}_{\ \lambda\mu}\Gamma^{\sigma}_{\ \alpha\nu}
+      +
+      \Gamma^{\alpha}_{\ \lambda\nu}\Gamma^{\sigma}_{\ \alpha\mu}
+    \right)
+    T_{\sigma\rho}
+  }
+  \nonumber
+  \\
+  &\qquad
+  +
+  \uwave{
+    \left(
+      \pdv{\Gamma^{\sigma}_{\ \rho\mu}}{x^{\nu}}
+      -
+      \pdv{\Gamma^{\sigma}_{\ \rho\nu}}{x^{\mu}}
+      +
+      \Gamma^{\alpha}_{\ \rho\mu}\Gamma^{\sigma}_{\ \alpha\nu}
+      +
+      \Gamma^{\alpha}_{\ \rho\nu}\Gamma^{\sigma}_{\ \alpha\mu}
+    \right)
+    T_{\lambda\sigma}
+  }
+  \nonumber
+  \\
+  &=R^{\sigma}_{\ \lambda\nu\mu}T_{\sigma\rho}+R^{\sigma}_{\ \rho\nu\mu}T_{\lambda\sigma}
+  .
+\end{align}
+By substituting $T_{\lambda\rho}$ with $\nabla_{\lambda}A_{\rho}$, the required result realized.
 
 
 % ----------------------------------------------------------------------------------------------------
@@ -349,13 +511,13 @@ Let us show the following formula\footnote{
 Assuming this relation, we immediately reach the answer
 \begin{align}
   \frac{1}{\sqrt{-g}}\pdv{}{x^{\lambda}}\left(\sqrt{-g}A^{\lambda}\right)
-  &=
+   & =
   \frac{1}{\sqrt{-g}}\left( \pdv{}{x^{\lambda}}\sqrt{-g} \right)A^{\lambda}
   +
   \pdv{A^{\lambda}}{x^{\lambda}}
   \nonumber
   \\
-  &=
+   & =
   \Gamma^{\sigma}_{\ \lambda\sigma}A^{\kappa}
   +
   \pdv{A^{\lambda}}{x^{\lambda}}
@@ -365,7 +527,7 @@ Assuming this relation, we immediately reach the answer
 \end{align}
 So what is left is to prove the relation \eqref{eqn:4-1}.
 \begin{proof}
-  We will use the relation 
+  We will use the relation
   \begin{equation}
     \ln g
     =
@@ -384,10 +546,10 @@ So what is left is to prove the relation \eqref{eqn:4-1}.
     \frac{1}{g}\pdv{g}{x^{\lambda}}
     =
     g^{\alpha\beta}\pdv{g_{\alpha\beta}}{x^{\lambda}}
-    .    
+    .
     \label{eqn:4-4}
-  \end{equation} 
-  Note that we use the relation 
+  \end{equation}
+  Note that we use the relation
   \begin{equation}
     \pdv{}{x^{\lambda}}\ln g_{\alpha\beta}
     =
@@ -396,13 +558,13 @@ So what is left is to prove the relation \eqref{eqn:4-1}.
   when we derivate the RHS of \eqref{eqn:4-3}. Thus we find
   \begin{align}
     \pdv{}{x^{\lambda}}\sqrt{-g}
-    &=
+     & =
     -\pdv{g}{x^{\lambda}}
     \cdot
     \frac{1}{2}\frac{1}{\sqrt{-g}}
     \nonumber
     \\
-    &=
+     & =
     \frac{1}{2}\sqrt{-g}g^{\alpha\beta}\pdv{g_{\alpha\beta}}{x^{\lambda}}
   \end{align}
   by using \eqref{eqn:4-4}. On the other hand, the Christoffel symbol is defined as \eqref{eqn:christoffel_symbol} and contracting the indices, the relation holds
