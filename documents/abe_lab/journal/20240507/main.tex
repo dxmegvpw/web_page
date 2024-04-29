@@ -12,10 +12,6 @@
 
 \begin{frame}
 
-  \begin{center}
-    \uline{文献紹介}
-  \end{center}
-
   \setbeamertemplate{blocks}[rounded][shadow=true]
   \setbeamercolor{block body}{bg=LimeGreen!10!white, fg=black}
   \begin{block}{}
@@ -54,22 +50,21 @@
   
   その中で、\textcolor{DarkOrange}{アノマリー}を勉強してみたいなと思いました。
 
+  (教科書の写真を2つ)
+
 \end{frame}
 
 
-\begin{frame}{読んだ動機}
+\begin{frame}
 
   一方で、この研究室でも高次元の理論のアノマリーは調べてみたかったけど、良く分かっていなかった部分もある模様。
-  \begin{figure}[ht]
-    \centering
-    \includegraphics[width=0.7\textwidth]{fig/Abe2020vmv.png}
-    \cite{Abe:2020vmv}    
-  \end{figure}
+
+  (\cite{Abe:2020vmv}の写真を)
 
 \end{frame}
 
 
-\begin{frame}{読んだ動機}
+\begin{frame}
 
   そこで、高次元のアノマリーに関連しているこの論文を読もうと思った。
   \begin{figure}[ht]
@@ -140,6 +135,8 @@
 
   量子論の意味では、以下のファインマンダイアグラムの計算をすることと等価
 
+  (ファインマンダイアグラムを2つほど)
+
 
 \end{frame}
 
@@ -173,22 +170,140 @@
     この$\textcolor{DarkGreen}{Q}$を\textcolor{DarkRed}{カイラルアノマリー}という。    
   \end{center}  
 
+  理論にアノマリーがあると、通常の量子論の定式化ができなくなることが知られている\cite{Fujikawa:2001b}。  (例えば、S行列のユニタリティーが保証できない。)
+
+  \pause
+
+  よって、
+  \setbeamertemplate{blocks}[rounded][shadow=true]
+  \setbeamercolor{block body}{bg=Goldenrod!10!white, fg=black}
+  \begin{block}{}
+    \centering
+    アノマリーが相殺されるように理論を作りたい
+  \end{block}  
+
 \end{frame}
 
 
-\subsection{KK理論とアノマリー}
+\subsection{Kaluza-Klein理論とアノマリー}
 
 \begin{frame}{\subsecname}
 
-  一般に、\textcolor{DarkOrange}{奇数次元}の理論は左右対称な理論であるため、カイラルアノマリーは生じない。
+  一方で、高次元の時空を考え、余剰空間に周期条件を与えること(コンパクト化)によって、4次元有効理論を作る方法があり、それをKaluza-Klein理論という。
 
+  \vspace*{5pt}
+
+  特に、今回は5次元の時空$x^{M}=(x^{0},x^{1},\cdots,x^{4})$を考え、$x^{4}$の方向に$x^{4}\sim x^{4}+2L$の周期境界条件を課してコンパクト化する。
+
+  \pause
+  \vspace*{10pt}
+
+  \setbeamertemplate{blocks}[rounded][shadow=true]
+  \setbeamercolor{block body}{bg=RoyalBlue!10!white, fg=black}
+  \begin{block}{}
+    \centering
+    \textcolor{Green}{5次元の理論}でのアノマリー相殺
+    \\
+    と
+    \\
+    \textcolor{FireBrick}{4次元有効理論}でのアノマリー相殺
+    \\
+    の対応
+  \end{block}
+  を調べたい。
+
+\end{frame}
+
+\begin{frame}{オービフォールド$S^{1}/Z_{2}$}
+
+  今回は、さらに\textcolor{Goldenrod}{オービフォールド}という境界条件を余剰空間に課す。
   
+  \pause
+  \vspace*{10pt}
+
+  例えば、スカラー場の理論を考える
+  \begin{equation}
+    S
+    =
+    \int\dd^5 x\ 
+    \left(  
+      \frac{1}{2}\partial^{M}\Phi\partial_{M}\Phi
+      -
+      \frac{1}{2}m(x^{4})^2\Phi^2
+    \right)
+    \nonumber
+  \end{equation}
+
+  この理論に、$\Phi(x,x^{4})=\Phi(x,x^{4}+2L)$という境界条件に加えて
+  \begin{equation}
+    \Phi(x,x^{4})
+    =
+    \eta
+    \Phi(x,-x^{4})
+    \ ,\ 
+    \eta=\pm 1
+    \nonumber
+  \end{equation}
+  という境界条件を課す。  
+
+\end{frame}
+
+\begin{frame}
+  \frametitle{}
+
+  まずは、周期境界条件$\Phi(x,x^{4})=\Phi(x,x^{4}+2L)$から
+  \begin{equation}
+    \Phi(x,x^{4})
+    =
+    \sum_{n=-\infty}^{\infty}\phi_{n}(x) \exp \left[ i\frac{n\pi}{L}x^{4} \right]
+    \nonumber
+  \end{equation}
+  とフーリエ展開できる。
+
+  \vspace*{5pt}
+
+  さらに、オービフォールドの境界条件$\Phi(x,x^{4})=-\Phi(x,-x^{4})$を課すと$\phi_{n}(x)+\phi_{-n}(x)=0$という条件になる
+
+  \vspace*{5pt}
+
+  この条件により、$n=0$のモード$\phi_{0}(x)$は消えることがわかる
+
+  \pause
+  \vspace*{5pt}
+
+  \setbeamertemplate{blocks}[rounded][shadow=true]
+  \setbeamercolor{block body}{bg=RoyalBlue!10!white, fg=black}
+  \begin{block}{}
+    \centering
+    境界条件をうまく選べば、ゼロモードの場を消したり残したりできるため
+    \\
+    4次元の有効理論を作るときに嬉しい
+  \end{block}
+  ので、調べられている。
+
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{本論文の流れ・まとめ}
+
   
 
 \end{frame}
 
 
+\section{本論}
 
+\begin{frame}[plain]
+  \huge \secname
+\end{frame}
+
+\begin{frame}
+  \frametitle{セットアップ}
+
+
+
+\end{frame}
 
 
 % --------------------------
@@ -241,6 +356,10 @@
   \beamertemplatetextbibitems
   \bibliographystyle{ytphys}
   \bibliography{ref}
+
+  \nocite{Fujikawa:2001a}
+  \nocite{Fujikawa:2001b}
+  \nocite{Choi:2020dws}
 
 \end{frame}
 
