@@ -46,11 +46,8 @@
   くりこみ、有効作用、(非可換)ゲージ場の(経路積分)量子化など$\cdots\cdots$。
 
   \vspace*{5pt}
-  \pause
   
   その中で、\textcolor{DarkOrange}{アノマリー}を勉強してみたいなと思いました。
-
-  (教科書の写真を2つ)
 
 \end{frame}
 
@@ -334,14 +331,6 @@
 \end{frame}
 
 
-\begin{frame}
-  \frametitle{まとめ}
-
-  \uline{今回の議論のまとめ}  
-
-\end{frame}
-
-
 \section{本論}
 
 \begin{frame}[plain]
@@ -351,55 +340,259 @@
 \begin{frame}
   \frametitle{セットアップ}
 
-  時空は5次元$x^{M}=(x^{\mu},x^{4})$
+  (ここからは本文と記法を合わせます。)
+
+  時空は5次元$x^{C}=(x^{\mu},x_{4})$
 
   \uline{作用}
   \begin{gather}
     S
     =
     \int\dd^4 x
-    \int\dd x^{4}\ 
-    \bar{\psi}(i\slashed{D}-m(x^{4}))\psi
+    \int_{0}^{L}\dd x_{4}\ 
+    \bar{\psi}(i\slashed{D}-i\gamma_{4}D_{4}-m(x_{4}))\psi
     \nonumber
     \\
     \slashed{D}
     \equiv
+    \gamma^{\mu}D_{\mu}
+    ,\ 
+    D_{C}
+    =
+    \partial_{C}-iA_{C}
+    ,\ 
+    \gamma_{4}
+    \equiv
+    -i\gamma^{5}
     \nonumber
   \end{gather}
 
 
-  \uline{境界条件}
-
-  周期境界条件$x^{4}\sim x^{4}+2L$とオービフォールド
+  \uline{境界条件}:  周期境界条件$x_{4}\sim x_{4}+2L$とオービフォールド
   \begin{gather}
-    \psi(x,x^{4})
+    \psi(x,x_{4})
     =
-    \gamma^{5}\psi(x,-x^{4})
+    \gamma^{5}\psi(x,-x_{4})
     \nonumber
     \\
-    A_{\mu}(x,x^{4})
+    A_{\mu}(x,x_{4})
     =
-    A_{\mu}(x,-x^{4})
+    A_{\mu}(x,-x_{4})
     \nonumber
     \\
-    A_{4}(x,x^{4})
+    A_{4}(x,x_{4})
     =
-    -A_{4}(x,-x^{4})
+    -A_{4}(x,-x_{4})
+    \nonumber
+    \\
+    \Rightarrow
+    \quad
+    m(x_4)
+    =
+    m(2L+x_4)
+    =
+    -m(-x_{4})
     \nonumber
   \end{gather}
 
 \end{frame}
 
 \begin{frame}
-  \frametitle{モード展開}
+
+  また、$\psi(x,x_{4})$をカイラリティーで分類
+  \begin{equation}
+    \psi
+    =
+    \psi_{+}
+    +
+    \psi_{-}
+    ,\ 
+    \gamma^{5}\psi_{\pm}
+    =
+    \pm\psi_{\pm}
+    \nonumber
+  \end{equation}
+
+  \vspace*{5pt}
+
+  \uline{ゲージ変換}: ローカルな$U(1)$
+
+  \begin{gather}
+    \psi(x,x_{4})
+    \rightarrow
+    e^{i\phi(x,x_{4})}
+    \psi(x,x_{4})
+    \nonumber
+    \\
+    A_{C}(x,x_{4})
+    \rightarrow
+    A_{C}(x,x_{4})
+    -
+    i\partial_{C}\phi(x,x_{4})
+    \nonumber
+    \\
+    \Rightarrow\quad
+    \phi(x,x_{4})
+    =
+    \phi(x,x_{4}+2L)
+    =
+    \phi(x,-x_{4})
+    \nonumber
+  \end{gather}
+
+  \uline{本文中でのコメント}
+  \begin{itemize}
+    \item 
+    オービフォールドにより、ゼロモードはカイラルに。\\
+    $\quad\longrightarrow\ $
+    ゲージ対称性はカイラルアノマリーで破れる。
+    \item 
+    質量$m(x_{4})$は(アノマリーの計算に関しては)任意の関数でよいことが後に分かる。
+  \end{itemize}
+
+\end{frame}
+
+\begin{frame}
+  \frametitle{アノマリーの計算}
+
+  以下、$A_{4}=0$とゲージ固定する。
+
+  \vspace*{5pt}
+
+  KKモード展開は次の通り
+  \begin{equation}
+    \psi_{\pm}(x,x_{4})
+    =
+    \sum_{M}
+    \psi_{M\pm}(x)\xi^{\pm}_{M}(x_{4})
+    \nonumber
+  \end{equation}
+
+  ただし、
+  \begin{align}
+    \left[\vphantom{\frac{1}{2}}
+      -\textcolor{DarkGreen}{i}\partial_{4}+m(x_{4})
+    \right]
+    \xi_{M}^{+}(x_{4})
+    =
+    M\xi_{M}^{+}
+    \quad
+    (M\geq0)
+    \nonumber
+    \\
+    \left[\vphantom{\frac{1}{2}}
+      \textcolor{DarkGreen}{i}\partial_{4}+m(x_{4})
+    \right]
+    \xi_{M}^{-}(x_{4})
+    =
+    M\xi_{M}^{-}(x_{4})
+    \quad
+    (\textcolor{DarkRed}{M>0})
+    \nonumber
+  \end{align}
+
+  ($\textcolor{DarkGreen}{i}$忘れはおそらくタイポ?)
+
+\end{frame}
+
+\begin{frame}  
+
+  KKモード展開
+  \begin{equation}
+    \psi_{\pm}(x,x_{4})
+    =
+    \sum_{M}
+    \psi_{M\pm}(x)\xi^{\pm}_{M}(x_{4})
+    \nonumber
+  \end{equation}
+  \begin{itemize}
+    \item 
+    元の作用に代入
+    \item 
+    $x_{4}$の方向を$0$から$L$で積分
+  \end{itemize}
+  すると
+  \begin{align}
+    S
+    &=
+    \int\dd^4 x\ 
+    \left[  
+      \sum_{M}\bar{\psi}_{M}(x)(i\slashed{\partial}-M)\psi_{M}(x)
+    \right.
+    \nonumber
+    \\
+    &\qquad
+    -
+    \sum_{M,M^{\prime}}\bar{\psi}_{M^{\prime}+}(x)\slashed{A}^{+}_{M^{\prime}M}(x)\psi_{M+}(x)
+    \nonumber
+    \\
+    &\qquad
+    \left.
+    -\sum_{M,M^{\prime}}\bar{\psi}_{M^{\prime}-}(x)\slashed{A}^{-}_{M^{\prime}M}\psi_{M-}(x)
+    \right]
+    \nonumber
+  \end{align}
+
+\end{frame}
+
+
+\begin{frame}
+
+  \begin{align}
+    S
+    &=
+    \int\dd^4 x\ 
+    \left[  
+      \sum_{M}\bar{\psi}_{M}(x)(i\slashed{\partial}-M)\psi_{M}(x)
+    \right.
+    \nonumber
+    \\
+    &\qquad
+    -
+    \sum_{M,M^{\prime}}\bar{\psi}_{M^{\prime}+}(x)\slashed{A}^{+}_{M^{\prime}M}(x)\psi_{M+}(x)
+    \nonumber
+    \\
+    &\qquad
+    \left.
+    -\sum_{M,M^{\prime}}\bar{\psi}_{M^{\prime}-}(x)\slashed{A}^{-}_{M^{\prime}M}\psi_{M-}(x)
+    \right]
+    \nonumber
+  \end{align}
+
+  ただし、
+  \begin{gather}
+    \psi_{M}(x)
+    \equiv
+    \psi_{M+}(x)
+    +
+    \psi_{M-}(x)
+    \nonumber
+    \\
+    A_{M^{\prime}M}^{\mu\pm}(x)
+    \equiv
+    \int_{0}^{L}
+    \dd x_{4}\ 
+    \xi_{M^{\prime}}^{\pm}(x_{4})\xi_{M}^{\pm}(x_{4})A^{\mu}(x,x_{4})
+    \nonumber
+  \end{gather}
+  
+\end{frame}
+
+
+\begin{frame}
+
+  このときのカレントは$J^{C}=\bar{\psi}(x,x_{4})\gamma^{C}\psi(x,x_{4})$を計算すれば
 
   
 
 \end{frame}
 
 
+\begin{frame}
 
+  
 
+\end{frame}
 
 
 
@@ -477,7 +670,6 @@
   \bibliography{ref}
 
   \nocite{Fujikawa:2001a}
-  \nocite{Fujikawa:2001b}
   \nocite{Choi:2020dws}
 
 \end{frame}
