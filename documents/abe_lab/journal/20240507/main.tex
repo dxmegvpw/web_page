@@ -32,8 +32,12 @@
 
   \begin{center}
     安倍研 M1 宮根一樹\\
-    2024 5/7 (火)
+    2024 5/7 (火)\\
+
+    
+    このスライドの引用の番号と論文の引用番号はあってません。
   \end{center}
+
 \end{frame}
 
 
@@ -49,16 +53,9 @@
   
   その中で、\textcolor{DarkOrange}{アノマリー}を勉強してみたいなと思いました。
 
-\end{frame}
+  \vspace*{10pt}
 
-
-\begin{frame}
-
-  一方で、この研究室(のまわり)でも高次元の理論のアノマリーは調べてみたかったけど、良く分かっていなかった部分もある模様。
-  \begin{figure}[ht]
-    \includegraphics[width=0.7\textwidth]{fig/Abe2020vmv.png}
-    \cite{Abe:2020vmv}
-  \end{figure}
+  一方で、この研究室でも高次元の理論のアノマリーは調べてみたかったけど、良く分かっていなかった部分もある模様。
 
 \end{frame}
 
@@ -182,148 +179,19 @@
 \end{frame}
 
 
-\subsection{Kaluza-Klein理論とアノマリー}
 
-\begin{frame}{\subsecname}
-
-  高次元の時空を考え、余剰空間に周期条件を与えること(コンパクト化)によって、4次元有効理論を作る方法があり、それをKaluza-Klein理論という。
-
-  \vspace*{5pt}
-
-  特に、今回は5次元の時空$x^{M}=(x^{0},x^{1},\cdots,x^{4})$を考え、$x^{4}$の方向に$x^{4}\sim x^{4}+2L$の周期境界条件を課してコンパクト化する。
-
-  \pause
-  \vspace*{10pt}
-
-  \setbeamertemplate{blocks}[rounded][shadow=true]
-  \setbeamercolor{block body}{bg=RoyalBlue!10!white, fg=black}
-  \begin{block}{}
-    \centering
-    \textcolor{Green}{5次元の理論}でのアノマリー相殺
-    \\
-    と
-    \\
-    \textcolor{FireBrick}{4次元有効理論}でのアノマリー相殺
-    \\
-    の対応
-  \end{block}
-  を調べたい。
-
-\end{frame}
-
+\subsection{議論の流れ}
 
 \begin{frame}
-
-  一方で、カイラルアノマリーについては次のことが分かっている：
-
-  \begin{itemize}
-    \item 
-    奇数次元では、非カイラル$\ \longrightarrow\ $カイラルアノマリーは必ず相殺される
-    \item 
-    非カイラルな理論を$S^{1}$コンパクト化しても、ゼロモード(後述)は非カイラル
-  \end{itemize}
-
-  \pause
-
-  よって、5次元の理論をコンパクト化するだけでは、4次元のカイラルアノマリーが消えているのは明らか。\\
-
-  そこで・・・  
-
-\end{frame}
-
-\subsection{オービフォールド\texorpdfstring{$S^{1}/Z_{2}$}{S1/Z2}}
-
-\begin{frame}{オービフォールド$S^{1}/Z_{2}$}
-
-  今回は、さらに\textcolor{Goldenrod}{オービフォールド}という境界条件を余剰空間に課す。
-  
-  \pause
-  \vspace*{10pt}
-
-  例えば、スカラー場の理論を考える
-  \begin{equation}
-    S
-    =
-    \int\dd^5 x\ 
-    \left(  
-      \frac{1}{2}\partial^{M}\Phi\partial_{M}\Phi
-      -
-      \frac{1}{2}m(x^{4})^2\Phi^2
-    \right)
-    \nonumber
-  \end{equation}
-
-  この理論に、$\Phi(x,x^{4})=\Phi(x,x^{4}+2L)$という境界条件に加えて
-  \begin{equation}
-    \Phi(x,x^{4})
-    =
-    \eta
-    \Phi(x,-x^{4})
-    \ ,\ 
-    \eta=\pm 1
-    \nonumber
-  \end{equation}
-  という境界条件を課す。  
-
-\end{frame}
-
-\begin{frame}
-  \frametitle{}
-
-  まずは、周期境界条件$\Phi(x,x^{4})=\Phi(x,x^{4}+2L)$から
-  \begin{equation}
-    \Phi(x,x^{4})
-    =
-    \sum_{n=-\infty}^{\infty}\phi_{n}(x) \exp \left[ i\frac{n\pi}{L}x^{4} \right]
-    \nonumber
-  \end{equation}
-  とフーリエ展開できる。
-
-  \vspace*{5pt}
-
-  さらに、オービフォールドの境界条件$\Phi(x,x^{4})=-\Phi(x,-x^{4})$を課すと$\phi_{n}(x)+\phi_{-n}(x)=0$という条件になる
-
-  \vspace*{5pt}
-
-  この条件により、$n=0$のモード$\phi_{0}(x)$は消えることがわかる
-
-  \pause
-  \vspace*{5pt}
-
-  \setbeamertemplate{blocks}[rounded][shadow=true]
-  \setbeamercolor{block body}{bg=RoyalBlue!10!white, fg=black}
-  \begin{block}{}
-    \centering
-    境界条件をうまく選べば、ゼロモードの場を消したり残したりできるため
-    \\
-    4次元の有効理論を作るときに嬉しい
-  \end{block}
-  ので、調べられている。
-
-\end{frame}
-
-
-\begin{frame}
-  \frametitle{本論文の流れ・まとめ}
-
-  同様のことが$x^{4}=L$の点でも起こることがわかる
-
-  \vspace*{5pt}
-
-  $x=0,L$の点(固定点)では、ゼロモードがカイラルになる(なりうる)
-
-  $\qquad\rightarrow$アノマリーが現れる可能性がある
-
-  \pause
-  \vspace*{5pt}
+  \frametitle{\subsecname}
 
   \uline{議論の流れ}
 
   \begin{itemize}
     \item 
-    余剰空間方向の場の境界条件を設定
+    余剰空間方向の場の境界条件を設定、モード展開
     \item 
-    それを元のラグランジアンに代入$\rightarrow$ゼロモードを計算
+    それを元のラグランジアンに代入$\rightarrow$カレントを計算
     \item 
     有効理論のアノマリーを議論
   \end{itemize}
@@ -337,8 +205,54 @@
   \huge \secname
 \end{frame}
 
+\subsection{4次元のアノマリー}
+
 \begin{frame}
-  \frametitle{セットアップ}
+  \frametitle{\subsecname} 
+
+  最初のレビューの部分で良く分からない記述がありました。
+
+  \begin{center}
+    \includegraphics[width=0.8\textwidth]{fig/text_01.png}    
+  \end{center}
+
+\end{frame}
+
+\begin{frame}
+
+  複数の場$\psi_{i}, A_{ij}^{\mu}$とチャージ$q_{i}$がある場合は
+  \begin{equation*}
+    \partial_{\mu}j^{\mu}_{5}
+    +
+    2i\bar{\psi}M\gamma^{5}\psi
+    =
+    \frac{1}{2}Q
+    ,\ 
+    Q
+    =
+    \frac{1}{16\pi^2}
+    \tr qF\tilde{F}
+  \end{equation*}
+  となる。
+
+  先行研究\cite{Coleman:1982yg}によると、無質量モードのみが真空期待値の計算に寄与してきて
+  \begin{equation*}
+    \ev*{\partial_{\mu}j^{\mu}_{5}}
+    =
+    \frac{1}{32\pi^2}
+    \tr
+    \left[  
+      P_{0}qP_{0}FP_{0}\tilde{F}
+    \right] 
+    \label{eqn:massless_anomaly}
+  \end{equation*}  
+
+\end{frame}
+
+\subsection{セットアップ}
+
+\begin{frame}
+  \frametitle{\subsecname}
 
   (ここからは本文と記法を合わせます。)
 
@@ -350,7 +264,7 @@
     =
     \int\dd^4 x
     \int_{0}^{L}\dd x_{4}\ 
-    \bar{\psi}(i\slashed{D}-i\gamma_{4}D_{4}-m(x_{4}))\psi
+    \bar{\psi}(i\slashed{D}-\textcolor{DarkRed}{\gamma_{4}D_{4}}-m(x_{4}))\psi
     \nonumber
     \\
     \slashed{D}
@@ -440,20 +354,13 @@
     \nonumber
   \end{gather}
 
-  \uline{本文中でのコメント}
-  \begin{itemize}
-    \item 
-    オービフォールドにより、ゼロモードはカイラルに。\\
-    $\quad\longrightarrow\ $
-    ゲージ対称性はカイラルアノマリーで破れる。
-    \item 
-    質量$m(x_{4})$は(アノマリーの計算に関しては)任意の関数でよいことが後に分かる。
-  \end{itemize}
-
 \end{frame}
 
+
+\subsection{アノマリーの計算}
+
 \begin{frame}
-  \frametitle{アノマリーの計算}
+  \frametitle{\subsecname}
 
   以下、$A_{4}=0$とゲージ固定する。
 
@@ -492,6 +399,13 @@
   \end{align}
 
   ($\textcolor{DarkGreen}{i}$忘れはおそらくタイポ?)
+
+  このモード展開の基底は完全性を満たす。内積は積分。
+  \begin{equation*}
+    \sum_{M}\xi^{\pm}_{M}(x)\xi^{\pm}_{M}(y)
+    =
+    \delta(x-y)
+  \end{equation*}
 
 \end{frame}
 
@@ -581,20 +495,319 @@
 
 \begin{frame}
 
-  このときのカレントは$J^{C}=\bar{\psi}(x,x_{4})\gamma^{C}\psi(x,x_{4})$を計算すれば
-
+  このときのカレントは、$J^{C}=\bar{\psi}(x,x_{4})\gamma^{C}\psi(x,x_{4})$を計算すれば
+  \begin{align*}
+    J^{\mu}(x,x^{4})
+    &=
+    \sum_{M,M^{\prime}}
+    \left[  
+      \xi_{M^{\prime}}^{+}(x_{4})\xi_{M}^{+}(x_{4})\bar{\psi}_{M^{\prime}+}(x)\gamma^{\mu}\psi_{M+}(x)
+    \right.
+    \\
+    &\qquad
+    \left.
+      +\xi_{M^{\prime}}^{-}(x_{4})\xi_{M}^{-}(x_{4})\bar{\psi}_{M^{\prime}-}(x)\gamma^{\mu}\psi_{M-}(x)
+    \right]
+    \\
+    J^{4}(x,x_{4})
+    &=
+    \sum_{M,M^{\prime}}
+    \left[  
+      \xi_{M^{\prime}}^{+}(x_{4})\xi_{M}^{-}(x_{4})\bar{\psi}_{M^{\prime}+}(x)\gamma^{5}\psi_{M-}(x)
+    \right.
+    \\
+    &\qquad
+    \left.
+      +\xi_{M^{\prime}}^{-}(x_{4})\xi_{M}^{+}(x_{4})\bar{\psi}_{M^{\prime}-}(x)i\gamma^{5}\psi_{M+}(x)
+    \right]
+  \end{align*}
   
+\end{frame}
+
+
+\begin{frame}
+
+  KKモード$M$を行列の添え字とみなす。
+  \begin{equation*}
+    [\Psi(x)]_{M}
+    \equiv
+    \psi_{M}(x)
+    ,\ 
+    [\mathcal{A}^{\mu\pm}]_{MM^{\prime}}
+    \equiv
+    A^{\mu\pm}_{MM^{\prime}}
+    ,\ 
+    [\mathcal{M}]_{MM^{\prime}}
+    =
+    M\delta_{MM^{\prime}}
+  \end{equation*}
+
+  この記法で作用を書き直すと
+  \begin{gather*}
+    S
+    =
+    \int\dd^4 x\ 
+    \bar{\Psi}(x)(i\slashed{\partial}-\slashed{\mathcal{A}}-\mathcal{M})\Psi(x)
+    \\
+    \slashed{\mathcal{A}}
+    =
+    \slashed{\mathcal{A}}^{+}P_{+}
+    +
+    \slashed{\mathcal{A}}^{-}P_{-}    
+  \end{gather*}
+  
+  ここで、$P_{\pm}$は射影
+  \begin{equation*}
+    P_{\pm}
+    =
+    \frac{1\pm\gamma^{5}}{2}
+  \end{equation*}
 
 \end{frame}
 
 
 \begin{frame}
 
+  この記法でカレントを書きなおす。
+
+  そのために
+  \begin{gather*}
+    [\Xi^{\pm}(x_4)]_{M^{\prime}M}
+    \equiv
+    \xi^{\pm}_{M^{\prime}}\xi^{\pm}_{M}(x_{4})
+    ,\ 
+    [\Omega^{\pm}(x_{4})]_{M^{\prime}M}
+    \equiv
+    \xi_{M^{\prime}}^{\mp}(x_{4})\xi_{M}^{\pm}(x_{4})
+    \\
+    \Xi(x_{4})
+    =
+    \Xi^{+}P_{+}
+    +
+    \Xi^{-}P_{-}
+    ,\ 
+    \Omega(x_{4})
+    =
+    \Omega^{+}P_{+}
+    +
+    \Omega^{-}P_{-}
+  \end{gather*}
+  とおくと
+  \begin{gather*}
+    J^{\mu}(x,x_{4})
+    =
+    \bar{\Psi}(x)\gamma^{\mu}\Psi(x)
+    \\
+    J^{4}(x,x^{4})
+    =
+    \bar{\Psi}(x)i\gamma^{5}\Omega(x_{4})\Psi(x)
+  \end{gather*}
+
+  このカレントは古典論のレベルでは保存する
+  \begin{equation*}
+    \partial_{\mu}J^{\mu}(x,x_{4})
+    +
+    \partial_{4}J^{4}(x,x_{4})
+    =
+    0
+  \end{equation*}
+
+\end{frame}
+
+
+\begin{frame}
+
+  4次元の有効作用
+  \begin{equation*}
+    S
+    =
+    \int\dd^4 x\ 
+    \bar{\Psi}(x)(i\slashed{\partial}-\slashed{\mathcal{A}}-\mathcal{M})\Psi(x)
+  \end{equation*}
+  は、ゲージ対称性を持っている
+
+  \vspace*{5pt}
+
+  そのカイラルアノマリー$Q$は
+  \begin{gather*}
+    Q
+    \equiv
+    \frac{1}{32\pi^2}
+    \tr
+    \left[  
+      \Xi^{+}(x_{4})\mathcal{F}^{+}(x)\tilde{\mathcal{F}}^{+}(x)
+      -
+      \Xi^{-}(x_{4})\mathcal{F}^{-}(x)\tilde{\mathcal{F}}^{-}(x)
+    \right]
+    \\
+    \mathcal{F}^{\mu\nu\pm}(x)
+    \equiv
+    \partial^{\mu}\mathcal{A}^{\nu\pm}(x)
+    -
+    \partial^{\nu}\mathcal{A}^{\mu\pm}(x)
+  \end{gather*}
+
+  \begin{itemize}
+    \item 
+    トレースはKKモードの添え字について
+    \item 
+    どうやら、\uwave{4次元有効理論での}アノマリーは
+    \begin{equation*}
+      \int\dd x_{4}\ Q(x,x_{4})
+    \end{equation*}
+    としているよう。
+  \end{itemize}
+
+\end{frame}
+
+
+\begin{frame}
+
+  ここで、次の関係が成立している
+  \begin{equation*}
+    \Xi^{\pm}(x_{4})\mathcal{A}^{\mu\pm}(x)
+    =
+    A^{\mu}(x,x_{4})\Xi^{\pm}(x_{4})
+  \end{equation*}
+
+  これを用いれば、アノマリーは
+  \begin{align*}
+    &    
+    \frac{1}{32\pi^2}
+    \tr
+    \left[  
+      \Xi^{+}(x_{4})\mathcal{F}^{+}(x)\tilde{\mathcal{F}}^{+}(x)
+      -
+      \Xi^{-}(x_{4})\mathcal{F}^{-}(x)\tilde{\mathcal{F}}^{-}(x)
+    \right]
+    \\
+    &\hspace*{2cm}
+    =
+    \frac{1}{32\pi^2}F(x,x_{4})\tilde{F}(x,x_{4})
+    \tr(\Xi^{+}(x_{4})-\Xi^{-}(x_{4}))
+    \\
+    &\hspace*{2cm}
+    =
+    \frac{1}{32\pi^2}F(x,x_{4})\tilde{F}(x,x_{4})
+    \textcolor{RoyalBlue}{
+    \left[  
+      \sum_{M\geq 0}\xi^{+}_{M}(x_{4})^2
+      -
+      \sum_{M>0}\xi^{-}_{M}(x_{4})^2
+    \right]}
+  \end{align*} 
+
+  あとは\textcolor{RoyalBlue}{青色の部分}を計算すればよい
+
+\end{frame}
+
+
+\begin{frame}
+
+  そのために、次の量を定義する
+  \begin{equation*}
+    \Delta(x_{4},y_{4})
+    \equiv
+    \sum_{M\geq0}\xi_{M}^{+}(x_{4})\xi_{M}^{+}(y_{4})
+    -
+    \sum_{M>0}\xi_{M}^{-}(x_{4})\xi_{M}^{-}(y_{4})
+  \end{equation*}
+
+  この量を計算すると(もう少し加筆)
+  \begin{equation*}
+    \Delta(x_{4},-y_{4})
+    =
+    2\sum_{N}\delta(x_{4}-y_{4}-2NL)
+    \quad
+    \therefore\ 
+    \Delta(x_{4},x_{4})
+    =
+    \sum_{N}\delta(x_4-NL)
+  \end{equation*}
+
+  したがって、
+  \begin{equation*}
+    \mathcal{Q}
+    =
+    \underbrace{
+    \frac{1}{32\pi^2}F(x,x_{4})\tilde{F}(x,x_{4})
+    }_{=\mathcal{Q}}
+    \sum_{N}\delta(x_4-NL)
+  \end{equation*}
+  
+
+  よって、
+  \begin{equation*}
+    \partial_{\mu}J^{\mu}(x,x_{4})
+    +
+    \partial_{4}J^{4}(x,x_{4})
+    =
+    \frac{1}{2}\left[ \delta(x_{4})+\delta(x_{4}-L) \right]\mathcal{Q}
+  \end{equation*}  
+
+\end{frame}
+
+
+\begin{frame}
+  
+  カレントの式
+  \begin{equation*}
+    \partial_{\mu}J^{\mu}(x,x_{4})
+    +
+    \partial_{4}J^{4}(x,x_{4})
+    =
+    \frac{1}{2}\left[ \delta(x_{4})+\delta(x_{4}-L) \right]\mathcal{Q}
+  \end{equation*}  
+
+  \begin{itemize}
+    \item 
+    $x_{4}$の固定点の上にアノマリーが局在化しており、バルクには生じない。\\
+    また、KKモードの構造(波動関数とか質量とか)などにも依存しない。
+    \item 
+    4次元のアノマリーが相殺されれば、5次元のアノマリーが相殺される。
+  \end{itemize}
+
+  一方で、先行研究\cite{Coleman:1982yg}の結果を用いると、無質量な波動関数は$\xi_{0}^{+}$なので、
+  \begin{equation*}
+    \ev*{\partial_{\mu}j^{\mu}(x,x_{4})}
+    =
+    \frac{1}{2}Q_{0}\xi_{0}^{+}(x_{4})
+  \end{equation*}
+
+  ここで、$Q_{0}$は$Q$で$A_{\mu}(x,x_{4})$を$A_{\mu}(x,0)=A_{\mu,00}(x)$としたもの。
+  
+\end{frame}
+
+
+
+\subsection{アノマリー相殺}
+
+\begin{frame}
+  \frametitle{\subsecname}
+
+  アノマリーがキャンセルされる具体的な例として、
+
+  ゼロモードが$\psi_{0},\chi_{0}$となるようなフェルミオン$\Psi,X$を考える。
+  \begin{itemize}
+    \item 
+    $\gamma^{5}\Psi=+\Psi,\ \gamma^{5}X=-X$
+    \item 
+    質量は$m_{\Psi}(x_{4})=-m_{X}=m=\mathrm{constant}$
+  \end{itemize}
+
+  ゼロモードもカイラルなので、もちろんアノマリーが相殺される。
+
+
   
 
 \end{frame}
 
 
+
+
+
+
+% --------------------------
 
 \section{まとめ}
 
@@ -644,8 +857,160 @@
 
 \subsection{目次}
 
-\begin{frame}[plain]{\thesubsection. \subsecname}
+\begin{frame}[plain,allowframebreaks]{\thesubsection. \subsecname}
   \tableofcontents
+\end{frame}
+
+\subsection{Kaluza-Klein理論とアノマリー}
+
+\begin{frame}{\subsecname}
+
+  高次元の時空を考え、余剰空間に周期条件を与えること(コンパクト化)によって、4次元有効理論を作る方法があり、それをKaluza-Klein理論という。
+
+  \vspace*{5pt}
+
+  特に、今回は5次元の時空$x^{M}=(x^{0},x^{1},\cdots,x^{4})$を考え、$x^{4}$の方向に$x^{4}\sim x^{4}+2L$の周期境界条件を課してコンパクト化する。
+
+  \pause
+  \vspace*{10pt}
+
+  \setbeamertemplate{blocks}[rounded][shadow=true]
+  \setbeamercolor{block body}{bg=RoyalBlue!10!white, fg=black}
+  \begin{block}{}
+    \centering
+    \textcolor{Green}{5次元の理論}でのアノマリー相殺
+    \\
+    と
+    \\
+    \textcolor{FireBrick}{4次元有効理論}でのアノマリー相殺
+    \\
+    の対応
+  \end{block}
+  を調べたい。
+
+\end{frame}
+
+
+\begin{frame}
+
+  一方で、カイラルアノマリーについては次のことが分かっている：
+
+  \begin{itemize}
+    \item 
+    奇数次元の理論はクリフォード代数の性質から非カイラル\\
+    $\hspace*{1cm}\ \longrightarrow\ $カイラルアノマリーは必ず相殺される
+    \item 
+    非カイラルな理論を$S^{1}$コンパクト化しても、4次元有効理論は非カイラル
+  \end{itemize}
+
+  \pause
+
+  よって、5次元の理論をコンパクト化するだけでは、4次元のカイラルアノマリーが消えているのは明らか。\\
+
+  そこで・・・  
+
+\end{frame}
+
+\subsection{オービフォールド\texorpdfstring{$S^{1}/Z_{2}$}{S1/Z2}}
+
+\begin{frame}{オービフォールド$S^{1}/Z_{2}$}
+
+  今回は、さらに\textcolor{Goldenrod}{オービフォールド}という境界条件を余剰空間に課す。
+  
+  \pause
+  \vspace*{10pt}
+
+  例えば、スカラー場の理論を考える
+  \begin{equation}
+    S
+    =
+    \int\dd^5 x\ 
+    \left(  
+      \frac{1}{2}\partial^{M}\Phi\partial_{M}\Phi
+      -
+      \frac{1}{2}m(x^{4})^2\Phi^2
+    \right)
+    \nonumber
+  \end{equation}
+
+  この理論に、$\Phi(x,x^{4})=\Phi(x,x^{4}+2L)$という境界条件に加えて
+  \begin{equation}
+    \Phi(x,x^{4})
+    =
+    \eta
+    \Phi(x,-x^{4})
+    \ ,\ 
+    \eta=\pm 1
+    \nonumber
+  \end{equation}
+  という境界条件を課す。  
+
+\end{frame}
+
+\begin{frame}
+  \frametitle{}
+
+  まずは、周期境界条件$\Phi(x,x^{4})=\Phi(x,x^{4}+2L)$から
+  \begin{equation}
+    \Phi(x,x^{4})
+    =
+    \sum_{n=-\infty}^{\infty}\phi_{n}(x) \exp \left[ i\frac{n\pi}{L}x^{4} \right]
+    \nonumber
+  \end{equation}
+  とフーリエ展開できる。
+
+  \vspace*{5pt}
+
+  さらに、オービフォールドの境界条件$\Phi(x,x^{4})=-\Phi(x,-x^{4})$を課すと$\phi_{n}(x)+\phi_{-n}(x)=0$という条件になる
+
+  \vspace*{5pt}
+
+  この条件により、$n=0$のモード$\phi_{0}(x)$は消えることがわかる
+
+  \pause
+  \vspace*{5pt}
+
+  \setbeamertemplate{blocks}[rounded][shadow=true]
+  \setbeamercolor{block body}{bg=RoyalBlue!10!white, fg=black}
+  \begin{block}{}
+    \centering
+    境界条件をうまく選べば、ゼロモードの場を消したり残したりできるため
+    \\
+    4次元の有効理論を作るときに嬉しい
+  \end{block}
+  ので、調べられている。
+
+\end{frame}
+
+\subsection{本論文の流れ・まとめ}
+
+\begin{frame}
+  \frametitle{\subsecname}
+
+  同様のことが$x^{4}=L$の点でも起こることがわかる
+
+  \vspace*{5pt}
+
+  $x=0,L$の点(固定点)では、ゼロモードがカイラルになる
+
+  $\qquad\rightarrow$アノマリーが5次元の理論でも現れる可能性がある
+
+  $\qquad\rightarrow$4次元有効理論でのアノマリーとの関係は?
+
+  \pause
+  \vspace*{5pt}
+
+  \uline{議論の流れ}
+
+  \begin{itemize}
+    \item 
+    余剰空間方向の場の境界条件を設定、モード展開
+    \item 
+    それを元のラグランジアンに代入$\rightarrow$カレントを計算
+    \item 
+    有効理論のアノマリーを議論
+  \end{itemize}
+
 \end{frame}
 
 
@@ -670,6 +1035,7 @@
   \bibliography{ref}
 
   \nocite{Fujikawa:2001a}
+  \nocite{Fujikawa:2001b}
   \nocite{Choi:2020dws}
 
 \end{frame}
