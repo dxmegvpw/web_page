@@ -1,5 +1,5 @@
 \documentclass[
-  unicode,a4paper,10pt,
+  unicode,a4paper,9pt,
   % aspectratio=169,
   xcolor = {dvipsnames,svgnames},
   hyperref ={colorlinks=true,citecolor=Navy,linkcolor=NavyBlue,urlcolor=purple},
@@ -32,36 +32,25 @@
 
   \begin{center}
     安倍研 M1 宮根一樹\\
-    2024 5/7 (火)\\
-
-    このスライドの引用の番号と論文の引用番号はあってません。
+    2024 5/7 (火)
   \end{center}
-
-\end{frame}
-
-
-\begin{frame}{読んだ動機}
-
-  この春休み、\textcolor{Green}{QFT}やKK理論をメインに勉強した。
-
-  \vspace*{5pt}
-  
-  くりこみ、有効作用、(非可換)ゲージ場の(経路積分)量子化など$\cdots\cdots$。
-
-  \vspace*{5pt}
-  
-  その中で、\textcolor{DarkOrange}{アノマリー}を勉強してみたいなと思いました。
-
-  \vspace*{10pt}
-
-  一方で、この研究室でも高次元の理論のアノマリーは調べてみたかったけど、良く分かっていなかった部分もある模様。\cite{Abe:2020vmv}
 
 \end{frame}
 
 
 \begin{frame}
 
-  そこで、高次元のアノマリーに関連しているこの論文を読もうと思った。
+  \citefone{Arkani-Hamed:2001uol}{N. Arkani-Hamed, A. G. Cohen, and H. Georgi, Physics Letters B 516 (2001) 395-402, arxiv:hep-th/0103135.}
+
+  読んだ動機を話そうと思ったのですが、\pause S君に
+  \begin{center}
+    「お前の読んだ理由なんてみんな1ミリも興味ない」
+  \end{center}
+  と言われてしまったので、(本当にそうなんだと思いますし)自粛します。
+
+  \vspace*{10pt}
+
+  以下の論文を紹介します。
   \begin{figure}[ht]
     \centering
     \includegraphics[width=0.7\textwidth]{fig/Arkani-Hamed2001uol.png}
@@ -115,7 +104,9 @@
 
 \begin{frame}
 
-  しかし、この結果は古典論の結果
+  \citeftwo{Peskin:1995}{M. E. Peskin and D. V. Schroeder, An Introduction to Quantum Field Theory. Addison-Wesley Pub. Co, Reading, Mass, 1995.}{Fujikawa:2001a}{藤川和男, ゲージ場の理論. 岩波書店, 2001.}
+
+  しかし、これは古典論の結果
 
   \begin{equation}
     \partial_{\mu}
@@ -125,20 +116,20 @@
     \nonumber
   \end{equation}
 
-  \pause
-  \vspace*{10pt}
+  摂動論でこの関係をチェックするには、ファインマンルールにしたがって以下のダイアグラムを計算してみればよい\cite{Peskin:1995,Fujikawa:2001a}。
 
-  量子論の意味では、以下のファインマンダイアグラムの計算をすることと等価
-
-  (ファインマンダイアグラムを2つほど)
-
+  \begin{center}
+    \includegraphics[width=0.4\textwidth]{fig/feynman_diag.pdf}    
+  \end{center}
 
 \end{frame}
 
 
 \begin{frame}  
 
-  左側のダイアグラムの振幅を計算して位置基底に戻すと
+  \citefone{Fujikawa:2001b}{藤川和男, 経路積分と対称性の量子的破れ. 岩波書店, 東京, 2001.}
+
+  前に示したダイアグラムを計算すると
   \begin{equation}
     \partial_{\mu}
     \ev*{\bar{\psi}\gamma^{\mu}\gamma^{5}\psi}
@@ -179,10 +170,149 @@
 
 
 
-\subsection{議論の流れ}
+
+\subsection{Kaluza-Klein理論とアノマリー}
+
+\begin{frame}{\subsecname}
+
+  高次元の時空を考え、余剰空間に周期条件を与えること(コンパクト化)によって、4次元有効理論を作る方法があり、それをKaluza-Klein理論という。
+
+  \vspace*{5pt}
+
+  特に、今回は5次元の時空$x^{M}=(x^{0},x^{1},\cdots,x^{4})$を考え、$x^{4}$の方向に$x^{4}\sim x^{4}+2L$の周期境界条件を課してコンパクト化する。
+
+  \pause
+  \vspace*{10pt}
+
+  \setbeamertemplate{blocks}[rounded][shadow=true]
+  \setbeamercolor{block body}{bg=RoyalBlue!10!white, fg=black}
+  \begin{block}{}
+    \centering
+    \textcolor{Green}{5次元の理論}でのアノマリー相殺
+    \\
+    と
+    \\
+    \textcolor{FireBrick}{4次元有効理論}でのアノマリー相殺
+    \\
+    の対応
+  \end{block}
+  を調べたい。
+
+\end{frame}
+
+
+\begin{frame}
+
+  一方で、カイラルアノマリーについては次のことが分かっている：
+
+  \begin{itemize}
+    \item 
+    奇数次元の理論はクリフォード代数の性質から非カイラル\\
+    $\hspace*{1cm}\ \longrightarrow\ $カイラルアノマリーは必ず相殺される
+    \item 
+    非カイラルな理論を$S^{1}$コンパクト化しても、4次元有効理論は非カイラル
+  \end{itemize}
+
+  \pause
+
+  よって、5次元の理論をコンパクト化するだけでは、4次元のカイラルアノマリーが消えているのは明らか。\\
+
+  そこで・・・  
+
+\end{frame}
+
+\subsection{オービフォールド\texorpdfstring{$S^{1}/Z_{2}$}{S1/Z2}}
+
+\begin{frame}{オービフォールド$S^{1}/Z_{2}$}
+
+  \citefonev{Choi:2020dws}{K.-S. Choi and C.-ŭ. Kim, Quarks and Leptons from Orbifolded Superstring, no. volume 954 in Lecture Notes in Physics. Springer, Cham, second edition ed., 2020.}{7}
+
+  今回は、さらに\textcolor{Goldenrod}{オービフォールド}という境界条件を余剰空間に課す。
+  
+  \pause
+  \vspace*{10pt}
+
+  例えば、スカラー場の理論を考える
+  \begin{equation}
+    S
+    =
+    \int\dd^5 x\ 
+    \left(  
+      \frac{1}{2}\partial^{M}\Phi\partial_{M}\Phi
+      -
+      \frac{1}{2}m(x^{4})^2\Phi^2
+    \right)
+    \nonumber
+  \end{equation}
+
+  この理論に、$\Phi(x,x^{4})=\Phi(x,x^{4}+2L)$という境界条件に加えて
+  \begin{equation}
+    \Phi(x,x^{4})
+    =
+    \eta
+    \Phi(x,-x^{4})
+    \ ,\ 
+    \eta=\pm 1
+    \nonumber
+  \end{equation}
+  という境界条件を課す。  
+
+\end{frame}
+
+\begin{frame}
+
+  \citefonev{Choi:2020dws}{K.-S. Choi and C.-ŭ. Kim, Quarks and Leptons from Orbifolded Superstring, no. volume 954 in Lecture Notes in Physics. Springer, Cham, second edition ed., 2020.}{7}
+
+  まずは、周期境界条件$\Phi(x,x^{4})=\Phi(x,x^{4}+2L)$から
+  \begin{equation}
+    \Phi(x,x^{4})
+    =
+    \sum_{n=-\infty}^{\infty}\phi_{n}(x) \exp \left[ i\frac{n\pi}{L}x^{4} \right]
+    \nonumber
+  \end{equation}
+  とフーリエ展開できる。
+
+  \vspace*{5pt}
+
+  さらに、オービフォールドの境界条件$\Phi(x,x^{4})=-\Phi(x,-x^{4})$を課すと$\phi_{n}(x)+\phi_{-n}(x)=0$という条件になる
+
+  \vspace*{5pt}
+
+  この条件により、$n=0$のモード$\phi_{0}(x)$は消えることがわかる
+
+  \pause
+  \vspace*{5pt}
+
+  \setbeamertemplate{blocks}[rounded][shadow=true]
+  \setbeamercolor{block body}{bg=RoyalBlue!10!white, fg=black}
+  \begin{block}{}
+    \centering
+    境界条件をうまく選べば、ゼロモードの場を消したり残したりできるため
+    \\
+    4次元の有効理論を作るときに嬉しい
+  \end{block}
+  ので、調べられている。
+
+\end{frame}
+
+
+\subsection{本論文の流れ・まとめ}
 
 \begin{frame}
   \frametitle{\subsecname}
+
+  同様のことが$x^{4}=L$の点でも起こることがわかる
+
+  \vspace*{5pt}
+
+  $x=0,L$の点(固定点)では、ゼロモードがカイラルになる
+
+  $\qquad\rightarrow\ $アノマリーが5次元の理論でも現れる可能性がある
+
+  $\qquad\rightarrow\ $4次元有効理論でのアノマリーとの関係は?
+
+  \pause
+  \vspace*{5pt}
 
   \uline{議論の流れ}
 
@@ -192,8 +322,26 @@
     \item 
     それを元のラグランジアンに代入$\rightarrow$カレントを計算
     \item 
-    有効理論のアノマリーを議論
+    有効理論のアノマリーと元の理論のアノマリーの関係の議論
   \end{itemize}
+
+  \vspace*{5pt}
+
+  今回、得られる結果は(私の理解した部分に限って)
+  \begin{equation*}
+    \partial_{C}j^{C}
+    =
+    \frac{1}{2}\left[ \delta(x)+\delta(x-L) \right]Q
+    \quad
+    (C=0,1,2,3,4)
+  \end{equation*}
+
+  \setbeamertemplate{blocks}[rounded][shadow=true]
+  \setbeamercolor{block body}{bg=Green!10!white, fg=black}
+  \begin{block}{}
+    \centering
+    5次元のカレントの保存も破れることがある。
+  \end{block}
 
 \end{frame}
 
@@ -219,6 +367,16 @@
 
 \begin{frame}
 
+  \citefonev{Coleman:1982yg}{S. Coleman and B. Grossman, Nuclear Physics B 203 (1982) 205-220.}{6}
+
+  おそらく
+  \begin{center}
+    「massiveなら極は$p^2=0$のところにないので、$\ev*{\partial_{\mu}j^{\mu}_{5}}=0$」
+  \end{center}
+  ということ?
+
+  \vspace*{5pt}
+
   複数の場$\psi_{i}, A_{ij}^{\mu}$とチャージ$q_{i}$がある場合は
   \begin{equation*}
     \partial_{\mu}j^{\mu}_{5}
@@ -234,6 +392,8 @@
   \end{equation*}
   となる。
 
+  \vspace*{5pt}
+
   先行研究\cite{Coleman:1982yg}によると、無質量モードのみが真空期待値の計算に寄与してきて
   \begin{equation*}
     \ev*{\partial_{\mu}j^{\mu}_{5}}
@@ -245,6 +405,7 @@
     \right] 
     \label{eqn:massless_anomaly}
   \end{equation*}  
+  $P_{0}$は無質量モードへの射影。
 
 \end{frame}
 
@@ -252,8 +413,6 @@
 
 \begin{frame}
   \frametitle{\subsecname}
-
-  (ここからは本文と記法を合わせます。)
 
   時空は5次元$x^{C}=(x^{\mu},x_{4})$
 
@@ -650,9 +809,9 @@
     \item 
     トレースはKKモードの添え字について
     \item 
-    どうやら、\uwave{4次元有効理論での}アノマリーは
+    おそらく、\uwave{4次元有効理論での}アノマリー$Q_{4}$は
     \begin{equation*}
-      \int\dd x_{4}\ Q(x,x_{4})
+      Q_{4}=\int\dd x_{4}\ Q(x,x_{4})
     \end{equation*}
     としているよう。
   \end{itemize}
@@ -712,7 +871,7 @@
     \sum_{M>0}\xi_{M}^{-}(x_{4})\xi_{M}^{-}(y_{4})
   \end{equation*}
 
-  この量を計算すると(もう少し加筆)
+  この量を計算すると
   \begin{equation*}
     \Delta(x_{4},-y_{4})
     =
@@ -726,7 +885,7 @@
 
   したがって、
   \begin{equation*}
-    \mathcal{Q}
+    Q
     =
     \underbrace{
     \frac{1}{32\pi^2}F(x,x_{4})\tilde{F}(x,x_{4})
@@ -735,7 +894,7 @@
   \end{equation*}
   
 
-  よって、
+  よって、$x_4$が$[0,2L)$に限られることに注意すれば
   \begin{equation*}
     \partial_{\mu}J^{\mu}(x,x_{4})
     +
@@ -765,15 +924,6 @@
     \item 
     4次元のアノマリーが相殺されれば、5次元のアノマリーが相殺される。
   \end{itemize}
-
-  一方で、先行研究\cite{Coleman:1982yg}の結果を用いると、無質量な波動関数は$\xi_{0}^{+}$なので、
-  \begin{equation*}
-    \ev*{\partial_{\mu}j^{\mu}(x,x_{4})}
-    =
-    \frac{1}{2}Q_{0}\xi_{0}^{+}(x_{4})
-  \end{equation*}
-
-  ここで、$Q_{0}$は$Q$で$A_{\mu}(x,x_{4})$を$A_{\mu}(x,0)=A_{\mu,00}(x)$としたもの。
   
 \end{frame}
 
@@ -791,18 +941,16 @@
     \item 
     $\gamma^{5}\Psi=+\Psi,\ \gamma^{5}X=-X$
     \item 
-    質量は$m_{\Psi}(x_{4})=-m_{X}=m=\mathrm{constant}$
+    質量は$m_{\Psi}(x_{4})=-m_{X}(x_{4})=m=\mathrm{constant}$
   \end{itemize}
 
-  ゼロモードもカイラルなので、もちろんアノマリーが相殺される。
+  ゼロモードもカイラルなので、もちろんアノマリーが相殺される。  
 
+  \vspace*{5pt}
 
-  
+  (あとの議論は良く分かりませんでした。直感的に今回の結果を解釈したいのだと思います。)
 
 \end{frame}
-
-
-
 
 
 
@@ -816,6 +964,7 @@
 
 \begin{frame}
   \frametitle{まとめ}
+
 
 
 
@@ -860,157 +1009,6 @@
   \tableofcontents
 \end{frame}
 
-\subsection{Kaluza-Klein理論とアノマリー}
-
-\begin{frame}{\subsecname}
-
-  高次元の時空を考え、余剰空間に周期条件を与えること(コンパクト化)によって、4次元有効理論を作る方法があり、それをKaluza-Klein理論という。
-
-  \vspace*{5pt}
-
-  特に、今回は5次元の時空$x^{M}=(x^{0},x^{1},\cdots,x^{4})$を考え、$x^{4}$の方向に$x^{4}\sim x^{4}+2L$の周期境界条件を課してコンパクト化する。
-
-  \pause
-  \vspace*{10pt}
-
-  \setbeamertemplate{blocks}[rounded][shadow=true]
-  \setbeamercolor{block body}{bg=RoyalBlue!10!white, fg=black}
-  \begin{block}{}
-    \centering
-    \textcolor{Green}{5次元の理論}でのアノマリー相殺
-    \\
-    と
-    \\
-    \textcolor{FireBrick}{4次元有効理論}でのアノマリー相殺
-    \\
-    の対応
-  \end{block}
-  を調べたい。
-
-\end{frame}
-
-
-\begin{frame}
-
-  一方で、カイラルアノマリーについては次のことが分かっている：
-
-  \begin{itemize}
-    \item 
-    奇数次元の理論はクリフォード代数の性質から非カイラル\\
-    $\hspace*{1cm}\ \longrightarrow\ $カイラルアノマリーは必ず相殺される
-    \item 
-    非カイラルな理論を$S^{1}$コンパクト化しても、4次元有効理論は非カイラル
-  \end{itemize}
-
-  \pause
-
-  よって、5次元の理論をコンパクト化するだけでは、4次元のカイラルアノマリーが消えているのは明らか。\\
-
-  そこで・・・  
-
-\end{frame}
-
-\subsection{オービフォールド\texorpdfstring{$S^{1}/Z_{2}$}{S1/Z2}}
-
-\begin{frame}{オービフォールド$S^{1}/Z_{2}$}
-
-  今回は、さらに\textcolor{Goldenrod}{オービフォールド}という境界条件を余剰空間に課す。
-  
-  \pause
-  \vspace*{10pt}
-
-  例えば、スカラー場の理論を考える
-  \begin{equation}
-    S
-    =
-    \int\dd^5 x\ 
-    \left(  
-      \frac{1}{2}\partial^{M}\Phi\partial_{M}\Phi
-      -
-      \frac{1}{2}m(x^{4})^2\Phi^2
-    \right)
-    \nonumber
-  \end{equation}
-
-  この理論に、$\Phi(x,x^{4})=\Phi(x,x^{4}+2L)$という境界条件に加えて
-  \begin{equation}
-    \Phi(x,x^{4})
-    =
-    \eta
-    \Phi(x,-x^{4})
-    \ ,\ 
-    \eta=\pm 1
-    \nonumber
-  \end{equation}
-  という境界条件を課す。  
-
-\end{frame}
-
-\begin{frame}
-  \frametitle{}
-
-  まずは、周期境界条件$\Phi(x,x^{4})=\Phi(x,x^{4}+2L)$から
-  \begin{equation}
-    \Phi(x,x^{4})
-    =
-    \sum_{n=-\infty}^{\infty}\phi_{n}(x) \exp \left[ i\frac{n\pi}{L}x^{4} \right]
-    \nonumber
-  \end{equation}
-  とフーリエ展開できる。
-
-  \vspace*{5pt}
-
-  さらに、オービフォールドの境界条件$\Phi(x,x^{4})=-\Phi(x,-x^{4})$を課すと$\phi_{n}(x)+\phi_{-n}(x)=0$という条件になる
-
-  \vspace*{5pt}
-
-  この条件により、$n=0$のモード$\phi_{0}(x)$は消えることがわかる
-
-  \pause
-  \vspace*{5pt}
-
-  \setbeamertemplate{blocks}[rounded][shadow=true]
-  \setbeamercolor{block body}{bg=RoyalBlue!10!white, fg=black}
-  \begin{block}{}
-    \centering
-    境界条件をうまく選べば、ゼロモードの場を消したり残したりできるため
-    \\
-    4次元の有効理論を作るときに嬉しい
-  \end{block}
-  ので、調べられている。
-
-\end{frame}
-
-\subsection{本論文の流れ・まとめ}
-
-\begin{frame}
-  \frametitle{\subsecname}
-
-  同様のことが$x^{4}=L$の点でも起こることがわかる
-
-  \vspace*{5pt}
-
-  $x=0,L$の点(固定点)では、ゼロモードがカイラルになる
-
-  $\qquad\rightarrow$アノマリーが5次元の理論でも現れる可能性がある
-
-  $\qquad\rightarrow$4次元有効理論でのアノマリーとの関係は?
-
-  \pause
-  \vspace*{5pt}
-
-  \uline{議論の流れ}
-
-  \begin{itemize}
-    \item 
-    余剰空間方向の場の境界条件を設定、モード展開
-    \item 
-    それを元のラグランジアンに代入$\rightarrow$カレントを計算
-    \item 
-    有効理論のアノマリーを議論
-  \end{itemize}
-
-\end{frame}
 
 
 \subsection{4次元のカイラルアノマリーの計算}
@@ -1032,10 +1030,6 @@
   \beamertemplatetextbibitems
   \bibliographystyle{ytphys}
   \bibliography{ref}
-
-  \nocite{Fujikawa:2001a}
-  \nocite{Fujikawa:2001b}
-  \nocite{Choi:2020dws}
 
 \end{frame}
 

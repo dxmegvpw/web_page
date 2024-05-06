@@ -132,12 +132,12 @@ drop fuzzy shadow, title={#2}
     \node[anchor=north east, align=left] at ($(current page.north east)-(0,0.0)$){
     {\tiny
       \cite{#1}
-      #2,
-      \journal{#1}
-      (\usebibentry{#1}{year}).
+      #2
     }
     };
   \end{tikzpicture}
+
+  \vspace*{-20pt}
 }
 
 \newcommand*{\citeftwo}[4]{
@@ -145,19 +145,17 @@ drop fuzzy shadow, title={#2}
     \node[anchor=north east, align=left] at ($(current page.north east)-(0,0.0)$){
     {\tiny
       \cite{#1}
-      #2,
-      \journal{#1}
-      (\usebibentry{#1}{year}).
+      #2
     }
     \\[-2.4ex]
     {\tiny
       \cite{#3}
-      #4,
-      \journal{#3}
-      (\usebibentry{#3}{year}).
+      #4
     }
     };
   \end{tikzpicture}
+
+  \vspace*{-20pt}
 }
 
 \newcommand*{\citefthree}[6]{
@@ -165,26 +163,22 @@ drop fuzzy shadow, title={#2}
     \node[anchor=north east, align=left] at ($(current page.north east)-(0,0.0)$){
     {\tiny
       \cite{#1}
-      #2,
-      \journal{#1}
-      (\usebibentry{#1}{year}).
+      #2
     }
     \\[-2.4ex]
     {\tiny
       \cite{#3}
-      #4,
-      \journal{#3}
-      (\usebibentry{#3}{year}).
+      #4
     }
     \\[-2.4ex]
     {\tiny
       \cite{#5}
-      #6,
-      \journal{#5}
-      (\usebibentry{#5}{year}).
+      #6
     }
     };
   \end{tikzpicture}
+
+  \vspace*{-20pt}
 }
 
 \newcommand*{\citefonev}[3]{
@@ -192,12 +186,12 @@ drop fuzzy shadow, title={#2}
     \node[anchor=north east, align=left, text width=#3cm] at ($(current page.north east)-(0,0.0)$){
     {{\fontsize{5pt}{0pt}\selectfont
       \cite{#1}
-      #2,
-      \journal{#1}
-      (\usebibentry{#1}{year}).\par}
+      #2\par}
     }
     };
   \end{tikzpicture}
+
+  \vspace*{-20pt}
 }
 
 \newcommand*{\citeftwov}[5]{
@@ -205,18 +199,16 @@ drop fuzzy shadow, title={#2}
     \node[anchor=north east, align=left, text width=#5cm] at ($(current page.north east)-(0,0.0)$){
     {{\fontsize{5pt}{0pt}\selectfont
       \cite{#1}
-      #2,
-      \journal{#1}
-      (\usebibentry{#1}{year}).\par}
+      #2\par}
 
       {\fontsize{5pt}{0pt}\selectfont
       \cite{#3}
-      #4,
-      \journal{#3}
-      (\usebibentry{#3}{year}).\par}
+      #4\par}
     }
     };
   \end{tikzpicture}
+
+  \vspace*{-20pt}
 }
 
 \newcommand*{\citefthreev}[7]{
@@ -224,24 +216,20 @@ drop fuzzy shadow, title={#2}
     \node[anchor=north east, align=left, text width=#7cm] at ($(current page.north east)-(0,0.0)$){
     {{\fontsize{5pt}{0pt}\selectfont
     \cite{#1}
-    #2,
-    \journal{#1}
-    (\usebibentry{#1}{year}).\par}
+    #2\par}
 
     {\fontsize{5pt}{0pt}\selectfont
     \cite{#3}
-    #4,
-    \journal{#3}
-    (\usebibentry{#3}{year}).\par}
+    #4\par}
 
     {\fontsize{5pt}{0pt}\selectfont
     \cite{#5}
-    #6,
-    \journal{#5}
-    (\usebibentry{#5}{year}).\par}
+    #6\par}
     }
     };
   \end{tikzpicture}
+
+  \vspace*{-20pt}
 }
 
 

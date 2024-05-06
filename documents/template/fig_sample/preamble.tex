@@ -1,0 +1,32 @@
+% ---fonts---
+\PassOptionsToPackage{quiet}{fontspec}
+\usepackage{luatexja-fontspec}
+\setmainfont{TeX Gyre Termes}
+\setmainjfont[BoldFont = IPAGothic]{IPAMincho}
+% \setmainjfont{Noto Sans CJK JP}
+\setmathrm{Latin Modern Roman}
+
+% ---Ignore the Warnings---
+\usepackage{silence}
+\WarningFilter{latexfont}{Some font shapes}
+\WarningFilter{latexfont}{Font shape}
+\WarningFilter{latexfont}{Size substitutions}
+\ExplSyntaxOn
+\msg_redirect_name:nnn{hooks}{generic-deprecated}{none}
+\ExplSyntaxOff
+
+\usepackage{graphics}
+\usepackage[dvipsnames,svgnames]{xcolor}
+
+\usepackage{tikz,pgf,pgfplots,circuitikz}
+\pgfplotsset{compat=1.15}
+\usetikzlibrary{intersections,arrows.meta,angles,calc,3d,decorations.pathmorphing}
+\usepackage[compat=1.1.0]{tikz-feynhand}
+
+\usepackage{amssymb,amsfonts,amsthm,mathtools}
+\usepackage{physics,braket,bm}
+
+% ---Title---
+\title{Tikz サンプル}
+\author{宮根一樹}
+\date{\today}
