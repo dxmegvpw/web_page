@@ -114,19 +114,7 @@ drop fuzzy shadow, title={#2}
 \msg_redirect_name:nnn{hooks}{generic-deprecated}{none}
 \ExplSyntaxOff
 
-% ---citation---
-\usepackage{usebib}
-\newbibfield{author} 
-\newbibfield{year} 
-\newbibfield{journal} 
-\newbibfield{doi} 
-\bibinput{ref}
-
-\makeatletter
-\newcommand*{\journal}{\begingroup\@makeother\#\@mylink}
-\newcommand*{\@mylink}[1]{\href{http://dx.doi.org/\usebibentry{#1}{doi}}{\usebibentry{#1}{journal}}\endgroup} 
-\makeatother
-
+% ---Citation on the slides---
 \newcommand*{\citefone}[2]{
   \begin{tikzpicture}[remember picture, overlay]
     \node[anchor=north east, align=left] at ($(current page.north east)-(0,0.0)$){
