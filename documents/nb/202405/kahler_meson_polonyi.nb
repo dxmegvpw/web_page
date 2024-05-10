@@ -10,10 +10,10 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       158,          7]
-NotebookDataLength[     72117,       1723]
-NotebookOptionsPosition[     69621,       1671]
-NotebookOutlinePosition[     70039,       1688]
-CellTagsIndexPosition[     69996,       1685]
+NotebookDataLength[     72464,       1730]
+NotebookOptionsPosition[     69875,       1677]
+NotebookOutlinePosition[     70292,       1694]
+CellTagsIndexPosition[     70249,       1691]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
@@ -1667,9 +1667,15 @@ Cell[" ", "Text",
  CellFrameMargins->0,
  CellFrameColor->RGBColor[0, 0, 1],
  CellSize->{
-  Inherited, 4},ExpressionUUID->"69d55959-2f99-4b22-b8fa-4805159ad3f4"]
+  Inherited, 4},ExpressionUUID->"69d55959-2f99-4b22-b8fa-4805159ad3f4"],
+
+Cell["\:30e1\:30be\:30f3M\:3092\:5165\:308c\:305f\:30dd\:30c6\:30f3\:30b7\
+\:30e3\:30eb\:306emoduli stabilization", "Text",
+ CellChangeTimes->{{3.9242928445815663`*^9, 
+  3.924292883588897*^9}},ExpressionUUID->"4089db9f-15bf-49b3-a070-\
+ed92bc136a97"]
 },
-WindowSize->{1016.25, 625.125},
+WindowSize->{1016.25, 620.25},
 WindowMargins->{{0, Automatic}, {Automatic, 0}},
 FrontEndVersion->"13.0 for Microsoft Windows (64-bit) (2021\:5e7412\:67082\
 \:65e5)",
@@ -1724,7 +1730,8 @@ Cell[CellGroupData[{
 Cell[56860, 1416, 1591, 45, 225, "Input",ExpressionUUID->"63cc41d6-b294-4d98-9bf2-f3f393c92a8e"],
 Cell[58454, 1463, 10819, 193, 229, "Output",ExpressionUUID->"49f785aa-f316-4f0c-a203-b894b94b0f4b"]
 }, Open  ]],
-Cell[69288, 1659, 329, 10, 8, "Text",ExpressionUUID->"69d55959-2f99-4b22-b8fa-4805159ad3f4"]
+Cell[69288, 1659, 329, 10, 8, "Text",ExpressionUUID->"69d55959-2f99-4b22-b8fa-4805159ad3f4"],
+Cell[69620, 1671, 251, 4, 35, "Text",ExpressionUUID->"4089db9f-15bf-49b3-a070-ed92bc136a97"]
 }
 ]
 *)
