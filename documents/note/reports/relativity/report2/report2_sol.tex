@@ -5,34 +5,112 @@
 
 \maketitle
 
-\begin{enumerate}
-  \item 
-  The background line element
-  \begin{equation}
-    \dd s^2
-    =
-    -
-    \left( 1-\frac{2\mu}{r} \right)\dd t^2
-    +
-    \left( 1-\frac{2\mu}{r} \right)^{-1}\dd r^2
-    +
-    r^2
-    (\dd\theta^2+\sin^2\theta\dd\varphi^2)
-  \end{equation}
-  implies the metric is obtained as
-  \begin{equation}
-    g_{\mu\nu}
-    =
-    \begin{pmatrix}
-      -\left( 1-2\mu/r \right) & 0 & 0 & 0 \\
-      0 & \left( 1-2\mu/r \right)^{-1} & 0 & 0 \\
-      0 & 0 & r^2 & 0 \\
-      0 & 0 & 0 & r^2\sin^2\theta
-    \end{pmatrix}
-    .
-  \end{equation}
+*In this report, I use Mathematica for heavy calculations.
 
-  
+\begin{enumerate}
+  \item
+        The background line element
+        \begin{equation}
+          \dd s^2
+          =
+          -
+          \left( 1-\frac{2\mu}{r} \right)\dd t^2
+          +
+          \left( 1-\frac{2\mu}{r} \right)^{-1}\dd r^2
+          +
+          r^2
+          (\dd\theta^2+\sin^2\theta\dd\varphi^2)
+        \end{equation}
+        implies the metric is obtained as
+        \begin{equation}
+          g_{\mu\nu}
+          =
+          \begin{pmatrix}
+            -\left( 1-2\mu/r \right) & 0                            & 0   & 0               \\
+            0                        & \left( 1-2\mu/r \right)^{-1} & 0   & 0               \\
+            0                        & 0                            & r^2 & 0               \\
+            0                        & 0                            & 0   & r^2\sin^2\theta
+          \end{pmatrix}
+          .
+        \end{equation}
+        Thus, we find the inverse
+        \begin{equation}
+          g^{\mu\nu}
+          =
+          \begin{pmatrix}
+            -(1-2\mu/r)^{-1} & 0        & 0     & 0                  \\
+            0                & 1-2\mu/r & 0     & 0                  \\
+            0                & 0        & 1/r^2 & 0                  \\
+            0                & 0        & 0     & 1/r^2 \sin^2\theta
+          \end{pmatrix}
+        \end{equation}
+        and Christoffel symbols are given by
+        \begin{equation}
+          \begin{array}{lll}
+            \Gamma^{t}_{\ tr}
+            =
+            \Gamma^{t}_{\ rt}
+            =
+            \frac{\mu/r}{1-2\mu/r}
+            ,
+             &
+            \Gamma^{r}_{\ tt}
+            =
+            \frac{\mu(1-2\mu r)}{r^2}
+            ,
+             &
+            \Gamma^{r}_{\ rr}
+            =
+            -\frac{\mu}{r^2(1-2\mu r)}
+            ,
+            \\
+            \Gamma^{r}_{\ \theta\theta}
+            =
+            -r\left( 1-\frac{2\mu}{r} \right)
+            ,
+             &
+            \Gamma^{r}_{\ \varphi\varphi}
+            =
+            -r\left( 1-\frac{2\mu}{r} \right)\sin^2\theta
+            ,
+             &
+            \Gamma^{\theta}_{\ r\theta}
+            =
+            \Gamma^{\theta}_{\ \theta r}
+            =
+            \frac{1}{r}
+            ,
+            \\
+            \Gamma^{\theta}_{\ \varphi\varphi}
+            =
+            -\cos\theta\sin\theta
+            ,
+             &
+            \Gamma^{\varphi}_{\ r\varphi}
+            =
+            \Gamma^{\varphi}_{\ \varphi r}
+            =
+            \frac{1}{r}
+            ,
+             &
+            \Gamma^{\varphi}_{\ \varphi\theta}
+            =
+            \Gamma^{\varphi}_{\ \theta\varphi}
+            =
+            \frac{1}{\tan\theta}
+          \end{array}
+        \end{equation}
+        and otherwise are zero. By using these results, we get the Klein-Gordon equation as
+        \begin{align}
+          g^{\mu\nu}\nabla_{\mu}\nabla_{\nu}
+          \Phi
+          &=
+          g^{\mu\nu}
+          (\partial_{\mu}\partial_{\nu}\Phi+\Gamma^{\rho}_{\ \mu\nu}\partial_{\rho}\Phi)
+          \nonumber
+          \\
+          &=
+        \end{align}
 
 
 
