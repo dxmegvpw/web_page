@@ -5,7 +5,7 @@
 
 \maketitle
 
-*In this report, I use Mathematica for heavy calculations.
+*In this report, I use Mathematica for heavy calculations. I will omit "massive" computations, such as the derivation of Christoffel symbols and covariant derivatives, etc.
 
 \begin{enumerate}
   \item
@@ -104,28 +104,168 @@
         \begin{align}
           g^{\mu\nu}\nabla_{\mu}\nabla_{\nu}
           \Phi
-          &=
+           & =
           g^{\mu\nu}
-          (\partial_{\mu}\partial_{\nu}\Phi+\Gamma^{\rho}_{\ \mu\nu}\partial_{\rho}\Phi)
+          (\partial_{\mu}\partial_{\nu}\Phi-\Gamma^{\rho}_{\ \mu\nu}\partial_{\rho}\Phi)
           \nonumber
           \\
-          &=
+           &
+          =
+          \frac{2}{r}\left( 1-\frac{\mu}{r} \right)\pdv{\Phi}{r}
+          +
+          \left( 1-\frac{2\mu}{r} \right)\pdv[2]{\Phi}{r}
+          -
+          \frac{1}{1-2\mu/r}\pdv[2]{\Phi}{t}
+          \nonumber
+          \\
+           & \qquad
+          +
+          \frac{1}{r^2}
+          \left[
+            \frac{1}{\tan\theta}\pdv{\Phi}{\theta}
+            +
+            \pdv[2]{\Phi}{\theta}
+            +
+            \frac{1}{\sin^2\theta}\pdv[2]{\Phi}{\theta}
+            \right]
+          .
+          \label{eqn:1.1}
         \end{align}
-        
+        We will insert the expression
+        \begin{equation}
+          \Phi(x)
+          =
+          \frac{1}{r}\phi(t,r)Y_{lm}(\theta,\varphi)
+          \label{eqn:1.2_expansion}
+        \end{equation}
+        where $Y_{lm}(\theta.\varphi)$ is a spherical harmonics which satisfies the following relation:
+        \begin{equation}
+          \frac{1}{r^2}
+          \left[
+            \frac{1}{\tan\theta}\pdv{}{\theta}
+            +
+            \pdv[2]{}{\theta}
+            +
+            \frac{1}{\sin^2\theta}\pdv[2]{}{\theta}
+            \right]
+          Y_{lm}(\theta,\varphi)
+          =
+          -
+          \frac{l(l+1)}{r^2}
+          Y_{lm}(\theta,\varphi)
+          .
+        \end{equation}
+        Putting the expansion \eqref{eqn:1.2_expansion} into \eqref{eqn:1.1}, each term becomes
+        \begin{align}
+          \frac{2}{r}\left( 1-\frac{\mu}{r} \right)\pdv{\Phi}{r}
+           & =
+          \frac{2}{r}\left( 1-\frac{\mu}{r} \right)
+          \left[ -\frac{\phi}{r^2}+\frac{1}{r}\pdv{\phi}{r} \right]Y_{lm}
+          \label{eqn:1.3}
+          \\
+          \left( 1-\frac{2\mu}{r} \right)\pdv[2]{\Phi}{r}
+           & =
+          \left( 1-\frac{2\mu}{r} \right)
+          \left( \frac{2\phi}{r^3}-\frac{2}{r^2}\pdv{\phi}{r}+\frac{1}{r}\pdv[2]{\phi}{r} \right)Y_{lm}
+          \label{eqn:1.4}
+          \\
+          \frac{1}{1-2\mu/r}\pdv[2]{\Phi}{t}
+           & =
+          \frac{1}{r(1-2\mu/r)}\pdv[2]{\phi}{t}Y_{lm}
+          .
+        \end{align}
+        Merging two equalities \eqref{eqn:1.3}, \eqref{eqn:1.4}, the sum becomes
+        \begin{align}
+           & \hspace*{10pt}
+          \frac{2}{r}\left( 1-\frac{\mu}{r} \right)
+          \left[ -\frac{\phi}{r^2}+\frac{1}{r}\pdv{\phi}{r} \right]
+          +
+          \left( 1-\frac{2\mu}{r} \right)
+          \left( \frac{2\phi}{r^3}-\frac{2}{r^2}\pdv{\phi}{r}+\frac{1}{r}\pdv[2]{\phi}{r} \right)
+          \nonumber
+          \\
+           & =
+          -\frac{2\mu}{r^4}\phi
+          +
+          \frac{2\mu}{r^3}\pdv{\phi}{r}
+          +
+          \frac{1}{r}\pdv[2]{\phi}{r}
+          -
+          \frac{2\mu}{r^2}\pdv[2]{\phi}{r}
+          \nonumber
+          \\
+           & =
+          -
+          \frac{2\mu}{r^4}\phi
+          +
+          \frac{1}{r}\pdv{}{r}\left[ \left( 1-\frac{2\mu}{r} \right)\pdv{\phi}{r} \right]
+        \end{align}
+        where we omit the overall factor $Y_{lm}$. Thus we obtain equality as
+        \begin{equation}
+          -
+          \frac{2\mu}{r^4}\phi
+          +
+          \frac{1}{r}\pdv{}{r}\left[ \left( 1-\frac{2\mu}{r} \right)\pdv{\phi}{r} \right]
+          -
+          \frac{1}{r(1-2\mu/r)}\pdv[2]{\phi}{t}
+          -
+          \frac{l(l+1)}{r^3}\phi
+          =
+          0
+        \end{equation}
+        and finally
+        \begin{equation}
+          \pdv[2]{\phi}{t}
+          -
+          \left( 1-\frac{2\mu}{r} \right)\pdv{}{r}\left[ \left( 1-\frac{2\mu}{r} \right)\pdv{\phi}{r} \right]
+          +
+          \left( 1-\frac{2\mu}{r} \right)
+          \left[ \frac{2\mu}{r^3}+\frac{l(l+1)}{r^2} \right]\phi
+          =
+          0
+          .
+        \end{equation}
+        Thus, the effective potential is given by
+        \begin{equation}
+          V(r)
+          =
+          \left( 1-\frac{2\mu}{r} \right)
+          \left[ \frac{2\mu}{r^3}+\frac{l(l+1)}{r^2} \right]
+          .
+        \end{equation}
 
+  \item
+  If we assume $l\gg 1$, we can rewrite the potential
+  \begin{equation}
+    V(r)
+    \sim
+    l(l+1)\left( \frac{1}{r^2}-\frac{2\mu}{r^3} \right)
+  \end{equation}
+  effectively and this potential has the minimum at 
+  \begin{equation}
+    r_{m}
+    =
+    3\mu
+    .
+  \end{equation}
 
+  \begin{figure}[ht]
+    \centering
+    \includegraphics[width=0.8\textwidth]{potential.PNG}
+    \caption{Potential $V(r)$ in the limit $l\gg 1$}
+  \end{figure}
 
-
-
-
-
-
-
-
+  Let us consider the radius of a photon sphere $r_{p}$. It has already been given in Lecture 7 as 
+  \begin{equation}
+    r_{p}
+    =
+    3\mu
+    .
+  \end{equation}
+  Therefore, the result is, of course, $r_{m}=r_{p}$.
 
 \end{enumerate}
 
-\clearpage
 \begin{thebibliography}{99}
   \bibitem{Wald:1984}
   R. M. Wald, \textit{General Relativity}, University of Chicago Press, Chicago (1984).
@@ -134,9 +274,18 @@
 \end{thebibliography}
 
 % ----------------------------------------
-% \clearpage
 % \appendix
-% \section{Notes}
+% \section{The computation of the radius of the photon sphere}
+
+
+
+
+
+
+
+
+
+
 
 % ----------------------------------------
 % \clearpage
