@@ -7,25 +7,64 @@
 
 \begin{enumerate}
   \item
-  If we put $\theta=\pi/2$, the quantity $\Sigma$ becomes $r^2$ and the line element is obtained as
-  \begin{equation}
-    \dd s^2
-    =
-    -
-    c^2
-    \left( 1-\frac{2\mu}{r} \right)\dd t^2
-    -
-    \frac{4\mu ac}{r}\dd t\dd \varphi
-    +
-    \frac{r^2}{\Delta}\dd r^2
-    +
-    r^2\dd \theta^2
-    +
-    \left(  
-      r^2+a^2+\frac{2\mu a^2}{r}\sin^2\theta\dd\varphi^2
-    \right)
-    .
-  \end{equation}
+        If we put $\theta=\pi/2$, the quantity $\Sigma$ becomes $r^2$ and the line element is obtained as
+        \begin{equation}
+          \dd s^2
+          =
+          -
+          c^2
+          \left( 1-\frac{2\mu}{r} \right)\dd t^2
+          -
+          \frac{4\mu ac}{r}\dd t\dd \varphi
+          +
+          \frac{r^2}{\Delta}\dd r^2
+          +
+          \left(
+          r^2+a^2+\frac{2\mu a^2}{r}
+          \right)
+          \dd\varphi^2
+        \end{equation}
+        and the metric also is as
+        \begin{equation}
+          g_{\mu\nu}
+          =
+          \begin{pmatrix}
+            -c^2(1-2\mu/r) & 0          & -2\mu ac/r           \\
+            0              & r^2/\Delta & 0                    \\
+            -2\mu ac/r     & 0          & r^2 + a^2 +2\mu a^2/r
+          \end{pmatrix}
+        \end{equation}
+        where $\Delta$ still remain $r^2-2\mu r+a^2$. Therefore the conserved quantities $p_{t}$ and $p_{\varphi}$ are obtained as 
+        \begin{align}
+          p_{t}
+          &=
+          -g_{tt}\dot{t}-g_{t\varphi}\dot{\varphi}
+          \nonumber
+          \\
+          &=
+          c^2(1-2\mu/r)\dot{t}
+          +
+          (2\mu ac/r)\dot{\varphi}
+          \\
+          p_{\varphi}
+          &=
+          g_{\varphi t}\dot{t}+g_{\varphi\varphi}\dot{\varphi}
+          \nonumber
+          \\
+          &=
+          (2\mu ac/r) \dot{t}
+          +
+          (r^2 + a^2 +2\mu a^2/r)\dot{\varphi}
+        \end{align} 
+        and we solve these equations to $\dot{t}$ and $\dot{\varphi}$.
+
+
+
+
+
+
+
+
 
 
 
@@ -35,8 +74,8 @@
 % ----------------------------------------------------------------------
 \clearpage
 \begin{thebibliography}{99}
-  \bibitem{Wald:1984}
-  R. M. Wald, \textit{General Relativity}, University of Chicago Press, Chicago (1984).
+  \bibitem{url01}
+  \url{https://www.roma1.infn.it/teongrav/onde19_20/geodetiche_Kerr.pdf}. (Last accessed: \today)
 \end{thebibliography}
 
 % ----------------------------------------
