@@ -1,0 +1,234 @@
+\renewcommand{\baselinestretch}{1.4}
+
+% ---fonts---
+\PassOptionsToPackage{quiet}{fontspec}
+\usefonttheme{serif}
+\mathversion{bold}
+\usepackage{luatexja-fontspec}
+\setmainfont{TeX Gyre Termes}
+\setmainjfont{Noto Sans CJK JP}
+\setmathrm{Latin Modern Roman}
+% \usepackage{newtxmath}
+
+\usepackage{newunicodechar}
+\newunicodechar{–}{-}
+
+% ---refer `texdoc xcolor' at the command line---
+
+% ---Display \subsubsection at the Index
+% \setcounter{tocdepth}{3}
+
+% ---Setting about the geometry of the document----
+% \usepackage{a4wide}
+% \pagestyle{empty}
+
+% ---Physics and Math Packages---
+\usepackage{amssymb,amsfonts,amsthm,mathtools}
+\usepackage{physics,braket,bm,slashed}
+
+% ---underline---
+\usepackage[normalem]{ulem}
+
+% ---cancel---
+\usepackage{cancel}
+
+% --- surround the texts or equations
+\usepackage{fancybox,ascmac}
+
+% ---settings of theorem environment---
+\usepackage{amsthm}
+\theoremstyle{definition}
+
+% ---settings of proof environment---
+\renewcommand{\proofname}{\textbf{証明}}
+\renewcommand{\qedsymbol}{$\blacksquare$}
+
+% ---Insert the figure (If insert the `draft' at the option, the process becomes faster.)---
+\usepackage{graphicx}
+% \usepackage{subcaption}
+
+% ----Add a link to a text---
+\usepackage{url,hyperref}
+\usepackage{xcolor}
+
+% ---Tikz---
+\usepackage{tikz,pgf,pgfplots,circuitikz}
+\pgfplotsset{compat=1.15}
+\usetikzlibrary{intersections,arrows.meta,angles,calc,3d,decorations.pathmorphing,positioning}
+
+% ---Add the section number to the equation, figure, and table number---
+\makeatletter
+   \renewcommand{\theequation}{\thesection.\arabic{equation}}
+   \@addtoreset{equation}{section}
+   
+   \renewcommand{\thefigure}{\thesection.\arabic{figure}}
+   \@addtoreset{figure}{section}
+   
+   \renewcommand{\thetable}{\thesection.\arabic{table}}
+   \@addtoreset{table}{section}
+\makeatother
+
+% ---enumerate---
+% \renewcommand{\labelenumi}{$\arabic{enumi}.$}
+% \renewcommand{\labelenumii}{$(\arabic{enumii})$}
+
+% ---beamer settings---
+\usefonttheme{professionalfonts}
+\usecolortheme{seahorse}
+\setbeamercolor{structure}{fg=white}
+\setbeamercolor{local structure}{fg=red}
+\setbeamertemplate{itemize item}[ball]
+\setbeamertemplate{enumerate item}[circle]
+\setbeamercolor{bibliography entry author}{fg=black}
+\setbeamercolor{bibliography item}{fg=black}
+\setbeamercolor{alerted text}{fg=RoyalBlue}
+\setbeamertemplate{frametitle continuation}{}
+\setbeamertemplate{footline}[frame number]
+\setbeamertemplate{navigation symbols}{} 
+\setbeamersize{text margin left=10pt, text margin right=10pt}
+
+% ---tcolorbox---
+\usepackage{tcolorbox}
+\tcbuselibrary{theorems}
+\tcbuselibrary{raster}
+\tcbuselibrary{skins}
+\newtcolorbox{bluebox}[2][]{enhanced,
+colframe=RoyalBlue!40!white,
+colback=RoyalBlue!10!white,
+coltitle=black,
+drop fuzzy shadow, title={#2}
+,#1}
+\newtcolorbox{redbox}[2][]{enhanced,
+colframe=DarkRed!40!white,
+colback=DarkRed!10!white,
+coltitle=black,
+drop fuzzy shadow, title={#2}
+,#1}
+
+% ---Ignore the Warnings---
+\usepackage{silence}
+\WarningFilter{latexfont}{Some font shapes}
+\WarningFilter{latexfont}{Font shape}
+\WarningFilter{latexfont}{Size substitutions}
+\ExplSyntaxOn
+\msg_redirect_name:nnn{hooks}{generic-deprecated}{none}
+\ExplSyntaxOff
+
+% ---Citation on the slides---
+\newcommand*{\citefone}[2]{
+  \begin{tikzpicture}[remember picture, overlay]
+    \node[anchor=north east, align=left] at ($(current page.north east)-(0,0.0)$){
+    {\tiny
+      \cite{#1}
+      #2
+    }
+    };
+  \end{tikzpicture}
+
+  \vspace*{-20pt}
+}
+
+\newcommand*{\citeftwo}[4]{
+  \begin{tikzpicture}[remember picture, overlay]
+    \node[anchor=north east, align=left] at ($(current page.north east)-(0,0.0)$){
+    {\tiny
+      \cite{#1}
+      #2
+    }
+    \\[-2.4ex]
+    {\tiny
+      \cite{#3}
+      #4
+    }
+    };
+  \end{tikzpicture}
+
+  \vspace*{-20pt}
+}
+
+\newcommand*{\citefthree}[6]{
+  \begin{tikzpicture}[remember picture, overlay]
+    \node[anchor=north east, align=left] at ($(current page.north east)-(0,0.0)$){
+    {\tiny
+      \cite{#1}
+      #2
+    }
+    \\[-2.4ex]
+    {\tiny
+      \cite{#3}
+      #4
+    }
+    \\[-2.4ex]
+    {\tiny
+      \cite{#5}
+      #6
+    }
+    };
+  \end{tikzpicture}
+
+  \vspace*{-20pt}
+}
+
+\newcommand*{\citefonev}[3]{
+  \begin{tikzpicture}[remember picture, overlay]
+    \node[anchor=north east, align=left, text width=#3cm] at ($(current page.north east)-(0,0.0)$){
+    {{\fontsize{5pt}{0pt}\selectfont
+      \cite{#1}
+      #2\par}
+    }
+    };
+  \end{tikzpicture}
+
+  \vspace*{-20pt}
+}
+
+\newcommand*{\citeftwov}[5]{
+  \begin{tikzpicture}[remember picture, overlay]
+    \node[anchor=north east, align=left, text width=#5cm] at ($(current page.north east)-(0,0.0)$){
+    {{\fontsize{5pt}{0pt}\selectfont
+      \cite{#1}
+      #2\par}
+
+      {\fontsize{5pt}{0pt}\selectfont
+      \cite{#3}
+      #4\par}
+    }
+    };
+  \end{tikzpicture}
+
+  \vspace*{-20pt}
+}
+
+\newcommand*{\citefthreev}[7]{
+  \begin{tikzpicture}[remember picture, overlay]
+    \node[anchor=north east, align=left, text width=#7cm] at ($(current page.north east)-(0,0.0)$){
+    {{\fontsize{5pt}{0pt}\selectfont
+    \cite{#1}
+    #2\par}
+
+    {\fontsize{5pt}{0pt}\selectfont
+    \cite{#3}
+    #4\par}
+
+    {\fontsize{5pt}{0pt}\selectfont
+    \cite{#5}
+    #6\par}
+    }
+    };
+  \end{tikzpicture}
+
+  \vspace*{-20pt}
+}
+
+
+% ---Title---
+\title{
+  Journal Club @Abe Lab
+}
+\author{
+  Abe Lab. \ M1
+  \texorpdfstring{\\}{}
+  \texorpdfstring{\vspace*{3pt}}{}
+  Itsuki Miyane
+}
+\date{Tuesdayy, June 18th, 2024}
