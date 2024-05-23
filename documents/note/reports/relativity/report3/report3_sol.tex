@@ -54,6 +54,7 @@
           \\
           &=
           \dfrac{ckr^3-2ah\mu+a^2 ck(r+2\mu)}{cr(a^2+r(r-2\mu))}
+          ,
           \\
           \dot{\varphi}
           &=
@@ -114,20 +115,106 @@
 
 
         \item 
-        
+        Since we will analyze the circular motion, we can put $\dot{r}$ to zero in the previous result. Therefore the last result becomes
+        \begin{equation}          
+          \frac{h^2-a^2c^2(k^2-1)}{2}u^2
+          -
+          x^2\mu u^3
+          -
+          c^2\mu u
+          =
+          \frac{1}{2}c^2(k^2-1)
+          \label{eqn:relation1}
+        \end{equation}
+        and solving to $x^2$, we find
+        \begin{equation}
+          x^2
+          =
+          \frac{1}{2\mu u^3}c^2(k^2-1)
+          +
+          \frac{c^2}{u^2}
+          +
+          \frac{1}{2\mu u}\left[ k^2-a^2c^2(k^2-1) \right]
+          .
+        \end{equation}
+        We still use $x^2$ when we derive $k$ and $h$ and insert the solution
+        \begin{equation}
+          x
+          =
+          -
+          \sqrt{
+            \frac{1}{2\mu u^3}c^2(k^2-1)
+            +
+            \frac{c^2}{u^2}
+            +
+            \frac{1}{2\mu u}\left[ k^2-a^2c^2(k^2-1) \right]
+          }
+          (<
+          0)
+          \label{eqn:x}
+        \end{equation}
+        to the obtained expression at the final step. To evaluate two values $k$ and $h$, we should prepare one more relation for $k$ and $h$. Since we are assuming the circular motion, its orbits should be stabilized at the potential minimum. So, to express such a situation, we will consider the extremum condition\footnote{
+          It is obvious that the extremum condition for $V_{\textrm{eff}}$ does not depend on the variables $r, u$. It means that 
+          $$
+            \dv{V_{\textrm{eff}}}{r}
+            =
+            0
+            \ \iff\ 
+            \dv{V_{\textrm{eff}}}{u}
+            =
+            0
+            .
+          $$
+        }
+        \begin{equation}
+          \dv{V_{\textrm{eff}}}{u}
+          =
+          \left\{ h^2-a^2c^2(k^2-1) \right\}u
+          -
+          3x^2\mu u^2
+          -
+          c^2\mu
+          =
+          0
+          \label{eqn:relation2}
+        \end{equation}
+        and solve \eqref{eqn:relation2} with \eqref{eqn:relation1} to $k$ and $h$. Then we finally obtain 
+        \begin{gather}
+          k
+          =
+          -\frac{\sqrt{c^2 (1-\mu  u)+\mu  u^3 x}}{c}
+          \\
+          h
+          =
+          -
+          \sqrt{\dfrac{\mu  \left(c^2 \left(1-a^2 u^2\right)+u^2 x \left(a^2 \
+          u^2+3\right)\right)}{u}}
+        \end{gather}
+        with $x$ in \eqref{eqn:x}.
 
 
-
-
+        \item 
+        To evaluate the innermost stable circular orbit, wee should derive second order derivative 
+        \begin{equation}
+          \dv[2]{V_{\textrm{eff}}}{r}
+          =
+          \frac{3 \left(h^2-a^2 c^2 \left(k^2-1\right)\right)}{r^4}-\frac{12\mu(h-a c k)^2}{r^5}-\frac{2 c^2 \mu }{r^3}
+        \end{equation}
+        and take it to zero.
 
 
 
 
 \end{enumerate}
 
+\begin{figure}
+  \centering
+  \includegraphics[width=0.8\textwidth]{fig/Veff.jpg}
+  \caption{One example of the effective potential $V_{\textrm{eff}}$}
+\end{figure}
+
 
 % ----------------------------------------------------------------------
-\clearpage
 \begin{thebibliography}{99}
   \bibitem{url01}
   \href{https://www.roma1.infn.it/teongrav/onde19_20/geodetiche_Kerr.pdf}{Chapter 22 Geodesic motion in Kerr spacetime}. (Last accessed: \today)
