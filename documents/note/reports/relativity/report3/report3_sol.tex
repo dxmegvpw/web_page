@@ -34,30 +34,86 @@
             -2\mu ac/r     & 0          & r^2 + a^2 +2\mu a^2/r
           \end{pmatrix}
         \end{equation}
-        where $\Delta$ still remain $r^2-2\mu r+a^2$. Therefore the conserved quantities $p_{t}$ and $p_{\varphi}$ are obtained as 
+        where $\Delta$ still remain $r^2-2\mu r+a^2$. We obtain its inverse
+        \begin{equation}
+          g^{\mu\nu}
+          =
+          \begin{pmatrix}
+            -\dfrac{r^3+a^2(r+2\mu)}{c^2 r(a^2+r^2-2\mu r)} & 0 & -\dfrac{2a\mu}{a^2 cr+cr^3-2cr^2\mu} \\
+            0 & \dfrac{a^2+r^2-2r\mu}{r^2} & 0 \\
+            -\dfrac{2a\mu}{a^2cr+cr^3-2cr^2\mu} & 0 & \dfrac{r-2\mu}{a^2+r^3-2r^2\mu}
+          \end{pmatrix}
+          \label{eqn:inverse_metric}
+        \end{equation}
+        and $\dot{t}$ and $\dot{\varphi}$ are, then, immediately derived as
         \begin{align}
-          p_{t}
+          \dot{t}
           &=
-          -g_{tt}\dot{t}-g_{t\varphi}\dot{\varphi}
+          g^{tt}p_{t}+g^{t\varphi}p_{\varphi}
           \nonumber
           \\
           &=
-          c^2(1-2\mu/r)\dot{t}
-          +
-          (2\mu ac/r)\dot{\varphi}
+          \dfrac{ckr^3-2ah\mu+a^2 ck(r+2\mu)}{cr(a^2+r(r-2\mu))}
           \\
-          p_{\varphi}
+          \dot{\varphi}
           &=
-          g_{\varphi t}\dot{t}+g_{\varphi\varphi}\dot{\varphi}
+          g^{\varphi t}p_{t}+g^{\varphi\varphi}p_{\varphi}
           \nonumber
           \\
           &=
-          (2\mu ac/r) \dot{t}
-          +
-          (r^2 + a^2 +2\mu a^2/r)\dot{\varphi}
-        \end{align} 
-        and we will solve these equations to $\dot{t}$ and $\dot{\varphi}$.
+          \dfrac{hr-2h\mu+2ack\mu}{a^2r+r^3-2r^2\mu}
+          .
+        \end{align}
 
+
+        \item 
+
+        What we need to do is just insert the inverse metric which we already obtained \eqref{eqn:inverse_metric} into
+        \begin{align}
+          g^{\mu\nu}p_{\mu}p_{\nu}
+          &=
+          g^{tt}p_{t}^2
+          +
+          g^{\varphi\varphi}p_{\varphi}^2
+          +
+          2g^{t\varphi}p_{t}p_{\varphi}
+          +
+          g^{rr}p_{r}^2
+          \nonumber
+          \\
+          &=
+          g^{tt}\cdot(-kc^2)^2
+          +
+          g^{\varphi\varphi}\cdot h^2
+          +
+          2g^{t\varphi}\cdot(-kc^2)\cdot h
+          +
+          g_{rr}\dot{r}^2
+          .
+        \end{align}
+        Note that we use the fact that $p_{r}$ is obtained by lowering the indices $\dot{r}$, i.e. $p_{r}=g_{rr}\dot{r}$. Putting the inverse matrix components $g^{\mu\nu}$ and organizing the equations, we will get the effective potential as 
+        \begin{equation}
+          V_{\mathrm{eff}}(r)
+          =
+          \frac{h^2-a^2c^2(k^2-1)}{2r^2}
+          -
+          \frac{(h-ack)^2\mu}{r^3}
+          -
+          \frac{c^2\mu}{r}
+          .
+        \end{equation}
+        It is obvious that $V_{\mathrm{eff}}(r)$ satisfies the relation
+        \begin{equation}
+          \frac{1}{2}\dot{r}^2
+          +
+          V_{\mathrm{eff}}(r)
+          =
+          \frac{1}{2}c^2(k^2-1)
+        \end{equation}
+        obtained from $g^{\mu\nu}p_{\mu}p_{\nu}=-c^2$ since it was defined to satisfy that equation.
+
+
+        \item 
         
 
 
@@ -67,10 +123,8 @@
 
 
 
-
-
-
 \end{enumerate}
+
 
 % ----------------------------------------------------------------------
 \clearpage
