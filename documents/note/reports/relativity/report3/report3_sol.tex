@@ -29,8 +29,8 @@
           g_{\mu\nu}
           =
           \begin{pmatrix}
-            -c^2(1-2\mu/r) & 0          & -2\mu ac/r           \\
-            0              & r^2/\Delta & 0                    \\
+            -c^2(1-2\mu/r) & 0          & -2\mu ac/r            \\
+            0              & r^2/\Delta & 0                     \\
             -2\mu ac/r     & 0          & r^2 + a^2 +2\mu a^2/r
           \end{pmatrix}
         \end{equation}
@@ -39,40 +39,43 @@
           g^{\mu\nu}
           =
           \begin{pmatrix}
-            -\dfrac{r^3+a^2(r+2\mu)}{c^2 r(a^2+r^2-2\mu r)} & 0 & -\dfrac{2a\mu}{a^2 cr+cr^3-2cr^2\mu} \\
-            0 & \dfrac{a^2+r^2-2r\mu}{r^2} & 0 \\
-            -\dfrac{2a\mu}{a^2cr+cr^3-2cr^2\mu} & 0 & \dfrac{r-2\mu}{a^2+r^3-2r^2\mu}
+            -\dfrac{r^3+a^2(r+2\mu)}{c^2 r(a^2+r^2-2\mu r)} & 0                          & -\dfrac{2a\mu}{a^2 cr+cr^3-2cr^2\mu} \\
+            0                                               & \dfrac{a^2+r^2-2r\mu}{r^2} & 0                                    \\
+            -\dfrac{2a\mu}{a^2cr+cr^3-2cr^2\mu}             & 0                          & \dfrac{r-2\mu}{a^2+r^3-2r^2\mu}
           \end{pmatrix}
           \label{eqn:inverse_metric}
         \end{equation}
         and $\dot{t}$ and $\dot{\varphi}$ are, then, immediately derived as
-        \begin{align}
-          \dot{t}
-          &=
-          g^{tt}p_{t}+g^{t\varphi}p_{\varphi}
-          \nonumber
-          \\
-          &=
-          \dfrac{ckr^3-2ah\mu+a^2 ck(r+2\mu)}{cr(a^2+r(r-2\mu))}
-          ,
-          \\
-          \dot{\varphi}
-          &=
-          g^{\varphi t}p_{t}+g^{\varphi\varphi}p_{\varphi}
-          \nonumber
-          \\
-          &=
-          \dfrac{hr-2h\mu+2ack\mu}{a^2r+r^3-2r^2\mu}
-          .
-        \end{align}
+        \begin{graybox}
+          \vspace*{-12pt}
+          \begin{align}
+            \dot{t}
+             & =
+            g^{tt}p_{t}+g^{t\varphi}p_{\varphi}
+            \nonumber
+            \\
+             & =
+            \dfrac{ckr^3-2ah\mu+a^2 ck(r+2\mu)}{cr(a^2+r(r-2\mu))}
+            ,
+            \\
+            \dot{\varphi}
+             & =
+            g^{\varphi t}p_{t}+g^{\varphi\varphi}p_{\varphi}
+            \nonumber
+            \\
+             & =
+            \dfrac{hr-2h\mu+2ack\mu}{a^2r+r^3-2r^2\mu}
+            .
+          \end{align}
+        \end{graybox}
 
 
-        \item 
+  \item
 
         What we need to do is just insert the inverse metric which we already obtained \eqref{eqn:inverse_metric} into
         \begin{align}
           g^{\mu\nu}p_{\mu}p_{\nu}
-          &=
+           & =
           g^{tt}p_{t}^2
           +
           g^{\varphi\varphi}p_{\varphi}^2
@@ -82,7 +85,7 @@
           g^{rr}p_{r}^2
           \nonumber
           \\
-          &=
+           & =
           g^{tt}\cdot(-kc^2)^2
           +
           g^{\varphi\varphi}\cdot h^2
@@ -92,17 +95,19 @@
           g_{rr}\dot{r}^2
           .
         \end{align}
-        Note that we use the fact that $p_{r}$ is obtained by lowering the indices $\dot{r}$, i.e. $p_{r}=g_{rr}\dot{r}$. Putting the inverse matrix components $g^{\mu\nu}$ and organizing the equations, we will get the effective potential as 
-        \begin{equation}
-          V_{\mathrm{eff}}(r)
-          =
-          \frac{h^2-a^2c^2(k^2-1)}{2r^2}
-          -
-          \frac{(h-ack)^2\mu}{r^3}
-          -
-          \frac{c^2\mu}{r}
-          .
-        \end{equation}
+        Note that we use the fact that $p_{r}$ is obtained by lowering the indices $\dot{r}$, i.e. $p_{r}=g_{rr}\dot{r}$. Putting the inverse matrix components $g^{\mu\nu}$ and organizing the equations, we will get the effective potential as
+        \begin{graybox}
+          \begin{equation}
+            V_{\mathrm{eff}}(r)
+            =
+            \frac{h^2-a^2c^2(k^2-1)}{2r^2}
+            -
+            \frac{(h-ack)^2\mu}{r^3}
+            -
+            \frac{c^2\mu}{r}
+            .
+          \end{equation}
+        \end{graybox}
         It is obvious that $V_{\mathrm{eff}}(r)$ satisfies the relation
         \begin{equation}
           \frac{1}{2}\dot{r}^2
@@ -114,9 +119,9 @@
         obtained from $g^{\mu\nu}p_{\mu}p_{\nu}=-c^2$ since it was defined to satisfy that equation.
 
 
-        \item 
+  \item
         Since we will analyze the circular motion, we can put $\dot{r}$ to zero in the previous result. Therefore the last result becomes
-        \begin{equation}          
+        \begin{equation}
           \frac{h^2-a^2c^2(k^2-1)}{2}u^2
           -
           x^2\mu u^3
@@ -154,12 +159,12 @@
           \label{eqn:x}
         \end{equation}
         to the obtained expression at the final step. To evaluate two values $k$ and $h$, we should prepare one more relation for $k$ and $h$. Since we are assuming the circular motion, its orbits should be stabilized at the potential minimum. So, to express such a situation, we will consider the extremum condition\footnote{
-          It is obvious that the extremum condition for $V_{\textrm{eff}}$ does not depend on the variables $r, u$. It means that 
+          It is obvious that the extremum condition for $V_{\textrm{eff}}$ does not depend on the variables $r, u$. It means that
           $$
             \dv{V_{\textrm{eff}}}{r}
             =
             0
-            \ \iff\ 
+            \ \iff\
             \dv{V_{\textrm{eff}}}{u}
             =
             0
@@ -178,32 +183,43 @@
           0
           \label{eqn:relation2}
         \end{equation}
-        and solve \eqref{eqn:relation2} with \eqref{eqn:relation1} to $k$ and $h$. Then we finally obtain 
-        \begin{gather}
-          k
-          =
-          -\frac{\sqrt{c^2 (1-\mu  u)+\mu  u^3 x}}{c}
-          \\
-          h
-          =
-          -
-          \sqrt{\dfrac{\mu  \left(c^2 \left(1-a^2 u^2\right)+u^2 x \left(a^2 \
-          u^2+3\right)\right)}{u}}
-        \end{gather}
-        with $x$ in \eqref{eqn:x}.
+        and solve \eqref{eqn:relation2} with \eqref{eqn:relation1} to $k$ and $h$. Then we finally obtain
+        \begin{graybox}
+          \vspace*{-5pt}
+          \begin{gather}
+            k
+            =
+            -\frac{\sqrt{c^2 (1-\mu  u)+\mu  u^3 x}}{c}
+            \label{eqn:k}
+            \\
+            h
+            =
+            -
+            \sqrt{\dfrac{\mu  \left(c^2 \left(1-a^2 u^2\right)+u^2 x \left(a^2 \
+                u^2+3\right)\right)}{u}}
+            \label{eqn:h}
+          \end{gather}
+          with $x$ in \eqref{eqn:x}.
+        \end{graybox}
 
 
-        \item 
-        To evaluate the innermost stable circular orbit, wee should derive second order derivative 
+  \item
+        To evaluate the innermost stable circular orbit, we should derive a second-order derivative
         \begin{equation}
           \dv[2]{V_{\textrm{eff}}}{r}
           =
           \frac{3 \left(h^2-a^2 c^2 \left(k^2-1\right)\right)}{r^4}-\frac{12\mu(h-a c k)^2}{r^5}-\frac{2 c^2 \mu }{r^3}
         \end{equation}
-        and take it to zero.
-
-
-
+        and take it to zero. This equality decides the orbit radius $r$. To make coefficients just depend on $\mu$ and $a$, we should vanish $k$ and $h$ by using the previous result. Thus, inserting the last results \eqref{eqn:k}, \eqref{eqn:h} and \eqref{eqn:x} and organizing messy expression, we can find the equality for $r$ as
+        \begin{graybox}
+          \vspace*{-12pt}
+          \begin{equation}
+            \mu  r^2 \left(r (r-6 \mu ) (r-3 \mu )-a^2 (7 \mu +3 r)\right)-6 \sqrt{\mu ^3 r^3 \left(a^3+a r (r-2 \mu )\right)^2}
+            =
+            0
+            .
+          \end{equation}
+        \end{graybox}
 
 \end{enumerate}
 

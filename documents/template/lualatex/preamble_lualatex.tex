@@ -58,9 +58,14 @@
 % ---refer `texdoc xcolor' at the command line---
 
 % ---Tikz---
-% \usepackage{tikz,pgf,pgfplots,circuitikz}
-% \pgfplotsset{compat=1.15}
-% \usetikzlibrary{intersections,arrows.meta,angles,calc,3d,decorations.pathmorphing}
+\usepackage{tikz,pgf,pgfplots,circuitikz}
+\pgfplotsset{compat=1.15}
+\usetikzlibrary{intersections,arrows.meta,angles,calc,3d,decorations.pathmorphing}
+
+% ---tcolorbox---
+\usepackage{tcolorbox}
+\tcbuselibrary{raster,skins,breakable}
+\newtcolorbox{graybox}[1][]{frame empty, colback=black!10!white, sharp corners}
 
 % ---Add the section number to the equation, figure, and table number---
 \makeatletter

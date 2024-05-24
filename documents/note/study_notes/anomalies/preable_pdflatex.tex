@@ -54,6 +54,11 @@
 \usetikzlibrary{intersections, arrows.meta, angles, calc, 3d, decorations.pathmorphing}
 \usepackage[compat=1.1.0]{tikz-feynhand}
 
+% ---tcolorbox---
+\usepackage{tcolorbox}
+\tcbuselibrary{raster,skins,breakable}
+\newtcolorbox{graybox}[1][]{frame empty, colback=black!10!white, sharp corners}
+
 % ---Add the section number to the equation, figure, and table number---
 \makeatletter
    \renewcommand{\theequation}{$\thesection.\arabic{equation}$}
