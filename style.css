@@ -51,3 +51,8 @@ a:active {
     color: #ff00f7;
     text-decoration: none;
 }
+
+img{    
+    width: 20%;
+    height: auto;
+}
