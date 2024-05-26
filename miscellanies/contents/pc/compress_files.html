@@ -34,26 +34,28 @@
     <p>
         The contents of the bat file is as follows:<br>
         <p>
-            @ECHO OFF
-
-            SET path="(location of the 7zip's exe file)"
-            SET exeFile=7z.exe
-
-            REM Enter the password 
-            SET pass="XXXXXXXX"
-
-            FOR %%f IN (%*) DO (
-                %path%%exeFile% a -p%pass% %%~dpf%%~nf.zip %%f
-            )
-
-            ECHO The tasks have been completed!
-
-            pause
+            &emsp;@ECHO OFF<br>
+            <br>
+            &emsp;SET path="(location of the 7zip's exe file)"<br>
+            &emsp;SET exeFile=7z.exe<br>
+            <br>
+            &emsp;:REM Set the password<br>
+            &emsp;:SET pass="XXXXXXXX"<br>
+            <br>
+            &emsp;pass=""<br>
+            <br>
+            &emsp;FOR %%f IN (%*) DO (<br>
+            &emsp;&emsp;%path%%exeFile% a -p%pass% %%~dpf%%~nf.zip %%f<br>
+            &emsp;)<br>
+            <br>
+            &emsp;ECHO The tasks have been completed!<br>
+            <br>
+            &emsp;pause<br>
         </p>
     </p>
 
     <p>
-        
+        All you have to do then is drag all the folders you want to compress into the .bat file. 7zip will start immediately and create the zip files.
     </p>
 
     <h3>Links</h3>
