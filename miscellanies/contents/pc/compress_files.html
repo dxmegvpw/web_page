@@ -28,34 +28,29 @@
     </p>
 
     <p>
-        After downloading, go to the home directory and make <b>zip.bat</b>. (To tell the truth, the location of a bat file is not important in this case. But if you create this file in the home directory, we can easily access the bat file, I guess.)  
-    </p>
-
-    <p>
-        The contents of the bat file is as follows:<br>
+        After downloading, make <b>compress_7zip.bat</b> and type contents of the bat file as follows:<br>
         <p>
-            &emsp;@ECHO OFF<br>
+            &emsp;@echo off<br>
             <br>
-            &emsp;SET path="(location of the 7zip's exe file)"<br>
-            &emsp;SET exeFile=7z.exe<br>
-            <br>
-            &emsp;:REM Set the password<br>
-            &emsp;:SET pass="XXXXXXXX"<br>
-            <br>
-            &emsp;FOR %%f IN (%*) DO (<br>
-            &emsp;&emsp;%path%%exeFile% a -mmt=on -mx=9 %%~dpf%%~nf.zip %%f<br>
+            &emsp;for %%f in (%*) do (<br>
+            &emsp;&emsp;echo %%f<br>
+            &emsp;&emsp;"C:\Program Files\7-Zip\7z.exe" a -mmt=on -mx=9 %%~dpf%%~nf.zip %%f<br>
             &emsp;)<br>
-            <br>
-            &emsp;ECHO The tasks have been completed!<br>
             <br>
             &emsp;pause<br>
         </p>
+    </p>
+
+    <p>
         <ul>
             <li>
-                For me, the location of the exe file is "(C:\Program Files\7-Zip\)"
+                Both <b>-mnt=on</b> and <b>-mx=9</b> are options.
             </li>
             <li>
-                If you want to set a password to the zip files, you should add "-p%pass%" at FOR loops.
+                <b>-mnt=on</b> enable us to multithreading.
+            </li>
+            <li>
+                <b>-mx=9</b> is a compression ratio settings.
             </li>
         </ul>
     </p>
