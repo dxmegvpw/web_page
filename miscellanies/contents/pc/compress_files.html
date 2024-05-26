@@ -42,16 +42,22 @@
             &emsp;:REM Set the password<br>
             &emsp;:SET pass="XXXXXXXX"<br>
             <br>
-            &emsp;pass=""<br>
-            <br>
             &emsp;FOR %%f IN (%*) DO (<br>
-            &emsp;&emsp;%path%%exeFile% a -p%pass% %%~dpf%%~nf.zip %%f<br>
+            &emsp;&emsp;%path%%exeFile% a -mmt=on -mx=9 %%~dpf%%~nf.zip %%f<br>
             &emsp;)<br>
             <br>
             &emsp;ECHO The tasks have been completed!<br>
             <br>
             &emsp;pause<br>
         </p>
+        <ul>
+            <li>
+                For me, the location of the exe file is "(C:\Program Files\7-Zip\)"
+            </li>
+            <li>
+                If you want to set a password to the zip files, you should add "-p%pass%" at FOR loops.
+            </li>
+        </ul>
     </p>
 
     <p>
