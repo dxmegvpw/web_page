@@ -1,7 +1,6 @@
 import mpmath
 import numpy as np
 import matplotlib.pyplot as plt
-import pandas as pd
 import time
 
 start_time = time.time()
@@ -70,8 +69,8 @@ W0 = float(calculate_W(mpmath.mpf(min_ReT)).real)
 print(f"W_min = {'{:.3e}'.format(W0)}")
 
 # 最小点の周りをプロット
-num_points = 10**(3)
-difference = mpmath.mpf(10**(-8))
+num_points = 5*10**(3)
+difference = mpmath.mpf(10**(-12))
 plot_initial = min_ReT - difference
 delta = 2 * difference / (num_points - 1)
 
