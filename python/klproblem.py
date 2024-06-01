@@ -43,7 +43,7 @@ def V_prime(reT):
     return (V_func(reT + h) - V_func(reT - h)) / (2 * h)
 
 # ニュートン法による最小点の探索
-def newton_method(init_reT, tol=1e-200, max_iter=10000):
+def newton_method(init_reT, tol=1e-50, max_iter=10000):
     reT = init_reT
     for i in range(max_iter):
         reT_new = reT - V_func(reT) / V_prime(reT)
@@ -70,22 +70,24 @@ print(f"W_min = {'{:.3e}'.format(W0)}")
 
 # 最小点の周りをプロット
 num_points = 5*10**(3)
-difference = mpmath.mpf(10**(-12))
+difference = mpmath.mpf(10**(-6))
 plot_initial = min_ReT - difference
 delta = 2 * difference / (num_points - 1)
 
 ReT_values = []
 V_values = []
+W_values = []
 
 for i in range(num_points):
     reT = plot_initial + i * delta
     ReT_values.append(reT)
     V_values.append(V_func(mpmath.mpf(reT)).real)  
+    W_values.append(calculate_W(mpmath.mpf(reT)).real)  
 
-plt.plot(ReT_values, V_values, label='$V$')
+plt.plot(ReT_values, W_values, label='$W$')
 plt.xlabel(f'$T$')
-plt.ylabel(f'$V$')
-plt.title(f'Plot of $V$')
+plt.ylabel(f'$W$')
+plt.title(f'Plot of $W$')
 plt.legend()
 plt.grid(True)
 
