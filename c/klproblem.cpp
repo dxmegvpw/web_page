@@ -1,5 +1,3 @@
-// -lmpfr -lgmp 
-
 #include <iostream>
 #include "mpreal.h"
 #include <cmath>
@@ -19,8 +17,8 @@ const mpreal a = 2 * const_pi() / 100;
 const mpreal b = 2 * const_pi() / 99;
 const mpreal Delta_w0 = mpreal(0.0);
 
-const mpreal num_points = 5 * pow(10,3);
-const mpreal difference = mpreal(pow(10,-4));
+const mpreal num_points = 5 * pow(10,4);
+const mpreal difference = mpreal(pow(10,-6));
 const mpreal delta = 2 * difference / (num_points - 1);
 
 // Function definitions
@@ -55,11 +53,11 @@ mpreal W_func(const mpreal& reT) {
 }
 
 mpreal W_prime(const mpreal& reT) {
-    mpreal h = mpreal("1e-10");
+    mpreal h = mpreal("1e-5000");
     return (W_func(reT + h)*W_func(reT + h) - W_func(reT - h)*W_func(reT - h)) / (2 * h);
 }
 
-mpreal newton_method(const mpreal& init_reT, const mpreal& tol = mpreal("1e-20"), int max_iter = 500) {
+mpreal newton_method(const mpreal& init_reT, const mpreal& tol = mpreal("1e-200"), int max_iter = 100000) {
     mpreal reT = init_reT;
     for (int i = 0; i < max_iter; ++i) {  
         mpreal f_reT = W_func(reT)*W_func(reT);
@@ -132,4 +130,4 @@ int main() {
     return 0;
 }
 
-// 個人的に毎回-lを打つのは面倒 -> 省略したい
+// cd "/home/imiya/git/docs/c/" && g++ klproblem.cpp -o klproblem -lmpfr -lgmp && "/home/imiya/git/docs/c/"klproblem
