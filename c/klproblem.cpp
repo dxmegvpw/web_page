@@ -53,13 +53,14 @@ mpreal W_func(const mpreal& reT) {
 }
 
 mpreal W_prime(const mpreal& reT) {
-    mpreal h = mpreal("1e-5000");
+    mpreal h = mpreal("1e-500");
     return (W_func(reT + h)*W_func(reT + h) - W_func(reT - h)*W_func(reT - h)) / (2 * h);
 }
 
-mpreal newton_method(const mpreal& init_reT, const mpreal& tol = mpreal("1e-200"), int max_iter = 100000) {
+mpreal newton_method(const mpreal& init_reT, const mpreal& tol = mpreal("1e-100"), int max_iter = 100) {
     mpreal reT = init_reT;
     for (int i = 0; i < max_iter; ++i) {  
+        // std::cout << i << std::endl;
         mpreal f_reT = W_func(reT)*W_func(reT);
         mpreal f_prime_reT = W_prime(reT);
         mpreal reT_new = reT - f_reT / f_prime_reT;
@@ -75,7 +76,7 @@ mpreal newton_method(const mpreal& init_reT, const mpreal& tol = mpreal("1e-200"
 int main() {
     auto start = std::chrono::high_resolution_clock::now(); // Get the start time of the program
 
-    mpreal::set_default_prec(2560000);  // Set precision
+    mpreal::set_default_prec(256000);  // Set precision
 
     mpreal initial_guess = 63;
     mpreal min_ReT = newton_method(initial_guess);

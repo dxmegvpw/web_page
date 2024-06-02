@@ -6,7 +6,7 @@ import time
 start_time = time.time()
 
 # 精度の設定
-mpmath.mp.dps = 1000
+mpmath.mp.dps = 5000
 
 # 定数の定義
 A = mpmath.mpf('1')
@@ -43,7 +43,7 @@ def V_prime(reT):
     return (V_func(reT + h) - V_func(reT - h)) / (2 * h)
 
 # ニュートン法による最小点の探索
-def newton_method(init_reT, tol=1e-50, max_iter=10000):
+def newton_method(init_reT, tol=1e-50, max_iter=1000):
     reT = init_reT
     for i in range(max_iter):
         reT_new = reT - V_func(reT) / V_prime(reT)
@@ -70,7 +70,7 @@ print(f"W_min = {'{:.3e}'.format(W0)}")
 
 # 最小点の周りをプロット
 num_points = 5*10**(3)
-difference = mpmath.mpf(10**(-6))
+difference = mpmath.mpf(10**(-12))
 plot_initial = min_ReT - difference
 delta = 2 * difference / (num_points - 1)
 
@@ -82,7 +82,9 @@ for i in range(num_points):
     reT = plot_initial + i * delta
     ReT_values.append(reT)
     V_values.append(V_func(mpmath.mpf(reT)).real)  
-    W_values.append(calculate_W(mpmath.mpf(reT)).real)  
+    W_values.append(calculate_W(mpmath.mpf(reT)).real) 
+
+end_time = time.time() 
 
 plt.plot(ReT_values, W_values, label='$W$')
 plt.xlabel(f'$T$')
@@ -90,10 +92,9 @@ plt.ylabel(f'$W$')
 plt.title(f'Plot of $W$')
 plt.legend()
 plt.grid(True)
-
-end_time = time.time()
-
 plt.show()
 
 elapsed_time = end_time - start_time
 print(f"Elapsed time: {elapsed_time} seconds")
+
+# python3 -u "/home/imiya/git/docs/python/klproblem.py"
