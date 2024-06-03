@@ -32,7 +32,7 @@ def V_func(reT):
     term13 = (a * A * mpmath.exp(b * reT - (a + b) * reT) * Delta_w0) / (2 * reT**2)
     return term1 + term2 + term3 + term4 + term5 + term6 + term7 + term8 + term9 + term10 + term11 + term12 + term13
 
-def calculate_W(reT):
+def W_func(reT):
     numerator = A * ((a * A) / (b * B))**(a / (-a + b)) - ((a * A) / (b * B))**(b / (-a + b)) * B
     exponential_terms = A * mpmath.exp(-a * reT) + B * mpmath.exp(-b * reT)
     return numerator + exponential_terms + Delta_w0
@@ -53,9 +53,24 @@ def newton_method(init_reT, tol=1e-50, max_iter=1000):
         reT = reT_new
     return reT
 
+# 二分法でWの最大値を探す
+def find_maximum_W(left, right, tol=mpmath.mpf('1e-200'), max_iter=1000):
+    iterations = 0
+    while abs(right - left) > tol and iterations < max_iter:
+        midpoint = (left + right) / 2
+        if W_func(midpoint).real < W_func(midpoint + tol).real:
+            left = midpoint
+        else:
+            right = midpoint
+        iterations += 1
+    return (left + right) / 2
+
 # 初期値を設定してニュートン法を実行
-initial_guess = 62
-min_ReT = newton_method(initial_guess).real
+# initial_guess = 62
+# min_ReT = newton_method(initial_guess).real
+
+max_ReT_W = find_maximum_W(62,63).real
+min_ReT = max_ReT_W
 
 if min_ReT is not None:
     print(f"Minimum point: ReT = {'{:.3}'.format(float(min_ReT.real))}")
@@ -65,11 +80,11 @@ else:
 V_min = float(V_func(mpmath.mpf(min_ReT)).real)
 print(f"V_min = {'{:.3e}'.format(V_min)}")
 
-W0 = float(calculate_W(mpmath.mpf(min_ReT)).real)
+W0 = float(W_func(mpmath.mpf(min_ReT)).real)
 print(f"W_min = {'{:.3e}'.format(W0)}")
 
 # 最小点の周りをプロット
-num_points = 5*10**(3)
+num_points = 5*10**(2)
 difference = mpmath.mpf(10**(-12))
 plot_initial = min_ReT - difference
 delta = 2 * difference / (num_points - 1)
@@ -82,7 +97,7 @@ for i in range(num_points):
     reT = plot_initial + i * delta
     ReT_values.append(reT)
     V_values.append(V_func(mpmath.mpf(reT)).real)  
-    W_values.append(calculate_W(mpmath.mpf(reT)).real) 
+    W_values.append(W_func(mpmath.mpf(reT)).real) 
 
 end_time = time.time() 
 

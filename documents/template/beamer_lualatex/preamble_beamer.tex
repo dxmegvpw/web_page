@@ -105,6 +105,11 @@ coltitle=black,
 drop fuzzy shadow, title={#2}
 ,#1}
 
+% ---tcolorbox---
+\usepackage{tcolorbox}
+\tcbuselibrary{raster,skins,breakable}
+\newtcolorbox{graybox}[1][]{frame empty, colback=black!10!white, sharp corners}
+
 % ---Ignore the Warnings---
 \usepackage{silence}
 \WarningFilter{latexfont}{Some font shapes}
