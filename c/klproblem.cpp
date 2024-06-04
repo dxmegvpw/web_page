@@ -11,14 +11,14 @@
 using namespace mpfr;
 
 // Constants initialization
-const mpreal A = mpreal(1.0);
-const mpreal B = mpreal(-1.03);
-const mpreal a = 2 * const_pi() / 100;
-const mpreal b = 2 * const_pi() / 99;
+const mpreal A = mpreal("1.0");
+const mpreal B = mpreal("-1.03");
+const mpreal a = 2 * const_pi() / 2;
+const mpreal b = 2 * const_pi() / 1;
 const mpreal Delta_w0 = mpreal(0.0);
 
-const mpreal num_points = 5 * pow(10,4);
-const mpreal difference = mpreal(pow(10,-6));
+const mpreal num_points = mpreal(2 * pow(10,2));
+const mpreal difference = mpreal(pow(10,-8));
 const mpreal delta = 2 * difference / (num_points - 1);
 
 // Function definitions
@@ -49,20 +49,46 @@ mpreal W_func(const mpreal& reT) {
     mpreal term2 = A * exp (- a * reT);
     mpreal term3 = B * exp (- b * reT);
     mpreal term4 = Delta_w0;
-    return term1 + term2 + term3 + term4;
+    return -(term1 + term2 + term3 + term4);
 }
 
 mpreal W_prime(const mpreal& reT) {
     mpreal h = mpreal("1e-500");
-    return (W_func(reT + h)*W_func(reT + h) - W_func(reT - h)*W_func(reT - h)) / (2 * h);
+    return (W_func(reT + h) - W_func(reT - h)) / (2 * h);
 }
 
-mpreal newton_method(const mpreal& init_reT, const mpreal& tol = mpreal("1e-100"), int max_iter = 100) {
+mpreal VW(const mpreal& reT, const mpreal& lambda){
+    return V_func(reT) - lambda * W_func(reT);
+}
+
+mpreal VW_prime(const mpreal& reT, const mpreal& lambda) {
+    mpreal h = mpreal("1e-500");
+    return (VW(reT + h, lambda) - VW(reT - h, lambda)) / (2 * h);
+}
+
+mpreal W_newton_method(const mpreal& init_reT, const mpreal& tol = mpreal("1e-100"), int max_iter = 1000){
+    // mpreal lambda = mpreal("1e-100");
     mpreal reT = init_reT;
-    for (int i = 0; i < max_iter; ++i) {  
-        // std::cout << i << std::endl;
-        mpreal f_reT = W_func(reT)*W_func(reT);
+    for (int i = 0; i < max_iter; ++i){
+        mpreal f_reT = W_func(reT);
         mpreal f_prime_reT = W_prime(reT);
+        mpreal reT_new = reT - f_reT / f_prime_reT;
+        if (abs(reT_new - reT) < tol) {
+            std::cout << "Newton method finished before reaching the Max Iteration!" << std::endl;
+            return reT_new;
+        }
+        reT = reT_new;
+    }
+    return reT;  // Return last approximation if convergence not achieved
+}
+
+mpreal V_newton_method(const mpreal& init_reT, const mpreal& tol = mpreal("1e-100"), int max_iter = 50){
+    mpreal reT = init_reT;
+    std::cout  << "Max iteration: " << max_iter << std::endl;
+    for (int i = 0; i < max_iter; ++i){
+        std::cout  << i << std::endl;
+        mpreal f_reT = V_func(reT);
+        mpreal f_prime_reT = V_prime(reT);
         mpreal reT_new = reT - f_reT / f_prime_reT;
         if (abs(reT_new - reT) < tol) {
             std::cout << "Newton method finished before reaching the Max Iteration!" << std::endl;
@@ -78,8 +104,8 @@ int main() {
 
     mpreal::set_default_prec(256000);  // Set precision
 
-    mpreal initial_guess = 63;
-    mpreal min_ReT = newton_method(initial_guess);
+    mpreal initial_guess = mpreal("0.230044");
+    mpreal min_ReT = V_newton_method(initial_guess);
 
     std::cout << "Minimum point: <T> = " << min_ReT << std::endl;
     std::cout << "Minimum value: V = " << V_func(min_ReT) << std::endl;
@@ -91,6 +117,7 @@ int main() {
 
     std::ofstream data_file("data.csv");
     mpreal step = delta;
+    // std::cout << "step = " << step << std::endl;
     for (mpreal reT = min_ReT - difference; reT <= min_ReT + difference; reT += step) {
         mpreal V_value = V_func(reT);
         mpreal W_value = W_func(reT);
@@ -106,16 +133,16 @@ int main() {
     
     FILE *gnuplotPipe = popen("gnuplot -persist", "w"); // Open a pipe to gnuplot
 
-    // if (gnuplotPipe) {
-    //     // Send commands to gnuplot for f(x) plot
-    //     fprintf(gnuplotPipe, "plot \"data.csv\" using 1:2 with lines title \"$V$\"\n");
-    //     fflush(gnuplotPipe); // Flush the pipe to send the commands to gnuplot
-    //     std::cout << "Press Enter to exit gnuplot..." << std::endl;
-    //     std::cin.get(); // Wait for user to press Enter
-    //     pclose(gnuplotPipe); // Close the pipe to gnuplot
-    // } else {
-    //     std::cerr << "Failed to open gnuplot." << std::endl;
-    // }
+    if (gnuplotPipe) {
+        // Send commands to gnuplot for f(x) plot
+        fprintf(gnuplotPipe, "plot \"data.csv\" using 1:2 with lines title \"$V$\"\n");
+        fflush(gnuplotPipe); // Flush the pipe to send the commands to gnuplot
+        std::cout << "Press Enter to exit gnuplot..." << std::endl;
+        std::cin.get(); // Wait for user to press Enter
+        pclose(gnuplotPipe); // Close the pipe to gnuplot
+    } else {
+        std::cerr << "Failed to open gnuplot." << std::endl;
+    }
 
     if (gnuplotPipe) {
         // Send commands to gnuplot for f(x) plot
@@ -131,4 +158,4 @@ int main() {
     return 0;
 }
 
-// cd "/home/imiya/git/docs/c/" && g++ klproblem.cpp -o klproblem -lmpfr -lgmp && "/home/imiya/git/docs/c/"klproblem
+// cd "/home/imiya/git/docs/c/" && g++ klproblem.cpp -o klproblem -O3 -lmpfr -lgmp && "/home/imiya/git/docs/c/"klproblem
