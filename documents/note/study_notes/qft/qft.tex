@@ -1,5 +1,5 @@
 \pdfoutput=1
-\documentclass[a4paper,pdftex,10pt]{article}
+\documentclass[a4paper,pdftex,10pt]{report}
 \input{preable_pdflatex.tex}
 \begin{document}
 
@@ -8,7 +8,90 @@
 \tableofcontents
 
 \clearpage
-\section{Group and its representation theory}
+\chapter{Group and its representation theory}
+
+When we construct the field theory, we impose the theory of Lorentz invariance. One of the easiest ways is to use the field which transforms in a covariant manner with the spacetime Lorentz transformation\footnote{
+  I guess it is not impossible to follow that method, though it is tough work. In that case, the Lorentz invariance is a miracle.
+}. To construct field theories, the representation of the Lorentz group plays a crucial role. In this chapter, we will discuss the property of the Lorentz group and its representation theory. 
+
+\section{Lorentz group}
+
+Here, I will give the formal definition of the Lorentz group:
+\begin{graybox}
+  \textit{Lorentz group} is the set of linear transformations
+  \begin{equation}
+    x^{\mu}
+    \rightarrow
+    \Lambda^{\mu}_{\ \nu}x^{\nu}
+  \end{equation}
+  which preserves the following inner product  
+  \begin{equation}
+    x^{\mu}y_{\mu}
+    \equiv
+    -x^{0}y_{0}
+    +x^{1}y_{1}
+    +x^{2}y_{2}
+    +x^{3}y_{3}
+    .
+  \end{equation}
+  Such a transformation is similar to the orthogonal transformation $O(4)$ but one sign is flipped. In this sense, we will denote Lorentz group as $O(3,1)$. 
+\end{graybox}
+In this text, I will use the metric convention as $\eta^{\mu\nu}=\textrm{diag}(-,+,+,+)$. From this definition, we can obtain the explicit conditions for the elements of the Lorentz group. Let $x^{\mu}, y^{\nu}$ are transformed as 
+\begin{equation}
+  x^{\mu\prime}
+  =
+  \Lambda^{\mu}_{\ \sigma}x^{\sigma}
+  ,\ 
+  y^{\mu\prime}
+  =
+  \Lambda^{\mu}_{\ \rho}y^{\rho}
+  .
+\end{equation}
+Then the inner product should be
+\begin{equation}
+  y^{\mu\prime}x_{\mu\prime}
+  =
+  y^{\mu\prime}\eta_{\mu\nu}x^{\nu\prime}
+  =
+  (\Lambda^{\mu}_{\ \rho}y^{\rho})\eta_{\mu\nu}(\Lambda^{\nu}_{\ \sigma}x^{\sigma})
+  =
+  y^{\rho}(\Lambda^{\mu}_{\ \rho}\eta_{\mu\nu}\Lambda^{\nu}_{\ \sigma})x^{\sigma}
+  .
+\end{equation}
+By changing the dummy indices, we conclude that the $\Lambda\equiv(\Lambda^{\mu}_{\ \nu})$ should satisfy 
+\begin{equation}
+  \eta_{\mu\nu}
+  =
+  \Lambda^{\rho}_{\ \mu}\eta_{\rho\sigma}\Lambda^{\sigma}_{ \nu}
+  \hspace*{5pt}\textrm{or}\hspace*{5pt}
+  \eta
+  =
+  \Lambda^{T}\eta\Lambda
+\end{equation} 
+and, in this manner, we can write 
+\begin{equation}
+  SO(3,1)
+  =
+\end{equation}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -21,9 +104,85 @@
 
 
 % ----------------------------------------
-% \clearpage
-% \appendix
-% \section{Notes}
+\clearpage
+\appendix
+\chapter{Seiberg-Witten Theory}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\clearpage
+\chapter{Relationship between Supersymmetry and Morse theory}
+
+
+
+\section{Introduction to supersymmetric quantum mechanics}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+% ----------------------------------------
+\clearpage
+\chapter{Brief notes}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 % ----------------------------------------
 \clearpage
@@ -35,6 +194,14 @@
 \nocite{Weinberg:1996kr}
 \nocite{Weinberg:1995mt}
 \nocite{Weinberg:2000}
+
+\nocite{Witten:1982df}
+\nocite{Witten:1982im}
+
+\nocite{Seiberg:1994aj}
+\nocite{Seiberg:1994rs}
+\nocite{Alvarez-Gaume:1996ohl}
+\nocite{Tachikawa:2013kta}
 
 % ----------------------------------------
 % \clearpage
