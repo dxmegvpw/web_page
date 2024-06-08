@@ -6,7 +6,108 @@
 \maketitle
 
 \begin{enumerate}
-  \item 
+  \item
+        Let us consider the variation of the action
+        \begin{equation}
+          S_{m}
+          =
+          \int\dd^4 \sqrt{-g}K(\phi,X)
+        \end{equation}
+        where $X$ denotes
+        \begin{equation}
+          X
+          \equiv
+          -
+          \frac{1}{2}g^{\mu\nu}\partial_[\mu]\phi\partial_{\nu}\phi
+          .
+        \end{equation}
+        It obeys
+        \begin{align}
+          \delta S_{m}
+           & =
+          \int\dd^4
+          \left[
+            (\delta\sqrt{-g})K
+            +
+            \sqrt{-g}(\delta K)
+            \right]
+          \nonumber
+          \\
+           & =
+          -\frac{1}{2}
+          \int\dd^4 x
+          \sqrt{-g}
+          \left\{
+          g_{\mu\nu}K
+          +
+          K_{X}\partial_{\mu}\partial_{\nu}\phi
+          \right\}
+          \delta g^{\mu\nu}
+          \label{eqn:variation}
+        \end{align}
+        where $K_{X}\equiv \partial_{X}K(\phi,X)$. The definition of the energy-momentum tensor so far is
+        \begin{equation}
+          \delta S_{m}
+          =
+          -\frac{1}{2}\int\dd^4 x\
+          \delta g^{\mu\nu}\sqrt{-g}T_{\mu\nu}
+          \label{eqn:dfn_energy-momentum_tensor}
+        \end{equation}
+        and by comparing this definition with the equation \eqref{eqn:variation}, we find
+        \begin{graybox}
+          \begin{equation}
+            T_{\mu\nu}
+            =
+            g_{\mu\nu}K
+            +
+            K_{X}\partial_{\mu}\partial_{\nu}\phi
+            \hspace{15pt}
+            (K_{X}\equiv \partial_{X}K(\phi,X))
+            .
+          \end{equation}
+        \end{graybox}
+
+  \item
+        The perturbed FLRW metric
+        \begin{equation}
+          g_{\mu\nu}
+          =
+          a^2(\eta)
+          \begin{pmatrix}
+            -(1+2A)       & \partial_{i}B                                   \\
+            \partial_{i}B & (1+2\psi)\delta_{ij}+2\partial_{i}\partial_{j}E
+          \end{pmatrix}
+        \end{equation}
+        is obtained by metric perturbation. The energy-momentum tensor becomes
+        \begin{equation}
+          T^{\mu}_{\ \nu}
+          =
+          g^{\mu\rho}T_{\rho\nu}
+          =
+          \delta^{\mu}_{\nu}K(\phi,X)
+          +
+          g^{\mu\rho}
+          K_{X}
+          \partial_{\rho}\phi\partial_{\nu}\phi
+          \label{eqn:upperd_energy-momentum_tensor}
+        \end{equation}
+        from the previous result. By perturbing $\phi(\eta,\bm{x})$ as $\phi(\eta)+\delta\phi(\eta,\bm{x})$\footnote{
+          I follow the instructions and omit the bar on the background field.
+        }, we find
+
+        \clearpage
+  \item
+        The perturbed Einstein equation is given by
+        \begin{equation}
+          \delta R^{\mu}_{\ \nu}
+          -
+          \frac{1}{2}\delta^{\mu}_{\nu}\delta R
+          =
+          8\pi G\delta T^{\mu}_{\ \nu}
+        \end{equation}
+        in Lecture 14. Let us follow the instruction and put $(\mu,\nu)=(0,0)$ and $(0,i)$.
+
+  \item
 
 
 
@@ -18,8 +119,12 @@
 % ----------------------------------------------------------------------
 \clearpage
 \begin{thebibliography}{99}
-  \bibitem{url01}
-  nnnnnnnnnn
+  %\cite{Vikman:2007sj}
+  \bibitem{Vikman:2007sj}
+  A.~Vilma,
+  ``\textit{K-essence: cosmology, causality and emergent geometry},''
+  2007.
+  % 20 citations counted in INSPIRE as of 08 Jun 2024
 \end{thebibliography}
 
 % ----------------------------------------

@@ -171,7 +171,9 @@ and, in this manner, we can write
 
 \section{Dirac operator and Index theorem}
 
-This is the summary of the presentation at QFT seminar in Wathematica.
+This is the summary of the presentation at QFT seminar in Wathematica. In this introductory talk, I will give the relationship between Atiyah-Singer index theorem and anomalies\footnote{
+  I am not sure why I gave this notes in English. Anyway, I hope it motivates you to study quantum field theory.
+}. 
 
 \subsection{Dirac operator and Spin complex}
 
@@ -197,10 +199,11 @@ Note that we assume that the metric has the Euclidean signature. When we conside
   \gamma^{m+1}
   =
   \begin{pmatrix}
-    -1 & 0 \\
-    0 & 1
+    1 & 0 \\
+    0 & -1
   \end{pmatrix}
   .
+  \label{eqn:chirality_operator}
 \end{equation}
 
 A Dirac operator $\psi\in\Delta(M)$ is not the irreducible representation of the $Spin(m)$ and we can obtain them separating $\Delta(M)$ according to the eigenvalue of $\gamma^{m+1}$, called \textit{chirality}. Since $\gamma^{m+1}$ has eigenvalues $\pm 1$, we divide 
@@ -257,8 +260,26 @@ The \textit{Dirac operator} is given by
   i\gamma^{\mu}\partial_{\mu}\psi
   .
 \end{equation}
-Note that we omitted the spin connection for simplicity. 
+In this case, we assume that the base manifold $M$ is flat, so that the spin connection does not appear in this definition. We admit this operator is \textit{elliptic}. 
 
+Now, let us consider the case $m=4$. We will take the representation of the gamma matrices as 
+\begin{eqnarray}
+  \gamma^{\mu}
+  =
+  \begin{pmatrix}
+    0 & \bar{\sigma}^{\mu} \\
+    \sigma^\mu & 0
+  \end{pmatrix}
+  ,\quad
+  \sigma^{\mu}
+  =
+  (1,\sigma^{i})
+  ,\quad 
+  \bar{\sigma}^{\mu}
+  =
+  (1,-\sigma^{i})
+\end{eqnarray}
+to obtain the chirality operator $\gamma^{5}$ in \eqref{eqn:chirality_operator}.
 
 
 
@@ -296,6 +317,8 @@ Note that we omitted the spin connection for simplicity.
 \nocite{Seiberg:1994rs}
 \nocite{Alvarez-Gaume:1996ohl}
 \nocite{Tachikawa:2013kta}
+
+\nocite{Nakahara:2003}
 
 % ----------------------------------------
 % \clearpage
