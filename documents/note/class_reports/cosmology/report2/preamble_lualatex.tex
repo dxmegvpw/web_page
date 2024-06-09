@@ -58,18 +58,13 @@
 % ---refer `texdoc xcolor' at the command line---
 
 % ---Tikz---
-\usepackage{tikz,pgf,pgfplots,circuitikz}
-\pgfplotsset{compat=1.15}
-\usetikzlibrary{intersections,arrows.meta,angles,calc,3d,decorations.pathmorphing}
-
-% ---tcolorbox---
-\usepackage{tcolorbox}
-\tcbuselibrary{raster,skins,breakable}
-\newtcolorbox{graybox}[1][]{frame empty, colback=black!07!white, sharp corners}
+% \usepackage{tikz,pgf,pgfplots,circuitikz}
+% \pgfplotsset{compat=1.15}
+% \usetikzlibrary{intersections,arrows.meta,angles,calc,3d,decorations.pathmorphing}
 
 % ---Add the section number to the equation, figure, and table number---
 \makeatletter
-   \renewcommand{\theequation}{\thesection.\arabic{equation}}
+   \renewcommand{\theequation}{$\thesection.\arabic{equation}$}
    \@addtoreset{equation}{section}
    
    \renewcommand{\thefigure}{\thesection.\arabic{figure}}
@@ -89,9 +84,11 @@
 
 % ---Title---
 \title{
-  アノマリーとAtiyah-Singerの指数定理の関係
+  宇宙物理学 レポート2
 }
 \author{
-  ミヤ
+  5324A057-8
+  \quad
+  宮根 一樹
 }
 \date{最終更新：\today}

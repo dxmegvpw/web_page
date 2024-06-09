@@ -16,8 +16,54 @@
 
 In subsequent sections, we will discuss the representation of the groups. Before going into such a subject, let us review the properties of groups, especially the Lie group.
 
-\section{Definition of the Lie group}
+\subsection{Definition of the Lie group}
 
+One of the examples of the two-dimensional Lie group is the \textit{orthogonal group} $O(2,\mathbb{R})$. It can be written as
+\begin{equation}
+  O(2,\mathbb{R})
+  =
+  \left\{
+  \left.
+  \begin{pmatrix}
+    \cos\theta & -\sin\theta \\
+    \sin\theta & \cos\theta
+  \end{pmatrix}
+  ,\quad
+  \begin{pmatrix}
+    \cos\theta & -\sin\theta \\
+    \sin\theta & \cos\theta
+  \end{pmatrix}
+  \begin{pmatrix}
+    1 & 0  \\
+    0 & -1
+  \end{pmatrix}
+  \right|
+  0\leq\theta\leq 2\pi
+  \right\}
+  .
+\end{equation}
+The \textit{special orthogonal group} is constituted by elements of $O(2,\mathbb{R})$ whose determinant is unit:
+\begin{equation}
+  SO(2,\mathbb{R})
+  =
+  \left\{
+  \left.
+  \begin{pmatrix}
+    \cos\theta & -\sin\theta \\
+    \sin\theta & \cos\theta
+  \end{pmatrix}
+  \right|
+  0\leq\theta\leq 2\pi
+  \right\}
+  .
+\end{equation}
+This group represents the rotation about the $x-y$ plain respect to the origin, and it also isomorphic to 
+\begin{enumerate}
+  \item
+        the residual group $\mathbb{R}/\mathbb{Z}$, which is obtained by dividing the additional additive group $\mathbb{R}$ by its subgroup $\mathbb{Z}$,
+  \item
+        the group constituted by the complex number whose absolute value is $1$ for the product.
+\end{enumerate}
 
 
 

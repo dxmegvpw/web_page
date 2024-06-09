@@ -91,23 +91,92 @@
           \partial_{\rho}\phi\partial_{\nu}\phi
           \label{eqn:upperd_energy-momentum_tensor}
         \end{equation}
-        from the previous result. By perturbing $\phi(\eta,\bm{x})$ as $\phi(\eta)+\delta\phi(\eta,\bm{x})$\footnote{
-          I follow the instructions and omit the bar on the background field.
-        }, we find
+        from the previous result. By calculating the inverse matrix of the metric, we obtain\footnote{
+          This result is obtained by purterbating $g^{\mu\nu}=g_{0}^{\mu\nu}+\delta g^{\mu\nu}$. This implies $g_{0}^{\mu\nu}=0$ naively and $\delta g^{\mu\nu}$ should contribute to cancel out the perturbative parts in $g_{\mu\nu}$.
+        }
+        \begin{equation}
+          g^{\mu\nu}
+          =
+          \frac{1}{a^2(\eta)}
+          \begin{pmatrix}
+            1-2A(\eta,\bm{x}) & \partial_{x}B & \partial_{y}B & \partial_{z}B \\
+            \partial_{x}B & 1-2(\psi+\partial_{x}^{2}E) & -2\partial_{x}\partial_{y}E & -2\partial_{x}\partial_{z}E \\
+            \partial_{y}B & -2\partial_{x}\partial_{y}E & 1-2(\psi+\partial_{y}^{2}E) & -2\partial_{y}\partial_{z} E \\
+            \partial_{z}B & -2\partial_{x}\partial_{z}E & -2\partial_{y}\partial_{z}E & 1-2(\psi+\partial_{z}^{2}E) 
+          \end{pmatrix}
+          .
+        \end{equation}
+        By perturbing $\phi(\eta,\bm{x})$ as $\phi(\eta)+\delta\phi(\eta,\bm{x})$\footnote{
+          I followed the instructions in the problem statement and omitted the bar on the background field.
+        }, we find $\delta T^{0}_{\ 0}$ as 
+        \begin{align}
+          \delta T^{0}_{\ 0}
+          &=
+          K(\phi+\delta\phi,X+X_{\phi}\delta\phi)
+          +
+          g^{0\rho}
+          K_{X}(\phi+\delta\phi,X+X_{\phi}\delta\phi)
+          \partial_{\rho}\phi\partial_{0}\phi   
+          \nonumber
+          \\
+          &=      
+          K+K_{\phi}\delta\phi+K_{X}X_{\phi}\delta\phi
+          \nonumber
+          \\
+          &
+          \hspace*{10pt}
+          +
+          \frac{1}{a(\eta)}
+          \left(  
+            K_{X}+K_{\phi X}\delta\phi+K_{XX}X_{\phi}\delta\phi              
+          \right)
+          \left[  
+            \frac{2A}{a(\eta)}\phi^{\prime}
+            +
+            \partial_{i}B\partial_{i}\phi
+          \right]
+          \phi^{\prime}
+          .
+        \end{align}
+        Note that $g^{\mu\nu}$ has only the perturbative quantity, thus the contribution of its coefficient should be only the background. In the same way, we can evaluate $\delta T^{0}_{\ i}$ and $\delta T^{i}_{\ j}$. Anyway, we conclude that the result, though it is formal, is 
+        \begin{graybox}
+          \begin{equation}
+            \delta T^{\mu}_{\ \nu}
+            =
+            \delta^{\mu}_{\nu}\left( K+K_{\phi}\delta\phi+K_{X}X_{\phi}\delta\phi \right)
+            +
+            g^{\mu\rho}
+            \left(  
+              K_{X}+K_{\phi X}\delta\phi+K_{XX}X_{\phi}\delta\phi              
+            \right)
+            \partial_{\rho}\phi\partial_{\nu}\phi
+            .
+          \end{equation}
+        \end{graybox}
 
-        \clearpage
   \item
+        (incomplete)\\
         The perturbed Einstein equation is given by
         \begin{equation}
-          \delta R^{\mu}_{\ \nu}
-          -
-          \frac{1}{2}\delta^{\mu}_{\nu}\delta R
+          \delta G^{\mu}_{\ \nu}
           =
           8\pi G\delta T^{\mu}_{\ \nu}
         \end{equation}
-        in Lecture 14. Let us follow the instruction and put $(\mu,\nu)=(0,0)$ and $(0,i)$.
+        in Lecture 14. In this case, by putting $K=-\Lambda\ (=\textrm{constant})$, the energy-momentum tensor becomes
+        \begin{equation}
+          \delta T^{\mu}_{\ \nu}
+          =
+          -
+          \delta^{\mu}_{\nu}\Lambda
+          -
+          g^{\mu\rho}
+          \Lambda
+          \partial_{\rho}\phi\partial_{\nu}\phi          
+        \end{equation}
+        from the previous result. 
 
-  \item
+
+
 
 
 
@@ -116,16 +185,12 @@
 \end{enumerate}
 
 
-% ----------------------------------------------------------------------
-\clearpage
-\begin{thebibliography}{99}
-  %\cite{Vikman:2007sj}
-  \bibitem{Vikman:2007sj}
-  A.~Vilma,
-  ``\textit{K-essence: cosmology, causality and emergent geometry},''
-  2007.
-  % 20 citations counted in INSPIRE as of 08 Jun 2024
-\end{thebibliography}
+
+
+
+
+
+
 
 % ----------------------------------------
 % \appendix
