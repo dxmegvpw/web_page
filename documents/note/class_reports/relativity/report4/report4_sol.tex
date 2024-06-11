@@ -60,7 +60,7 @@
             =
             g_{\mu\nu}K
             +
-            K_{X}\partial_{\mu}\partial_{\nu}\phi
+            K_{X}\partial_{\mu}\phi\partial_{\nu}\phi
             \hspace{15pt}
             (K_{X}\equiv \partial_{X}K(\phi,X))
             .
@@ -106,76 +106,67 @@
           \end{pmatrix}
           .
         \end{equation}
-        By perturbing $\phi(\eta,\bm{x})$ as $\phi(\eta)+\delta\phi(\eta,\bm{x})$\footnote{
-          I followed the instructions in the problem statement and omitted the bar on the background field.
-        }, we find $\delta T^{0}_{\ 0}$ as 
+        
+        To compute $\delta T^{\mu}_{\ \nu}$, let me consider the variation $\phi\rightarrow\phi(\eta)+\delta\phi(\eta,\bm{x})$, i.e., we will calculate 
         \begin{align}
-          \delta T^{0}_{\ 0}
+          T^{\mu}_{\ \nu}
           &=
-          K(\phi+\delta\phi,X+X_{\phi}\delta\phi)
+          \delta^{\mu}_{\nu}
+          K(\phi+\delta\phi, X+\delta X)
           +
-          g^{0\rho}
-          K_{X}(\phi+\delta\phi,X+X_{\phi}\delta\phi)
-          \partial_{\rho}\phi\partial_{0}\phi   
-          \nonumber
-          \\
-          &=      
-          K+K_{\phi}\delta\phi+K_{X}X_{\phi}\delta\phi
-          \nonumber
-          \\
-          &
-          \hspace*{10pt}
-          +
-          \frac{1}{a(\eta)}
-          \left(  
-            K_{X}+K_{\phi X}\delta\phi+K_{XX}X_{\phi}\delta\phi              
-          \right)
-          \left[  
-            \frac{2A}{a(\eta)}\phi^{\prime}
-            +
-            \partial_{i}B\partial_{i}\phi
-          \right]
-          \phi^{\prime}
-          .
-        \end{align}
-        Note that $g^{\mu\nu}$ has only the perturbative quantity, thus the contribution of its coefficient should be only the background. In the same way, we can evaluate $\delta T^{0}_{\ i}$ and $\delta T^{i}_{\ j}$. Anyway, we conclude that the result, though it is formal, is 
-        \begin{graybox}
-          \begin{equation}
-            \delta T^{\mu}_{\ \nu}
-            =
-            \delta^{\mu}_{\nu}\left( K+K_{\phi}\delta\phi+K_{X}X_{\phi}\delta\phi \right)
-            +
-            g^{\mu\rho}
-            \left(  
-              K_{X}+K_{\phi X}\delta\phi+K_{XX}X_{\phi}\delta\phi              
-            \right)
-            \partial_{\rho}\phi\partial_{\nu}\phi
-            .
-          \end{equation}
-        \end{graybox}
-
-  \item
-        (incomplete)\\
-        The perturbed Einstein equation is given by
-        \begin{equation}
-          \delta G^{\mu}_{\ \nu}
-          =
-          8\pi G\delta T^{\mu}_{\ \nu}
-        \end{equation}
-        in Lecture 14. In this case, by putting $K=-\Lambda\ (=\textrm{constant})$, the energy-momentum tensor becomes
-        \begin{equation}
-          \delta T^{\mu}_{\ \nu}
-          =
-          -
-          \delta^{\mu}_{\nu}\Lambda
-          -
           g^{\mu\rho}
-          \Lambda
-          \partial_{\rho}\phi\partial_{\nu}\phi          
-        \end{equation}
-        from the previous result. 
+          K_{X}(\phi+\delta\phi, X+\delta X)
+          \partial_{\mu}(\phi+\delta\phi)
+          \partial_{\nu}(\phi+\delta\phi)
+          \label{eqn:T_def}
+        \end{align} 
+        and take the first order of the perturbative term and identify it as $\delta T^{\mu}_{\ \nu}$. When we evaluate the above value, we should be careful with the fact that the background field does not depend on the space coordinates, and the derivative to that direction vanishes. 
 
+        Thus we obtain 
+        \begin{align}
+          \delta X
+          &=
+          \frac{\phi^{\prime} (\delta \phi^{\prime}-A \phi^{\prime})}{a^2}
+          ,
+          \\
+          K
+          &=
+          \frac{K_X \phi^{\prime} (\delta \phi^{\prime}-A \phi^{\prime})}{a^2}+\delta \phi  K_{\phi }
+          ,
+          \\
+          K_{X}
+          &=
+          \frac{K_{XX} \phi^{\prime} (\delta \phi^{\prime}-A \phi^{\prime})}{a^2}+\delta \phi  K_{X \phi}
+        \end{align}
+        and we can get \eqref{eqn:T_def} as
+        \begin{graybox}
+          \vspace*{-10pt}
+          \begin{align}
+            \delta T^{0}_{\ 0}
+            &=
+            \frac{K_{XX} {\phi^{\prime}}^3 (A {\phi^{\prime}}-{\delta \phi^{\prime}})}{a^4}+\frac{{\phi^{\prime}} (A K_X {\phi^{\prime}}+{\delta \phi^{\prime}} (-K_X)-\delta \phi  K_{X \phi} {\phi^{\prime}})}{a^2}+\delta \phi  K_{\phi }
+            \\
+            \delta T^{ii}
+            &=
+            \frac{K_{X}\phi^{\prime}(\delta\phi^{\prime}-\phi^{\prime}A)}{a^2}+K_{\phi}\delta\phi
+            \\
+            \delta T^{i}_{\ 0}
+            &=
+            \frac{1}{a^2}
+            \left\{  
+              \partial_{i}(\delta\phi)+\phi^{\prime}\partial_{i}B
+            \right\}
+            \\
+            \delta T^{0}_{\ i}
+            &=  
+            -\frac{1}{a^2}K_{X}\partial_{i}(\delta\phi)\delta\phi^{\prime}
+          \end{align}      
+          where $i=1,2,3$.
+        \end{graybox}
+        (It looks peculiar to me since the result $\delta T^{\mu}_{\ \nu}$ is not symmetric form.)
 
+        \item 
+        (incomplete)
 
 
 
@@ -183,28 +174,5 @@
 
 
 \end{enumerate}
-
-
-
-
-
-
-
-
-
-% ----------------------------------------
-% \appendix
-% \section{The computation of the radius of the photon sphere}
-
-
-% ----------------------------------------
-% \clearpage
-% \bibliography{ref}
-% \bibliographystyle{ytamsalpha}
-
-% ----------------------------------------
-% \clearpage
-% \index{hoge@hoge}
-% \printindex
 
 \end{document}
