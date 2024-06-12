@@ -1,0 +1,170 @@
+\documentclass[
+  unicode,a4paper,9pt,
+  % aspectratio=169,
+  xcolor = {dvipsnames,svgnames},
+  hyperref ={colorlinks=true,citecolor=Navy,linkcolor=NavyBlue,urlcolor=purple},
+  ja=standard,lualatex
+]{beamer}
+\input{preamble_beamer.tex}
+\begin{document}
+
+\begin{frame}
+
+  \setbeamertemplate{blocks}[rounded][shadow=true]
+  \setbeamercolor{block body}{bg=RoyalBlue!10!white, fg=black}
+  \begin{block}{}
+    \vspace*{5pt}
+
+    \centering\Large
+    Spontaneous R-symmetry breaking in O'Raifeartaigh models
+    \\
+    \normalsize
+    David Shih.
+    \\
+    \small
+    \href{https://doi.org/10.1088/1126-6708/2008/02/091}{JHEP 02 (2008) 091},
+    \href{https://arxiv.org/abs/hep-th/0703196}{arXiv:hep-th/0703196}.
+
+    \vspace*{5pt}
+  \end{block}
+
+  \vspace*{1cm}
+
+  \begin{center}
+    安倍研 M1 宮根一樹\\
+    2024 6/20 (木)
+  \end{center}
+
+\end{frame}
+
+\nocite{Shih:2007av}
+
+\begin{frame}
+  \frametitle{読んだ動機など}
+  \citefone{Shih:2007av}{D. Shih, JHEP 02 (2008) 091.}
+
+  \begin{center}
+    「現在行っているモジュライ固定の研究に、R対称性の観点から何か言えるかもしれない」
+  \end{center}
+  というお話があったので、今回は以下の論文を読んできました。
+
+  \begin{figure}
+    \centering
+    \includegraphics[width=0.8\textwidth]{fig/Shih2007av.PNG}
+  \end{figure}
+
+\end{frame}
+
+\begin{frame}
+  \frametitle{自発的対称性の破れ}
+
+  $n$個の場$\textcolor{DarkGreen}{\Phi_{i}(x)}$が作るポテンシャル$V(\textcolor{DarkGreen}{\Phi_{1},\cdots,\Phi_{n}})$の極小値に興味がある。
+
+  その極小な点(準安定点)を\textbf{真空}といい、その真空からの揺らぎを考える。
+  \begin{equation}
+    \textcolor{DarkGreen}{\Phi_{i}}
+    =
+    \textcolor{RoyalBlue}{\ev*{\Phi_{i}}}+\textcolor{FireBrick}{\tilde{\Phi}_{i}}
+    \nonumber
+  \end{equation}
+
+\end{frame}
+
+\begin{frame}
+  \citefone{Nelson:1993nf}{A. E. Nelson and N. Seiberg, Nucl. Phys. B 416 (1994) 46-62.}
+  
+  超対称性の破れとR対称性の関連について、Nelson, Seibergらの仕事がある\cite{Nelson:1993nf}。
+
+
+
+
+
+
+
+\end{frame}
+
+
+\begin{frame}
+  \citefone{Nelson:1993nf}{A. E. Nelson and N. Seiberg, Nucl. Phys. B 416 (1994) 46-62.}
+
+  % 今回の論文の立ち位置は？
+  
+
+
+
+
+
+
+
+
+
+\end{frame}
+
+\section{イントロダクション}
+
+\begin{frame}[plain]
+  \huge \secname
+\end{frame}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+% --------------------------
+
+\newcounter{Appendix}
+\setcounter{Appendix}{\value{framenumber}}
+\setcounter{section}{0}
+\renewcommand{\thesubsection}{\Alph{subsection}}
+\makeatletter
+\renewcommand{\theequation}{\thesubsection.\arabic{equation}}
+\@addtoreset{equation}{section}
+
+\renewcommand{\thefigure}{\thesubsection.\arabic{figure}}
+\@addtoreset{figure}{section}
+
+\renewcommand{\thetable}{\thesubsection.\arabic{table}}
+\@addtoreset{table}{section}
+\makeatother
+
+\section{付録}
+
+\begin{frame}[plain]
+  \frametitle{\ }
+  \huge \secname
+\end{frame}
+
+\subsection{目次}
+
+\begin{frame}[plain,allowframebreaks]{\thesubsection. \subsecname}
+  \tableofcontents
+\end{frame}
+
+
+
+% --------------------------
+
+\section{参考文献}
+\begin{frame}[plain,allowframebreaks]{\secname}
+
+  \scriptsize
+  \beamertemplatetextbibitems
+  \bibliographystyle{ytphys}
+  \bibliography{ref}
+
+\end{frame}
+
+\setcounter{framenumber}{\value{Appendix}}
+\end{document}

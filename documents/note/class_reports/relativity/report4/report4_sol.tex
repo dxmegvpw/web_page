@@ -181,6 +181,7 @@
           ,
           \\
           \delta q=a\rho(v+B)
+          \label{eqn:deltaq}
           ,
           \\
           \Phi = \psi-\mathcal{H}(E^{\prime}-B)
@@ -205,7 +206,7 @@
           \left\{
           3\mathcal{H}\delta q
           -
-          a\delta \theta
+          a\delta\rho
           \right\}
           .
         \end{equation}
@@ -223,9 +224,7 @@
           \end{equation}
         \end{graybox}
 
-  \item
-        (incomplete)
-        
+  \item        
         Let me confirm the given relation again:
         \begin{equation}
           \delta
@@ -245,6 +244,50 @@
           .
           \label{eqn:hoge_3}
         \end{equation}
+        We will try to evaluate undetermined factors $\rho$ and $A$. From the problem 2, we obtain $T^{0}_{\ 0}=-\rho$ as 
+        \begin{equation}
+          -\rho
+          =
+          K-\frac{K_X {\phi^{\prime}}^2}{a^2}+\frac{K_{XX} {\phi^{\prime}}^3 (A {\phi^{\prime}}-{\delta \phi^{\prime}})}{a^4}+\frac{{\phi^{\prime}} (A K_X {\phi^{\prime}}+{\delta \phi^{\prime}} (-K_X)-\delta \phi  K_{X\phi} {\phi^{\prime}})}{a^2}+\delta \phi  K_{\phi }
+        \end{equation} 
+        up to the first order of the perturbation. In this case, since we set $K=-\Lambda$, the derivation of $K$, such as $K_{X}, K_{X\phi}$, etc., vanishes. Thus we obtain the relation
+        \begin{equation}
+          \rho=\Lambda
+          .
+          \label{eqn:rhoequalLambda}
+        \end{equation}
+        
+        Let us figure out $A$ in terms of $\delta$. To accomplish this, we compute \eqref{eqn:hoge_2} and \eqref{eqn:deltarhom}. These relations imply equality
+        \begin{equation}
+          -(1+\mathcal{H})A
+          =
+          4\pi Ga^2 \Lambda(v+B)
+          .
+          \label{eqn:hoge_4}
+        \end{equation}
+        On the other hand, we evaluate \eqref{eqn:deltarhom} and the relation
+        \begin{equation}
+          \delta
+          =
+          \frac{\delta \rho}{\Lambda}-3\mathcal{H}(v+B)
+        \end{equation}
+        holds. From the result of problem 2, we find $\delta T^{0}_{\ 0}=-\delta \rho=0$. Putting this equation into \eqref{eqn:hoge_4} and vanishing the factor $v+B$, we conclude $A$ as 
+        \begin{equation}
+          A
+          =
+          \frac{4\pi a^2 \Lambda}{3\mathcal{H}(1+\mathcal{H})}\delta
+        \end{equation}
+        and we can organize the equation \eqref{eqn:hoge_4} for
+        \begin{graybox}
+          \vspace*{-5pt}
+          \begin{equation}
+            \nabla^2
+            \left[ \frac{\delta}{3\mathcal{H}(1+\mathcal{H})} \right]
+            =
+            \delta
+            .
+          \end{equation}
+        \end{graybox}
 
 \end{enumerate}
 
