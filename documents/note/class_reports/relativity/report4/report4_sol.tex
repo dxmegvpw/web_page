@@ -92,25 +92,25 @@
           \label{eqn:upperd_energy-momentum_tensor}
         \end{equation}
         from the previous result. By calculating the inverse matrix of the metric, we obtain\footnote{
-          This result is obtained by purterbating $g^{\mu\nu}=g_{0}^{\mu\nu}+\delta g^{\mu\nu}$. This implies $g_{0}^{\mu\nu}=0$ naively and $\delta g^{\mu\nu}$ should contribute to cancel out the perturbative parts in $g_{\mu\nu}$.
+        This result is obtained by purterbating $g^{\mu\nu}=g_{0}^{\mu\nu}+\delta g^{\mu\nu}$. This implies $g_{0}^{\mu\nu}=0$ naively and $\delta g^{\mu\nu}$ should contribute to cancel out the perturbative parts in $g_{\mu\nu}$.
         }
         \begin{equation}
           g^{\mu\nu}
           =
           \frac{1}{a^2(\eta)}
           \begin{pmatrix}
-            1-2A(\eta,\bm{x}) & \partial_{x}B & \partial_{y}B & \partial_{z}B \\
-            \partial_{x}B & 1-2(\psi+\partial_{x}^{2}E) & -2\partial_{x}\partial_{y}E & -2\partial_{x}\partial_{z}E \\
-            \partial_{y}B & -2\partial_{x}\partial_{y}E & 1-2(\psi+\partial_{y}^{2}E) & -2\partial_{y}\partial_{z} E \\
-            \partial_{z}B & -2\partial_{x}\partial_{z}E & -2\partial_{y}\partial_{z}E & 1-2(\psi+\partial_{z}^{2}E) 
+            1-2A(\eta,\bm{x}) & \partial_{x}B               & \partial_{y}B               & \partial_{z}B                \\
+            \partial_{x}B     & 1-2(\psi+\partial_{x}^{2}E) & -2\partial_{x}\partial_{y}E & -2\partial_{x}\partial_{z}E  \\
+            \partial_{y}B     & -2\partial_{x}\partial_{y}E & 1-2(\psi+\partial_{y}^{2}E) & -2\partial_{y}\partial_{z} E \\
+            \partial_{z}B     & -2\partial_{x}\partial_{z}E & -2\partial_{y}\partial_{z}E & 1-2(\psi+\partial_{z}^{2}E)
           \end{pmatrix}
           .
         \end{equation}
-        
-        To compute $\delta T^{\mu}_{\ \nu}$, let me consider the variation $\phi\rightarrow\phi(\eta)+\delta\phi(\eta,\bm{x})$, i.e., we will calculate 
+
+        To compute $\delta T^{\mu}_{\ \nu}$, let me consider the variation $\phi\rightarrow\phi(\eta)+\delta\phi(\eta,\bm{x})$, i.e., we will calculate
         \begin{align}
           T^{\mu}_{\ \nu}
-          &=
+           & =
           \delta^{\mu}_{\nu}
           K(\phi+\delta\phi, X+\delta X)
           +
@@ -119,59 +119,132 @@
           \partial_{\mu}(\phi+\delta\phi)
           \partial_{\nu}(\phi+\delta\phi)
           \label{eqn:T_def}
-        \end{align} 
-        and take the first order of the perturbative term and identify it as $\delta T^{\mu}_{\ \nu}$. When we evaluate the above value, we should be careful with the fact that the background field does not depend on the space coordinates, and the derivative to that direction vanishes. 
+        \end{align}
+        and take the first order of the perturbative term and identify it as $\delta T^{\mu}_{\ \nu}$. When we evaluate the above value, we should be careful with the fact that the background field does not depend on the space coordinates, and the derivative to that direction vanishes.
 
-        Thus we obtain 
-        \begin{align}
+        Thus we obtain
+        \begin{gather}
           \delta X
-          &=
+          =
           \frac{\phi^{\prime} (\delta \phi^{\prime}-A \phi^{\prime})}{a^2}
           ,
           \\
           K
-          &=
+          =
           \frac{K_X \phi^{\prime} (\delta \phi^{\prime}-A \phi^{\prime})}{a^2}+\delta \phi  K_{\phi }
           ,
           \\
           K_{X}
-          &=
+          =
           \frac{K_{XX} \phi^{\prime} (\delta \phi^{\prime}-A \phi^{\prime})}{a^2}+\delta \phi  K_{X \phi}
-        \end{align}
+        \end{gather}
         and we can get \eqref{eqn:T_def} as
         \begin{graybox}
           \vspace*{-10pt}
-          \begin{align}
+          \begin{gather}
             \delta T^{0}_{\ 0}
-            &=
+            =
             \frac{K_{XX} {\phi^{\prime}}^3 (A {\phi^{\prime}}-{\delta \phi^{\prime}})}{a^4}+\frac{{\phi^{\prime}} (A K_X {\phi^{\prime}}+{\delta \phi^{\prime}} (-K_X)-\delta \phi  K_{X \phi} {\phi^{\prime}})}{a^2}+\delta \phi  K_{\phi }
             \\
             \delta T^{ii}
-            &=
+            =
             \frac{K_{X}\phi^{\prime}(\delta\phi^{\prime}-\phi^{\prime}A)}{a^2}+K_{\phi}\delta\phi
             \\
             \delta T^{i}_{\ 0}
-            &=
+            =
             \frac{1}{a^2}
-            \left\{  
-              \partial_{i}(\delta\phi)+\phi^{\prime}\partial_{i}B
+            \left\{
+            \partial_{i}(\delta\phi)+\phi^{\prime}\partial_{i}B
             \right\}
             \\
             \delta T^{0}_{\ i}
-            &=  
+            =
             -\frac{1}{a^2}K_{X}\partial_{i}(\delta\phi)\delta\phi^{\prime}
-          \end{align}      
+          \end{gather}
           where $i=1,2,3$.
         \end{graybox}
-        (It looks peculiar to me since the result $\delta T^{\mu}_{\ \nu}$ is not symmetric form.)
 
-        \item 
+  \item
+        The perturbative Einstein equation is given as
+        \begin{gather}
+          3\mathcal{H}(\psi^{\prime}-\mathcal{H}A)-\nabla^2\psi+\mathcal{H}\nabla^2(E^{\prime}-B)
+          =
+          4\pi Ga^2\delta\rho
+          \label{eqn:hoge_1}
+          \\
+          \psi^{\prime}-\mathcal{H}A=4\pi Ga\delta q
+          \label{eqn:hoge_2}
+        \end{gather}
+        in this course. In this case, we will use the notation as follows:
+        \begin{gather}
+          K=-\Lambda
+          ,
+          \\
+          \delta q=a\rho(v+B)
+          ,
+          \\
+          \Phi = \psi-\mathcal{H}(E^{\prime}-B)
+          \label{eqn:PHI}
+          ,
+          \\
+          \delta\rho_{m}
+          =
+          \delta\rho
+          -
+          3\frac{\mathcal{H}}{a}\delta q
+          \label{eqn:deltarhom}
+          .
+        \end{gather}
+        The first setup is irrelevant at this moment.
+
+        For the first step, insert \eqref{eqn:hoge_2} into \eqref{eqn:hoge_1} and organize some terms. We immediately find
+        \begin{equation}
+          \nabla^2(\psi-\mathcal{H}(E^{\prime}-B))
+          =
+          4\pi Ga
+          \left\{
+          3\mathcal{H}\delta q
+          -
+          a\delta \theta
+          \right\}
+          .
+        \end{equation}
+        We notice the foremost term corresponds with $\Phi$. In addition, we try to put \eqref{eqn:deltarhom} into the $\delta\rho$ on the right-hand side. Thus we obtain slick equality
+        \begin{graybox}
+          \vspace*{-5pt}
+          \begin{equation}
+            \nabla^2\Phi
+            +
+            4\pi Ga^2\delta\rho_{m}
+            =
+            0
+            .
+            \label{eqn:reault_3}
+          \end{equation}
+        \end{graybox}
+
+  \item
         (incomplete)
-
-
-
-
-
+        
+        Let me confirm the given relation again:
+        \begin{equation}
+          \delta
+          \equiv
+          \frac{\delta\rho_{m}}{\rho}
+          \ ,\quad
+          \Psi=A
+          ,\ \quad
+          \Phi=\psi
+          ,\ \quad
+          \Phi+\Phi=0
+          .
+        \end{equation}
+        Naively, we just put that relation to the previous result \eqref{eqn:reault_3} and attain the equality
+        \begin{equation}
+          -\nabla^2 A+4\pi Ga^2 \rho\delta=0
+          .
+          \label{eqn:hoge_3}
+        \end{equation}
 
 \end{enumerate}
 
