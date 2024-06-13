@@ -1,0 +1,82 @@
+\pdfoutput=1
+\documentclass[a4paper,pdftex,10pt]{article}
+\input{preable_pdflatex.tex}
+
+\begin{document}
+
+% ---Title---
+\title{
+  Pedagogical Guide to Seiberg-Witten Theory
+}
+\author{
+  miya
+}
+\date{Last modified:\ \today}
+
+\maketitle
+
+\tableofcontents
+
+\clearpage
+\section{Introduction}
+
+  This is the seminar material at QFT seminar in Wathematica\footnote{
+    Although this note is written entirely in English, I will be conducting the seminar in Japanese. If you want to know why I did not write in Japanese, read the end of this chapter.
+  }. Since people around me want to know about Seiberg-Witten theory\footnote{
+    The original papers can be found in \cite{Seiberg:1994rs, Seiberg:1994aj}. If you are a Waseda student, these papers are available in journals. The journals are paid for by our tuition fees, so it makes sense to download from them. Of course, these papers are also available on \href{https://arxiv.org}{arXiv}. I will not deny to get from the e-print, but ... let me say no more.
+  }, I decided to choose this topic and start to study. I hope this notes gives such people pedagogical introduction and to enter the subjects.
+
+
+
+
+  
+
+
+  \begin{graybox}
+    I usually use Lua{\LaTeX} to write a text in Japanese, but it compiles terribly slowly. So I wrote this document in English because pdf{\LaTeX}, which is valid only in English, compiles much faster. There is terrible frustration both when I write in English and when I use Lua{\LaTeX} (Fig: \ref{fig:myconflict}). Let me know if there is a way we can quickly compile Japanese {\LaTeX} files if you are familiar with them.
+  \end{graybox}
+
+  \begin{figure}[ht]
+    \centering
+    \includegraphics[width=0.8\textwidth]{fig/picture01.pdf}
+    \caption{My conflict}
+    \label{fig:myconflict}
+  \end{figure}
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+% ----------------------------------------
+% \clearpage
+% \appendix
+% \section{Notes}
+
+% ----------------------------------------
+\clearpage
+\bibliography{ref}
+\bibliographystyle{ytamsalpha}
+
+% ----------------------------------------
+% \clearpage
+% \index{hoge@hoge}
+% \printindex
+
+\end{document}
