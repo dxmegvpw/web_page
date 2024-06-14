@@ -26,7 +26,7 @@
     2p_{x}\cdot\frac{v_{x}}{2}
   \end{equation}
   が成立する。このとき、単位時間あたりに$v_{x}/2$回だけ粒子が壁にぶつかることに注意する\footnote{
-    壁の長さも単位長さであることに注意する。
+    立方体の各辺の長さも単位長さであることに注意する。
   }。これは$x$軸方向の関係のみなので、全ての方向を考えればそれは絶対値をとってから、その量の$1/3$を考えればよい。したがって、
   \begin{equation}
     \bar{P}
@@ -42,7 +42,7 @@
       \includegraphics[width=0.8\textwidth]{fig/fig01.pdf}
       \caption{立方体の中での粒子の運動}      
     \end{minipage}
-    \begin{minipage}{0.4\textwidth}
+    \begin{minipage}{0.3\textwidth}
       \centering
       \includegraphics[width=0.8\textwidth]{fig/fig02.pdf}
       \caption{壁に衝突する瞬間}      
@@ -82,6 +82,43 @@
 
   \item 
   
+  \item 
+  以下の2つの方程式が与えられている：
+  \begin{gather}
+    \dot{\varepsilon}_{\textrm{DE}}
+    +
+    3H(1+w_{\textrm{DE}})\varepsilon_{\textrm{DE}}
+    =
+    0
+    ,
+    \label{eqn:continu}
+    \\
+    H^2
+    =
+    \frac{8\pi G}{3c^2}\varepsilon_{\textrm{DE}}
+    .
+    \label{eqn:freedman}
+  \end{gather}
+  \eqref{eqn:freedman}を微分すると
+  \begin{equation}
+    2H\dot{H}
+    =
+    \frac{8\pi G}{3c^2}\dot{\varepsilon}_{\textrm{DE}}
+  \end{equation}
+  となるので、\eqref{eqn:continu}を代入し、$\varepsilon_{\textrm{DE}}$に対して\eqref{eqn:freedman}を代入して整理すれば
+  \begin{equation}
+    \dv{}{t}H
+    =
+    -\frac{3}{2}(1+w_{\textrm{DE}})H^2
+  \end{equation}
+  となる。これを$H(t_{0})=H_{0}$のもとで解くと
+  \begin{equation}
+    \frac{1}{H(t)}
+    -
+    \frac{1}{H_{0}}
+    =
+    \frac{3}{2}(1+w_{\textrm{DE}})(t-t_{0})
+  \end{equation}
 
 
 
