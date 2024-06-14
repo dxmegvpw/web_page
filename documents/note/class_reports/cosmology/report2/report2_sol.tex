@@ -2,10 +2,86 @@
 \input{preamble_lualatex.tex}
 \begin{document}
 
+% ---Title---
+\title{
+  宇宙物理学
+  \quad
+  レポート2
+}
+\author{
+  氏名：宮根一樹
+  \quad
+  学籍番号：5324A057-8
+}
+\date{最終更新：\today}
+
 \maketitle
 
-\begin{itemize}
+\begin{enumerate}
   \item 
+  分子運動論を考える。まずは、$x$軸方向の運動のみに絞って考える。粒子が速度$v_{x}$で壁に弾性衝突したとすると、逆向きで速度$v_{x}$に運動を開始する。このときに粒子が受けた力を$F_{x}$とすると、運動量の変化と力積の関係から
+  \begin{equation}
+    F_{x}
+    =
+    2p_{x}\cdot\frac{v_{x}}{2}
+  \end{equation}
+  が成立する。このとき、単位時間あたりに$v_{x}/2$回だけ粒子が壁にぶつかることに注意する\footnote{
+    壁の長さも単位長さであることに注意する。
+  }。これは$x$軸方向の関係のみなので、全ての方向を考えればそれは絶対値をとってから、その量の$1/3$を考えればよい。したがって、
+  \begin{equation}
+    \bar{P}
+    =
+    \frac{1}{3}pv
+  \end{equation}
+  である。
+
+  \begin{figure}[ht]
+    \centering
+    \begin{minipage}{0.4\textwidth}
+      \centering
+      \includegraphics[width=0.8\textwidth]{fig/fig01.pdf}
+      \caption{立方体の中での粒子の運動}      
+    \end{minipage}
+    \begin{minipage}{0.4\textwidth}
+      \centering
+      \includegraphics[width=0.8\textwidth]{fig/fig02.pdf}
+      \caption{壁に衝突する瞬間}      
+    \end{minipage}
+  \end{figure}
+
+  ここで、$\gamma\equiv1/\sqrt{1-(v/c)^2}$とおけば
+  \begin{equation}
+    p
+    =
+    \gamma mv
+    \ ,\quad
+    E
+    =
+    \gamma mc^2
+  \end{equation}
+  なので、$p=Ev/c^2$である。よって
+  \begin{graybox}
+    \begin{equation}
+      \bar{P}
+      =
+      \frac{1}{3}\cdot\frac{Ev}{c^2}\cdot v
+      =
+      \frac{Ev^2}{3c^2}
+    \end{equation}
+  \end{graybox}
+  である。また、$m=0$のときは、$E^2=m^2c^4+p^2c^2$から$E=cp$であり$v=c$。ゆえに
+  \begin{graybox}
+    \begin{equation}
+      \bar{P}
+      =
+      \frac{1}{3}cp
+    \end{equation}
+  \end{graybox}
+  である。
+
+
+  \item 
+  
 
 
 
@@ -18,8 +94,6 @@
 
 
 
-
-
-\end{itemize}
+\end{enumerate}
 
 \end{document}
