@@ -1,0 +1,36 @@
+\documentclass{standalone}
+
+\usepackage{graphics}
+\usepackage[dvipsnames,svgnames]{xcolor}
+
+\usepackage{tikz,pgf,pgfplots,circuitikz}
+\pgfplotsset{compat=1.15}
+\usetikzlibrary{shapes.symbols,intersections,arrows.meta,angles,calc,3d,decorations.pathmorphing}
+\usepackage[compat=1.1.0]{tikz-feynhand}
+
+\usepackage{amssymb,amsfonts,amsthm,mathtools}
+\usepackage{physics,braket,bm}
+
+\begin{document}
+
+\begin{tikzpicture}
+  % Define the function parameters
+  \def\Hzero{1/145}
+  \def\w{-1.2}
+  \def\tzero{145}
+  \def\tscale{12}
+  \def\func(#1){2 * \Hzero / (3 * (\Hzero * (\w + 1) * (#1 - \tzero) + 1))}
+
+  % Draw axes
+  \draw[-latex] (500/\tscale/10,0) -- (1200/\tscale/10,0) node[right] {$t$};
+  \draw[-latex] (600/\tscale/10,-1.2) -- (600/\tscale/10,2) node[above] {$H(t)$};
+  \draw[dashed] (870/\tscale/10,-1.2) -- (870/\tscale/10,2);
+  \draw (850/\tscale/10,-0.30) node {$t'$};
+  
+  % Plot the function
+  \draw[scale=0.1,domain=500:869,smooth,variable=\t] plot ({\t/\tscale},{\func(\t)*20});
+  \draw[scale=0.1,domain=879:1000,smooth,variable=\t] plot ({\t/\tscale},{\func(\t)*20});
+
+\end{tikzpicture}
+
+\end{document}
