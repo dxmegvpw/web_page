@@ -50,7 +50,7 @@
 
   これは、1994年にNelsonとSeibergが主張したこと\cite{Nelson:1993nf}で以下の通り：
   \begin{center}
-    「\textcolor{DarkMagenta}{R対称性}が自発的に破れている」
+    「\textcolor{DarkMagenta}{R対称性}がある」
     $\implies$
     「\textcolor{Goldenrod}{超対称}が自発的に破れている」
   \end{center}
@@ -72,7 +72,7 @@
   \setbeamercolor{block body}{bg=red!10!white, fg=black}
   \begin{block}{}
     \centering
-    「\textcolor{DarkMagenta}{R対称性の破れ}」
+    「\textcolor{DarkMagenta}{R対称性}の存在」
     $\implies$
     「\textcolor{Goldenrod}{超対称の破れ}」
   \end{block}
@@ -106,8 +106,10 @@
 \end{frame}
 
 
+\subsection{自発的対称性の破れ}
+
 \begin{frame}
-  \frametitle{自発的対称性の破れ}
+  \frametitle{\subsecname}
 
   $n$個の場$\textcolor{DarkGreen}{\Phi_{i}(x)}$が作るポテンシャル$V(\textcolor{DarkGreen}{\Phi_{1},\cdots,\Phi_{n}})$の極小値に興味がある。
 
@@ -143,8 +145,11 @@
 
 \end{frame}
 
+
+\subsection{超対称性}
+
 \begin{frame}
-  \frametitle{超対称性}
+  \frametitle{\subsecname}
 
   カイラル多重項$\Phi=\{\phi,\psi,F\}$。この多重項に含まれている粒子の間を
   \begin{equation}
@@ -214,12 +219,15 @@
     \nonumber
   \end{equation}
 
+  この方法で得られたラグランジアンで、運動項を除いた項をポテンシャルとして扱う。
+
 \end{frame}
 
 
+\subsection{今回考える理論 (O'Raifeartaigh模型)}
 
 \begin{frame}
-  \frametitle{今回考える理論 (O'Raifeartaigh模型)}
+  \frametitle{\subsecname}
 
   次の理論を考える。
   \begin{equation}
@@ -269,8 +277,12 @@
 
 \end{frame}
 
+
+\subsection{今回の論文の目的}
+
+
 \begin{frame}
-  \frametitle{今回の論文の目的}
+  \frametitle{\subsecname}
 
   したがって、\uwave{場$X$について}はポテンシャルが\textcolor{red}{立ち上がらない}。
   \begin{equation}
@@ -314,8 +326,11 @@
   \huge \secname
 \end{frame}
 
+
+\subsection{超対称性の破れ}
+
 \begin{frame}
-  \frametitle{超対称性の破れ}
+  \frametitle{\subsecname}
 
   今回考える理論。
   \begin{equation}
@@ -329,7 +344,7 @@
 
   $M,N$は複素対称行列。$\det M\neq 0$、$f> 0$を仮定。
 
-  また、$M$を次の形で書く。$M_{i}$はR電荷が$q_{i}$の場の質量行列。
+  また、$M$を次の形で書く。$M_{i}$はR電荷が$q_{i}$の場の質量行列。(\hyperref[eqn:eg]{具体例})
   \begin{equation}
     M
     =
@@ -374,7 +389,7 @@
     \nonumber
   \end{equation}
 
-  方程式を満たす$\ev*{\phi_{i}}$が存在するかどうか$\ \rightarrow\ \det(M+XN)$を計算\\
+  方程式を満たす$\ev*{\phi_{i}}(\neq 0)$が存在するかどうか$\ \rightarrow\ \det(M+XN)$を計算\\
   (\uline{c.f.}\ $\det\exp A=\exp\tr A$)
   \begin{align}
     \det (M+XN)
@@ -407,6 +422,7 @@
     \right)
     \nonumber
   \end{equation}
+  この関係から、R対称性を課すと$M^{-1}N$を計算するときに$M$か$N$の成分が必ず消えている。
 
   \begin{center}
     {\Huge $\Downarrow$}\\
@@ -415,8 +431,11 @@
 
 \end{frame}
 
+
+\subsection{\texorpdfstring{$m_{X}^2$}{mX2}の計算}
+
 \begin{frame}
-  \frametitle{\texorpdfstring{$m_{X}^2$}{mX^2}の計算}
+  \frametitle{\subsecname}
 
   Coleman-Weinbergポテンシャルを展開して、$|X|^2$の係数を探る。
   \begin{equation}
@@ -457,22 +476,22 @@
 \begin{frame}
 
   ここで、ポテンシャルの公式を書き換える。
-  \begin{equation}    
+  \begin{equation}
     \frac{1}{64\pi^2}
     \Tr (-1)^{F}
     \mathcal{M}^{4}\ln\frac{\mathcal{M}^2}{\Lambda^{2}}
     =
     -\frac{1}{32\pi^2}
-    \Tr\int^{\Lambda}_{0}\dd v\ 
+    \Tr\int^{\Lambda}_{0}\dd v\
     v^5\left( \frac{1}{v^2+\mathcal{M}_{B}^2}-\frac{1}{v^2+\mathcal{M}_{F}^2} \right)
     \nonumber
   \end{equation}
-  
+
   ---------------------------------------------------------------------------------
 
   積分の部分は以下のようになっている。
   \begin{equation}
-    \int\dd v\ 
+    \int\dd v\
     \frac{v^5}{v^2+\mathcal{M}^2}
     =
     -\frac{1}{2}\mathcal{M}^2 v^2
@@ -485,32 +504,241 @@
 
   あとは$\ln \Lambda^2$で発散する項をみて
   \begin{align}
-    \left[  
-      \frac{1}{2}\mathcal{M}^4\ln(\mathcal{M}^2+v^2)      
-    \right]_{0}^{\Lambda}
-    &=
+    \left[
+      \frac{1}{2}\mathcal{M}^4\ln(\mathcal{M}^2+v^2)
+      \right]_{0}^{\Lambda}
+     & =
     \frac{1}{2}\mathcal{M}^4\ln\left( 1+\frac{\Lambda^2}{\mathcal{M}^2} \right)
     \nonumber
     \\
-    &\sim
+     & \sim
     -
     \frac{1}{2}\mathcal{M}^4\ln\frac{\mathcal{M}^2}{\Lambda^2}
     \nonumber
   \end{align}
 
+  こんな感じなのではないかと思います。
+
 \end{frame}
 
 \begin{frame}
 
+  分母に$X$がいるので、これについて展開\ $\rightarrow$\ $2$次の係数を拾ってそれを$m_{X}^2$とする。
+  \begin{align}
+    \int^{\Lambda}_{0}\dd v\
+    \frac{v^5}{v^2+\mathcal{M}_{B}^2}
+     & =
+    \int^{\Lambda}_{0}\dd v\
+    \frac{v^5}{v^2+\hat{M}^2+f\hat{N}+\{\hat{M},\hat{N}\}X+\hat{N}^2X^2}
+    \nonumber
+    \\
+     & \hspace*{-2cm}\rightarrow
+    \int^{\Lambda}_{0}\dd v\
+    \frac{v^5}{v^2+\hat{M}^2+f\hat{N}}
+    \left\{
+    -
+    \frac{1}{v^2+\hat{M}^2+f\hat{N}}
+    \hat{N}^2
+    \right.
+    \nonumber
+    \\
+     & \left.
+    +
+    \frac{1}{v^2+\hat{M}^2+f\hat{N}}\{\hat{M},\hat{N}\}
+    \frac{1}{v^2+\hat{M}^2+f\hat{N}}\{\hat{M},\hat{N}\}
+    \right\}
+    X^2
+    \nonumber
+  \end{align}
+
+  ここで、部分積分をすると、$m_{X}^2$への寄与は
+  \begin{equation}
+    \frac{1}{16\pi^2}\Tr\int_{0}^{\Lambda}\dd v
+    \frac{v^3}{v^2+\hat{M}^2+f\hat{N}}
+    \left(
+    \hat{N}^2
+    -
+    \frac{1}{2}\{\hat{M},\hat{N}\}\frac{1}{v^2+\hat{M}^2+f\hat{N}}\{\hat{M},\hat{N}\}
+    \right)
+    \nonumber
+  \end{equation}
+
+  フェルミオンの寄与も同様に計算する。すると、最終的に
+  \begin{align}
+    m_{X}^2
+     & =
+    \frac{1}{16\pi^2}\Tr\int_{0}^{\Lambda}\dd v
+    \nonumber
+    \\
+    &\hspace*{1cm}
+    \times
+    \left[
+      \frac{v^3}{v^2+\hat{M}^2+f\hat{N}}
+      \left(
+      \hat{N}^2
+      -
+      \frac{1}{2}\{\hat{M},\hat{N}\}\frac{1}{v^2+\hat{M}^2+f\hat{N}}\{\hat{M},\hat{N}\}
+      \right)
+      \right.
+      \nonumber
+    \\
+    & \hspace*{1.2cm}
+      \left.
+      -\frac{v^3}{v^2+\hat{M}^2}
+      \left(
+      \hat{N}^2
+      -
+      \frac{1}{2}\{\hat{M},\hat{N}\}\frac{1}{v^2+\hat{M}^2}\{\hat{M},\hat{N}\}
+      \right)
+      \right]
+      。
+      \nonumber
+  \end{align}
+\end{frame}
+
+\begin{frame}
+
+  ここで、次のような関数を用意する。
+  \begin{equation}
+    \mathcal{F}(v)
+    \equiv
+    \left( v^2+\hat{M}^2 \right)^{-1}
+    \cdot
+    f\hat{N}
+    \nonumber
+  \end{equation}
+
+  これを用いれば、$m_{X}^2$は次のように書ける。
+  \begin{equation}
+    m_{X}^2
+    =
+    \frac{1}{16\pi^2 f^2}
+    \int_{0}^{\infty}\dd v\ v^3\Tr
+    \left[  
+      \frac{\mathcal{F}(v)^4}{1-\mathcal{F}(v)^2}v^2
+      -
+      2\left( \frac{\mathcal{F}(v)^2}{1-\mathcal{F}(v)^2}\hat{M} \right)^2
+    \right]
+    \label{eqn:mX2_Fv}
+  \end{equation}
+
+  式の形をみて、
+  \begin{gather}
+    M_{1}^2
+    =
+    \frac{1}{16\pi^2 f}\int_{0}^{\infty}\dd v\ v^5\Tr\left[ \frac{\mathcal{F}(v)^4}{1-\mathcal{F}(v)^2} \right]
+    \nonumber
+    \\
+    M_{2}^2
+    =
+    \frac{1}{8\pi^2 f}\int_{0}^{\infty}\dd v\ v^3\Tr\left[ \left( \frac{\mathcal{F}(v)^2}{1-\mathcal{F}(v)^2}\hat{M}  \right)\right]
+    \nonumber
+    \\
+    m_{X}^2=M_{1}^2-M_{2}^2
+    \nonumber
+  \end{gather}
+  としておく。  
+
+  これで、$m_{X}^2$に関する公式が得られたことになる。Appendixで具体的なモデルに対してこの公式を適用している。
+
+\end{frame}
+
+
+\subsection{\texorpdfstring{$m_{X}^2$}{mX2}とR電荷の関係}
+
+\begin{frame}
+  \frametitle{\subsecname}
   
+  ここでは、この公式とR電荷との関係を見てみる。
+  \begin{gather}
+    M_{1}^2
+    =
+    \frac{1}{16\pi^2 f}\int_{0}^{\infty}\dd v\ v^5\Tr\left[ \frac{\mathcal{F}(v)^4}{1-\mathcal{F}(v)^2} \right]
+    \nonumber
+    \\
+    m_{X}^2=M_{1}^2-M_{2}^2
+    \nonumber    
+  \end{gather}
 
 \end{frame}
 
 
 
+\subsection{簡単な模型での計算}
+
+\begin{frame}
+  \frametitle{\subsecname}
+
+  以上の視点で、簡単な模型を考察する。
+  \begin{equation}
+    W=\lambda X\phi_{1}\phi_{2}+m_{1}\phi_{1}\phi_{3}+\frac{1}{2}m_{2}^2\phi_{2}^2+fX
+    \nonumber
+  \end{equation}
+
+  「R電荷が0と2のものを含まない模型」という意味で一番シンプル。このモデルの求め方は、簡単に説明されてあった。(現実的な模型は付録にあるが、それらはR電荷が0か2のものを含んでいる。)
+  $$
+    R_{X}=2, R(\phi_{1})=-1, R(\phi_{2})=1, R(\phi_{3})=3
+  $$
+
+ポテンシャルは
+\begin{align}
+  V
+  &=
+  \bar{F}^{X}F^{X}
+  +
+  \bar{F}^{\phi_{1}}F^{\phi_{1}}
+  +
+  \bar{F}^{\phi_{2}}F^{\phi_{2}}
+  +
+  \bar{F}^{\phi_{3}}F^{\phi_{3}}
+  \nonumber
+  \\
+  &=
+  |\lambda X\phi_{2}+m_{1}\phi_{3}|^2
+  +
+  |\lambda X\phi_{1}+m_{2}\phi_{2}|^2
+  +
+  |m_{1}\phi_{1}|^2
+  +
+  |\lambda \phi_{1}\phi_{2}+f|^2
+  \nonumber
+\end{align}
+
+(ここで、カイラル超場$\Phi(=\phi_{i}\textrm{\ or\ }X)$のスカラーを同じ記号$\Phi$で書いている。)
+
+\end{frame}
+
+\begin{frame}
+
+  今回の質量行列などは以下の通り。
+  \begin{gather}
+    W=\lambda X\phi_{1}\phi_{2}+m_{1}\phi_{1}\phi_{3}+\frac{1}{2}m_{2}^2\phi_{2}^2+fX
+    \label{eqn:eg}
+    \\
+    M
+    =
+    \begin{pmatrix}
+      0 & 0 & m_{1} \\
+      0 & m_{2} & 0 \\
+      m_{1} & 0 & 0 \\
+    \end{pmatrix}
+    \ ,\quad
+    N
+    =
+    \begin{pmatrix}
+      0 & \lambda & 0 \\
+      \lambda & 0 & 0 \\
+      0 & 0 & 0
+    \end{pmatrix}
+  \end{gather}
+
+  
 
 
 
+  
+
+\end{frame}
 
 
 
@@ -565,6 +793,18 @@
 
 \begin{frame}[plain,allowframebreaks]{\subsecname}
   \tableofcontents
+\end{frame}
+
+
+\subsection{補足}
+
+\begin{frame}[plain,allowframebreaks]{\eqref{eqn:mX2_Fv}の補足}
+
+
+
+
+
+  
 \end{frame}
 
 
