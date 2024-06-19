@@ -88,7 +88,7 @@
 
   \begin{itemize}
     \item
-          Nelson\ \& Seibergによれば、SUSYを破るためには、(R対称性を理論がもっているなら)それを破らなくてはならない。
+          Nelson\ \& Seibergによれば、SUSYを破るためには、(R対称性を理論がもっているなら) R対称性を破るとよいことが分かる。
     \item
           この論文では、\textcolor{FireBrick}{モデルの摂動ダイナミクス自体}(量子補正)でR対称性を破ることを考える。
     \item
@@ -196,6 +196,18 @@
 \end{frame}
 
 \begin{frame}
+
+  カイラル超場
+  \begin{gather}
+    \Phi
+    =
+    \phi(x)+i\theta\sigma^{\mu}\bar{\theta}\partial_{\mu}\phi(x)+\frac{1}{4}\theta\theta\overline{\theta\theta}\partial^{2}\phi(x)
+    \nonumber
+    \\
+    \hspace*{1.5cm}
+    +\sqrt{2}\theta\psi(x)-\frac{i}{\sqrt{2}}\theta\theta\partial_{\mu}\psi\sigma^{\mu}\bar{\theta}+\theta\theta F(x)
+    \nonumber
+  \end{gather}
 
   超場によって構成される以下のポテンシャルを考えると超対称な理論が得られる。
   \begin{itemize}
@@ -344,7 +356,7 @@
 
   $M,N$は複素対称行列。$\det M\neq 0$、$f> 0$を仮定。
 
-  また、$M$を次の形で書く。$M_{i}$はR電荷が$q_{i}$の場の質量行列。(\hyperref[eqn:eg]{具体例})
+  また、$M$を次の形で書く。$M_{i}$はR電荷が$q_{i}$の場の質量行列。(R電荷の順番で添え字を割り振るので、下のR電荷に対する条件と照らし合わせて上のような形になる。\eqref{eqn:eg})
   \begin{equation}
     M
     =
@@ -409,7 +421,7 @@
     \det M\neq 0
     \nonumber
   \end{align}
-  最後の等式は\uwave{R電荷の条件}から$\Tr (M^{-1}N)$が$0$となることを用いている。
+  最後の等式は\uwave{R電荷の条件}から$M^{-1}N$が$0$となることを用いている。
   \begin{equation}
     \left(
     M_{ij}\neq 0
@@ -422,7 +434,6 @@
     \right)
     \nonumber
   \end{equation}
-  この関係から、R対称性を課すと$M^{-1}N$を計算するときに$M$か$N$の成分が必ず消えている。
 
   \begin{center}
     {\Huge $\Downarrow$}\\
@@ -468,7 +479,23 @@
     (\hat{M}+X\hat{N})^2
     \nonumber
   \end{align}
-  ただし、$W_{i}\equiv\partial W/\partial\phi_{i}$。これがスカラーやフェルミオンの質量行列というのは、
+  ただし、$W_{i}\equiv\partial W/\partial\phi_{i}$で
+  \begin{equation}
+    M
+    =
+    \begin{pmatrix}
+      0 & M^{\dag} \\
+      M & 0
+    \end{pmatrix}
+    \ ,\quad
+    \hat{N}
+    =
+    \begin{pmatrix}
+      0 & N^{\dag} \\
+      N & 0
+    \end{pmatrix}
+    \nonumber
+  \end{equation}
 
 \end{frame}
 
@@ -619,7 +646,7 @@
       -
       2\left( \frac{\mathcal{F}(v)^2}{1-\mathcal{F}(v)^2}\hat{M} \right)^2
       \right]
-      \tag*{\heartsuit}
+    \tag*{\heartsuit}
     \label{eqn:mX2_Fv}
   \end{equation}
 
@@ -627,12 +654,12 @@
   \begin{gather}
     M_{1}^2
     =
-    \frac{1}{16\pi^2 f}\int_{0}^{\infty}\dd v\ v^5\Tr\left[ \frac{\mathcal{F}(v)^4}{1-\mathcal{F}(v)^2} \right]
+    \frac{1}{16\pi^2 f^2}\int_{0}^{\infty}\dd v\ v^5\Tr\left[ \frac{\mathcal{F}(v)^4}{1-\mathcal{F}(v)^2} \right]
     \nonumber
     \\
     M_{2}^2
     =
-    \frac{1}{8\pi^2 f}\int_{0}^{\infty}\dd v\ v^3\Tr\left[ \left( \frac{\mathcal{F}(v)^2}{1-\mathcal{F}(v)^2}\hat{M}  \right)^2 \right]
+    \frac{1}{8\pi^2 f^2}\int_{0}^{\infty}\dd v\ v^3\Tr\left[ \left( \frac{\mathcal{F}(v)^2}{1-\mathcal{F}(v)^2}\hat{M}  \right)^2 \right]
     \nonumber
     \\
     m_{X}^2=M_{1}^2-M_{2}^2
@@ -655,7 +682,7 @@
     \\
     M_{2}^2
     =
-    \frac{1}{8\pi^2 f}\int_{0}^{\infty}\dd v\ 
+    \frac{1}{8\pi^2 f}\int_{0}^{\infty}\dd v\
     v^3\Tr\left[ \left( \frac{\mathcal{F}(v)^2}{1-\mathcal{F}(v)^2}\hat{M}  \right)^2 \right]
     \nonumber
   \end{gather}
@@ -672,7 +699,7 @@
   \setbeamercolor{block body}{bg=Goldenrod!10!white, fg=black}
   \begin{block}{}
     \centering
-    量子補正で$\ev*{X}\neq 0$としたいんだったら \\
+    量子補正で$\ev*{X}\neq 0$としたいのであれば \\
     R電荷が$0$か$2$以外の場の存在が必要。
   \end{block}
 
@@ -681,9 +708,98 @@
 
 \begin{frame}
 
+  超ポテンシャル
+  \begin{equation}
+    W
+    =
+    fX+\frac{1}{2}(M_{ij}+XN_{ij})\phi_{i}\phi_{j}
+    \nonumber
+  \end{equation}
 
+  ここで、$\phi_{i}$のR電荷が0か2ならば、質量行列は次のようになる。
+  \begin{eqnarray}
+    M
+    =
+    \begin{pmatrix}
+      0          & M_{02} \\
+      M_{02}^{T} & 0
+    \end{pmatrix}
+    \ ,\quad
+    N
+    =
+    \begin{pmatrix}
+      N_{00} & 0 \\
+      0      & 0
+    \end{pmatrix}
+    \nonumber
+  \end{eqnarray}
 
-  
+  すると、
+  \begin{gather}
+    \hat{M}
+    =
+    \begin{pmatrix}
+      0 & 0 & 0 & M_{02}^{*} \\
+      0 & 0 & M_{02}^{\dag} & 0 \\
+      0 & M_{02} & 0 & 0 \\
+      M_{02}^{T} & 0 & 0 & 0
+    \end{pmatrix}
+    \ ,\quad
+    \hat{N}
+    =
+    \begin{pmatrix}
+      0 & 0 & N_{00}^{\dag} & 0 \\
+      0 & 0 & 0 & 0 \\
+      N_{00} & 0 & 0 & 0 \\
+      0 & 0 & 0 & 0 
+    \end{pmatrix}
+    \ ,
+    \nonumber
+    \\
+    \mathcal{F}(v)
+    =
+    (v^2+\hat{M}^2)^{-1}f\hat{N}^2
+    =
+    \begin{pmatrix}
+      0 & 0 & \mathcal{F}_{00}^{\dag} & 0 \\
+      0 & 0 & 0 & 0 \\
+      \mathcal{F}_{00} & 0 & 0 & 0 \\
+      0 & 0 & 0 & 0       
+    \end{pmatrix}
+    \ .
+    \nonumber
+  \end{gather}
+
+\end{frame}
+
+\begin{frame}
+
+  したがって
+  \begin{gather}
+    M_{1}^2
+    =
+    \frac{1}{16\pi^2 f}\int_{0}^{\infty}\dd v\ v^5\Tr\left[ \textcolor{DarkRed}{\frac{\mathcal{F}(v)^4}{1-\mathcal{F}(v)^2}} \right]
+    \nonumber
+    \\
+    M_{2}^2
+    =
+    \frac{1}{8\pi^2 f}\int_{0}^{\infty}\dd v\ v^3\Tr\left[ \textcolor{DarkRed}{\left( \frac{\mathcal{F}(v)^2}{1-\mathcal{F}(v)^2}\hat{M}  \right)^2} \right]
+    \nonumber
+  \end{gather}
+  に先ほどの結果を代入すると
+  \begin{gather}
+    \textcolor{DarkRed}{\frac{\mathcal{F}(v)^4}{1-\mathcal{F}(v)^2}}
+    =
+    2\dfrac{\left( \mathcal{F}_{00}^{\dag}\mathcal{F}_{00} \right)^2}{1-\mathcal{F}_{00}^{\dag}\mathcal{F}_{00}}
+    >0
+    \nonumber
+    \\
+    \textcolor{DarkRed}{\left( \frac{\mathcal{F}(v)^2}{1-\mathcal{F}(v)^2}\hat{M}  \right)^2}
+    =
+    0
+    \nonumber
+  \end{gather}
+  となって、$m_{X}^2=M_{1}^2>0$が示されたことになる。 
 
 \end{frame}
 
@@ -701,7 +817,7 @@
 
   「R電荷が0と2のものを含まない模型」という意味で一番シンプル。
   $$
-    R_{X}=2\ , \quad R(\phi_{1})=-1\ , \quad R(\phi_{2})=1\ ,\quad R(\phi_{3})=3
+    R(X)=2\ , \quad R(\phi_{1})=-1\ , \quad R(\phi_{2})=1\ ,\quad R(\phi_{3})=3
   $$
 
   ポテンシャルは
@@ -797,8 +913,8 @@
   今回の質量行列などは以下の通り。
   \begin{gather}
     W=\lambda X\phi_{1}\phi_{2}+m_{1}\phi_{1}\phi_{3}+\frac{1}{2}m_{2}^2\phi_{2}^2+fX
+    \tag*{\clubsuit}
     \label{eqn:eg}
-    \nonumber
     \\
     M
     =
@@ -885,11 +1001,41 @@
 
 \begin{frame}
 
-  \begin{itemize}
-    \item
-    ランナウェイする真空や、life timeについての議論がこの後あります。
+  同様にして、$X^{4}$の係数$\lambda_{X}$も計算できて
+  \begin{equation}
+    \lambda_{X}^2
+    =
+    \frac{3\lambda^4 y^2}{8\pi^2}
+    \dfrac{r^2(12r^2(r^4+5r^2+2)\ln r-19r^6-9r^4+27r^2+1)}{(r^2-1)^5}
+    \nonumber
+  \end{equation}
+  となり、これは$r>r_{*}$で正の値をとる(らしい)。
 
-  \end{itemize}
+  したがって、$V=V_{0}+m_{X}^2|X|^2+(\lambda_{X}/4)X^4+\mathcal{O}(X^6)$で$m_{X}^2<0$かつ$\lambda_{X}>0$なので、$\ev*{X}\neq 0$となる真空をもち、R対称性が破れている。
+
+  \vspace*{15pt}
+  
+  \begin{columns}[t]
+    \begin{column}{0.5\textwidth}
+      他にもこの章では、
+      \begin{itemize}
+        \item 
+        $r$や$y$のパラメター領域の図示
+        \item 
+        lifetimeの計算 
+      \end{itemize}
+      をしていた。
+    \end{column}
+    \begin{column}{0.5\textwidth} 
+
+      \vspace*{-30pt}
+
+      \begin{figure}
+        \centering
+        \includegraphics[width=1.0\textwidth]{fig/01.PNG}
+      \end{figure}
+    \end{column}
+  \end{columns}
 
 \end{frame}
 
@@ -900,20 +1046,25 @@
   \huge \secname
 \end{frame}
 
-
 \begin{frame}
 
   \uline{まとめ}
   \begin{itemize}
+    \item
+    R対称性が自発的に破れない模型でも、量子補正でR対称性を破ることができる場合がある。
     \item 
+    その観点ではR電荷が0か2ではないような場の存在が要求される。
+    \item 
+    また、理論に現れる係数にも制限がつく。
   \end{itemize}
 
   \uline{その他}
   \begin{itemize}
-    \item 
-    $X^4$の係数の正負についての一般論はあるのか。
-    \item 
-    自分の研究の場合は、そもそもループ補正とかを考えていないので、今回の内容は直近では役に立たないのかなと思いました。(勉強としては良かったと思います。)
+    \item
+          $X^4$の係数の正負についての一般論はあるのか。\\
+          例えば$m_{X}^2$のときと同じで、R電荷について制限ができないか。
+    \item
+          自分の研究の場合は、そもそもループ補正とかを考えていないので、今回の内容は直近では役に立たないのかなと思いました。
   \end{itemize}
 
 \end{frame}
@@ -984,12 +1135,11 @@
 \begin{frame}
   \citeftwo{Nelson:1993nf}{A. E. Nelson and N. Seiberg, Nucl. Phys. B 416 (1994) 46-62.}{R100000002-I027963943}{大河内豊, 超対称性の破れ : 場の理論から弦理論まで, SGC ライブラリ。}
 
-  この例につていは？
+  この例については？
   \begin{figure}
     \centering
     \includegraphics[width=0.8\textwidth]{fig/Nelson1993nf2.PNG}
   \end{figure}
-  $S$がflat direction。non-genericな場合に入るのでは。
 
   また、\cite{R100000002-I027963943}にはこんな記述も。
   \begin{figure}
@@ -1012,10 +1162,39 @@
 
 \begin{frame}[plain,allowframebreaks]{\eqref{eqn:mX2_Fv}の補足}
 
-
-
-
-
+  最初の式
+  \begin{align}
+    m_{X}^2
+     & =
+    \frac{1}{16\pi^2}\Tr\int_{0}^{\Lambda}\dd v
+    \nonumber
+    \\
+     & \hspace*{1cm}
+    \times
+    \left[
+      \textcolor{DarkGreen}{
+      \frac{v^3}{v^2+\hat{M}^2+f\hat{N}}
+      \left(
+      \hat{N}^2
+      -
+      \frac{1}{2}\{\hat{M},\hat{N}\}\frac{1}{v^2+\hat{M}^2+f\hat{N}}\{\hat{M},\hat{N}\}
+      \right)
+      }
+      \right.
+      \nonumber
+    \\
+     & \hspace*{1.2cm}
+      \left.
+      -\frac{v^3}{v^2+\hat{M}^2}
+      \left(
+      \hat{N}^2
+      -
+      \frac{1}{2}\{\hat{M},\hat{N}\}\frac{1}{v^2+\hat{M}^2}\{\hat{M},\hat{N}\}
+      \right)
+      \right]
+    \nonumber
+  \end{align}
+  を見て、\textcolor{DarkGreen}{緑色}のところを$f$で展開してみると、0次の項は後ろのやつと打ち消す。
 
 \end{frame}
 
