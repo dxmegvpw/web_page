@@ -14,37 +14,74 @@
     <h2>My setup for VS Code and LaTeX</h2>
 
     <p>
-        When I write notes or report assignments, I usually use LaTeX since it produces beautifully formatted mathematical equations, and above all, it is enjoyable to use. 
+        When I write notes or report assignments, I usually use LaTeX since it produces beautifully formatted
+        mathematical equations, and above all, it is enjoyable to use.
     </p>
 
     <p>
-        To make our LaTeX lives happier, I usually use Visual Studio Code (VS Code) for a text editor. It helps us to write TeX code and introduce some features, like Grammarly or git etc., more easily. I cannot imagine my life without VS Code for me. In this notes, I will show you one of the installation and setup examples for LaTeX and VS Code. Our strategies are as follows:
-        <ol>
-            <li>
-                Install the Windows Subsystem for Linux (WSL) and VS Code.<br>
-                We will use a virtual environment and activate LaTeX on it.                
-            </li>
-            <li>
-                Log in to the VS Code account and synchronies the settings. (If you do not have a Microsoft account, you should create one as it will be easier to set up next time).<br>
-                Install TeX Live on Linux from the command prompt.
-            </li>
-        </ol>
+        To make our LaTeX lives happier, I usually use Visual Studio Code (VS Code) for a text editor. It helps us to
+        write TeX code and introduce some features, like Grammarly or git etc., more easily. I cannot imagine my life
+        without VS Code for me. In this notes, I will show you one of the installation and setup examples for LaTeX and
+        VS Code. Our strategies are as follows:
+    <ol>
+        <li>
+            Install the Windows Subsystem for Linux (WSL) and VS Code.<br>
+            We will use a virtual environment and activate LaTeX on it.
+        </li>
+        <li>
+            Log in to the VS Code account and synchronies the settings. (If you do not have a Microsoft account, you
+            should create one as it will be easier to set up next time).<br>
+            Install TeX Live on Linux from the command prompt.
+        </li>
+    </ol>
     </p>
+
 
 
     <h3>Install the application</h3>
 
     <p>
-        The VS Code installer is available <a href="https://code.visualstudio.com/Download" target="_blank">here</a>. Confirm your Operating System and download appropriate versions to your computer.
+        The VS Code installer is available <a href="https://code.visualstudio.com/Download" target="_blank">here</a>.
+        Confirm your Operating System and download appropriate versions to your computer.
     </p>
 
     <p>
-        Before (or after) installing, you should also install Ubuntu for your computer. Basically, we will be using the virtual environment and installing LaTeX (and Python, C++, etc.) on it from now on. 
+        Before (or after) installing, you should also install Ubuntu for your computer. Basically, we will be using the
+        virtual environment and installing LaTeX (and Python, C++, etc.) on it from now on. You should open the
+        Microsoft Store from the Start menu and find Ubuntu and install it on your PC.
     </p>
 
     <p>
-        You should open the Microsoft Store from the Start menu and find Ubuntu and install it on your PC.
+        When you have finished installing Ubuntu on your PC, let us start the setup for VS Code. Fortunately, we can
+        synchronize the settings through the personal account, we can immediately finish several steps like finding the
+        working folder, installing the application, etc. In summary, what you need to do at first is wait until the
+        synchronization of the settings is finished and restart VS Code again to update the options.
     </p>
+
+
+
+    <h3>Setting up the virtual environment and syncing with GitHub</h3>
+
+    <p>
+        Here is one of the most complex steps, installing Ubuntu and GitHub on VS Code. As I said, we can skip the
+        setting about the VS Code through our account, but we should synchronize these applications on your computer.
+    </p>
+
+    <p>
+        Let me show you the step to use Ubuntu on the VS Code first. It is not so difficult, what you have to do is just to register your username and password on the Linux. When your turn on the Ubuntu for the first time, the registration form arise and you should follow its instruction. After finishing it, you should check the Remote Explorer tab of VS Code. If you successfully download the application "WSL" on the VS Code, you will open the workspace on the Linux. However, you will immediately notice that your Linux folder is almost empty. Therefore, let us install the GitHub to share the folders! Before installing GitHub, you should create a folder for it. In my case, I create the folder "git" under the user folder (e.g. /home/*username*/git). The preparation is done!
+    </p>
+
+    <p>
+        sudo apt-get install git
+    </p>
+
+
+
+
+
+
+
 
 </body>
+
 </html>
