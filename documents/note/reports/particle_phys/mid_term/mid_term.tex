@@ -1,0 +1,118 @@
+\documentclass[unicode,a4paper,10pt]{ltjsarticle}
+\input{preamble_lualatex.tex}
+\begin{document}
+
+% ---Title---
+\title{
+  素粒子物理学\ 中間レポート
+}
+\author{
+  学生番号：5324A057-8
+  \quad
+  氏名：宮根 一樹
+}
+\date{最終更新：\today}
+
+\maketitle
+
+\begin{enumerate}
+  \item
+        与えられたラグランジアンは
+        \begin{equation}
+          \mathcal{L}
+          =
+          \bar{\psi}^{\alpha}i(\gamma^{\mu}\partial_{\mu}-m_{f})_{\alpha}^{\ \beta}\psi_{\beta}
+          +
+          \frac{1}{2}(\partial_{\mu}\phi)^2
+          -
+          \frac{1}{2}m_{\phi}^2\phi^2
+          +
+          Y\phi\bar{\psi}\psi
+          。
+        \end{equation}
+        ただし、$\alpha,\beta$はガンマ行列$\gamma^{\mu}$の成分の添え字である。したがって、
+        \begin{equation}
+          \left\{
+          \begin{alignedat}{1}
+            \pdv{\mathcal{L}}{\bar{\psi}^{\xi}}
+            &=
+            i(\gamma^{\mu}\partial_{\mu}-m_{f})_{\xi}^{\ \eta}\psi_{\eta}(x)
+            +
+            Y\phi(x)\psi_{\xi}(x)
+            、
+            \\
+            \pdv{\mathcal{L}}{(\partial_{\mu}\bar{\psi}^{\xi})}
+            &=
+            0
+            、
+            \\
+            \pdv{\mathcal{L}}{\phi}
+            &=
+            -
+            m_{\phi}^2\phi+Y\bar{\psi}\psi
+            、
+            \\
+            \pdv{\mathcal{L}}{(\partial_{\mu}\phi)}
+            &=
+            \partial^{\mu}\phi
+          \end{alignedat}
+          \right.
+        \end{equation}
+        となっているので、オイラー・ラグランジュ方程式から運動方程式
+        \begin{graybox}
+
+          \vspace*{-15pt}
+
+          \begin{gather}
+            (i\gamma^{\mu}\partial_{\mu}-m_{f})_{\xi}^{\ \eta}\psi_{\eta}(x)
+            =
+            -Y\phi(x)\psi_{\xi}(x)
+            、
+            \\
+            (\partial_{\mu}\partial^{\mu}+m_{\phi}^{2})\phi(x)
+            =
+            Y\bar{\psi}^{\xi}(x)\psi_{\xi}(x)
+          \end{gather}
+        \end{graybox}
+        が得られる。
+
+
+  \item
+        $\gamma^{\mu}\partial_{\mu}=\gamma^{0}\partial_{0}+\gamma^{i}\partial_{i}$であることに注意して、運動方程式の項を整理すると
+        \begin{equation}
+          i\gamma^{0}\partial_{0}\psi(x)
+          =
+          (-i\gamma^{i}\partial_{i}+m_{f}-Y\phi)\psi(x)
+        \end{equation}
+        となる。ただし、イタリックの添え字$i$は空間方向の添え字$i=1,2,3$である。ここで、両辺に左側から$\gamma^{0}$をかけると、${\gamma^{0}}^2=1$であるから
+        \begin{equation}
+          i\partial_{0}\psi
+          =
+          (
+            \uline{-i\gamma^{0}\gamma^{i}\partial_{i}
+            +
+            \gamma^{0}m_{f}
+            }
+            \uwave{
+            -
+            \gamma^{0}Y\phi(x)
+            }
+          )\psi(x)
+        \end{equation}
+        となる。したがって、\uline{下線の項}を$H_{0}$、\uwave{波線の項}を$V(x)$とすれば、確かに$V(x)=-\gamma^{0}V(x)$となっている。
+
+
+
+
+
+
+
+
+\end{enumerate}
+
+% ----------------------------------------
+% \clearpage
+% \bibliography{ref}
+% \bibliographystyle{ytphys}
+
+\end{document}
