@@ -61,7 +61,7 @@
         となっているので、オイラー・ラグランジュ方程式から運動方程式
         \begin{graybox}
 
-          \vspace*{-15pt}
+          \vspace*{-10pt}
 
           \begin{gather}
             (i\gamma^{\mu}\partial_{\mu}-m_{f})_{\xi}^{\ \eta}\psi_{\eta}(x)
@@ -89,21 +89,60 @@
           i\partial_{0}\psi
           =
           (
-            \uline{-i\gamma^{0}\gamma^{i}\partial_{i}
-            +
-            \gamma^{0}m_{f}
-            }
-            \uwave{
+          \uline{-i\gamma^{0}\gamma^{i}\partial_{i}
+          +
+          \gamma^{0}m_{f}
+          }
+          \uwave{
             -
             \gamma^{0}Y\phi(x)
-            }
+          }
           )\psi(x)
         \end{equation}
-        となる。したがって、\uline{下線の項}を$H_{0}$、\uwave{波線の項}を$V(x)$とすれば、確かに$V(x)=-\gamma^{0}V(x)$となっている。
+        となる。したがって、\uline{下線の項}を$H_{0}$、\uwave{波線の項}を$V(x)$とすれば、
+        \begin{equation}
+          i\partial_{0}\psi
+          =
+          (
+          H_{0}
+          +
+          V(x)
+          )\psi(x)
+        \end{equation}
+        であり、確かに$V(x)=-\gamma^{0}V(x)$となっている。
+
+
+  \item
+        図\ref{fig:feynman_diag01}の値を計算する。
+
+
+        \begin{figure}[ht]
+          \centering
+          \includegraphics[width=0.6\textwidth]{fig/fig01.pdf}
+          \caption{問題のダイアグラム}
+          \label{fig:feynman_diag01}
+        \end{figure}
 
 
 
 
+
+
+
+\end{enumerate}
+
+
+\clearpage
+\uline{補足}
+\begin{enumerate}
+  \item
+        ここで、問2で仮定した
+        \begin{equation}
+          H_{0}
+          =
+          (-i\gamma^{0}\gamma^{i}\partial_{i}+\gamma^{0}m_{f})\psi
+        \end{equation}
+        が、今回のディラック場の理論のハミルトニアンであることを確認しておこう。
 
 
 
