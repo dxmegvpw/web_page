@@ -68,13 +68,28 @@
     </p>
 
     <p>
-        Let me show you the step to use Ubuntu on the VS Code first. It is not so difficult, what you have to do is just to register your username and password on the Linux. When your turn on the Ubuntu for the first time, the registration form arise and you should follow its instruction. After finishing it, you should check the Remote Explorer tab of VS Code. If you successfully download the application "WSL" on the VS Code, you will open the workspace on the Linux. However, you will immediately notice that your Linux folder is almost empty. Therefore, let us install the GitHub to share the folders! Before installing GitHub, you should create a folder for it. In my case, I create the folder "git" under the user folder (e.g. /home/*username*/git). The preparation is done!
+        Let me show you the step to use Ubuntu on the VS Code first. It is not so difficult, what you have to do is just
+        to register your username and password on the Linux. When your turn on the Ubuntu for the first time, the
+        registration form arise and you should follow its instruction. After finishing it, you should check the Remote
+        Explorer tab of VS Code. If you successfully download the application "WSL" on the VS Code, you will open the
+        workspace on the Linux. However, you will immediately notice that your Linux folder is almost empty. Therefore,
+        let us install the GitHub to share the folders! Before installing GitHub, you should create a folder for it. In
+        my case, I create the folder "git" under the user folder (e.g. /home/*username*/git). The preparation is done!
     </p>
 
     <p>
-        sudo apt-get install git
-        git config --global user.email "itsuki.miyane@gmail.com"
-        git config --global user.name "imiya"
+        Now we need to install the git command on Linux. This is not a difficult step as the installer is already
+        provided. All we need to do is type "sudo apt-get install git" at the command prompt. After waiting for the
+        installation to complete, you can configure the git command. You should configure some information as follows
+        <ul>
+            <li>
+                git config --global user.email "(your email address)"
+            </li>
+            <li>
+                git config --global user.name "(your username)"
+            </li>
+        </ul>
+        This step is required when you commit the repostory.
     </p>
 
 
