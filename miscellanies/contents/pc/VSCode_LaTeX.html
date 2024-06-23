@@ -47,8 +47,7 @@
 
     <p>
         Before (or after) installing, you should also install Ubuntu for your computer. Basically, we will be using the
-        virtual environment and installing LaTeX (and Python, C++, etc.) on it from now on. You should open the
-        Microsoft Store from the Start menu and find Ubuntu and install it on your PC.
+        virtual environment and installing LaTeX (and Python, C++, etc.) on it from now on. You should open the command prompt and act "wsl --install Ubuntu". (If wsl command does not work, you have to install WSL and register the path on it.) After waiting several minutes, entering the username and password are required. Then you complied the installation.
     </p>
 
     <p>
@@ -108,12 +107,8 @@
     <p>
         You should follow these steps:
     <ol>
-        <li>Update your Ubuntu repository (not necessary)<br>
-            "sudo apt update && sudo apt upgrade"
-        </li>
         <li>
-            Install LaTeX<br>
-            "sudo apt install texlive-full"
+            "wget http://mirror.ctan.org/systems/texlive/tlnet/install-tl-unx.tar.gz"
         </li>
     </ol>
     Although it is easier to build LaTeX on your Linux, it is harder to create a more comfortable environment. I make
