@@ -15,10 +15,10 @@
 \begin{tikzpicture}
     \begin{feynhand}
         % Incoming fermions
-        \vertex (i1) at (-3,2) {$q_1, T_1$};
-        \vertex (i2) at (-3,-2) {$p_1, \lambda_1$};
-        \vertex (o1) at (3,2) {$q_2, T_2$};
-        \vertex (o2) at (3,-2) {$p_2, \lambda_2$};
+        \vertex (i1) at (-3,2) {$\bm{q}_1, T_1$};
+        \vertex (i2) at (-3,-2) {$\bm{p}_1, \lambda_1$};
+        \vertex (o1) at (3,2) {$\bm{q}_2, T_2$};
+        \vertex (o2) at (3,-2) {$\bm{p}_2, \lambda_2$};
         \vertex (v1) at (-1.5,0);
         \vertex (v2) at (+1.5,0);
 
@@ -27,7 +27,7 @@
         \propag[fer] (v2) to [edge label'=$\psi$] (o1);
         \propag[fer] (o2) to [edge label'=$\bar{\psi}$] (v2);        
         
-        \propag[sca] (v1) to [edge label=$\Phi$] (v2);
+        \propag[sca] (v1) to [edge label=$\phi$] (v2);
 
         \fill[blue] (v1) circle (2pt) node [left, black] {$i\gamma$};
         \fill[blue] (v2) circle (2pt) node [right, black] {$i\gamma$};

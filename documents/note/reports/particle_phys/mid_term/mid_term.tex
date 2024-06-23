@@ -21,7 +21,7 @@
         \begin{equation}
           \mathcal{L}
           =
-          \bar{\psi}^{\alpha}i(\gamma^{\mu}\partial_{\mu}-m_{f})_{\alpha}^{\ \beta}\psi_{\beta}
+          \bar{\psi}^{\alpha}(i\gamma^{\mu}\partial_{\mu}-m_{f})_{\alpha}^{\ \beta}\psi_{\beta}
           +
           \frac{1}{2}(\partial_{\mu}\phi)^2
           -
@@ -113,8 +113,69 @@
 
 
   \item
-        図\ref{fig:feynman_diag01}の値を計算する。
-
+        図\ref{fig:feynman_diag01}の値を計算する。遷移振幅に具体的な表式を代入すると
+        \begin{align}
+          iT_{\textrm{FI}}
+           & =
+          -iY
+          \int\dd^4 x\
+          \bar{\psi}_{\textrm{F}}(x)\phi(x)\psi_{\textrm{I}}(x)
+          \nonumber
+          \\
+           & =
+          iY
+          \int\dd^4 x\
+          \bar{u}(\bm{q}_{1},\tau_{1})u(\bm{p}_{1},\lambda_{1})e^{-i(p_{1}-q_{1})\cdot x}
+          \times
+          \phi(k)e^{-ik\cdot x}
+          \label{eqn:hogehoge}
+        \end{align}
+        となる。ここで、クライン・ゴルドン方程式
+        \begin{equation}
+          (\partial^2+m_{\phi})\phi(x)
+          =
+          Y\bar{\psi}\psi
+        \end{equation}
+        に展開式を代入すると
+        \begin{gather}
+          (-k^2+m_{\phi}^2)\phi(k)e^{-ik\cdot x}
+          =
+          Y\bar{u}(\bm{q}_{2},\tau_{2})u(\bm{p}_{2},\lambda_{2})
+          \times
+          e^{-i(p_{2}-q_{2})\cdot x}
+        \end{gather}
+        となるので、これを\eqref{eqn:hogehoge}に代入すれば
+        \begin{align}
+          iT_{\textrm{FI}}
+           & =
+          iY
+          \int\dd^4 x\
+          \bar{u}(\bm{q}_{1},\tau_{1})u(\bm{p}_{1},\lambda_{1})
+          \left.\dfrac{i^2 Y}{k^2-m_{\phi}^2}\right|_{k=p_{1}-q_{1}}
+          \bar{u}(\bm{q}_{2},\tau_{2})u(\bm{p}_{2},\lambda_{2})
+          e^{-i(p_{1}-q_{1}+p_{2}-q_{2})\cdot x}
+          \nonumber
+          \\
+           & =
+          (2\pi)^4\delta^{(4)}(p_{1}-q_{1}+p_{2}-q_{2})
+          \times
+          i(iY)^2
+          \bar{u}(\bm{q}_{1},\tau_{1})u(\bm{p}_{1},\lambda_{1})
+          \left.\dfrac{i}{k^2-m_{\phi}^2}\right|_{k=p_{1}-q_{1}}
+          \bar{u}(\bm{q}_{2},\tau_{2})u(\bm{p}_{2},\lambda_{2})
+        \end{align}
+        となる\footnote{
+        ただし、運動量保存則から$k=p_{1}-q_{1}$であることを暗に用いている。
+        }ので、
+        \begin{equation}
+          \mathcal{M}
+          =
+          (iY)^2
+          \bar{u}(\bm{q}_{1},\tau_{1})u(\bm{p}_{1},\lambda_{1})
+          \left.\dfrac{i}{k^2-m_{\phi}^2}\right|_{k=p_{1}-q_{1}}
+          \bar{u}(\bm{q}_{2},\tau_{2})u(\bm{p}_{2},\lambda_{2})
+        \end{equation}
+        である。
 
         \begin{figure}[ht]
           \centering
@@ -124,6 +185,8 @@
         \end{figure}
 
 
+  \item
+        a
 
 
 
@@ -133,19 +196,38 @@
 
 
 \clearpage
-\uline{補足}  
+\uline{補足}
 \begin{enumerate}
   \item
         ここで、問2で仮定した
         \begin{equation}
           H_{0}
           =
-          (-i\gamma^{0}\gamma^{i}\partial_{i}+\gamma^{0}m_{f})\psi
+          -i\gamma^{0}\gamma^{i}\partial_{i}+\gamma^{0}m_{f}
         \end{equation}
-        が、今回のディラック場の理論のハミルトニアンであることを確認しておこう。
-
-
-
+        が、今回のディラック場の理論のハミルトニアンであることを確認しておこう。そのためには、$\psi$に共役な運動量をもとめればよい。それは
+        \begin{equation}
+          \pi_{\psi}
+          =
+          \pdv{\mathcal{L}}{(\psi_{0}\psi)}
+          =
+          \bar{\psi}i\gamma^{0}
+          =
+          i\psi^{\dag}
+        \end{equation}
+        であるので、自由ディラック場をルジャンドル変換をすれば
+        \begin{align}
+          H_{0}
+           & =
+          \pi_{\psi}\partial_{0}\psi
+          -
+          \mathcal{L}_{\textrm{Dirac}}
+          \nonumber
+          \\
+           & =
+          \psi^{\dag}(-i\gamma^{0}\gamma^{i}\partial_{i}+\gamma^{0}m_{f})\psi
+        \end{align}
+        となるため、ハミルトニアンが得られる。
 
 \end{enumerate}
 
