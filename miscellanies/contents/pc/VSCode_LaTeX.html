@@ -108,8 +108,18 @@
         You should follow these steps:
     <ol>
         <li>
+            Move to the directory where you want to unpack the installer and get it by using <i>wget</i><br>
             "wget http://mirror.ctan.org/systems/texlive/tlnet/install-tl-unx.tar.gz"
         </li>
+        <li>
+            Expand what you obtained and go to the unpacked directory<br>
+            "tar xvf install-tl-unx.tar.gz" and "cd install-tl-(date)"
+        </li>
+        <li>
+            Execute the installer.<br>
+            "sudo ./install-tl -no-gui -repository http://mirror.ctan.org/systems/texlive/tlnet/"
+        </li>
+        (For installation, I referred <a href="https://texwiki.texjp.org/Linux" target="_blank">this web site</a>.)
     </ol>
     Although it is easier to build LaTeX on your Linux, it is harder to create a more comfortable environment. I make
     some notes when I use the LaTeX:
