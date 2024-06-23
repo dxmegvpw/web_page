@@ -145,37 +145,45 @@
           e^{-i(p_{2}-q_{2})\cdot x}
         \end{gather}
         となるので、これを\eqref{eqn:hogehoge}に代入すれば
-        \begin{align}
-          iT_{\textrm{FI}}
-           & =
-          iY
-          \int\dd^4 x\
-          \bar{u}(\bm{q}_{1},\tau_{1})u(\bm{p}_{1},\lambda_{1})
-          \left.\dfrac{i^2 Y}{k^2-m_{\phi}^2}\right|_{k=p_{1}-q_{1}}
-          \bar{u}(\bm{q}_{2},\tau_{2})u(\bm{p}_{2},\lambda_{2})
-          e^{-i(p_{1}-q_{1}+p_{2}-q_{2})\cdot x}
-          \nonumber
-          \\
-           & =
-          (2\pi)^4\delta^{(4)}(p_{1}-q_{1}+p_{2}-q_{2})
-          \times
-          i(iY)^2
-          \bar{u}(\bm{q}_{1},\tau_{1})u(\bm{p}_{1},\lambda_{1})
-          \left.\dfrac{i}{k^2-m_{\phi}^2}\right|_{k=p_{1}-q_{1}}
-          \bar{u}(\bm{q}_{2},\tau_{2})u(\bm{p}_{2},\lambda_{2})
-        \end{align}
-        となる\footnote{
-        ただし、運動量保存則から$k=p_{1}-q_{1}$であることを暗に用いている。
-        }ので、
-        \begin{equation}
-          \mathcal{M}
-          =
-          (iY)^2
-          \bar{u}(\bm{q}_{1},\tau_{1})u(\bm{p}_{1},\lambda_{1})
-          \left.\dfrac{i}{k^2-m_{\phi}^2}\right|_{k=p_{1}-q_{1}}
-          \bar{u}(\bm{q}_{2},\tau_{2})u(\bm{p}_{2},\lambda_{2})
-        \end{equation}
-        である。
+        \begin{graybox}
+
+          \vspace*{-10pt}
+
+          \begin{align}
+            iT_{\textrm{FI}}
+             & =
+            iY
+            \int\dd^4 x\
+            \bar{u}(\bm{q}_{1},\tau_{1})u(\bm{p}_{1},\lambda_{1})
+            \left.\dfrac{i^2 Y}{k^2-m_{\phi}^2}\right|_{k=p_{1}-q_{1}}
+            \bar{u}(\bm{q}_{2},\tau_{2})u(\bm{p}_{2},\lambda_{2})
+            e^{-i(p_{1}-q_{1}+p_{2}-q_{2})\cdot x}
+            \nonumber
+            \\
+             & =
+            (2\pi)^4\delta^{(4)}(p_{1}-q_{1}+p_{2}-q_{2})
+            \nonumber
+            \\
+            &\hspace*{1cm}
+            \times
+            i(iY)^2
+            \bar{u}(\bm{q}_{1},\tau_{1})u(\bm{p}_{1},\lambda_{1})
+            \left.\dfrac{i}{k^2-m_{\phi}^2}\right|_{k=p_{1}-q_{1}}
+            \bar{u}(\bm{q}_{2},\tau_{2})u(\bm{p}_{2},\lambda_{2})
+          \end{align}
+          となるので、
+          \begin{equation}
+            \mathcal{M}
+            =
+            (iY)^2
+            \bar{u}(\bm{q}_{1},\tau_{1})u(\bm{p}_{1},\lambda_{1})
+            \left.\dfrac{i}{k^2-m_{\phi}^2}\right|_{k=p_{1}-q_{1}}
+            \bar{u}(\bm{q}_{2},\tau_{2})u(\bm{p}_{2},\lambda_{2})
+          \end{equation}
+        \end{graybox}
+        である\footnote{
+          ただし、運動量保存則から$k=p_{1}-q_{1}$であることを暗に用いている。
+          }。
 
         \begin{figure}[ht]
           \centering
@@ -186,7 +194,12 @@
 
 
   \item
-        a
+        非相対論的極限では、$(p_{1}-q_{1})^2\sim -|\bm{p}_{1}-\bm{q}_{1}|^2$が成立している。よって、プロパゲーターは
+        \begin{equation}
+          \left.\dfrac{i}{k^2-m_{\phi}^2}\right|_{k=p_{1}-q_{1}}
+          \sim          
+          \dfrac{-i}{|\bm{p}_{1}-\bm{q}_{1}|^2+m_{\phi}^2}
+        \end{equation}
 
 
 
