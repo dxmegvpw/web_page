@@ -155,7 +155,7 @@
             iY
             \int\dd^4 x\
             \bar{u}(\bm{q}_{1},\tau_{1})u(\bm{p}_{1},\lambda_{1})
-            \left.\dfrac{i^2 Y}{k^2-m_{\phi}^2}\right|_{k=p_{1}-q_{1}}
+            \left.\dfrac{-Y}{k^2-m_{\phi}^2}\right|_{k=p_{1}-q_{1}}
             \bar{u}(\bm{q}_{2},\tau_{2})u(\bm{p}_{2},\lambda_{2})
             e^{-i(p_{1}-q_{1}+p_{2}-q_{2})\cdot x}
             \nonumber
@@ -164,11 +164,11 @@
             (2\pi)^4\delta^{(4)}(p_{1}-q_{1}+p_{2}-q_{2})
             \nonumber
             \\
-            &\hspace*{1cm}
+             & \hspace*{1cm}
             \times
             i(iY)^2
             \bar{u}(\bm{q}_{1},\tau_{1})u(\bm{p}_{1},\lambda_{1})
-            \left.\dfrac{i}{k^2-m_{\phi}^2}\right|_{k=p_{1}-q_{1}}
+            \left.\dfrac{1}{k^2-m_{\phi}^2}\right|_{k=p_{1}-q_{1}}
             \bar{u}(\bm{q}_{2},\tau_{2})u(\bm{p}_{2},\lambda_{2})
           \end{align}
           となるので、
@@ -177,13 +177,14 @@
             =
             (iY)^2
             \bar{u}(\bm{q}_{1},\tau_{1})u(\bm{p}_{1},\lambda_{1})
-            \left.\dfrac{i}{k^2-m_{\phi}^2}\right|_{k=p_{1}-q_{1}}
+            \left.\dfrac{1}{k^2-m_{\phi}^2}\right|_{k=p_{1}-q_{1}}
             \bar{u}(\bm{q}_{2},\tau_{2})u(\bm{p}_{2},\lambda_{2})
+            \label{eqn:invmatrix}
           \end{equation}
         \end{graybox}
         である\footnote{
-          ただし、運動量保存則から$k=p_{1}-q_{1}$であることを暗に用いている。
-          }。
+        ただし、運動量保存則から$k=p_{1}-q_{1}$であることを暗に用いている。
+        }。
 
         \begin{figure}[ht]
           \centering
@@ -196,19 +197,180 @@
   \item
         非相対論的極限では、$(p_{1}-q_{1})^2\sim -|\bm{p}_{1}-\bm{q}_{1}|^2$が成立している。よって、プロパゲーターは
         \begin{equation}
-          \left.\dfrac{i}{k^2-m_{\phi}^2}\right|_{k=p_{1}-q_{1}}
-          \sim          
-          \dfrac{-i}{|\bm{p}_{1}-\bm{q}_{1}|^2+m_{\phi}^2}
+          \left.\dfrac{1}{k^2-m_{\phi}^2}\right|_{k=p_{1}-q_{1}}
+          \sim
+          \dfrac{-1}{|\bm{p}_{1}-\bm{q}_{1}|^2+m_{\phi}^2}
+          \label{eqn:propag}
         \end{equation}
+        である。
+
+        また、$\sqrt{p^{\mu}\sigma_{\mu}}$の非相対論的極限は
+        \begin{graybox}
+
+          \vspace*{-10pt}
+
+          \begin{align}
+            \sqrt{p^{\mu}\sigma_{\mu}}
+             & =
+            p^{0}
+            +
+            \bm{p}\cdot\bm{\sigma}
+            \nonumber
+            \\
+             & =
+            \sqrt{
+              p^{0}
+              \left(
+              1+\dfrac{\bm{p}\cdot\bm{\sigma}}{p^{0}}
+              \right)
+            }
+            \sim
+            \sqrt{m_{f}}\left( 1+\dfrac{\bm{p}\cdot\bm{\sigma}}{2m_{f}} \right)
+          \end{align}
+        \end{graybox}
+        である。$\sqrt{p^{\mu}\bar{\sigma}_{\mu}}$についても同様に計算すれば
+        \begin{equation}
+          \sqrt{p^{\mu}\sigma_{\mu}}
+          =
+          \sqrt{
+            p^{0}
+            \left(
+            1-\dfrac{\bm{p}\cdot\bm{\sigma}}{p^{0}}
+            \right)
+          }
+          \sim
+          \sqrt{m_{f}}\left( 1-\dfrac{\bm{p}\cdot\bm{\sigma}}{2m_{f}} \right)
+        \end{equation}
+        である。
+
+        したがって、$\bar{u}(q,\tau)u(p,\lambda)$を計算すると
+        \begin{align}
+          \bar{u}(q,\tau)u(p,\lambda)
+           & =
+          m_{f}^2
+          \begin{pmatrix}
+            \chi(\tau)^{\dag}\left( 1-\dfrac{\bm{p}\cdot\bm{\sigma}}{2m_{f}} \right) &
+            \chi(\tau)^{\dag}\left( 1+\dfrac{\bm{p}\cdot\bm{\sigma}}{2m_{f}} \right)
+          \end{pmatrix}
+          \begin{pmatrix}
+            \left( 1+\dfrac{\bm{p}\cdot\bm{\sigma}}{2m_{f}} \right)\chi(\lambda) \\
+            \left( 1-\dfrac{\bm{p}\cdot\bm{\sigma}}{2m_{f}} \right)\chi(\lambda)
+          \end{pmatrix}
+          \nonumber
+          \\
+           & =
+          2m_{f}
+          \left\{
+          1-\dfrac{|\bm{p}|^2}{4m_{f}^2}
+          \right\}
+          \chi^{\dag}(\tau)\chi(\lambda)
+          \sim
+          2m_{f}\delta_{\lambda\tau}
+          \label{eqn:ubaru}
+        \end{align}
+        となる。ただし、$\bar{u}\equiv u^{\dag}\gamma^{0}$であることと、$\{ \sigma^{i},\sigma^{j} \}=2\delta^{ij}$から
+        \begin{equation}
+          (\bm{p}\cdot\bm{\sigma})^2
+          =
+          p^{i}p^{j}\sigma^{i}\sigma^{j}
+          =
+          |\bm{p}|^2
+        \end{equation}
+        であることを用いた。
+
+        以上より、\eqref{eqn:propag}, \eqref{eqn:ubaru}を\eqref{eqn:invmatrix}に代入すれば
+        \begin{graybox}
+          \begin{equation}
+            i\mathcal{M}
+            =
+            \dfrac{-Y^2}{|\bm{p}_{1}-\bm{q}_{1}|^2+m_{\phi}^2}
+            \cdot
+            (-i)
+            \cdot
+            4m_{f}^2\delta_{\lambda_{1}\tau_{1}}\delta_{\lambda_{2}\tau_{2}}
+          \end{equation}
+          であり、
+          \begin{equation}
+            \tilde{V}(k)
+            =
+            \dfrac{-Y^2}{|\bm{k}|^2+m_{\phi}^2}
+          \end{equation}
+        \end{graybox}
+        であることが分かる。
 
 
+  \item
+        $k$での積分をするとき、$\bm{k}$と$\bm{x}$のなす角が$\theta$となるように極座標を選べば
+        \begin{equation}
+          V(\bm{x})
+          =
+          \int\dfrac{\dd k\dd \theta}{(2\pi)^2}
+          \cdot
+          \dfrac{-Y^2k^2\sin\theta}{k^2+m_{\phi}^2}
+          e^{ikx\cos\theta}
+        \end{equation}
+        となる。先に$\theta$での積分を実行すれば
+        \begin{align}
+          \int^{\pi}_{0}\dd\theta\ \sin\theta e^{ikx\cos\theta}
+          =
+          \frac{i}{kx}\left[ e^{ikx\cos\theta}\vphantom{\dfrac{1}{2}} \right]_{0}^{\pi}
+          =
+          \frac{i}{kx}\left[ e^{-ikx}-e^{+ikx} \right]
+        \end{align}
+        となるので
+        \begin{equation}
+          V(\bm{x})
+          =          
+          \frac{-iY^2}{4\pi^2x}
+          \int_{0}^{\infty}\dd k\ \frac{k}{k^2+m_{\phi}^2}
+          \left( e^{-ikx}-e^{+ikx} \right)
+          =
+          \frac{-iY^2}{4\pi^2 x}\int_{-\infty}^{+\infty}\dd k
+          \frac{k}{k^2+m_{\phi}^2}e^{-ikx}
+        \end{equation}
+        である。よって、残りを積分を境界条件に注意して積分すればよい。被積分関数の極は$k=\pm im_{\phi}$にあるので、図\ref{fig:contour}のような2つの経路が想定されるが、$k=+im_{\phi}$を囲むような経路をとると、$C_{1}$上での積分は$0<\theta<\pi$として$k=Re^{i\theta}$で書けるので
+        \begin{equation}
+          e^{-ikx}
+          =
+          e^{R\sin\theta x}e^{-i R\cos\theta x}
+          \longrightarrow
+          \infty
+        \end{equation}
+        となり不適。したがって、極$k=-im_{\phi}$を通る経路$C_{2}$を考えればよいので、留数定理により
+        \begin{equation}
+          \int\dd k\ \frac{k}{k^2+m_{\phi}^2}e^{-ikx}
+          =
+          2\pi i
+          \cdot
+          \dfrac{-im_{\phi}}{-im_{\phi}-im_{\phi}}e^{-i(-im_{\phi})x}
+          =
+          -i\pi e^{-m_{\phi}x}          
+        \end{equation}
+        である。ただし、経路が時計回りなので負の符号がつく。したがって、
+        \begin{graybox}
+          \begin{equation}
+            V(x)
+            =
+            -
+            \frac{Y^2}{4\pi}
+            \cdot
+            \frac{1}{x}e^{-m_{\phi}x}
+            \ ,\quad
+            x\equiv|\bm{x}|
+          \end{equation}          
+        \end{graybox}
+        であることが示された。
 
-
+        \begin{figure}[ht]
+          \centering
+          \includegraphics[width=0.6\textwidth]{fig/fig02.pdf}
+          \caption{積分の経路の取り方の候補}
+          \label{fig:contour}
+        \end{figure}
 
 \end{enumerate}
 
 
-\clearpage
 \uline{補足}
 \begin{enumerate}
   \item

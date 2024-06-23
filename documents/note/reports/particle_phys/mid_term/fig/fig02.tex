@@ -1,0 +1,37 @@
+\documentclass{standalone}
+
+\usepackage{graphics}
+\usepackage[dvipsnames,svgnames]{xcolor}
+
+\usepackage{tikz,pgf,pgfplots,circuitikz}
+\pgfplotsset{compat=1.15}
+\usetikzlibrary{shapes.symbols,intersections,arrows.meta,angles,calc,3d,decorations.pathmorphing}
+\usepackage[compat=1.1.0]{tikz-feynhand}
+
+\usepackage{amssymb,amsfonts,amsthm,mathtools}
+\usepackage{physics,braket,bm}
+
+\begin{document}  
+\begin{tikzpicture}
+    % Axes
+    \draw[-latex] (-4,0) -- (4,0);
+    
+    % Contour C1
+    \draw[red, thick, domain=180:0] plot ({2*cos(\x)}, {2*sin(\x)});
+    \node[red] at (1,2.0) {$C_1$};
+    
+    % Contour C2
+    \draw[blue, thick, domain=0:180] plot ({2*cos(\x)}, {-2*sin(\x)});
+    \node[blue] at (1,-2.0) {$C_2$};
+    
+    % Arrows for orientation
+    \draw[-latex,thick] (-1,0) -- (1,0);
+    \draw[red, -latex] (0,2) arc (90:135:2);
+    \draw[blue, -latex] (2,0) arc (360:315:2);
+    
+    % Labels for x+im and x-im
+    \fill[red] (0,0.8) circle (1pt) node [right] {$+im_{\phi}$};
+    \fill[blue] (0,-0.8) circle (1pt) node [right] {$-im_{\phi}$};
+    
+\end{tikzpicture}
+\end{document}
