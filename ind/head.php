@@ -1,4 +1,3 @@
-<title>物置</title>
     <link rel="shortcut icon" type="image/x-icon" href="/web_page/favicon.ico">
     <link rel="stylesheet" href="/web_page/style.css">
 
