@@ -49,7 +49,7 @@
     <p>
         Before (or after) installing, you should also install Ubuntu for your computer. Basically, we will be using the
         virtual environment and installing LaTeX (and Python, C++, etc.) on it from now on. You should open the command
-        prompt and act "wsl --install Ubuntu". (If wsl command does not work, you have to install WSL and register the
+        prompt or PowerShell and act "wsl --install Ubuntu". (If wsl command does not work, you have to install WSL and register the
         path on it.) After waiting several minutes, entering the username and password are required. Then you complied
         the installation.
     </p>
@@ -157,15 +157,19 @@
                         target="_blank">TeXLive2020で原ノ味フォントを使う</a>
                 </li>
                 <li>
-                    <a href="https://moebuntu.blog.fc2.com/blog-entry-980.html?sp" target="_blank">フォント管理に便利な「Font
-                        Manager」</a>
+                    <a href="https://moebuntu.blog.fc2.com/blog-entry-980.html?sp" target="_blank">フォント管理に便利な「Font Manager」</a>
                 </li>
             </ol>
         </li>
         <li>
             If the latex formatting does not work well, installing "libyaml-tiny-perl" and "libfile-homedir-perl" by
-            "sudo apt-get install libyaml-tiny-perl libfile-homedir-perl" on the terminal.
+            "sudo apt-get install libyaml-tiny-perl libfile-homedir-perl" on the terminal.<br>
+            If you are not satisfied with latexindent, you should modify the settings file directly. In my case, the settings file is located at  ``/usr/local/texlive/2024/texmf-dist/scripts/latexindent/defaultSettings.yaml''. To find its location, you should use <i>latexindent</i> on a terminal, open the log file and examine it.
         </li>
+        <li>
+            To use <i>latexmk</i> for the compiler, put <i>.latexmkrc</i> file on user folder (/home/*username*/.latexmkrc).
+        </li>
+        <li><i>geany</i> is the simplest editor, though there may exist the better one.</li>
     </ul>
     </p>
 
