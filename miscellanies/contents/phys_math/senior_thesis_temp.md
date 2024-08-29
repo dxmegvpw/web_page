@@ -1,8 +1,3 @@
----
-layout: default
-title: Detail of the computations
----
-
 # Detail of the computations
 
 We feel frustrated with the challenging computations involved in studying SUSY. I will document the process of such challenging computations because no one seems to save one's calculation process. I hope this file will help you to study in this field.
