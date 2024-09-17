@@ -21,7 +21,7 @@
 
     <p>
         To make our LaTeX lives happier, I usually use Visual Studio Code (VS Code) for a text editor. It helps us to
-        write TeX code and introduce some features, like Grammarly or git etc., more easily. I cannot imagine my life
+        write TeX code and introduce some features like git more easily. I cannot imagine my life
         without VS Code for me. In this notes, I will show you one of the installation and setup examples for LaTeX and
         VS Code. Our strategies are as follows:
     <ol>
@@ -48,8 +48,8 @@
 
     <p>
         Before (or after) installing, you should also install Ubuntu for your computer. Basically, we will be using the
-        virtual environment and installing LaTeX (and Python, C++, etc.) on it from now on. You should open the command
-        prompt or PowerShell and act "wsl --install Ubuntu". (If wsl command does not work, you have to install WSL and register the
+        virtual environment and installing LaTeX (and Python, C/C++, etc.) on it from now on. You should open the command
+        prompt or PowerShell and act "wsl --install Ubuntu". (If wsl command does not work, you have to install WSL by ``wsl --install'' via administration and register the
         path on it.) After waiting several minutes, entering the username and password are required. Then you complied
         the installation.
     </p>
@@ -102,6 +102,9 @@
             If the commitments are conflicting, there are two solutions. One is to force your commitment. The command is
             "git push -f origin main" (or equivalently "git push --force origin main"). The other way is to adjust the
             current repository. The commands are "git fetch origin main" and "git reset --hard origin/main".
+        </li>
+        <li>
+            If you have a trouble when you act "git clone", you should clone the repo directly via zip file, though it is not smart ways.
         </li>
     </ul>
     </p>
@@ -175,6 +178,16 @@
         <li><i>geany</i> is the simplest editor, though there may exist the better one.</li>
     </ul>
     </p>
+
+    <h2>Reference</h2>
+
+    <ol>
+        <li>
+            <a href="https://qiita.com/zakoken/items/61141df6aeae9e3f8e36#3-wsl2-%E3%81%AE%E3%82%A2%E3%83%B3%E3%82%A4%E3%83%B3%E3%82%B9%E3%83%88%E3%83%BC%E3%83%AB%E6%96%B9%E6%B3%95" target="_blank">
+                WSL2 のインストールとアンインストール
+            </a>
+        </li>
+    </ol>
 
 </body>
 
