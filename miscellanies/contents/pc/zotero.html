@@ -26,6 +26,7 @@
             </li>
             <li>
                 <a href="https://www.zotero.org/download/" target="_blank">Zotero</a>
+                (You should also refer <a href="#Added: September 18th, 2024">the prescript</a> that was added on September 18th, 2024, before downloading.)
             </li>
             <li>
                 <a href="https://retorque.re/zotero-better-bibtex/installation/" target="_blank">Better BibTeX</a>
@@ -58,18 +59,31 @@
     </p>
 
     <p>
+        Anyway, before installing add-on's, you should go a preference and sync the account.
+    </p>
+
+    <p>
         <img src="fig/zotero/zotero_sync.png" width="33%"><br>
     </p>
 
     <p>
-        However, the options are not synchronized in this case. Therefore, several images have been included to illustrate the various configurations.<br>
-        <img src="fig/zotero/zotero_general.PNG" width="33%"><br>
-        <img src="fig/zotero/zotero_search.PNG" width="33%"><br>
-        <img src="fig/zotero/zotero_export.PNG" width="33%"><br>
-        <img src="fig/zotero/zotero_citation.PNG" width="33%"><br>
-        <img src="fig/zotero/zotero_detail.PNG" width="33%"><br>
-        <img src="fig/zotero/zotero_detail2.PNG" width="33%"><br>
+        However, the options are not synchronized in this case. Therefore, several images have been included to illustrate the various configurations.
     </p>
+
+    <p>
+        <img src="fig/zotero/zoteropreference1.png" width="50%"><br>
+        <img src="fig/zotero/zoteropreference2.png" width="50%">
+    </p>
+
+    <ul>
+        <li>
+            Uncheck all items in "File Handling" and chose "Open PDFs using" as "System Default".
+        </li>
+        <li>
+            Go "Advanced" -> "Files and Folders" and set a base directory as the folder that you want to save the PDF files. (This setting is important when we use ZotFile to synchronize Google Drive.)
+        </li>
+        I believe the changes to the Zotero preferences mentioned above are sufficient.
+    </ul>
 
 
     <h3>Important Extensions</h3>
@@ -92,22 +106,27 @@
         We can change settings from the preference window. 
     </p>
 
-    <p>        
-        <img src="fig/zotero/bbt1.PNG" width="33%"><br>
-        <img src="fig/zotero/bbt2.PNG" width="33%"><br>
-        <img src="fig/zotero/bbt3.PNG" width="33%"><br>
-        <img src="fig/zotero/bbt4.PNG" width="33%"><br>
-        <img src="fig/zotero/bbt5.PNG" width="33%"><br>
-        <img src="fig/zotero/bbt6.PNG" width="33%"><br>
-        <img src="fig/zotero/bbt7.PNG" width="33%"><br>
-        <img src="fig/zotero/bbt8.PNG" width="33%"><br>
-        <img src="fig/zotero/bbt9.PNG" width="33%"><br>
-        <img src="fig/zotero/bbt10.PNG" width="33%"><br>
-        <img src="fig/zotero/bbt11.PNG" width="33%"><br>
+    <p>      
+        <img src="fig/zotero/betterbibtex1.png" width="50%"><br>
+        <img src="fig/zotero/betterbibtex2.png" width="50%"><br>
+        <img src="fig/zotero/betterbibtex3.png" width="50%">
     </p>
 
+    <ul>
+        Open the Zotero preference and go to BetterBibTex preference:
+        <li>
+            Change the citation key formula as "inspireHep". To activate this, we have to install the <i>zotero-inspire</i> extension.
+        </li>
+        <li>
+            Go "Export" -> "BibTeX" and change the item "Add URLs to BibTeX export" from "no" to "in the url field".
+        </li>
+        <li>
+            Go "Export" -> "Fields" and change the item "Fields to omit from export". The default is blank and we add "file,abstract,month,keywords".
+        </li>
+    </ul>
+
     <p>
-        We will also install <i>zotero-inspire,</i>which allows us to treat the Inspire-HEP citation key. We should install Better BibTeX the same way too. No special settings are needed since this is just an extension.
+        We will also install <i>zotero-inspire,</i> which allows us to treat the Inspire-HEP citation key. We should install Better BibTeX the same way too. No special settings are needed since this is just an extension.
     </p>
 
     <p>
@@ -115,13 +134,25 @@
     </p>
 
     <p>
-        <img src="fig/zotero/zotfile1.PNG" width="33%"><br>        
-        <img src="fig/zotero/zotfile2.PNG" width="33%"><br>        
-        <img src="fig/zotero/zotfile3.PNG" width="33%"><br>        
-        <img src="fig/zotero/zotfile4.PNG" width="33%"><br>        
+        <img src="fig/zotero/zotfile1.png" width="50%"><br>
+        <img src="fig/zotero/zotfile1.png" width="50%">
     </p>
 
+    <ul>
+        These are most important settings:
+        <li>
+            Open the ZotFile Preference and set "Source Folder for Attaching New Files" and "Location of Files" as shown in the first picture above. We should just imitate the figure. We don't use the subfolder for the attachment.
+        </li>
+        <li>
+            Go "Renaming Rules" and change the items "Maximum length of title" and "Maximum number of authors" as 200 and 8, respectively.
+        </li>
+    </ul>
+
     <p>
+        We can also change into the Dark mode by adding the add-on. You can download it from <a href="https://github.com/Rosmaninho/Zotero-Dark-Theme" target="_blank">here</a>, and follow the instruction of the repo. I think its explanation is very clear, so I will skip that.
+    </p>
+
+    <p id="Added: September 18th, 2024">
         Added: September 18th, 2024
     </p>
     <p>
