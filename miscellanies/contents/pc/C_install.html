@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>VScode上でのC/C++ガイド</title>
+
+    <link rel="shortcut icon" type="image/x-icon" href="/web_page/favicon.ico">
+    <link rel="stylesheet" href="/web_page/style.css">
+
+    <script type="text/javascript" id="MathJax-script" async
+        src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+</head>
+
+<body>
+    <h2>VScode上でのC/C++ガイド</h2>
+
+    <p>
+        C/C++を使う環境を作りましょう。Ubuntu上でやります。
+    </p>
+
+    <h3>インストールから</h3>
+
+    <p>
+        ターミナルで<code>sudo apt install build-essential</code>をするだけ。<code>gcc --version</code>や<code>g++ --version</code>でバージョンを確認できる。VScode自体にもC/C++関連の拡張機能を入れておく。
+    </p>
+
+    <h3>Hello World!</h3>
+
+    <p>
+        まずはCから。以下の内容の`hello.c`を作る。
+    </p>
+
+    <pre>
+    <code>
+        #include <stdio.h>
+        
+        int main(void)
+        {
+            printf("Hello World!\n");
+        
+            return 0;
+        }
+    </code>
+  </pre>
+
+    <p>
+        ターミナルで
+    <pre>
+      <code>
+          $ gcc -o hello hello.c
+          $ ./hello
+          Hello World!
+      </code>
+    </pre>
+    と表示されるはず。VScodeに<a href="https://marketplace.visualstudio.com/items?itemName=formulahendry.code-runner"
+        target="_blank">Code Runner</a>が入っていれば、<code>Ctrl+Alt+N</code>でうまくいくはず。
+    </p>
+
+
+    <p>
+        次は、C++です。以下の内容を<code>hello.cpp</code>に保存しましょう。
+    </p>
+
+    <pre>
+        <code>
+            #include <iostream>
+            
+            int main()
+            {
+                std::cout << "Hello World!" << std::endl;
+            
+                return 0;
+            }
+        </code>
+    </pre>
+
+    <p>
+        Cのときと同様、ターミナルで
+    </p>
+
+    <pre>
+        <code>
+            $ g++ -o hello hello.cpp
+            $ ./hello
+            Hello World!
+        </code>
+    </pre>
+
+    <p>
+        となっていればOKです。
+    </p>
+
+
+    <h3>#includeでエラーが出ているとき</h3>
+
+    <p>
+        私だけかは分かりませんが、VScodeの拡張機能がデフォルトだと<br>
+        <code>> #include errors detected. Please update your includePath. Squiggles are disabled for this translation unit (/home/imiya/git/documents/c/tutorial/hello.c).</code><br>
+        というエラーを吐いてきます。そのために、C/C++の拡張機能の設定を開いてコンパイラのパスを教えてあげましょう。パス自体はターミナルで<code>which gcc</code>とすると分かります。
+    </p>
+
+    <h4>参考</h4>
+
+    <ol>
+        <li>
+            <a href="https://qiita.com/nsd24/items/805d0b53c67a1043e819" target="_blank">UbuntuでC,
+                C++の開発環境をインストールしてHelloWorldしよう！</a>
+        </li>
+        <li>
+            <a href="https://qiita.com/__________________/items/a0c243d3b681c9dc89db"
+                target="_blank">「includePathを更新してください」を解決した時の話</a>
+        </li>
+    </ol>
+
+
+    <h3>メモ</h3>
+
+    <p>
+        以下は自分の備忘録です。雑に書き足していきます。
+    </p>
+
+    <h4>matplotlibcpp.h</h4>
+
+    <p>
+        リンクは[ここ](https://github.com/lava/matplotlib-cpp)。ここから`matplotlibcpp.h`をダウンロードして、それをcppファイルの場所と同じ階層のディレクトリにおいて、`#include
+        "matplotlibcpp.h"`とインクルードすればOK。
+    </p>
+
+    <p>
+        ただし、そのままだとすぐには使えなさそうなので、いくつか設定する。
+    </p>
+
+    <h5>Python.hを見つける</h5>
+
+    <p>
+        <s>
+            まず、実行しようと思うとPython.hが見つからないといわれる。これは<code>sudo apt install python3.x-dev</code>とすれば解決する。`x`のところには、現在のバージョンを入れること。バージョンは<code>python3 --version</code>を実行すればよい。インストールが終わったら、<code>python3 -m sysconfig | grep INCLUDEPY</code>として、ディレクトリを見つける。自分の場合は`/usr/include/python3.10`にあるそうなので、Code
+            Runnerのオプションに`-I /usr/include/python3.10`を追加する。これで通るはずです。
+        </s>
+        <br>
+        あとの節に書いてある手段がよさそうです
+    </p>
+
+    <h5>/usr/includeに突っ込む</h5>
+
+    <p>
+        ところで、/usr/includeにヘッダーファイルがありそうなので、<code>sudo cp ***/matplotlibcpp.h /usr/include</code>でコピーしてしまいましょう。これで毎回matplotlibcpp.hをコピーする必要がなくなります。
+    </p>
+
+
+    <h5>arrayobject.hを見つける</h5>
+
+    <p>
+        <s>
+            すると今度は`numpy/arrayobject.h`と言われてしまう。まずは、Python3でにnumpyを入れましょう。<code>pip3 install numpy</code>でいけます。(pip3のインストールも事前に必要ですが)
+        </s>
+    </p>
+
+    <p>
+        <s>
+            もう一度、<code>pip3 install numpy</code>とすると、インストールされた場所が分かるのでまずはそこに行きましょう。(正直ほかの環境でも同じかどうか、自身はありませんが、)`~/numpy/_core/include`というディレクトリがあって、そこの中にさらにnumpyというディレクトリがあるはずです。(includeのディレクトリを検索するのが実践的には良さそう？)
+            あとはそれを<code>sudo cp -r</code>で/usr/includeにコピーしてしまいましょう。ちなみに<code>-r</code>はディレクトリをコピーするオプションです。
+        </s>
+        <br>
+        これもあとの節に書いてある手段で解決しそうです。
+    </p>
+
+    <h4>#includeのエラーについて</h4>
+
+    <p>
+        #includeのエラーのところをクリックすると、"Edit "includePath"
+        setting"という項目があるので、それを選びましょう。そうすると`*/.vscode/c_cpp_properties.json`が生成されるはずですので、以下のように"includePath"のところに`/usr/include/**`を追加してあげてください。
+    </p>
+
+    <pre>
+        <code>            
+        {
+            "configurations": [
+                {
+                    "name": "Linux",
+                    "includePath": [
+                        "${workspaceFolder}/**",
+                        "/usr/include/**"
+                    ],
+                    "defines": [],
+                    "compilerPath": "/usr/bin/g++"
+                }
+            ],
+            "version": 4
+        }
+        </code>
+    </pre>
+
+    <h4>まだ"error: ld returned 1 exit status"のエラーが</h4>
+
+    <p>
+        どうやら、ごり押しでいろいろと解決できそうです。まずは<code>sudo apt install libpython3-all-dev python3-matplotlib python3-numpy</code>で必要そうなのをすべてインストールしましょう。あとは`-L
+        /usr/lib/python3.10`をオプションに追加すれだけで読み込めそうです。つまり、
+    </p>
+
+    <pre>
+        <code>
+            g++ -I /usr/include/python3.10 -L /usr/lib/python3.10 -lpython3.10
+        </code>
+    </pre>
+
+    <p>
+        といった感じにすれば、`matplotlibcpp.h`は回るはずです。うまくいけば、次の`heart.cpp`が動くはずです。
+    </p>
+
+    <pre>
+        <code>
+            #include <iostream>
+            #include <cmath>
+            #include <matplotlibcpp.h>
+            
+            using namespace std;
+            namespace plt = matplotlibcpp;
+            
+            int main()
+            {
+                // Prepare data.
+                int n = 5000; // number of data points
+                vector<double> x(n),y(n);
+                for(int i=0; i<n; ++i) {
+                    double t = 2*M_PI*i/n;
+                    x.at(i) = 16*sin(t)*sin(t)*sin(t);
+                    y.at(i) = 13*cos(t) - 5*cos(2*t) - 2*cos(3*t) - cos(4*t);
+                }
+            
+                // plot() takes an arbitrary number of (x,y,format)-triples.
+                // x must be iterable (that is, anything providing begin(x) and end(x)),
+                // y must either be callable (providing operator() const) or iterable.
+                plt::plot(x, y, "r-", x, [](double d) { return 12.5+abs(sin(d)); }, "k-");
+            
+            
+                // show plots
+                plt::show();
+            }
+        </code>
+    </pre>
+
+    <p>
+        <img src="tutorial/heart.png" width="33%">
+    </p>
+
+    <h4>参考</h4>
+
+    <ol>
+        <li>
+            <a href="https://zenn.dev/bluepost/articles/a824b2905df36f"
+                target="_blank">Ubuntu(WSL)でPython.hが見つからない問題</a>
+        </li>
+        <li>
+            <a href="https://stackoverflow.com/questions/14657375" target="_blank">Cython: "fatal error:
+                numpy/arrayobject.h: No such file or directory"</a>
+        </li>
+        <li>
+            <a href="https://qiita.com/saira/items/000bb3f171a516d68013" target="_blank">[python3]
+                すぐに使えるnumpyの使い方まとめ</a>
+        </li>
+        <li>
+            <a href="https://qiita.com/sage-git/items/ffe463c0de05344d721b" target="_blank">
+                VScodeのinclude pathの設定をちゃんとする</a>
+        </li>
+        <li>
+            <a href="https://qiita.com/hibiki-kato/items/4c04fdcc9c14136869b3" target="_blank">matplotlib-cppでエラーにハマった話。error: ld returned 1 exit status</a>
+        </li>
+    </ol>
+
+</body>
+</html>

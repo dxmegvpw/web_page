@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>MyPCのセッティング</title>
+
+  <link rel="shortcut icon" type="image/x-icon" href="/web_page/favicon.ico">
+  <link rel="stylesheet" href="/web_page/style.css">
+
+  <script type="text/javascript" id="MathJax-script" async
+    src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+</head>
+
+<body>
+  <h2>MyPCのセッティング</h2>
+
+  <p>
+    自分のPCを初期化して再設定しようと思ったので、そのときのメモ。基本的には研究のPCも同じだろう。
+  </p>
+
+  <p>
+    参考にした記事は以下のとおり。初期化自体のやり方はここには書かない。
+  </p>
+
+  <ul>
+    <li>
+      <a href="https://qiita.com/yuki_2020/items/7079686edff4befbde35"
+        target="_blank">高速化するためにwindows10を初期化するときにいつもしていること</a>
+    </li>
+    <li>
+      <a href="https://www.pc-koubou.jp/magazine/13470" target="_blank">パソコン 初期化の手順（Windows10）</a>
+    </li>
+  </ul>
+
+  <h3>アプリケーション</h3>
+
+  <p>
+    引き継ぎたいソフトは以下のとおり。
+  </p>
+
+  <ul>
+    <li>Microsoft Edge, Chrome</li>
+    <li>Visual Studio Code</li>
+    <li>Zotero</li>
+    <li>LINE, Discord, Slack</li>
+    <li>Google Drive</li>
+    <li>GitHub</li>
+    <li>Copilot</li>
+    <li>Quick Share</li>
+    <li>Bing Wallpaper</li>
+    <li>Zoom</li>
+    <li>(Box)</li>
+    <li>(Microsoft Office)</li>
+  </ul>
+
+  <p>
+    以上は、仕事のPCでも共通。LaTeXやPython, C/C++などはここでは言及しない。
+  </p>
+
+  <p>
+    また、UbuntuもMicrosoft Storeでインストールしないように注意すること。コマンドプロンプトからやる。
+  </p>
+
+  <p>
+    以下はMyPC用のソフト。
+  </p>
+
+  <ul>
+    <li>TubeBrowser (UWP)</li>
+    <li>7-zip</li>
+    <li>StreamFab</li>
+    <li>ffmpeg</li>
+    <li>yt-dlp</li>
+    <li>Mp3Tag</li>
+  </ul>
+
+  <h3>引継ぎ</h3>
+
+  <p>
+    まずは初期化の前に必要な手続き。重要なファイルはバックアップを取るのは言わずもがななので、それ以外でやるべきことを残しておく。
+  </p>
+
+  <h4>TuneBrowser</h4>
+
+  <p>
+    <a href="https://shikaku.teketekemylife.com/entry/tunebrowsersaidounyu">TuneBrowserライセンス版のPC変更時の対応</a>
+  </p>
+
+  <p>
+    どうやら、ライセンス関連で必要な手続きはないらしい。Microsoft Storeを通していたからなのだとか。
+  </p>
+
+  <p>
+    プレイリストは、次の手順でバックアップをとることができる。
+  </p>
+
+  <ul>
+    <li>Musicフォルダにm3u8ファイルを生成。</li>
+    <li>起動したときにそれをドラッグ。</li>
+  </ul>
+
+
+  <h4>StreamFab</h4>
+
+  <p>
+    こっちは少しだけ手間がある。
+    <a
+      href="https://dvdfab.org/tips/dvdfab-activation-deactivation-reauthorization.htm">ここ</a>にあるとおり、まずは認証の取り消しをして、再度インストール先で認証をしなくてはならない。自分の場合は、ocojo***のアカウントでパスワードはGoe***である。
+  </p>
+
+
+  <h3>初期化後の設定</h3>
+
+  <p>
+    初期化後の設定。デスクトップが出るまでは、無難にこなしておく。
+  </p>
+
+  <ul>
+    <li>
+      OneDriveは使わない。アンインストールして、徹底的に消しておこう。
+    </li>
+    <li>
+      このとき、UserフォルダにOneDriveのフォルダが残ってしまい、デスクトップなどがリンクされている。よくわかっていないが、普通に切り取りで対処しても問題なさそう。
+    </li>
+    <li>
+      デスクトップの「表示」の設定は「アイコンの自動整列」、「アイコンを等間隔に整列」をどちらもオン。
+    </li>
+    <li>
+      「設定」->「テーマ」->「デスクトップ アイコンの設定」でデスクトップにPCやユーザーのフォルダをおける。(<a href="https://dekiru.net/article/19555/"
+        target="_blank">参考</a>)
+    </li>
+    <li>Microsoft Storeでインストールしておくべきもの</li>
+    <ul>
+      <li>Visual Studio Code (Ubuntuはコマンドプロンプトから手動で。)</li>
+      <li>LINE, Discord, Slack</li>
+      <li>Copilot</li>
+      <li>Quick Share</li>
+      <li>Zoom</li>
+      <li>TubeBrowser (UWP)</li>
+      <li>Mp3Tag</li>
+    </ul>
+  </ul>
+
+  <h4>Windowsの設定</h4>
+
+  <ul>
+    <li>まず何よりも、テーマをブラックにする。あと、色の選び方なども自動にしておく。
+    </li>
+    <li>
+      Windowsのアップデートもしておくこと。
+    </li>
+    <li>
+      (「システムの詳細設定の表示」を検索して、そこから視覚オプションをいじってもよいかもしれない。)
+    </li>
+    <li>
+      検索から「フォント」(もとはコントロールパネルにある)を開く。"Ricty Diminished"をドラッグで追加する。
+    </li>
+  </ul>
+
+  <h4>エクスプローラー</h4>
+
+  <ul>
+    <li>
+      拡張子の表示と、隠しファイルの表示を設定から。
+    </li>
+  </ul>
+
+
+  <h4>Microsoft IME</h4>
+
+  <ul>
+    <li>
+      入力履歴は使わないようにする。
+    </li>
+    <li>
+      スペースの半角をいじる。「スペース」->「常に半角」で。
+    </li>
+  </ul>
+
+
+  <h4>Bing Wallpaper</h4>
+
+  <ul>
+    <li>
+      <a href="https://www.microsoft.com/en-us/bing/bing-wallpaper" target="_blank">ここから</a>インストールするだけ。
+    </li>
+  </ul>
+
+
+  <h4>LINE, Discord, Slack</h4>
+
+  <ul>
+    <li>
+      こいつらは、Microsoft Storeからダウンロードできた。
+    </li>
+    <li>
+      Discord, Slackはスタートアップしないようにしておく。
+    </li>
+  </ul>
+
+
+  <h4>Microsoft Edge, Chrome</h4>
+
+  <ul>
+    <li>
+      まずはEdgeからもちろん登録。ログインはitsuki.miyaneでやる。
+    </li>
+    <li>
+      そして、Chromeのexeファイルを<a href="https://www.google.com/intl/ja_jp/chrome/dr/download" target="_blank">ここ</a>からダウンロードする。
+    </li>
+    <li>
+      基本的にGmailの/u/0はocojo.iki、/u/1はitsuki.miyaneでそこからは、その他。
+    </li>
+  </ul>
+
+
+  <h4>TubeBrowser</h4>
+
+  <ul>
+    <li>
+      Microsoft Storeからインストールする。
+    </li>
+    <li>
+      「ヘルプ」->「バージョン情報」を開いて、ライセンスが登録されているか確認する。
+    </li>
+    <li>
+      とりあえず、ツリークエリをいじる。例えば、<code>%ARTIST%\%YEAR%\%ALBUM%</code>とすると、「アーティスト->年->アルバム」の順になる。
+    </li>
+    <li>
+      ライブラリービューの仕切りが邪魔なときは、タブを右クリックして「タブ(Album View)の設定」から「インデックスカードを入れる」のところをいじる。さらに、ライブラリービューの背景が欲しいなら
+    </li>
+    <ul>
+      <li>
+        「有効」->「Yes」
+      </li>
+      <li>
+        「画像の表示」->「先頭」
+      </li>
+      <li>
+        「クエリ文字/画像のパス」->「」(空欄にする)
+      </li>
+      <li>
+        「透明度」->「0.2」(くらい。お好みで)
+      </li>
+    </ul>
+    がよさそう。
+    <li>
+      プレイヤーの背景をいじりたいときは、右上のほうにあるボタンをいじる必要がある。プレイヤーの右上のほうに3つのボタンがあり、一番左端が「Active Backgroundの表示」というものなので、これを押すとよい。
+    </li>
+  </ul>
+
+  <h4>WSL</h4>
+
+  <ul>
+    <li>
+      PowerShellを管理者で実行して、<code>wsl --install</code>をするとWSLが使えるようになる。あとはどこかにメモを取った手順で、Ubuntuを入れる。
+    </li>
+    <li>
+      <code>sudo apt-get update</code>をとりあえず実行しておくこと。これで、apt-getが使えるようになる。
+    </li>
+  </ul>
+
+
+</body>
+</html>

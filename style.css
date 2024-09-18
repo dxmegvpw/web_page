@@ -28,6 +28,16 @@ h3{
     background-color: #e0e0e0;
 }
 
+h4{
+    font-size: 1.0rem;
+    color: #191970;
+}
+
+h5{
+    font-size: 1.0rem;
+    color: #191970;
+}
+
 p{
     font-size: 1.0rem;
 }
