@@ -296,7 +296,10 @@
       <a href="https://linuxfan.info/cbil" target="_blank">Linuxに最新のyt-dlpコマンド(youtube-dlの機能強化派生版)をインストールするには？</a>
     </li>
     <li>
-
+      <a href="https://masayoshi-9a7ee.hatenablog.com/entry/2021/11/06/112639" target="_blank">yt-dlp オプション一覧及びそのメモ</a>
+    </li>
+    <li>
+      <a href="https://vlike-vlife.netlify.app/posts/cli_yt-dlp" target="_blank">動画ダウンロードツール youtube-dl のフォークである yt-dlp を使ってみる</a>
     </li>
   </ul>
 
@@ -319,6 +322,16 @@
       (たぶん入っているだろうが、念のため<code>sudo apt install ffmpeg</code>でffmpegもインストールしておく。)
     </li>
   </ul>
+
+  <p>
+    これでおそらく使うことができる。
+  </p>
+
+  <h4>CookieをWindowsのChromeからインポート</h4>
+
+  <p>
+    これは簡単。Chromeの拡張機能の「Get cookies.txt LOCALLY」でcookies.txtを取り出す。それをUbuntuの実行ファイル上にコピーする。今回は<code>~/yt-dlp/</code>で実行することにするので、そこにコピーする。あとは、オプションに<code>--cookies ~/yt-dlp/cookies.txt</code>をつけるだけ。
+  </p>
 
 </body>
 </html>
