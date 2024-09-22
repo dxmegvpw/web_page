@@ -237,7 +237,7 @@
       「ヘルプ」->「バージョン情報」を開いて、ライセンスが登録されているか確認する。
     </li>
     <li>
-      とりあえず、ツリークエリをいじる。例えば、<code>%ARTIST%\%YEAR%\%ALBUM%</code>とすると、「アーティスト->年->アルバム」の順になる。
+      とりあえず、ツリークエリをいじる。例えば、<code>%ALBUM ARTIST%\%YEAR%\%ALBUM%</code>とすると、「アルバムアーティスト->年->アルバム」の順になる。
     </li>
     <li>
       ライブラリービューの仕切りが邪魔なときは、タブを右クリックして「タブ(Album View)の設定」から「インデックスカードを入れる」のところをいじる。さらに、ライブラリービューの背景が欲しいなら
@@ -278,6 +278,47 @@
   <p>
     <img src="fig/mypcsettings/clickandclean.png" alt="Click&Cleanの設定" width="50%">
   </p>
+
+  <h3>yt-dlp</h3>
+
+  <p>
+    YouTubeから動画をダウンロードするためのツール。便利なのでダウンロードする。
+  </p>
+
+  <p>
+    どうやら、Pythonのスクリプトで動いているらしい。そのため、Pythonをインストールしておく必要がある、が多分デフォルトで入ってるので大丈夫だろう。
+  </p>
+
+  <h4>参考</h4>
+
+  <ul>
+    <li>
+      <a href="https://linuxfan.info/cbil" target="_blank">Linuxに最新のyt-dlpコマンド(youtube-dlの機能強化派生版)をインストールするには？</a>
+    </li>
+    <li>
+
+    </li>
+  </ul>
+
+  <h4>yt-dlpのインストール</h4>
+
+  <ul>
+    <li>
+      <code>mkdir -p ~/.local/bin</code>で~/.local/binを作成。
+    </li>
+    <li>
+      <code>cd ~/.local/bin</code>で移動して、<code>source .profile</code>を実行してPATH変数に加える。
+    </li>
+    <li>
+      <code>wget https://github.com/yt-dlp/yt-dlp/releases/latest/download/yt-dlp -O ~/.local/bin/yt-dlp</code>でインストール。<code>chmod +x ~/.local/bin/yt-dlp</code>で実行できるように。
+    </li>
+    <li>
+      <code>yt-dlp --version</code>でちゃんと動くか確認する。<code>yt-dlp -U</code>でアップデートもできる。
+    </li>
+    <li>
+      (たぶん入っているだろうが、念のため<code>sudo apt install ffmpeg</code>でffmpegもインストールしておく。)
+    </li>
+  </ul>
 
 </body>
 </html>
