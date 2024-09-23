@@ -134,11 +134,11 @@
       <li>Visual Studio Code (Ubuntuはコマンドプロンプトから手動で。)</li>
       <li>LINE, Discord, Slack</li>
       <li>Copilot</li>
-      <li>Quick Share</li>
       <li>Zoom</li>
       <li>TubeBrowser (UWP)</li>
       <li>Mp3Tag</li>
     </ul>
+    「Quick Share」をMicrosoft Storeからインストールすると、サムスンのスマホしか共有できなくなるので注意。「Quick Share」は<a href="https://www.android.com/intl/ja_jp/better-together/quick-share-app/" target="_blank">ここから</a>ダウンロード&インストールするとよい。
   </ul>
 
   <p>
@@ -219,7 +219,8 @@
       まずはEdgeからもちろん登録。ログインはitsuki.miyaneでやる。
     </li>
     <li>
-      そして、Chromeのexeファイルを<a href="https://www.google.com/intl/ja_jp/chrome/dr/download" target="_blank">ここ</a>からダウンロードする。
+      そして、Chromeのexeファイルを<a href="https://www.google.com/intl/ja_jp/chrome/dr/download"
+        target="_blank">ここ</a>からダウンロードする。
     </li>
     <li>
       基本的にGmailの/u/0はocojo.iki、/u/1はitsuki.miyaneでそこからは、その他。
@@ -238,6 +239,9 @@
     </li>
     <li>
       とりあえず、ツリークエリをいじる。例えば、<code>%ALBUM ARTIST%\%YEAR%\%ALBUM%</code>とすると、「アルバムアーティスト->年->アルバム」の順になる。
+    </li>
+    <li>
+      さらに、<code>$IF(%ALBUM ARTIST%,%ALBUM ARTIST%,)</code>とすると、<code>%ALBUM ARTIST%</code>が空欄のものを排除できる。だから、<code>$IF(%ALBUM ARTIST%,%ALBUM ARTIST%,)\%YEAR%\%ALBUM%</code>とするとよさそう。
     </li>
     <li>
       ライブラリービューの仕切りが邪魔なときは、タブを右クリックして「タブ(Album View)の設定」から「インデックスカードを入れる」のところをいじる。さらに、ライブラリービューの背景が欲しいなら
@@ -274,7 +278,7 @@
   </ul>
 
   <h4>Chromeの拡張機能</h4>
-  
+
   <p>
     <img src="fig/mypcsettings/clickandclean.png" alt="Click&Cleanの設定" width="50%">
   </p>
@@ -299,7 +303,8 @@
       <a href="https://masayoshi-9a7ee.hatenablog.com/entry/2021/11/06/112639" target="_blank">yt-dlp オプション一覧及びそのメモ</a>
     </li>
     <li>
-      <a href="https://vlike-vlife.netlify.app/posts/cli_yt-dlp" target="_blank">動画ダウンロードツール youtube-dl のフォークである yt-dlp を使ってみる</a>
+      <a href="https://vlike-vlife.netlify.app/posts/cli_yt-dlp" target="_blank">動画ダウンロードツール youtube-dl のフォークである yt-dlp
+        を使ってみる</a>
     </li>
   </ul>
 
@@ -330,8 +335,10 @@
   <h4>CookieをWindowsのChromeからインポート</h4>
 
   <p>
-    これは簡単。Chromeの拡張機能の「Get cookies.txt LOCALLY」でcookies.txtを取り出す。それをUbuntuの実行ファイル上にコピーする。今回は<code>~/yt-dlp/</code>で実行することにするので、そこにコピーする。あとは、オプションに<code>--cookies ~/yt-dlp/cookies.txt</code>をつけるだけ。
+    これは簡単。Chromeの拡張機能の「Get cookies.txt
+    LOCALLY」でcookies.txtを取り出す。それをUbuntuの実行ファイル上にコピーする。今回は<code>~/yt-dlp/</code>で実行することにするので、そこにコピーする。あとは、オプションに<code>--cookies ~/yt-dlp/cookies.txt</code>をつけるだけ。
   </p>
 
 </body>
+
 </html>
